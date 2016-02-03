@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="theater">
+
+<select id="week" resultType="String" parameterType="Integer">
+	select TO_CHAR(current_date+#{i}, 'MM/DD/YYYY') from dual
+</select>
+
+<select id="seoul" resultType="theaterDTO">
+select distinct city from theaterpk where address='서울'
+</select>
+
+<select id="gyeonggi" resultType="theaterDTO">
+select distinct city from theaterpk where address='경기도'
+</select>
+
+<select id="date" resultType="theaterDTO">
+select sysdate +7 , sysdate +6 , sysdate +5 , sysdate +4 , sysdate +3 , sysdate +2 , sysdate +1  from dual
+</select>
+
+
+
+
+</mapper>

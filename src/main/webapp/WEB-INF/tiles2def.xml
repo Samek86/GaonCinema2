@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  tiles-definitions PUBLIC
+    "-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<!-- main -->
+	<definition name="mainLayout" template="/WEB-INF/views/main/mainLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/main/header.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/views/main/footer.jsp"/>
+	</definition>
+	<definition name="main" template="/WEB-INF/views/main/main.jsp"/>
+	
+	<!-- admin -->
+	<definition name="admin" template="/WEB-INF/views/admin/admin.jsp"/>
+	
+	<!-- board -->
+	<definition name="board" template="/WEB-INF/views/board/board.jsp"/>
+	
+	<!-- event -->
+	<definition name="event" template="/WEB-INF/views/event/event.jsp"/>
+	
+	<!-- member -->
+	<definition name="member" template="/WEB-INF/views/member/member.jsp"/>
+	
+	<!-- movie -->
+	<definition name="movie" template="/WEB-INF/views/movie/movie.jsp"/>
+	
+	<!-- notice -->
+	<definition name="notice" template="/WEB-INF/views/notice/notice.jsp"/>
+	
+	<!-- qna -->
+	<definition name="qna" template="/WEB-INF/views/qna/qna.jsp"/>
+	
+	<!-- reservation -->
+	<definition name="reservation" template="/WEB-INF/views/reservation/reservation.jsp"/>
+	
+	<!-- store -->
+	<definition name="store" template="/WEB-INF/views/store/store.jsp"/>
+	
+	<!-- theater -->
+	<definition name="theater" template="/WEB-INF/views/theater/theater.jsp"/>
+	
+</tiles-definitions>

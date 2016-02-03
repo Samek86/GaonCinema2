@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+	<insert id="add" parameterType="userDTO">
+	insert into userpk values(userpk_seq.nextVal,
+	#{id}, #{pwd}, #{name}, #{birth}, #{postcode}, #{addr}, #{email}, #{tel}, #{type})
+	</insert>
+
+	<select id="selectAll" resultType="userDTO">
+	select * from userpk
+	</select>
+	
+	<select id="select" parameterType="userDTO" resultType="userDTO">
+	select * from (
+	(select rownum as rn, num, id, pwd, name, birth, postcode, addr, email, tel, type from userpk ${sqry} order by rn)
+	)where rn between #{start} and #{end}
+	</select>
+	
+	<select id="count" parameterType="Integer" resultType="int">
+	select count(*) as cnt from userpk
+	</select>	
+
+	<select id="detail" parameterType="int" resultType="userDTO">
+	select * from userpk where num = #{num}
+	</select>
+
+	<select id="detailID" parameterType="String" resultType="userDTO">
+	select * from userpk where id = #{id}
+	</select>
+
+	<select id="checkID" parameterType="String" resultType="String">
+	select id from userpk where id = #{id}
+	</select>
+
+	<select id="checkPass" parameterType="userDTO" resultType="String">
+	select pwd from userpk where id = #{id}
+	</select>
+
+	<delete id="del" parameterType="int">
+	delete from userpk where num = #{num}
+	</delete>
+
+	<update id="edit" parameterType="userDTO">
+	update userpk set name=#{name}, birth=#{birth}, postcode=#{postcode}, addr=#{addr}, email=#{email}, tel=#{tel}
+	where num=#{num}
+	</update>
+ 	
+	<select id="selectReser" resultType="reserDTO" parameterType="String">
+    select * from reserpk where id = #{ID}
+	</select>
+	
+	<delete id="delReser" parameterType="int">
+	delete from reserpk where num = #{num}
+	</delete>
+	
+	<select id="selectBoard" resultType="boardDTO" parameterType="String">
+    select * from boardpk where userid = #{userId}
+	</select>
+	
+	<delete id="delBoard" parameterType="int">
+	delete from boardpk where num = #{num}
+	</delete>
+	
+	<select id="selectEvent" resultType="eventRDTO" parameterType="String">
+    select * from eventrepk where username = #{username}
+	</select>
+	
+	<delete id="delEvent" parameterType="int">
+	delete from eventrepk where num = #{num}
+	</delete>
+	
+</mapper>
