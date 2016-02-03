@@ -5,7 +5,6 @@
 
 <script>
 var request = null;
-
 $(document).ready(function(){ //DOM이 준비되고
     $('#loginbt').click(function(){ // ID가 loginForm인 요소를 클릭하면
         var state = $('.login').css('display'); // state 변수에 ID가 moreMenu인 요소의 display의 속성을 '대입'
