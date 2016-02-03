@@ -66,6 +66,7 @@ rgba(11, 13, 12, 0.5);
 	
 #header .nav > li {
 	display : inline-block;
+	margin: 0 6px;
 }
 #header .container {
 	
