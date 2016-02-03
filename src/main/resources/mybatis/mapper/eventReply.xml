@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="eventReply">
+	<insert id="add" parameterType="eventRDTO">
+	insert into eventrepk values(eventrepk_seq.nextval,
+	#{eventNum}, #{userNum}, #{userType}, #{userName}, #{type}, #{content}, sysdate, 0)
+	</insert>
+	
+	<select id="eselectAll" resultType="eventRDTO"> 
+		select * from eventrepk
+	</select>
+	
+	<select id="selectAll" parameterType="eventRDTO" resultType="eventRDTO">
+	select * from (
+	select rownum as rn, num, eventnum, usernum, usertype, username, type, content, writedate, issee from
+	(select * from eventrepk where eventnum = #{eventNum} order by num desc) where #{userType} = 1 or type != 'on' or username = #{userName}
+	) where rn between #{start} and #{end}
+	</select>
+	
+	<select id="count" parameterType="eventRDTO" resultType="Integer">
+	select count(*) from (
+	select * from eventrepk where eventnum = #{eventNum})
+	where #{userType} = 1 or type != 'on' or username = #{userName}
+	</select>
+	
+	<select id="detail" parameterType="Integer">
+	select * from eventrepk where eventnum = #{eventNum}
+	</select>
+	
+	<delete id="del" parameterType="Integer">
+	delete from eventrepk where num = #{num}
+	</delete>
+</mapper>

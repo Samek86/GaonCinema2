@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reser">
+	<select id="movie_list" resultType="reserDTO">
+		select * from mediapk
+	</select>
+	
+	<select id="rselectAll" resultType="reserDTO">
+		select * from reserpk order by reserdate
+	</select>
+	
+	<select id="detail" parameterType="int" resultType="reserDTO">
+		select * from reserpk where num = #{num}
+	</select>
+	
+	<delete id="del" parameterType="int">
+		delete from reserpk where num = #{num}
+	</delete>	
+	
+	<select id="movie_time" resultType="reserDTO">
+		<!--영화 제목에 맞는 날짜와 시간 가지고 오기 -->
+		 select * from mediapk where num = #{num}
+	</select>
+	
+	<select id="seat_search" resultType="reserDTO">
+		<!-- 예약 테이블에서 관, 시간, 날짜에 맞는 이미 예약된 좌석 제외하고 예약할 수 있는 좌석 가지고오기 -->
+		select se.guan, se.sero, se.garo from seatpk se
+		left join (select sero, garo from reserpk where guan = #{guan} and reserdate = #{reserdate} and time = #{time}) re
+		on se.sero = re.sero and se.garo = re.garo
+		where re.garo is null and re.sero is null and se.guan = #{guan}
+		order by se.sero, se.garo
+	</select>
+	
+	<select id="seat_count" resultType="int">
+		<!-- 관에맞는 전체 좌석수 가져오기 -->
+		select count(*) from seatpk where guan = #{guan}
+	</select>
+	
+	
+	<select id="seat_list" resultType="reserDTO">
+		<!-- 전체 좌석 탱겨오기 -->
+		select * from seatpk where guan = #{guan}
+	</select>
+	
+	<insert id="reser_insert">
+		<!-- ID 영화제목 날짜 시간 좌석 예매 테이블에 집어넣기-->
+		insert into reserpk values(reserpk_seq.nextval,#{ID},#{title},#{reserdate},#{time},#{guan},#{sero},#{garo})
+	</insert>
+	
+	
+		
+	<select id="total_resered" parameterType="int" resultType="int">
+		<!-- 관에맞는 전체 좌석수 가져오기/// 해당관 총 좌석수  theaterpk-->
+		select count(*) from reserpk where guan = #{guan}
+	</select>
+	
+	<select id="guan_count" resultType="int">
+      <!-- 총 관수  theatherpk -->
+      select count(*) from (select distinct guan from seatpk)
+   </select>
+   
+   <select id="total_seat" parameterType="int" resultType="int">
+		<!-- theaterpk // 예약된 좌석 뺄꺼야 -->
+		select count(*) from seatpk where guan = #{guan}
+	</select>
+   <select id ="call"    parameterType="mediaDTO" resultType="int">
+   		<!-- theaterpk -->
+   		select count(*) from reserpk where (title = #{title}) and ( time = #{time1}) and (reserdate = #{date})
+   </select>
+   
+   <select id ="call2"    parameterType="mediaDTO" resultType="int">
+   		<!-- theaterpk -->
+   		select count(*) from reserpk where (title = #{title}) and ( time = #{time2}) and (reserdate = #{date})
+   </select>
+   
+   <select id ="call3"    parameterType="mediaDTO" resultType="int">
+   		<!-- theaterpk -->
+   		select count(*) from reserpk where (title = #{title}) and ( time = #{time3}) and (reserdate = #{date})
+   </select>
+
+</mapper>

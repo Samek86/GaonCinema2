@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="media">
+
+	<select id="All" resultType="mediaDTO">
+		select title, gradefile, genre, runtime, startdate,  time1, time2, time3, guan from mediapk where ing = 1 order by guan
+	</select>
+	
+
+
+
+	<select id="getTitle" resultType="String">
+	select title from mediapk
+	</select>
+	
+	<select id="mChange" parameterType="String" resultType="mediaDTO">
+	select * from mediapk where title = #{title}
+	</select>
+
+   <select id="selectAll" resultType="mediaDTO">
+      select rownum ,g.* from (select * from mediapk order by ratio desc) g where rownum &lt;= 10 and ing != 0 
+   </select>
+   
+   <select id="mselect" resultType="mediaDTO" >
+		select * from mediapk
+	</select>
+   
+   <select id="allmovie" resultType="mediaDTO">
+      select rownum ,g.* from (select * from mediapk order by ratio desc) g  
+   </select>
+   
+   <select id="count" resultType="int">
+      select count(*) as count from mediapk
+   </select>
+   
+   <select id="detail" resultType="mediaDTO" >
+      select * from mediapk where num = #{num}
+   </select>
+   
+   <delete id="delete" parameterType="int">
+      delete from mediapk where num = #{num}   
+   </delete>
+   
+   <update id="update">
+      update mediapk set title=#{title},startdate=#{startdate},enddate=#{enddate},director=#{director},poster=#{poster},filename=#{filename} where num=#{num}
+   </update>
+   
+   <insert id="insert">
+      insert into mediapk values(mediapk_seq.nextval, #{title}, #{startdate}, #{enddate},#{poster},#{filename}, #{grade}, #{content}, #{director}, #{actor}, #{genre}, #{runtime}, #{nation}, 0, 0, #{time1}, #{time2}, #{time3}, #{gradefile}, #{site}, #{guan},'')
+   </insert>
+   
+   <update id="autoEnd">
+      update mediapk set ing=0 where (enddate &lt; sysdate) and (startdate &lt; sysdate) 
+   </update>
+   
+   <update id="autoStart">   
+      update mediapk set ing=1 where (startdate &lt;= sysdate) and (sysdate &lt;= enddate) 
+   </update>
+   
+   <update id="autoWill">
+      update mediapk set ing=2 where (sysdate &lt; startdate)
+   </update>
+   
+   <select id="selectMovie" resultType="mediaDTO">
+      select rownum ,g.* from (select * from mediapk order by ratio desc) g where rownum &lt;= 10 and guan != '0'
+   </select>
+   
+   <select id="dateCheck" resultType="int">
+      select count(*) as count from (select * from mediapk where guan=#{guan}) where ((( startdate &lt;= to_date(#{ startdate },'RR/MM/DD') ) and ( enddate &gt;= to_date(#{ startdate },'RR/MM/DD') )) or (( startdate &gt;= to_date(#{startdate},'RR/MM/DD') ) and ( enddate &lt;= to_date(#{enddate},'RR/MM/DD') )) or (( startdate &lt;= to_date(#{enddate},'RR/MM/DD') ) and ( enddate &gt;= to_date(#{enddate},'RR/MM/DD'))))
+   </select>
+   
+   <select id="star" resultType="int">
+      select starnum from mediapk where num=#{num}
+   </select>
+   
+   <update id="addstar">   
+      update mediapk set starnum=#{starnum} where num=#{num}
+   </update>
+   
+   <select id="revtotal" resultType="int">
+      select count(*) from reserpk
+   </select>
+   
+   <select id="revMovie"  resultType="int">
+      select count(*) from reserpk where title = #{title}
+   </select>
+   
+   <update id="ratio" parameterType="MediaDTO">
+      update mediapk set ratio=#{ratio} where title = #{title}
+   </update>
+</mapper>

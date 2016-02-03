@@ -16,6 +16,7 @@
 	
 	<!-- board -->
 	<definition name="board" template="/WEB-INF/views/board/board.jsp"/>
+	<definition name="boardList" template="/WEB-INF/views/board/boardList.jsp"/>
 	
 	<!-- event -->
 	<definition name="event" template="/WEB-INF/views/event/event.jsp"/>
@@ -40,8 +41,5 @@
 	
 	<!-- theater -->
 	<definition name="theater" template="/WEB-INF/views/theater/theater.jsp"/>
-	
-	<!-- login -->
-	<definition name="login" template="/WEB-INF/views/login/login.jsp"/>
 	
 </tiles-definitions>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="hb.cinema.pk.board.BoardDTO" alias="boardDTO"/>
+		<typeAlias type="hb.cinema.pk.event.EventDTO" alias="eventDTO"/>
+		<typeAlias type="hb.cinema.pk.event.reply.EventRDTO" alias="eventRDTO"/>
+		<typeAlias type="hb.cinema.pk.media.MediaDTO" alias="mediaDTO"/>
+		<typeAlias type="hb.cinema.pk.reser.ReserDTO" alias="reserDTO"/>
+		<typeAlias type="hb.cinema.pk.user.UserDTO" alias="userDTO"/>
+		<typeAlias type="hb.cinema.pk.theater.TheaterDTO" alias="theaterDTO"/>
+		
+	</typeAliases>	
+	
+	<mappers>
+		<mapper resource="mybatis/mapper/board.xml" />
+		<mapper resource="mybatis/mapper/event.xml" />
+		<mapper resource="mybatis/mapper/eventReply.xml" />
+		<mapper resource="mybatis/mapper/media.xml" />
+		<mapper resource="mybatis/mapper/reser.xml" />
+		<mapper resource="mybatis/mapper/user.xml" />
+		<mapper resource="mybatis/mapper/theater.xml" />
+	</mappers>
+</configuration>
