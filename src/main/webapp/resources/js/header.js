@@ -13,24 +13,36 @@ $(document).ready(function(){ //DOM이 준비되고
 
 $(document).ready(function(){
 $("#loginbtn").click(function() {
+	if ($("#loginID").val() == "") {
+		alert("아이디를 입력해주세요.");
+		return;
+	} else if($("#loginPW").val() == "") {
+		alert("비밀번호를 입력해주세요.");
+		return;
+	} else{
 	$.ajax({
 		url: "login.do",
 		data: "loginID=" + $("#loginID").val() + "&loginPW=" + $("#loginPW").val(),
 		dataType: "json",
 		type: "GET",
 		success: function(data) {
-			if(data.check==1){
+			if(data.check==2){
 				location.href='main.do';
+			}else if(data.check==1){
+				$("#loginPW").val("");
+				alert("비밀번호가 잘못되었습니다");
+				$("#loginPW").focus();
 			}else{
 				$("#loginID").val("");
 				$("#loginPW").val("");
-				alert("잘못되었습니다");		
+				alert("존재하지 않는 아이디입니다");
+				$("#loginID").focus();
 			}
 		},
 		error: function(data) {
 			console.log(data);
 		}
-	});
+	}); }
 });
 });
 

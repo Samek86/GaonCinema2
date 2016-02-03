@@ -16,16 +16,21 @@ public class LoginDAO {
 	
 	public List<LoginDTO> dbSelect(String id, String pw){
 		LoginDTO dto = new LoginDTO();
-		List<LoginDTO> list= sst.selectList("selectAll",dto);
+		List<LoginDTO> list= sst.selectList("login.select",dto);
 		return list;
 	}//end
 
 
 	public int loginSerch(String id, String pw) {
-		LoginDTO dto = new LoginDTO();
-		dto.setId(id);
-		dto.setPw(pw);
-		int count = sst.selectOne("count", dto);
+		int count = 0;
+		try {
+			LoginDTO IDPW = sst.selectOne("login.count", id);
+			if(IDPW.getUSERID().equals(id) && !IDPW.getUSERPW().equals(pw)){
+				count = 1;
+			}else if(IDPW.getUSERID().equals(id) && IDPW.getUSERPW().equals(pw)){
+				count = 2;
+			}
+		} catch (Exception e) {	}
 		return count;
 	}
 	

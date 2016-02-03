@@ -2,13 +2,13 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="login">
 	<select id="select"  resultType="com.gaon.cinema.login.LoginDTO" parameterType="com.gaon.cinema.login.LoginDTO">
 		select * from GC_MEMBER
 	</select>
 	
-	<select id="count"  resultType="int" parameterType="com.gaon.cinema.login.LoginDTO">
-		select count(*) cnt from GC_member where USERID=#{id} and USERPW=#{pw}
+	<select id="count"  resultType="com.gaon.cinema.login.LoginDTO" parameterType="String">
+		select USERID, USERPW from GC_member where USERID=#{id}
 	</select>
 </mapper>
 

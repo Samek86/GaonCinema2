@@ -31,7 +31,7 @@ public class LoginController {
 			String id = request.getParameter("loginID");
 			String pw = request.getParameter("loginPW");
 			int count = dao.loginSerch(id, pw);
-			if(count == 1){
+			if(count == 2){
 				session.setAttribute("NowUser", id); 
 				out.print("{\"check\": \""+ count + "\"}");
 			}else{
