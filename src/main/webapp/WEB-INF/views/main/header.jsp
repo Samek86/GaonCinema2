@@ -49,9 +49,7 @@
 		<input type="button" id="loginbtn" value="로그인"><br>
 		<input type="button" id="idpwFind" value="ID/PW찾기">
 		<input type="button" id="joinbt" value="회원가입">
-		<a href="#test-popup">Show inline popup</a>
 	</div>
 	
 </div>
-
 

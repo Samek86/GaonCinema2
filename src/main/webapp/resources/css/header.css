@@ -204,11 +204,32 @@ rgba(11, 13, 12, 0.5);
  
  }
  
- #header .white-popup {
-  position: relative;
-  background: #FFF;
-  padding: 20px;
-  width: auto;
-  max-width: 500px;
-  margin: 20px auto;
-}
+ 
+  #small-dialog {
+        background: white;
+        padding: 10px 0px 30px;
+        text-align: center;
+        max-width: 400px;
+        margin: 40px auto;
+        position: relative;
+        font-size: 20px;
+        border-radius : 15px;
+      }
+  #small-dialog #dialogTop{
+	  	border-bottom: 1px;
+	    border-bottom-style: solid;
+	    border-bottom-color: #aaa;
+	    padding-bottom: 8px;
+	    font-size: 23px;
+	    font-weight: bold;
+  }
+  #small-dialog .dialogbtn{
+  	margin-top: 23px;
+    padding: 5px 36px;
+    background-color: #017467;
+    border-style: solid;
+    border-color: #017467;
+    color: #fff;
+    font-size: 19px;
+    font-weight: bold;
+  }

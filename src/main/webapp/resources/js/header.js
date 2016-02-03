@@ -1,13 +1,12 @@
 
-var request = null;
-$(document).ready(function(){ //DOM이 준비되고
-    $('#loginbt').click(function(){ // ID가 loginForm인 요소를 클릭하면
-        var state = $('.login').css('display'); // state 변수에 ID가 moreMenu인 요소의 display의 속성을 '대입'
-        if(state == 'none'){ // state가 none 상태일경우 
-            $('.login').show(); // ID가 testdiv인 요소를 show();
+$(document).ready(function(){ 
+    $('#loginbt').click(function(){
+        var state = $('.login').css('display');
+        if(state == 'none'){
+            $('.login').show();
             $('#loginID').focus();
-        }else{ // 그 외에는
-            $('.login').hide(); // ID가 testdiv인 요소를 hide();         
+        }else{ 
+            $('.login').hide();     
         }
     });
     $('.close').click(function(){
@@ -15,13 +14,29 @@ $(document).ready(function(){ //DOM이 준비되고
     });
 });
 
+function dialogclose(){
+	$.magnificPopup.close();
+}
+
+function g_alert(data){
+	$.magnificPopup.open({
+		  items: {
+		      src: '<div id="small-dialog"> ' +
+		    	  '<div id="dialogTop"> 알림 </div> <br>'+
+		    	  data+'<br>'+
+		    	  '<button type="button" class="dialogbtn" onclick="dialogclose()">닫기</button></div>',
+		      type: 'inline',
+		  }
+		});
+}
+
 $(document).ready(function(){
 $("#loginbtn").click(function() {
 	if ($("#loginID").val() == "") {
-		alert("아이디를 입력해주세요.");
+		g_alert("아이디를 입력해주세요.");
 		return;
 	} else if($("#loginPW").val() == "") {
-		alert("비밀번호를 입력해주세요.");
+		g_alert("비밀번호를 입력해주세요.");
 		return;
 	} else{
 	$.ajax({
@@ -34,12 +49,12 @@ $("#loginbtn").click(function() {
 				location.href='main.do';
 			}else if(data.check==1){
 				$("#loginPW").val("");
-				alert("비밀번호가 잘못되었습니다");
+				g_alert("비밀번호가 잘못되었습니다.");
 				$("#loginPW").focus();
 			}else{
 				$("#loginID").val("");
 				$("#loginPW").val("");
-				alert("존재하지 않는 아이디입니다");
+				g_alert("존재하지 않는 아이디입니다.");
 				$("#loginID").focus();
 			}
 		},
@@ -74,10 +89,5 @@ $("#loginbtn").click(function() {
 	}
 	
 	
-	$('#test-popup').magnificPopup({
-		  items: {
-		      src: $('<div class="white-popup">Dynamically created popup</div>'),
-		      type: 'inline'
-		  }
-		});
+
 	
