@@ -41,7 +41,4 @@
 	<!-- theater -->
 	<definition name="theater" template="/WEB-INF/views/theater/theater.jsp"/>
 	
-	<!-- login -->
-	<definition name="login" template="/WEB-INF/views/login/login.jsp"/>
-	
 </tiles-definitions>

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <title>[header.jsp]</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
 </script>
@@ -36,11 +37,16 @@ function login() {
 
   function ResultDisp() {
 		if (request.readyState == 4 && request.status == 200) {
-			location.href='main.do';
+			//location.href='main.do';
 		}// if end	
 	} //end 
 </script>
-
+<c:if test="${not empty msgbox }">
+<script>
+alert('${msgbox}');
+</script>
+<%session.removeAttribute("msgbox"); %>
+</c:if>
 <div class="backcolor"></div>
 <div class="header-wrap">
 	<li class="logo">
@@ -63,8 +69,8 @@ function login() {
  	 if(id.equals("admin")){
 	  %>
 		<li><%=id %> 님</li>
-  	<a href=''>관리자페이지</a>
-  	<a href='main.do' onClick="<%session.removeAttribute("NowUser");%>">Logout</a>
+  	<a href="#">관리자페이지</a>
+  	<li><a href='logout.do' class='logintext'>Logout</a></li>  
 	<%
  	 }else if(id!="admin"){ 
 	%>
@@ -76,7 +82,7 @@ function login() {
   	<%
 		}
 	%>
-  	<li><a href='#' class='logintext' onClick="<%session.removeAttribute("NowUser");%>">Logout</a></li>  		
+  	<li><a href='logout.do' class='logintext'>Logout</a></li>  		
 <%			
  	 }
   }

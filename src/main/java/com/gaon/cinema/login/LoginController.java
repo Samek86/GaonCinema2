@@ -22,32 +22,31 @@ public class LoginController {
 	@RequestMapping("/login.do")
 	public ModelAndView login(HttpServletResponse response,HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
 		logger.info("login.do Start");
-		/////////////////
 		try {
-			StringBuilder sb = new StringBuilder(); 
-			response.setCharacterEncoding("EUC-KR");
-			response.setContentType("text/xml;charset=EUC-KR");
-			PrintWriter out = response.getWriter();
 			String id = request.getParameter("loginID");
 			String pw = request.getParameter("loginPW");
-			System.out.println(id+ " " + pw);
 			int count = dao.loginSerch(id, pw);
-			System.out.println("LoginController count : " + count);
+			System.out.println(" count : " + count);
 			if(count == 1){
-				HttpSession session = request.getSession();
 				session.setAttribute("NowUser", id); 
-				System.out.println(session.getAttribute("NowUser"));
-			}else {
-				out.print("<script>");
-				out.print("alert('아이디와 비밀번호를 확인해주세요')");
-				out.print("</script>");
+			}else{
+				session.setAttribute("msgbox", "아이디와 비밀번호를 확인해주세요.");
 			}//else end
-			out.print(sb.toString());
-			System.out.println(sb);
 			}catch(Exception ex){	ex.printStackTrace();	}
-			/////////////////
+			mav.setViewName("redirect:/main.do");
 			return mav;
+	}
+	@RequestMapping("/logout.do")	
+	public ModelAndView logout(HttpServletResponse response,HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		session.invalidate();
+		HttpSession session2 = request.getSession();
+		session2.setAttribute("msgbox", "로그아웃 되었습니다. 이용해 주셔서 감사합니다.");
+		mav.setViewName("redirect:/main.do");
+		return mav;
 	}
 	
 }

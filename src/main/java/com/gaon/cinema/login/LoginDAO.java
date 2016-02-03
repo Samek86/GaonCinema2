@@ -25,9 +25,7 @@ public class LoginDAO {
 		LoginDTO dto = new LoginDTO();
 		dto.setId(id);
 		dto.setPw(pw);
-		System.out.println(id+ " " + pw);
 		int count = sst.selectOne("count", dto);
-		System.out.println("LoginDAO count : " + count);
 		return count;
 	}
 	
