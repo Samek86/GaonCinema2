@@ -24,6 +24,8 @@ function login() {
 		alert("공백입니다.");
 		return;
 	} else {
+		alert(ID);
+		alert(PW);
 		var url = "login.do?loginID=" + ID + "&loginPW=" + PW;
 		request.onreadystatechange = ResultDisp;
 		//callback method에서는 ()를 빼야 한다.
@@ -34,28 +36,16 @@ function login() {
 
   function ResultDisp() {
 		if (request.readyState == 4 && request.status == 200) {
-			
-			var data = request.responseXML;
-			data.trim();
-			var tagA = data.getElementsByTagName("login")[0].childNodes[0].nodeValue;
-			alert(tagA);
-			if (tagA == 'true') {
-				var tagC = location.reload();
-			
-			} else {
-				alert("로그인 실패하였습니다.")
-			}
+			location.href='main.do';
 		}// if end	
 	} //end 
 </script>
 
 <div class="backcolor"></div>
 <div class="header-wrap">
-	
-	
-	<span class="logo">
+	<li class="logo">
 		<a href="main.do"><img src="./resources/img/Gaonlogo.png"></a>
-	</span>
+	</li>
 
 	<ul class="nav">
 		<li><a href="main.do">메인</a></li>
@@ -65,9 +55,34 @@ function login() {
 		<li><a href="store.do">스토어</a></li>
 		<li><a href="event.do">이벤트</a></li>
 		<li><a href="qna.do">고객센터</a></li>
-		<li><button id="loginbt">로그인</button>
+	<% 
+	if(session.getAttribute("NowUser")==null){
+	%>
+		<li><button id="loginbt">로그인</button></li>
+	<%
+  } else { String id=(String)session.getAttribute("NowUser"); 
+ 	 if(id.equals("admin")){
+	  %>
+		<li><%=id %> 님</li>
+  	<a href=''>관리자페이지</a>
+  	<a href='main.do' onClick="<%session.removeAttribute("NowUser");%>">Logout</a>
+	<%
+ 	 }else if(id!="admin"){ 
+	%>
+  	<li><%=id %> 고객님 ▶&nbsp;</li>
+		<%
+		if(id!=null){
+		%>		
+  	<li><a href='?id=<%=id %>'onClick=''>회원정보</a></li>
+  	<%
+		}
+	%>
+  	<li><a href='#' class='logintext' onClick="<%session.removeAttribute("NowUser");%>">Logout</a></li>  		
+<%			
+ 	 }
+  }
+%>
 	</ul>
-	
 	<div class="login">
 	 <!-- <img alt="" src=""> 이미지 로고 -->
 		<form name="myform" action="login.do">
@@ -78,4 +93,5 @@ function login() {
 			<input type="button" name="idpwFind" value="ID/PW찾기">
 			<input type="button" name="join" value="회원가입">
 	</div>
+	
 </div>

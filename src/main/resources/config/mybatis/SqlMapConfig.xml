@@ -3,10 +3,6 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 		
-	<typeAliases>
-	   <typeAlias alias="dto" type="com.gaon.cinema.login.LoginDTO"/>
-	</typeAliases>
-	
 	<mappers>
 		<mapper resource="config/mybatis/login.xml"/>
 	</mappers>
