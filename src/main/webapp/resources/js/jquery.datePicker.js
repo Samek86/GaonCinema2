@@ -29,7 +29,7 @@
     };
 
     $.datePicker = {
-        default: {
+        default2: {
             prev: '<',                          // change prev button. html is allowed.
             next: '>',                          // change next button. html is allowed.
             changeMonthYear: false,             // add dropdown list for month year
@@ -67,7 +67,7 @@
         var newOption = $.extend(
             true,
             {},
-            $.datePicker.default,
+            $.datePicker.default2,
             {
                 getMomentMinDate : function () {
                     if (this.minDate == null)

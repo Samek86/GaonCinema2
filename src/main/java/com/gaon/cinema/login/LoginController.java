@@ -46,8 +46,6 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		session.invalidate();
-		HttpSession session2 = request.getSession();
-		session2.setAttribute("msgbox", "로그아웃 되었습니다. 이용해 주셔서 감사합니다.");
 		mav.setViewName("redirect:/main.do");
 		return mav;
 	}
