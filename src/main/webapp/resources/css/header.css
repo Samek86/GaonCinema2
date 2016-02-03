@@ -109,4 +109,13 @@ rgba(11, 13, 12, 0.5);
 
 #header .login {
 	display: none;
+	background-color : #fff;
+	position: absolute;
+	right : -22px;
+	top : 69px;
+	width: 370px;
+	height: 280px;
+	 -webkit-box-shadow: 5 5 5 #000;
+	 -moz-box-shadow: 5 5 5 #000;
+	 box-shadow: 5 5 5 #000;
 }
