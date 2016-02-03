@@ -18,7 +18,7 @@ public class QnaController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(QnaController.class);
 	
-	@RequestMapping(value = "/qnaList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/qna.do", method = RequestMethod.GET)
 	public ModelAndView qnaList() {
 		ModelAndView mav = new ModelAndView();
 	  	List<QnaDTO> list = dao.dbSelect();
