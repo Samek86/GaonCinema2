@@ -2,11 +2,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<<<<<<< HEAD
-<%Object id = session.getAttribute("NowUser");  %>
-=======
-
->>>>>>> b899949bd370a9f052dcdd735d4e6c50513cc4dc
+<% session.getAttribute("NowUser");  %>
 <html>
 <head> 
 	<title>가온시네마</title>
