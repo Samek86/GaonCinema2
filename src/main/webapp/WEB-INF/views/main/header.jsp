@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <html>
 <head> 
 <title>[header.jsp]</title>
@@ -53,6 +54,22 @@ function login() {
 </head>
 <body>
 	<ul>
+=======
+<script type="text/javascript">
+function loginview() {
+	
+} 
+</script>
+<div class="backcolor"></div>
+<div class="header-wrap">
+	
+	
+	<span class="logo">
+		<a href="main.do"><img src="./resources/img/Gaonlogo.png"></a>
+	</span>
+
+	<ul class="nav">
+>>>>>>> d6cbc7b0b6448302b0929ad6502bf0c51ca4c014
 		<li><a href="main.do">메인</a></li>
 		<li><a href="movie.do">영화</a></li>
 		<li><a href="reservation.do">예매</a></li>
@@ -60,6 +77,7 @@ function login() {
 		<li><a href="store.do">스토어</a></li>
 		<li><a href="event.do">이벤트</a></li>
 		<li><a href="qna.do">고객센터</a></li>
+<<<<<<< HEAD
 		<li id="loginForm"> 로그인</li>
 	</ul>
 	
@@ -69,9 +87,19 @@ function login() {
 			<input type="text" name="name" placeholder="아이디"> <br>
 			<input type="password" name="secret" placeholder="아이디">
 			<input type="submit" name="login" onClick="login()" value="로그인"> <br>
+=======
+		<li><button id="loginbt" onclick="loginview()">로그인</button>
+	</ul>
+
+		
+	<div class="login">
+		<form action="">
+			<input type="text" placeholder="아이디"> <br>
+			<input type="password" placeholder="비밀번호">
+			<input type="submit" name="login" value="로그인"> <br>
+>>>>>>> d6cbc7b0b6448302b0929ad6502bf0c51ca4c014
 		</form>
 			<input type="button" name="idpwFind" value="ID/PW찾기">
 			<input type="button" name="join" value="회원가입">
 	</div>
-</body>
-</html>
+</div>
