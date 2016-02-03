@@ -13,21 +13,22 @@ $(document).ready(function(){ //DOM이 준비되고
 
 $(document).ready(function(){
 $("#loginbtn").click(function() {
-	alert("클릭");
 	$.ajax({
 		url: "login.do",
 		data: "loginID=" + $("#loginID").val() + "&loginPW=" + $("#loginPW").val(),
 		dataType: "json",
 		type: "GET",
 		success: function(data) {
-			if(data.check=="1"){
+			if(data.check==1){
 				location.href='main.do';
 			}else{
+				$("#loginID").val("");
+				$("#loginPW").val("");
 				alert("잘못되었습니다");		
 			}
 		},
 		error: function(data) {
-			alert("error : " + data);
+			console.log(data);
 		}
 	});
 });

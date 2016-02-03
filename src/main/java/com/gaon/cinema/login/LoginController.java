@@ -3,6 +3,8 @@ package com.gaon.cinema.login;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,34 +23,22 @@ public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@RequestMapping("/login.do")
-	public ModelAndView login(HttpServletResponse response,HttpServletRequest request){
+	public void login(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException{
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
-		StringBuilder sb = new StringBuilder();
 		try {
 		PrintWriter out = response.getWriter();
-		logger.info("login.do Start");
-		
 			String id = request.getParameter("loginID");
 			String pw = request.getParameter("loginPW");
 			int count = dao.loginSerch(id, pw);
-			System.out.println(" count : " + count);
 			if(count == 1){
 				session.setAttribute("NowUser", id); 
-				sb.append("{");
-				sb.append("\"check\": \""+ count + "\"").append("}");
-				out.print(sb.toString());
+				out.print("{\"check\": \""+ count + "\"}");
 			}else{
-				sb.append("{");
-				sb.append("\"check\": \""+ count + "\"").append("}");
-				out.print(sb.toString());
-				//session.setAttribute("msgbox", "아이디와 비밀번호를 확인해주세요.");
-			}//else end
-			}catch(Exception ex){	ex.printStackTrace();	}
-			//mav.addObject("page", "main");
-			//mav.setViewName("mainLayout");
-			mav.setViewName("redirect:/main.do");
-			return mav;
+				mav.addObject("check", count);
+				out.print("{\"check\": \""+ count + "\"}");
+			}
+		}catch(Exception ex){	ex.printStackTrace();	}
 	}
 	
 	@RequestMapping("/logout.do")	
