@@ -64,7 +64,7 @@ function login() {
 		<li><a href="theater.do">영화관</a></li>
 		<li><a href="store.do">스토어</a></li>
 		<li><a href="event.do">이벤트</a></li>
-		<li><a href="qna.do">고객센터</a></li>
+		<li><a href="qnaList.do">고객센터</a></li>
 		<li><button id="loginbt">로그인</button>
 	</ul>
 	

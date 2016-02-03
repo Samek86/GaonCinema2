@@ -31,6 +31,7 @@
 	
 	<!-- qna -->
 	<definition name="qna" template="/WEB-INF/views/qna/qna.jsp"/>
+	<definition name="qnaList" template="/WEB-INF/views/qna/qnaList.jsp"/>
 	
 	<!-- reservation -->
 	<definition name="reservation" template="/WEB-INF/views/reservation/reservation.jsp"/>
