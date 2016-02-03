@@ -11,6 +11,7 @@
 		<a href="main.do"><img id="logoimg" src="./resources/img/Gaonlogo.png"></a>
 	</span>
 
+
 	<ul class="nav">
 		<li><a href="movie.do">영화</a></li>
 		<li><a href="reservation.do">예매</a></li>
@@ -18,9 +19,34 @@
 		<li><a href="store.do">스토어</a></li>
 		<li><a href="event.do">이벤트</a></li>
 		<li><a href="qna.do">고객센터</a></li>
-		<li><button id="loginbt">로그인</button>
+	<% 
+	if(session.getAttribute("NowUser")==null){
+	%>
+		<li><button id="loginbt">로그인</button></li>
+	<%
+  } else { String id=(String)session.getAttribute("NowUser"); 
+ 	 if(id.equals("admin")){
+	  %>
+		<li><%=id %> 님</li>
+  	<a href=''>관리자페이지</a>
+  	<a href='main.do' onClick="<%session.removeAttribute("NowUser");%>">Logout</a>
+	<%
+ 	 }else if(id!="admin"){ 
+	%>
+  	<li><%=id %> 고객님 ▶&nbsp;</li>
+		<%
+		if(id!=null){
+		%>		
+  	<li><a href='?id=<%=id %>'onClick=''>회원정보</a></li>
+  	<%
+		}
+	%>
+  	<li><a href='#' class='logintext' onClick="<%session.removeAttribute("NowUser");%>">Logout</a></li>  		
+<%			
+ 	 }
+  }
+%>
 	</ul>
-	
 	<div class="login">
 	 <!-- <img alt="" src=""> 이미지 로고 -->
 		<form name="myform" action="login.do">
@@ -31,4 +57,5 @@
 			<input type="button" name="idpwFind" value="ID/PW찾기">
 			<input type="button" name="join" value="회원가입">
 	</div>
+	
 </div>

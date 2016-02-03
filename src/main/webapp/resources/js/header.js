@@ -6,7 +6,7 @@ $(document).ready(function(){ //DOM이 준비되고
         if(state == 'none'){ // state가 none 상태일경우 
             $('.login').show(); // ID가 testdiv인 요소를 show();
         }else{ // 그 외에는
-            $('.login').hide(); // ID가 testdiv인 요소를 hide(); 
+            $('.login').hide(); // ID가 testdiv인 요소를 hide();         
         }
     });
 });
@@ -19,6 +19,8 @@ function login() {
 		alert("공백입니다.");
 		return;
 	} else {
+		alert(ID);
+		alert(PW);
 		var url = "login.do?loginID=" + ID + "&loginPW=" + PW;
 		request.onreadystatechange = ResultDisp;
 		//callback method에서는 ()를 빼야 한다.
@@ -29,17 +31,7 @@ function login() {
 
   function ResultDisp() {
 		if (request.readyState == 4 && request.status == 200) {
-			
-			var data = request.responseXML;
-			data.trim();
-			var tagA = data.getElementsByTagName("login")[0].childNodes[0].nodeValue;
-			alert(tagA);
-			if (tagA == 'true') {
-				var tagC = location.reload();
-			
-			} else {
-				alert("로그인 실패하였습니다.")
-			}
+			location.href='main.do';
 		}// if end	
 	} //end 
 	
