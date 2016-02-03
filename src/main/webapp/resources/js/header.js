@@ -43,12 +43,18 @@ function login() {
 	    
 	    var nowscroll = $(window).scrollTop();
 	    
-	    if(nowscroll<=10){
+	    if(nowscroll<=1){
 	    	$('#logoimg').css({'width' : '150px', 'height' : '150px'});
 	    	$('#logoimg').attr({'src' : './resources/img/Gaonlogo.png'});
-	    }else{
-	    	$('#logoimg').css({'width' : '150px', 'height' : '87px'});
+	    	$('#header .nav > li > a').css({'padding': '28px 19px'});
+	    	$('#header .backcolor').css({'height': '87px'});
+	    	$('#header .login').css({'top': '69px'});
+	    }else {
+	    	$('#logoimg').css({'width' : '150px', 'height' : '67px'});
 	    	$('#logoimg').attr({'src' : './resources/img/Gaonlogo2.png'});
+	    	$('#header .nav > li > a').css({'padding': '18px 19px'});
+	    	$('#header .backcolor').css({'height': '67px'});
+	    	$('#header .login').css({'top': '59px'});
 	    }
 	}
 	

@@ -6,7 +6,6 @@
 <div class="backcolor"></div>
 <div class="header-wrap">
 	
-	
 	<span class="logo">
 		<a href="main.do"><img id="logoimg" src="./resources/img/Gaonlogo.png"></a>
 	</span>

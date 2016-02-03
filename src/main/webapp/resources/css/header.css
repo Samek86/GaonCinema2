@@ -33,7 +33,7 @@ rgba(11, 13, 12, 0.5);
 	width: 100%;
 	position: absolute;
 	height: 87px;
-	
+	transition : all 0.3s;
 }
 
 #header .header-wrap{
@@ -84,6 +84,7 @@ rgba(11, 13, 12, 0.5);
     border-color: #017467;
     transition : all 0.3s;
 }
+
 #header .nav > li > a:hover {
 	background-color: #005E57;
     border-bottom: solid;
@@ -93,6 +94,7 @@ rgba(11, 13, 12, 0.5);
 
 #header #loginbt {
 	display : inline-block;
+	outline: none;
 	margin-left : 50px;
 	padding: 10px 33px;
 	border: solid;
