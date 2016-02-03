@@ -21,7 +21,7 @@
 			<input type="submit" name="login" value="로그인"> <br>
 		</form>
 			<input type="button" name="idpwFind" value="ID/PW찾기">
-			<input type="button" name="join" value="회원가입">
+			<a href="join.do"><input type="button" name="join" value="회원가입"></a>
 	</div>
 </body>
 </html>

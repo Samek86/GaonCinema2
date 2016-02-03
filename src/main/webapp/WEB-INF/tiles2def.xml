@@ -40,5 +40,8 @@
 	
 	<!-- theater -->
 	<definition name="theater" template="/WEB-INF/views/theater/theater.jsp"/>
+
+	<!-- join -->
+	<definition name="join" template="/WEB-INF/views/join/join.jsp"/>
 	
 </tiles-definitions>
