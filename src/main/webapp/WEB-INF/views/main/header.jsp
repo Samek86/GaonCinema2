@@ -12,6 +12,7 @@
 		<li><a href="store.do">스토어</a></li>
 		<li><a href="event.do">이벤트</a></li>
 		<li><a href="qna.do">고객센터</a></li>
+		<li><a href="boardList.do">게시판</a></li>
 	</ul>
 	<div>로그인</div>
 </body>

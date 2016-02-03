@@ -3,37 +3,15 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
-
-	<select id="bselectAll" resultType="boardDTO"> 
-		select * from boardpk
+	<select id="selectAll" resultType="com.gaon.cinema.board.BoardDTO">
+	select * from board order by board_id
 	</select>
 	
-	<insert id="add" parameterType="boardDTO">
-	insert into boardpk values(boardpk_seq.nextVal,
-	#{movieId}, #{userId}, #{content}, sysdate, #{starNum}, #{readNum})
+	<insert id="add" parameterType="board.BoardDTO">
+	insert into board values(board_id_seq.nextval,
+	#{userid}, #{title}, #{contents}, #{wdate}, #{count})
 	</insert>
 	
-	<select id="count" parameterType="Integer" resultType="Integer">
-	select count(*) as cnt from boardpk where movieid = #{movieId}
-	</select>
 	
-	<select id="select" resultType="boardDTO">
-	select * from (
-	select rownum as rn, num, movieid, userid, content, writedate, starnum, readnum from (
-	select * from boardpk where movieid = #{movieId} order by num desc)
-	)where rn between #{start} and #{end}
-	</select>
 	
-	<select id="detail" parameterType="Integer" resultType="boardDTO">
-	select * from boardpk where num = #{num}
-	</select>
-	
-	<delete id="del" parameterType="int">
-	delete from boardpk where num = #{num}
-	</delete>	
-	
-	<update id="edit" parameterType="boardDTO">
-	 update boardpk set movieid = #{movieId}, userId = #{userId}, content = #{content}, writedate = sysdate, starNum = #{starNum}
-	 where num = #{num}
-	</update>
-</mapper>
+	</mapper>
