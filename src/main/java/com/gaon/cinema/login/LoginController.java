@@ -31,11 +31,23 @@ public class LoginController {
 			System.out.println(" count : " + count);
 			if(count == 1){
 				session.setAttribute("NowUser", id); 
+<<<<<<< HEAD
 			}else{
 				session.setAttribute("msgbox", "아이디와 비밀번호를 확인해주세요.");
+=======
+				System.out.println(session);
+				sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+				sb.append("<item><login>true</login><name>"+id+"</name></item>");
+			}else {
+>>>>>>> b899949bd370a9f052dcdd735d4e6c50513cc4dc
 			}//else end
 			}catch(Exception ex){	ex.printStackTrace();	}
+<<<<<<< HEAD
 			mav.setViewName("redirect:/main.do");
+=======
+			/////////////////
+			mav.setViewName("login");
+>>>>>>> b899949bd370a9f052dcdd735d4e6c50513cc4dc
 			return mav;
 	}
 	@RequestMapping("/logout.do")	

@@ -25,8 +25,6 @@ function login() {
 		alert("공백입니다.");
 		return;
 	} else {
-		alert(ID);
-		alert(PW);
 		var url = "login.do?loginID=" + ID + "&loginPW=" + PW;
 		request.onreadystatechange = ResultDisp;
 		//callback method에서는 ()를 빼야 한다.
@@ -37,7 +35,21 @@ function login() {
 
   function ResultDisp() {
 		if (request.readyState == 4 && request.status == 200) {
+<<<<<<< HEAD
 			//location.href='main.do';
+=======
+			
+			var data = request.responseXML;
+			data.trim();
+			var tagA = data.getElementsByTagName("login")[0].childNodes[0].nodeValue;
+			alert(tagA);
+			if (tagA == 'true') {
+				var tagC = location.reload();
+			
+			} else {
+				alert("로그인 실패하였습니다.")
+			}
+>>>>>>> b899949bd370a9f052dcdd735d4e6c50513cc4dc
 		}// if end	
 	} //end 
 </script>
@@ -49,16 +61,20 @@ alert('${msgbox}');
 </c:if>
 <div class="backcolor"></div>
 <div class="header-wrap">
-	<li class="logo">
+	
+	
+	<span class="logo">
 		<a href="main.do"><img src="./resources/img/Gaonlogo.png"></a>
-	</li>
+	</span>
 
 	<ul class="nav">
+		<li><a href="main.do">메인</a></li>
 		<li><a href="movie.do">영화</a></li>
 		<li><a href="reservation.do">예매</a></li>
 		<li><a href="theater.do">영화관</a></li>
 		<li><a href="store.do">스토어</a></li>
 		<li><a href="event.do">이벤트</a></li>
+<<<<<<< HEAD
 		<li><a href="qna.do">고객센터</a></li>
 	<% 
 	if(session.getAttribute("NowUser")==null){
@@ -87,7 +103,12 @@ alert('${msgbox}');
  	 }
   }
 %>
+=======
+		<li><a href="qnaList.do">고객센터</a></li>
+		<li><button id="loginbt">로그인</button>
+>>>>>>> b899949bd370a9f052dcdd735d4e6c50513cc4dc
 	</ul>
+	
 	<div class="login">
 	 <!-- <img alt="" src=""> 이미지 로고 -->
 		<form name="myform" action="login.do">
@@ -98,5 +119,4 @@ alert('${msgbox}');
 			<input type="button" name="idpwFind" value="ID/PW찾기">
 			<input type="button" name="join" value="회원가입">
 	</div>
-	
 </div>
