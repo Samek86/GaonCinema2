@@ -44,4 +44,7 @@
 	<!-- join -->
 	<definition name="join" template="/WEB-INF/views/join/join.jsp"/>
 	
+	<!-- login -->
+	<definition name="login" template="/WEB-INF/views/login/login.jsp"/>
+	
 </tiles-definitions>
