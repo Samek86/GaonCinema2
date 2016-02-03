@@ -2,13 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <title>[header.jsp]</title>
 
-<c:if test="${not empty msgbox }">
-<script>
-alert('${msgbox}');
-</script>
-<%session.removeAttribute("msgbox"); %>
-</c:if>
-
 <script src="./resources/js/header.js"></script>
 
 <div class="backcolor"></div>
@@ -51,9 +44,9 @@ alert('${msgbox}');
 	<div class="login">
 	 <!-- <img alt="" src=""> 이미지 로고 -->
 		<form name="myform" action="login.do">
-			<input type="text" name="name" placeholder="아이디"> <br>
-			<input type="password" name="secret" placeholder="비밀번호">
-			<input type="button" onclick="login()" value="로그인">
+			<input type="text" id="loginID" placeholder="아이디"> <br>
+			<input type="password" id ="loginPW" name="secret" placeholder="비밀번호">
+			<input type="button" id="loginbtn" value="로그인">
 		</form>
 			<input type="button" name="idpwFind" value="ID/PW찾기">
 			<input type="button" name="join" value="회원가입">

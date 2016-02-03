@@ -11,7 +11,29 @@ $(document).ready(function(){ //DOM이 준비되고
     });
 });
 
-function login() {
+$(document).ready(function(){
+$("#loginbtn").click(function() {
+	alert("클릭");
+	$.ajax({
+		url: "login.do",
+		data: "loginID=" + $("#loginID").val() + "&loginPW=" + $("#loginPW").val(),
+		dataType: "json",
+		type: "GET",
+		success: function(data) {
+			if(data.check=="1"){
+				location.href='main.do';
+			}else{
+				alert("잘못되었습니다");		
+			}
+		},
+		error: function(data) {
+			alert("error : " + data);
+		}
+	});
+});
+});
+
+/*function login() {
 	request = new XMLHttpRequest();
 	var ID = myform.name.value;
 	var PW = myform.secret.value;
@@ -34,7 +56,7 @@ function login() {
 			location.href='main.do';
 		}// if end	
 	} //end 
-	
+*/	
 	$(window).scroll(menuScroll);
 	
 	function menuScroll() { 

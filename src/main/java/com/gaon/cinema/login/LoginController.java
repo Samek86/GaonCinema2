@@ -1,5 +1,6 @@
 package com.gaon.cinema.login;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,21 +24,33 @@ public class LoginController {
 	public ModelAndView login(HttpServletResponse response,HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
-		logger.info("login.do Start");
+		StringBuilder sb = new StringBuilder();
 		try {
+		PrintWriter out = response.getWriter();
+		logger.info("login.do Start");
+		
 			String id = request.getParameter("loginID");
 			String pw = request.getParameter("loginPW");
 			int count = dao.loginSerch(id, pw);
 			System.out.println(" count : " + count);
 			if(count == 1){
 				session.setAttribute("NowUser", id); 
+				sb.append("{");
+				sb.append("\"check\": \""+ count + "\"").append("}");
+				out.print(sb.toString());
 			}else{
-				session.setAttribute("msgbox", "아이디와 비밀번호를 확인해주세요.");
+				sb.append("{");
+				sb.append("\"check\": \""+ count + "\"").append("}");
+				out.print(sb.toString());
+				//session.setAttribute("msgbox", "아이디와 비밀번호를 확인해주세요.");
 			}//else end
 			}catch(Exception ex){	ex.printStackTrace();	}
+			//mav.addObject("page", "main");
+			//mav.setViewName("mainLayout");
 			mav.setViewName("redirect:/main.do");
 			return mav;
 	}
+	
 	@RequestMapping("/logout.do")	
 	public ModelAndView logout(HttpServletResponse response,HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
