@@ -23,6 +23,7 @@ function login() {
 	var PW = myform.secret.value;
 	if (ID == "" || PW == "") {
 		alert("공백입니다.");
+		return;
 	} else {
 		var url = "login.do?loginID=" + ID + "&loginPW=" + PW;
 		request.onreadystatechange = ResultDisp;
@@ -36,7 +37,7 @@ function login() {
 		if (request.readyState == 4 && request.status == 200) {
 			
 			var data = request.responseXML;
-			alert(data);
+			data.trim();
 			var tagA = data.getElementsByTagName("login")[0].childNodes[0].nodeValue;
 			alert(tagA);
 			if (tagA == 'true') {
@@ -70,10 +71,10 @@ function login() {
 	
 	<div class="login">
 	 <!-- <img alt="" src=""> 이미지 로고 -->
-		<form action="login.do">
-			<input type="text" placeholder="아이디"> <br>
-			<input type="password" placeholder="비밀번호">
-			<input type="submit" name="login" value="로그인"> <br>
+		<form name="myform" action="login.do">
+			<input type="text" name="name" placeholder="아이디"> <br>
+			<input type="password" name="secret" placeholder="비밀번호">
+			<input type="button" onclick="login()" value="로그인">
 		</form>
 			<input type="button" name="idpwFind" value="ID/PW찾기">
 			<input type="button" name="join" value="회원가입">
