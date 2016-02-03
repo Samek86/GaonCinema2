@@ -37,16 +37,16 @@ public class LoginController {
 			if(count == 1){
 				HttpSession session = request.getSession();
 				session.setAttribute("NowUser", id); 
-				System.out.println(session.getAttribute("NowUser"));
+				System.out.println(session);
+				sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+				sb.append("<item><login>true</login><name>"+id+"</name></item>");
 			}else {
-				out.print("<script>");
-				out.print("alert('아이디와 비밀번호를 확인해주세요')");
-				out.print("</script>");
 			}//else end
 			out.print(sb.toString());
 			System.out.println(sb);
 			}catch(Exception ex){	ex.printStackTrace();	}
 			/////////////////
+			mav.setViewName("login");
 			return mav;
 	}
 	

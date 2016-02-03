@@ -2,7 +2,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%session.getAttribute("NowUser");  %>
+
 <html>
 <head> 
 	<title>가온시네마</title>
@@ -18,8 +18,8 @@
 	<link href="./resources/css/header.css" rel="stylesheet">
 	<link href="./resources/css/main.css" rel="stylesheet">
 	<link href="./resources/css/footer.css" rel="stylesheet">
+	
 
-	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="./resources/js/bootstrap.js"></script>
 	<script src="./resources/js/bootstrap-select.js"></script>
