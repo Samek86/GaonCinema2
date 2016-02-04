@@ -19,6 +19,10 @@ public class MemberDAO {
 		dto = temp.selectOne("member.member",dto);
 		return dto;
 	}
+	
+	public void dbEdit(MemberDTO dto){
+		temp.update("member.edit",dto);
+	};
 
 	public int dbDelete(MemberDTO dto) {
 		int ok = temp.delete("member.delete", dto);

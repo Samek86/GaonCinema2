@@ -13,6 +13,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from gc_member where userid = #{userid}
 	</delete>
 	
+	<update id="edit" parameterType="com.gaon.cinema.member.MemberDTO">
+		update gc_member set userpw=#{userpw}, img_file=#{img_file},name=#{name},
+		gender=#{gender}, birth=#{birth} , telnum=#{telnum}, email=#{email},
+		zipcode=#{zipcode}, address1=#{address1}, address2=#{address2} 
+		where userid=#{userid} 
+	</update>
+	
 </mapper>
 
 
