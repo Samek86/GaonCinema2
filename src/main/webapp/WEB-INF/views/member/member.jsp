@@ -57,16 +57,15 @@
 						<input type="text" name="point" class="ta" readonly="readonly" value="${member.point}">
 					</td>
 				</tr>
-			</table>
+			
 				<tr>
 					<td style="text-align: center">
 						<div >
-							<a href="memberPreEdit.do">
-								<input type="button" value="수정하기" onclick="location.href='memberPreEdit.do'">
-							</a>
-							<input type="button" value="회원탈퇴" onclick="memberDelete()">
+							<input type="button" value="수정하기" onclick="location.href='memberPreEdit.do'">
+							<input type="button" value="회원탈퇴" onclick="location.href='memberDelete.do'">
 						</div>
 					</td>
 				</tr>
+			</table>
 </body>
 </html>
