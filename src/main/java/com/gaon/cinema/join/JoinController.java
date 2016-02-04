@@ -65,7 +65,7 @@ public class JoinController {
 		
 		ok=dao.dbjoin(dto);
 		if(ok==1){
-			session.setAttribute("ok","회원가입이 완료되었습니다.");
+			session.setAttribute("ok","회원가입 축하드립니다."+ "<br>" +"2000포인트 지급되었습니다.");
 			mav.setViewName("redirect:/main.do");
 			return mav;
 		}
