@@ -20,8 +20,7 @@
 	<link href="./resources/css/footer.css" rel="stylesheet">
 	<link rel="stylesheet" href="./resources/css/magnific-popup.css">
 	
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-	<script src="./resources/js/jquery.min.1.11.3.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="./resources/js/bootstrap.js"></script>
 	<script src="./resources/js/bootstrap-select.js"></script>
 	<script src="./resources/js/fotorama.js"></script>

@@ -37,19 +37,20 @@
 		if(id!=null){
 		%>		
   	<li><a href='?id=<%=id %>'onClick=''>회원정보</a></li>
-  	<li><a href='logout.do' class='logintext'>Logout</a></li>  
+  	<li><a href='logout.do' class='logintext'>Logout</a></li>
   	<%
 		}}}
 	%>
 	</ul>
 	<div class="login">
+
 		<button type="button" class="close">&times;</button>
 	 	<img id = "loginlogo" src="./resources/img/login_logo.png">
 		<input type="text" id="loginID" placeholder="아이디"> <br>
 		<input type="password" id ="loginPW" name="secret" placeholder="비밀번호">
 		<input type="button" id="loginbtn" value="로그인"><br>
 		<input type="button" id="idpwFind" value="ID/PW찾기">
-		<input type="button" id="joinbt" value="회원가입">
+		<a href="join.do"><input type="button" id="joinbt" value="회원가입"></a>
 	</div>
 	
 </div>
