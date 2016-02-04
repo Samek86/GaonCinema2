@@ -1,0 +1,10 @@
+diff a/src/main/java/com/gaon/cinema/qna/QnaController.java b/src/main/java/com/gaon/cinema/qna/QnaController.java	(rejected hunks)
+@@ -18,7 +18,7 @@
+ 	
+ 	private static final Logger logger = LoggerFactory.getLogger(QnaController.class);
+ 	
+-	@RequestMapping(value = "/qnaList.do", method = RequestMethod.GET)
++	@RequestMapping(value = "/qna.do", method = RequestMethod.GET)
+ 	public ModelAndView qnaList() {
+ 		ModelAndView mav = new ModelAndView();
+ 	  	List<QnaDTO> list = dao.dbSelect();
