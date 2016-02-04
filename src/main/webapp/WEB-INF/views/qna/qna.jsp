@@ -14,9 +14,9 @@
 </head>
 	<body>
 	<form action="insert.do" method="post">
-			<b>useid : </b> <input type = text name= "name"><br>
-			<b>title : </b> <input type = text name= "title"><br>
-			<b>contents :	</b> <textarea name = "content" rows="3" cols="20"></textarea><br>
+			<b>사용자 아이디 : </b> <input type = text name= "name"><br>
+			<b>제목 : </b> <input type = text name= "title"><br>
+			<b>내용 :	</b> <textarea name = "contents" rows="3" cols="20"></textarea><br>
 			<input type="submit" value="확인">&nbsp;&nbsp;
 			<input type="reset" value="취소">
 			</form>
