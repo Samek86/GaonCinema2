@@ -11,13 +11,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 select * from gc_qna where qna_id = #{qna_id}
 	</select>
 	
-	<delete id="del" parameterType="int">
+	<delete id="delete" parameterType="int">
 		delete from gc_qna where qna_id = #{qna_id}
 	</delete>
 	
 	<update id="edit" parameterType="com.gaon.cinema.qna.QnaDTO">
-		update gc_qna set title = #{title}, contents = #{contents}, 
-		                  wdate = sysdate 
+		update gc_qna set title = #{title}, contents = #{contents}, wdate = sysdate 
 		where qna_id = #{qna_id}
 	</update>
 	
