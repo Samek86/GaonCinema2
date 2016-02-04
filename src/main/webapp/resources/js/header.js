@@ -14,6 +14,19 @@ $(document).ready(function(){
     });
 });
 
+
+$(document).ready(function(){ 
+	$('#memberbt').click(function(){
+		var state = $('.member').css('display');
+        if(state == 'none'){
+            $('.member').show();
+        }else{ 
+            $('.member').hide();     
+        }
+	});
+});
+
+
 function dialogclose(){
 	$.magnificPopup.close();
 }
