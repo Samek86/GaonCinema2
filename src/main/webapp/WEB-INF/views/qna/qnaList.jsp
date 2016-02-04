@@ -6,10 +6,6 @@
 <html>
 <head>
 <title>[qnaList.jsp]</title>
-   <style type="text/css">
-     b,input,td{font-size:16pt;font-family: Comic Sans MS; font-weight:bold;}
-	 a{text-decoration:none; font-family:Comic Sans MS; color:blue;}
-	</style>
 </head>
 <body>
 	<div align="center">
@@ -21,16 +17,15 @@
 	 			</c:if> 
 	 		</td>
 	 	</tr>
-	 	<tr bgcolor=pink  height=55>
+	 	<tr bgcolor=green  height=55>
 	 		 <td>글번호</td> <td>글쓴이</td> <td>제목</td>   
-	  		 <td>내용 <td>작성일</td> <td>조회수</td>
+	  		 <td>작성일</td> <td>조회수</td>
 	 	</tr>
 		<c:forEach var="bean" items="${list}">
 			<tr>
 		  		<td> ${bean.qna_id} </td>
 		  		<td> ${bean.userid} </td>
-		  		<td> ${bean.title} </td>
-		  		<td> ${bean.contents} </td>
+		  		<td><a href="qnaDetail.do?qna_id=${bean.qna_id}">${bean.title}</a></td>
 		  		<td> ${bean.wdate} </td>
 		  		<td> ${bean.count} </td>
 			</tr>	 	

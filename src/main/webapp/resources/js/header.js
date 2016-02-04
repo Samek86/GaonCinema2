@@ -24,6 +24,9 @@ $(document).ready(function(){
             $('.member').hide();     
         }
 	});
+	$('.member .close').click(function(){
+    	$('.member').hide();
+    });
 });
 
 
