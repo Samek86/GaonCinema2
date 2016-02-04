@@ -62,7 +62,7 @@
 					<td style="text-align: center">
 						<div >
 							<input type="button" value="수정하기" onclick="location.href='memberPreEdit.do'">
-							<input type="button" value="회원탈퇴" onclick="memberDelete()">
+							<input type="button" value="회원탈퇴" onclick="location.href='memberDelete.do'">
 						</div>
 					</td>
 				</tr>

@@ -39,4 +39,19 @@ public class MemberController {
 		mav.setViewName("mainLayout");
 		return mav;
 	}
+	@RequestMapping("/memberDelete.do")
+	public ModelAndView memberDelete(HttpServletRequest request, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		String id = (String)session.getAttribute("NowUser");
+		MemberDTO dto = new MemberDTO();
+		dto.setUserid(id);
+		int ok = dao.dbDelete(dto);
+		if(ok == 1){
+			session.setAttribute("ok","이용해주셔서 감사합니다.");
+			mav.setViewName("redirect:/main.do");
+			return mav;
+		}
+		mav.setViewName("redirect:/main.do");
+		return mav;
+	}
 }
