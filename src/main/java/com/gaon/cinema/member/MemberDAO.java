@@ -15,8 +15,8 @@ public class MemberDAO {
 	private SqlSessionTemplate temp;
 	private static Logger logger = LoggerFactory.getLogger(JoinDAO.class);
 	
-	public MemberDTO dbmember(String id){
-		MemberDTO dto = temp.selectOne("member.member",id);
+	public MemberDTO dbmember(MemberDTO dto){
+		dto = temp.selectOne("member.member",dto);
 		return dto;
 	}
 }

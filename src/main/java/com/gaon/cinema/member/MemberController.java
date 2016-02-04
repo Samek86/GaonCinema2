@@ -1,7 +1,7 @@
 package com.gaon.cinema.member;
 
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,11 +18,15 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 	@RequestMapping("/member.do")
-	public ModelAndView member(HttpServletRequest request) {
+	public ModelAndView member(HttpServletRequest request, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		String id = request.getParameter("nowuser");
-		MemberDTO dto = dao.dbmember(id);
+		String id = (String)session.getAttribute("NowUser");
+		MemberDTO dto = new MemberDTO();
+		dto.setUserid(id);
+		dto=dao.dbmember(dto);
 		
+		
+		mav.addObject("member", dto);
 		mav.addObject("page", "member");
 		mav.setViewName("mainLayout");
 		return mav;
