@@ -46,11 +46,11 @@
 	<c:if test="${NowUser=='admin'}">
 	 	<img id = "loginlogo" src="./resources/img/login_logo.png"><br>
 		<button type="button" class="close">&times;</button>
-		<img src="./resources/img/member/${img}"><br>
+		<img width="100px" height="100px" src="./resources/img/member/${Nowimg}"><br>
 		<span class="membercontent">
-		<b>아이디 : ${id}</b><br>
-		<b>이 름 : ${name}</b><br>
-		<b>포인트 :${point}</b><br>
+		<b>아이디 :${NowUser}</b><br>	
+		<b>이 름 : ${Nowname}</b><br>
+		<b>포인트 :${Nowpoint}</b><br>
 		</span>
 		<a href="" id="a_member">회원관리</a>
 		<a href="" id="a_rev" >예약관리</a><br><br><br>
@@ -60,13 +60,13 @@
 	<c:if test="${NowUser!='admin'}">
 	 	<img id = "loginlogo" src="./resources/img/login_logo.png"><br>
 		<button type="button" class="close">&times;</button>
-		<img src="./resources/img/member/${img}"><br>
+		<img width="100px" height="100px" src="./resources/img/member/${Nowimg}"><br>
 		<span class="membercontent">
-		<b>아이디 : ${id}</b><br>
-		<b>이 름 : ${name}</b><br>
-		<b>포인트 :${point}</b><br>
+		<b>아이디 : ${NowUser}</b><br>	
+		<b>이 름 : ${Nowname}</b><br>
+		<b>포인트 :${Nowpoint}</b><br>
 		</span>
-		<a href="#" id="m_detail" >회원정보</a>
+		<a href="member.do" id="m_detail" >회원정보</a>
 		<a href="#" id="m_like" >찜한영화</a><br><br><br>
 		<a href="#" id="m_rev" >예약확인</a>
 		<a href="logout.do" id="m_logout">로그아웃</a>

@@ -2,8 +2,10 @@ package com.gaon.cinema.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 	@Autowired
 	private LoginDAO dao;
+	@Autowired
+	private ServletContext application;
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@RequestMapping("/login.do")
@@ -32,7 +36,14 @@ public class LoginController {
 			String pw = request.getParameter("loginPW");
 			int count = dao.loginSerch(id, pw);
 			if(count == 2){
-				session.setAttribute("NowUser", id); 
+				LoginDTO dto = dao.Select(id,pw);
+				String path = application.getContextPath()+"/resources/img/member/";
+				session.setAttribute("NowUser", dto.getUSERID());
+				session.setAttribute("Nowname", dto.getNAME());
+				session.setAttribute("Nowpoint", dto.getPoint());
+				session.setAttribute("Nowimg", dto.getImg_file());
+				System.out.println(dto.getImg_file());
+				session.setAttribute("Nowpath", path);
 				out.print("{\"check\": \""+ count + "\"}");
 			}else{
 				mav.addObject("check", count);
