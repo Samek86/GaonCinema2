@@ -21,7 +21,7 @@
 	 			</c:if> 
 	 		</td>
 	 	</tr>
-	 	<tr bgcolor=pink  height=55>
+	 	<tr bgcolor=green  height=55>
 	 		 <td>글번호</td> <td>글쓴이</td> <td>제목</td>   
 	  		 <td>내용 <td>작성일</td> <td>조회수</td>
 	 	</tr>
