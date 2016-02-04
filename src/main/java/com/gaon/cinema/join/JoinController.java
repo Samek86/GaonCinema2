@@ -83,16 +83,17 @@ public class JoinController {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
-		logger.info("search.do");
-		String id = request.getParameter("loginID");
-		int count = dao.idSearch(id);
-		if(count == 1){
-			out.print("{\"check\": \""+ count + "\"}");
-		}else{
-			mav.addObject("check", count);
-			out.print("{\"check\": \""+ count + "\"}");
-		}
+			logger.info("search.do");
+			String id = request.getParameter("loginID");
+			int count = dao.idSearch(id);
+			if(count == 1){
+				out.print("{\"check\": \""+ count + "\"}");
+			}else{
+				mav.addObject("check", count);
+				out.print("{\"check\": \""+ count + "\"}");
+			}
 		} catch (IOException e) {e.printStackTrace();}
 		return;
 	}
+	
 }

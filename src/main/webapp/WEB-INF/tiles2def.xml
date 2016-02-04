@@ -46,6 +46,5 @@
 
 	<!-- join -->
 	<definition name="join" template="/WEB-INF/views/join/join.jsp"/>
-
 	
 </tiles-definitions>

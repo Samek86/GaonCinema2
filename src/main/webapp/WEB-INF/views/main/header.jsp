@@ -66,7 +66,7 @@
 		<b>이 름 : ${name}</b><br>
 		<b>포인트 :${point}</b><br>
 		</span>
-		<a href="#" id="m_detail" >회원정보</a>
+		<a href="member.do?nowuser=${NowUser}" id="m_detail" >회원정보</a>
 		<a href="#" id="m_like" >찜한영화</a><br><br><br>
 		<a href="#" id="m_rev" >예약확인</a>
 		<a href="logout.do" id="m_logout">로그아웃</a>
