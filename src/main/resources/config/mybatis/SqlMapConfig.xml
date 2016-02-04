@@ -6,5 +6,7 @@
 		<mapper resource="config/mybatis/login.xml"/>
 		<mapper resource="config/mybatis/join.xml"/>
 		<mapper resource="config/mybatis/qna.xml"/>
+		<mapper resource="config/mybatis/theater.xml"/>
 	</mappers>
+	
 </configuration>
