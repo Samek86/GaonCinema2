@@ -18,7 +18,7 @@
 	<link href="./resources/css/header.css" rel="stylesheet">
 	<link href="./resources/css/main.css" rel="stylesheet">
 	<link href="./resources/css/footer.css" rel="stylesheet">
-	<link rel="stylesheet" href="/resources/css/magnific-popup.css">
+	<link rel="stylesheet" href="./resources/css/magnific-popup.css">
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="./resources/js/bootstrap.js"></script>
