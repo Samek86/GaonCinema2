@@ -1,7 +1,10 @@
 package com.gaon.cinema.login;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -20,34 +23,31 @@ public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@RequestMapping("/login.do")
-	public ModelAndView login(HttpServletResponse response,HttpServletRequest request){
+	public void login(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException{
 		ModelAndView mav = new ModelAndView();
-		logger.info("login.do Start");
-		/////////////////
+		HttpSession session = request.getSession();
 		try {
-			StringBuilder sb = new StringBuilder(); 
-			response.setCharacterEncoding("EUC-KR");
-			response.setContentType("text/xml;charset=EUC-KR");
-			PrintWriter out = response.getWriter();
+		PrintWriter out = response.getWriter();
 			String id = request.getParameter("loginID");
 			String pw = request.getParameter("loginPW");
-			System.out.println(id+ " " + pw);
 			int count = dao.loginSerch(id, pw);
-			System.out.println("LoginController count : " + count);
-			if(count == 1){
-				HttpSession session = request.getSession();
+			if(count == 2){
 				session.setAttribute("NowUser", id); 
-				System.out.println(session.getAttribute("NowUser"));
-			}else {
-				out.print("<script>");
-				out.print("alert('아이디와 비밀번호를 확인해주세요')");
-				out.print("</script>");
-			}//else end
-			out.print(sb.toString());
-			System.out.println(sb);
-			}catch(Exception ex){	ex.printStackTrace();	}
-			/////////////////
-			return mav;
+				out.print("{\"check\": \""+ count + "\"}");
+			}else{
+				mav.addObject("check", count);
+				out.print("{\"check\": \""+ count + "\"}");
+			}
+		}catch(Exception ex){	ex.printStackTrace();	}
+	}
+	
+	@RequestMapping("/logout.do")	
+	public ModelAndView logout(HttpServletResponse response,HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		session.invalidate();
+		mav.setViewName("redirect:/main.do");
+		return mav;
 	}
 	
 }

@@ -32,8 +32,8 @@ rgba(11, 13, 12, 0.5);
 	background-color: #017467;
 	width: 100%;
 	position: absolute;
-	height: 87px;
-	
+	height: 77px;
+	transition : all 0.3s;
 }
 
 #header .header-wrap{
@@ -48,7 +48,7 @@ rgba(11, 13, 12, 0.5);
 	background-color: #017467;
 	position: absolute;
 	left : 180px;
-	width : 900px;
+	width : 1000px;
 }
 	
 #header .logo {
@@ -62,11 +62,11 @@ rgba(11, 13, 12, 0.5);
 }
 #header .logo img{
 	width: 150px;
+	transition : all 0.3s;
 }
 	
 #header .nav > li {
 	display : inline-block;
-	margin: 0 6px;
 }
 #header .container {
 	
@@ -77,12 +77,13 @@ rgba(11, 13, 12, 0.5);
 	color : #D6BA8A;
 	font-size: 18px;
     font-weight: bold;
-    padding: 28px 19px;
+    padding: 23px 23px;
     border-bottom: solid;
     border-top: solid;
     border-color: #017467;
     transition : all 0.3s;
 }
+
 #header .nav > li > a:hover {
 	background-color: #005E57;
     border-bottom: solid;
@@ -92,6 +93,7 @@ rgba(11, 13, 12, 0.5);
 
 #header #loginbt {
 	display : inline-block;
+	outline: none;
 	margin-left : 50px;
 	padding: 10px 33px;
 	border: solid;
@@ -107,16 +109,127 @@ rgba(11, 13, 12, 0.5);
 	background-color: #E08F23;
 	color : #fff;
 }
+#header #loginlogo {
+	width: 60%;
+    margin: 40px 20% 20px 20%;
+}
 
 #header .login {
 	display: none;
 	background-color : #fff;
 	position: absolute;
-	right : -22px;
-	top : 69px;
-	width: 370px;
+	/*right : -22px;*/
+	right : 9px;
+	top : 64px;
+	width: 430px;
 	height: 280px;
-	 -webkit-box-shadow: 5 5 5 #000;
-	 -moz-box-shadow: 5 5 5 #000;
-	 box-shadow: 5 5 5 #000;
+	 -webkit-box-shadow: 8px 8px 20px #444;
+	 -moz-box-shadow: 8px 8px 20px #444;
+	 box-shadow: 8px 8px 20px #444;
+	 border-radius : 3px;
 }
+
+#header .close{
+    font-size: 33px;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    outline: none;
+}
+
+#header #loginID, #header #loginPW {
+	height: 30px;
+    margin-left: 62px;
+    background-color: #e3e3e3;
+    border-style: solid;
+    border-color: #bbb;
+    border-width: 1px;
+    padding-left: 10px;
+    font-size: 16px;
+    color : #555;
+    width: 222px;
+    font-family : san-serif;
+    font-weight : bold;
+    margin-bottom: 10px;
+    outline: none;
+}
+#header #loginID:hover, #header #loginPW:hover {
+	border-color: #017467;
+}
+#header #loginbtn {
+	width: 75px;
+    height: 70px;
+    position: absolute;
+    top: 97px;
+    right: 61px;
+    background-color: #017467;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+#header #loginbtn:hover {
+	background-color: #015f53;
+}
+
+#header #idpwFind {
+	width: 109px;
+    height: 38px;
+    margin: 11px 4px 0 98px;
+    background-color: transparent;
+    border-color: #E08F23;
+    border-style: solid;
+    color: #E08F23;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+}
+
+#header #joinbt {
+	width: 109px;
+    height: 38px;
+    margin: 11px 10px 0 11px;
+    background-color: transparent;
+    border-color: #E08F23;
+    border-style: solid;
+    color: #E08F23;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+}
+
+#header #idpwFind:hover, #header #joinbt:hover {
+ background-color: #E08F23;
+ color: #fff;
+ 
+ }
+ 
+ 
+  #small-dialog {
+        background: white;
+        padding: 10px 0px 30px;
+        text-align: center;
+        max-width: 400px;
+        margin: 40px auto;
+        position: relative;
+        font-size: 20px;
+        border-radius : 15px;
+      }
+  #small-dialog #dialogTop{
+	  	border-bottom: 1px;
+	    border-bottom-style: solid;
+	    border-bottom-color: #aaa;
+	    padding-bottom: 8px;
+	    font-size: 23px;
+	    font-weight: bold;
+  }
+  #small-dialog .dialogbtn{
+  	margin-top: 23px;
+    padding: 5px 36px;
+    background-color: #017467;
+    border-style: solid;
+    border-color: #017467;
+    color: #fff;
+    font-size: 19px;
+    font-weight: bold;
+  }
