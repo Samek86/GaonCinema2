@@ -1,10 +1,10 @@
-package com.gaon.cinema.join;
+package com.gaon.cinema.member;
 
 import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class JoinDTO {
+public class MemberDTO {
 	private int member_id;
 	private String userid;
 	private String userpw;
@@ -17,9 +17,7 @@ public class JoinDTO {
 	private String address2;
 	private String gender;
 	private String img_file;
-	private MultipartFile upload;
 	private int point;
-	
 	
 	public int getPoint() {
 		return point;
@@ -27,6 +25,8 @@ public class JoinDTO {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+	private MultipartFile upload;
+	
 	public MultipartFile getUpload() {
 		return upload;
 	}

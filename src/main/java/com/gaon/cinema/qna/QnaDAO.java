@@ -22,7 +22,7 @@ public class QnaDAO {
 	/*public QnaDTO dbDetail(int data ){
 		QnaDTO dto=temp.selectOne("detail", data);
 		return dto;
-		}//end
+		}//end 수정하기 전에 잘못된파일
 */	
 	public QnaDTO dbDetail(int qna_id) {
 		QnaDTO detail = temp.selectOne("qna.detail", qna_id);
@@ -30,20 +30,20 @@ public class QnaDAO {
 	}//end
 	
 	
-	public void dbDelete(int data){
-	  temp.delete("del", data);
-	}//end
-	
-	public int dbCount( ){
-	  int total=316;
-	  return total;
+	public void dbDelete(QnaDTO dto){
+	  temp.delete("qna.delete", dto);
 	}//end
 	
 	public void  dbEdit(QnaDTO dto){
-		temp.update("edit", dto);
-		 System.out.println("dao단에서 수정성공" );
-	  //진짜 수정	
+		temp.update("qna.edit", dto);
 	}//end
+	
+	/*public int dbCount( ){
+	  int total=316;
+	  return total;
+	}//end
+	*/
+
 
 	
 	

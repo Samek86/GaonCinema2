@@ -28,7 +28,8 @@
 			<tr>
 				<td colspan="6" align="center">
 					<input type="button" value="수정" onclick="location.href='qnaPreEdit.do?qna_id=${bean.qna_id}'">
-					<input type="reset" value="취소" >
+					<input type="button" value="삭제" onclick="location.href='qnaDelete.do?qna_id=${bean.qna_id}'">
+					<!-- <input type="reset" value="취소" >  여기서부터수정-->
 				</td>
 			</tr>
 		</table>

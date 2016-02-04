@@ -24,7 +24,7 @@ public class QnaController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(QnaController.class);
 	
-	@RequestMapping(value = "/qna.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/qnaList.do", method = RequestMethod.GET)
 	public ModelAndView qnaList() {
 		ModelAndView mav = new ModelAndView();
 	  	List<QnaDTO> list = dao.dbSelect();
@@ -47,28 +47,28 @@ public class QnaController {
 	@RequestMapping(value = "/qnaPreEdit.do", method = RequestMethod.GET)
 	public ModelAndView qnaPreEdit(@RequestParam int qna_id) {
 		ModelAndView mav = new ModelAndView();
+		QnaDTO dto = dao.dbDetail(qna_id);
+		mav.addObject("bean", dto);
 		mav.addObject("page", "qnaEdit");
 		mav.setViewName("mainLayout");
 		return mav;
 	}
 	
-	@RequestMapping(value = "/qnaEdit.do", method = RequestMethod.POST)
-	public ModelAndView qnaEdit() {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("page", "qnaList");
-		mav.setViewName("mainLayout");
+	@RequestMapping(value = "/qnaEdit.do", method = RequestMethod.GET)
+	public ModelAndView qnaEdit(QnaDTO dto) {
+		ModelAndView mav = new ModelAndView();	
+		dao.dbEdit(dto);
+		mav.setViewName("redirect:/qnaList.do");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/qnaDelete.do", method = RequestMethod.GET)
-	public ModelAndView qnaDelete() {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("page", "qnaList");
-		mav.setViewName("mainLayout");
+	public ModelAndView qnaDelete(QnaDTO dto) {
+		ModelAndView mav = new ModelAndView();	
+		dao.dbDelete(dto);
+		mav.setViewName("redirect:/qnaList.do");
 		return mav;
 	}
-	
-	
 	
 	/*@RequestMapping("/edit.do")
 	public ModelAndView board_edit(QnaDTO dto){

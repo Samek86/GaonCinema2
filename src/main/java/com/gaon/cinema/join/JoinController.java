@@ -57,22 +57,21 @@ public class JoinController {
 		java.sql.Date date = new java.sql.Date(tempDate.getTime());
 		dto.setBirth(date);
 		
-		String path = application.getRealPath("/resources/upload");
+		String path = application.getRealPath("/resources/img/member/");
 		String img = dto.getUpload().getOriginalFilename();
 		File file = new File(path,img);
 		dto.getUpload().transferTo(file);
 		dto.setImg_file(img);
-		
 		ok=dao.dbjoin(dto);
 		if(ok==1){
 			session.setAttribute("ok","회원가입 축하드립니다."+ "<br>" +"2000포인트 지급되었습니다.");
+			System.out.println(path);
 			mav.setViewName("redirect:/main.do");
 			return mav;
 		}
 		
 		} catch (Exception e) {e.printStackTrace();	}
-		mav.addObject("page","main");
-		mav.setViewName("mainLayout");
+		mav.setViewName("redirect:/main.do");
 		return mav;
 		
 	}
@@ -83,16 +82,17 @@ public class JoinController {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
-		logger.info("search.do");
-		String id = request.getParameter("loginID");
-		int count = dao.idSearch(id);
-		if(count == 1){
-			out.print("{\"check\": \""+ count + "\"}");
-		}else{
-			mav.addObject("check", count);
-			out.print("{\"check\": \""+ count + "\"}");
-		}
+			logger.info("search.do");
+			String id = request.getParameter("loginID");
+			int count = dao.idSearch(id);
+			if(count == 1){
+				out.print("{\"check\": \""+ count + "\"}");
+			}else{
+				mav.addObject("check", count);
+				out.print("{\"check\": \""+ count + "\"}");
+			}
 		} catch (IOException e) {e.printStackTrace();}
 		return;
 	}
+	
 }
