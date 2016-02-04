@@ -37,6 +37,7 @@
 		if(id!=null){
 		%>		
   	<li><a href='?id=<%=id %>'onClick=''>회원정보</a></li>
+  	<li><a href='logout.do' class='logintext'>Logout</a></li>  
   	<%
 		}}}
 	%>
