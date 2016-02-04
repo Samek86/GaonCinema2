@@ -12,10 +12,17 @@ public class JoinDAO {
 	private SqlSessionTemplate temp;
 	private static Logger logger = LoggerFactory.getLogger(JoinDAO.class);
 	
-	public void dbjoin(){
-		JoinDTO dto = new JoinDTO();
-		logger.info("회원가입 in");
-		temp.insert("add",dto);
-		logger.info("회원가입 out");
+	public int dbjoin(JoinDTO dto){
+		int ok;
+		ok=temp.insert("join.add",dto);
+		
+		return ok;
+	}
+
+	public int idSearch(String id) {
+		int count;
+		count = temp.selectOne("join.search",id);
+		logger.info("count="+count);
+		return count;
 	}
 }

@@ -2,6 +2,8 @@ package com.gaon.cinema.join;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class JoinDTO {
 	private int member_id;
 	private String userid;
@@ -14,6 +16,21 @@ public class JoinDTO {
 	private String address1;
 	private String address2;
 	private String gender;
+	private String img_file;
+	private MultipartFile upload;
+	
+	public MultipartFile getUpload() {
+		return upload;
+	}
+	public void setUpload(MultipartFile upload) {
+		this.upload = upload;
+	}
+	public String getImg_file() {
+		return img_file;
+	}
+	public void setImg_file(String img_file) {
+		this.img_file = img_file;
+	}
 	public String getGender() {
 		return gender;
 	}
