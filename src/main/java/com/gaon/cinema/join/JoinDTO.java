@@ -18,7 +18,15 @@ public class JoinDTO {
 	private String gender;
 	private String img_file;
 	private MultipartFile upload;
+	private int point;
 	
+	
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
+	}
 	public MultipartFile getUpload() {
 		return upload;
 	}

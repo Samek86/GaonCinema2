@@ -17,6 +17,14 @@ public class MemberDTO {
 	private String address2;
 	private String gender;
 	private String img_file;
+	private int point;
+	
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
+	}
 	private MultipartFile upload;
 	
 	public MultipartFile getUpload() {
