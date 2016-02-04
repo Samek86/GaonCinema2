@@ -1,5 +1,7 @@
 package com.gaon.cinema.member;
 
+import java.text.SimpleDateFormat;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -25,10 +27,31 @@ public class MemberController {
 		dto.setUserid(id);
 		dto=dao.dbmember(dto);
 		
+		String year = new SimpleDateFormat("yyyy").format(dto.getBirth());
+		String month = new SimpleDateFormat("MM").format(dto.getBirth());
+		String day = new SimpleDateFormat("dd").format(dto.getBirth());
 		
+		mav.addObject("year", year);
+		mav.addObject("month", month);
+		mav.addObject("day", day);
 		mav.addObject("member", dto);
 		mav.addObject("page", "member");
 		mav.setViewName("mainLayout");
+		return mav;
+	}
+	@RequestMapping("/memberDelete.do")
+	public ModelAndView memberDelete(HttpServletRequest request, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		String id = (String)session.getAttribute("NowUser");
+		MemberDTO dto = new MemberDTO();
+		dto.setUserid(id);
+		int ok = dao.dbDelete(dto);
+		if(ok == 1){
+			session.setAttribute("ok","이용해주셔서 감사합니다.");
+			mav.setViewName("redirect:/main.do");
+			return mav;
+		}
+		mav.setViewName("redirect:/main.do");
 		return mav;
 	}
 }

@@ -71,8 +71,7 @@ public class JoinController {
 		}
 		
 		} catch (Exception e) {e.printStackTrace();	}
-		mav.addObject("page","main");
-		mav.setViewName("mainLayout");
+		mav.setViewName("redirect:/main.do");
 		return mav;
 		
 	}
