@@ -19,16 +19,10 @@ public class QnaDAO {
 	  return list;
 	}//end
 	
-	/*public QnaDTO dbDetail(int data ){
-		QnaDTO dto=temp.selectOne("detail", data);
-		return dto;
-		}//end 수정하기 전에 잘못된파일
-*/	
 	public QnaDTO dbDetail(int qna_id) {
 		QnaDTO detail = temp.selectOne("qna.detail", qna_id);
 		return detail;
 	}//end
-	
 	
 	public void dbDelete(QnaDTO dto){
 	  temp.delete("qna.delete", dto);
@@ -44,12 +38,6 @@ public class QnaDAO {
 	}//end
 	*/
 
-
-	
-	
-	
-	
-	
 }//QnaDAO class END
 	
 

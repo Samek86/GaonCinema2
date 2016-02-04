@@ -24,6 +24,7 @@ public class QnaController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(QnaController.class);
 	
+	//리스트
 	@RequestMapping(value = "/qnaList.do", method = RequestMethod.GET)
 	public ModelAndView qnaList() {
 		ModelAndView mav = new ModelAndView();
@@ -34,6 +35,7 @@ public class QnaController {
 		return mav;
 	}//end
 	
+	//한건상세
 	@RequestMapping(value="/qnaDetail.do")
 	public ModelAndView qnadetail(@RequestParam int qna_id) {	
 		ModelAndView mav = new ModelAndView();
@@ -44,6 +46,7 @@ public class QnaController {
 		return mav;
 	}//end
 	
+	//수정(가짜)
 	@RequestMapping(value = "/qnaPreEdit.do", method = RequestMethod.GET)
 	public ModelAndView qnaPreEdit(@RequestParam int qna_id) {
 		ModelAndView mav = new ModelAndView();
@@ -54,6 +57,7 @@ public class QnaController {
 		return mav;
 	}
 	
+	//수정(진짜)
 	@RequestMapping(value = "/qnaEdit.do", method = RequestMethod.GET)
 	public ModelAndView qnaEdit(QnaDTO dto) {
 		ModelAndView mav = new ModelAndView();	
@@ -62,6 +66,7 @@ public class QnaController {
 		return mav;
 	}
 	
+	//삭제
 	@RequestMapping(value = "/qnaDelete.do", method = RequestMethod.GET)
 	public ModelAndView qnaDelete(QnaDTO dto) {
 		ModelAndView mav = new ModelAndView();	
