@@ -39,4 +39,27 @@ public class MemberController {
 		mav.setViewName("mainLayout");
 		return mav;
 	}
+	
+	@RequestMapping("/memberPreEdit.do")
+	public ModelAndView preedit(HttpServletRequest request, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		String id = (String)session.getAttribute("NowUser");
+		MemberDTO dto = new MemberDTO();
+		dto.setUserid(id);
+		dto=dao.dbmember(dto);
+		
+		String year = new SimpleDateFormat("yyyy").format(dto.getBirth());
+		String month = new SimpleDateFormat("MM").format(dto.getBirth());
+		String day = new SimpleDateFormat("dd").format(dto.getBirth());
+		
+		mav.addObject("year", year);
+		mav.addObject("month", month);
+		mav.addObject("day", day);
+		mav.addObject("member", dto);
+		mav.addObject("page", "memberPreEdit");
+		mav.setViewName("mainLayout");
+		return mav;
+	}
+	
+	
 }

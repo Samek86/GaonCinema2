@@ -22,6 +22,7 @@
 	
 	<!-- member -->
 	<definition name="member" template="/WEB-INF/views/member/member.jsp"/>
+	<definition name="memberPreEdit" template="/WEB-INF/views/member/memberEdit.jsp"/>
 	
 	<!-- movie -->
 	<definition name="movie" template="/WEB-INF/views/movie/movie.jsp"/>
