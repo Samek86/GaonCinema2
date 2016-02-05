@@ -17,27 +17,44 @@ rgba(11, 13, 12, 0.5);
 
 */
 
-#theater {
+/* adminMemberList.jsp 부분 */
+#adminMemberList {
+	text-aling: center;
+}
+
+/* adminReservationList.jsp 부분 */
+#adminReservationList {
+	text-aling: center;
+}
+
+/* adminMovieList.jsp 부분 */
+#adminMovieList {
 	text-align: center;
 }
 
-#theater .main_menu {
+#adminMovieList > table {
+	display: inline-block;
+}
+
+
+/* 아래쪽은 참고용 */
+#adminMovieList .main_menu {
 	width: 800px; height: 77px;
 	background-color: red;
 	text-align: center;
 	display: inline-block;
 }
 
-#theater .main_menu > ul {
+#adminMovieList .main_menu > ul {
 	margin: 0; padding: 0;
 }
 
-#theater .main_menu > ul > li {
+#adminMovieList .main_menu > ul > li {
 	text-align: center;
 	display: inline-flex;
 }
 
-#theater .main_menu > ul > li > a {
+#adminMovieList .main_menu > ul > li > a {
 	text-decoration: none;
 	cursor: pointer;
 	color : #D6BA8A;
@@ -50,29 +67,29 @@ rgba(11, 13, 12, 0.5);
 	transition : all 0.3s;
 }
 
-#theater .main_menu > ul > li > a:hover {
+#adminMovieList .main_menu > ul > li > a:hover {
 	background-color: #005E57;
 	border-bottom: solid;
 	border-top: solid;
 	border-color: #E08F23;
 }
 
-#theater .sub_menu {
+#adminMovieList .sub_menu {
 	width: 800px; height: 77px;
 	background-color: green;
 	text-align: center;
 	display: inline-block;
 }
 
-#theater .sub_menu > ul {
+#adminMovieList .sub_menu > ul {
 	margin: 0; padding: 0;
 }
 
-#theater .sub_menu > ul > li {
+#adminMovieList .sub_menu > ul > li {
 	display: inline-flex;
 }
 
-#theater .sub_menu > ul > li > a {
+#adminMovieList .sub_menu > ul > li > a {
 	text-decoration: none;
 	cursor: pointer;
 	color : #D6BA8A;
@@ -85,14 +102,14 @@ rgba(11, 13, 12, 0.5);
 	transition : all 0.3s;
 }
 
-#theater .sub_menu > ul > li > a:hover {
+#adminMovieList .sub_menu > ul > li > a:hover {
 	background-color: #005E57;
 	border-bottom: solid;
 	border-top: solid;
 	border-color: #E08F23;
 }
 
-#theater .list {
+#adminMovieList .list {
 	width: 800px;
 	display: inline-block;
 	background-color: blue;

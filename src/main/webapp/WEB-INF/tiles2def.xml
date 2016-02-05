@@ -13,6 +13,10 @@
 	
 	<!-- admin -->
 	<definition name="admin" template="/WEB-INF/views/admin/admin.jsp"/>
+	<definition name="adminMemberList" template="/WEB-INF/views/admin/adminMemberList.jsp"/>
+	<definition name="adminMovieList" template="/WEB-INF/views/admin/adminMovieList.jsp"/>
+	<definition name="adminMovieInsert" template="/WEB-INF/views/admin/adminMovieInsert.jsp"/>
+	<definition name="adminReservationList" template="/WEB-INF/views/admin/adminReservationList.jsp"/>
 	
 	<!-- board -->
 	<definition name="board" template="/WEB-INF/views/board/board.jsp"/>
