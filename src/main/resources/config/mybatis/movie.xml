@@ -6,14 +6,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="nowmovie" resultType="com.gaon.cinema.movie.MovieDTO" parameterType="String" >
 	  select * from gc_movie 
-      	where (STARTDATE <![CDATA[<=]]> to_date(#{today}) ) and (ENDDATE <![CDATA[ >=]]> to_date(#{today}))
+      	where (STARTDATE <![CDATA[<=]]> to_date(#{today})) and (ENDDATE <![CDATA[ >=]]> to_date(#{today}))
       	order by AVG desc
 	</select>
 	
-	<select id="nextmovie" resultType="com.gaon.cinema.movie.MovieDTO">
+	<select id="nextmovie" resultType="com.gaon.cinema.movie.MovieDTO" parameterType="String" >
 		select ROUND(AVG, 2) AVG from gc_movie 
       	where STARTDATE <![CDATA[ >=]]> to_date(#{today})
-      	order by AVG desc;
+      	order by AVG desc
 	</select>
 	
 	
