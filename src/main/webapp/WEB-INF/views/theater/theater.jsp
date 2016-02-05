@@ -33,7 +33,7 @@
 				var list = "<ul>";
 				for(i = 0; i < data.list.length; i++) {
 					lname = data.list[i].lname;
-					list = list + "<li><a href='#' onclick=showTheater(" + null + ",'" + lname + "'" +")>" + lname + "</a></li>";
+					list = list + "<li><a onclick=showTheater(" + null + ",'" + lname + "'" +")>" + lname + "</a></li>";
 				}
 				list = list + "</ul>";
 				$('.sub_menu').html(list);
@@ -145,18 +145,14 @@
 <div id="theater">
 	<h1>&nbsp;</h1>
 	<h1>&nbsp;</h1>
-	
 	<div class="main_menu">
 		<ul>
-			<li><a href="#" onclick="showTheater('전체', null)">전체</a></li>
+			<li><a onclick="showTheater('전체', null)">전체</a></li>
 			<c:forEach var="cname" items="${cnameList}">
-				<li><a href="#" onclick="showTheater('${cname}', null)">${cname}</a></li>
+				<li><a onclick="showTheater('${cname}', null)">${cname}</a></li>
 			</c:forEach>
 		</ul>
 	</div>
 	<div class="sub_menu"></div>
-	<a href="#" onclick=""></a>
-	<div class="list">
-		
-	</div>
+	<div class="list"></div>
 </div>
