@@ -31,7 +31,7 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		try {
-		PrintWriter out = response.getWriter();
+			PrintWriter out = response.getWriter();
 			String id = request.getParameter("loginID");
 			String pw = request.getParameter("loginPW");
 			int count = dao.loginSerch(id, pw);

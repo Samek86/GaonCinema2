@@ -68,6 +68,7 @@ public class MemberController {
 	@RequestMapping("/memberEdit.do")
 	public ModelAndView memberEdit(MemberDTO dto,HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
 		try{
 		String path=application.getRealPath("resources/upload");
 		String img=dto.getUpload().getOriginalFilename();
@@ -94,6 +95,11 @@ public class MemberController {
 		year = new SimpleDateFormat("yyyy").format(dto.getBirth());
 		month = new SimpleDateFormat("MM").format(dto.getBirth());
 		day = new SimpleDateFormat("dd").format(dto.getBirth());
+		
+		session.setAttribute("NowUser", dto.getUserid());
+		session.setAttribute("Nowname", dto.getName());
+		session.setAttribute("Nowpoint", dto.getPoint());
+		session.setAttribute("Nowimg", dto.getImg_file());
 		
 		mav.addObject("year", year);
 		mav.addObject("month", month);
