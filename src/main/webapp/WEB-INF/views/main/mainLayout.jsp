@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <% session.getAttribute("NowUser");  %>
+<% session.getAttribute("Nowname");  %>
+<% session.getAttribute("Nowpoint");  %>
+<% session.getAttribute("Nowimg");  %>
+<% session.getAttribute("Nowpath");  %>
 <html>
 <head> 
 	<title>가온시네마</title>
@@ -27,6 +31,10 @@
 	<script src="./resources/js/fotorama.js"></script>
 	<script src="./resources/js/jquery.datePicker.js"></script>
 	<script src="./resources/js/jquery.magnific-popup.js"></script>
+	
+	
+	<link href="./resources/css/movie.css" rel="stylesheet">
+	<script src="./resources/js/movie.js"></script>
 	
 </head>
 <body>

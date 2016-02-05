@@ -14,10 +14,12 @@ public class LoginDAO {
 	private SqlSessionTemplate sst;
 	private static final Logger logger = LoggerFactory.getLogger(LoginDAO.class);
 	
-	public List<LoginDTO> dbSelect(String id, String pw){
+	public LoginDTO Select(String id, String pw){
 		LoginDTO dto = new LoginDTO();
-		List<LoginDTO> list= sst.selectList("login.select",dto);
-		return list;
+		dto.setUSERID(id);
+		dto.setUSERPW(pw);
+		dto = sst.selectOne("login.select",dto);
+		return dto;
 	}//end
 
 

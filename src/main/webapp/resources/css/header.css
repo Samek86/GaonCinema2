@@ -91,7 +91,7 @@ rgba(11, 13, 12, 0.5);
     border-color: #E08F23;
 }
 
-#header #loginbt {
+#header #loginbt, #header #memberbt {
 	display : inline-block;
 	outline: none;
 	margin-left : 50px;
@@ -105,7 +105,7 @@ rgba(11, 13, 12, 0.5);
     transition : all 0.3s;
 }
 
-#header #loginbt:hover {
+#header #loginbt:hover, #header #memberbt:hover {
 	background-color: #E08F23;
 	color : #fff;
 }
@@ -114,7 +114,7 @@ rgba(11, 13, 12, 0.5);
     margin: 40px 20% 20px 20%;
 }
 
-#header .login {
+#header .login, #header .member{
 	display: none;
 	background-color : #fff;
 	position: absolute;
@@ -129,7 +129,8 @@ rgba(11, 13, 12, 0.5);
 	 border-radius : 3px;
 }
 
-#header .close{
+
+#header .close {
     font-size: 33px;
     position: absolute;
     right: 10px;
@@ -153,9 +154,11 @@ rgba(11, 13, 12, 0.5);
     margin-bottom: 10px;
     outline: none;
 }
+
 #header #loginID:hover, #header #loginPW:hover {
 	border-color: #017467;
 }
+
 #header #loginbtn {
 	width: 75px;
     height: 70px;
@@ -203,6 +206,103 @@ rgba(11, 13, 12, 0.5);
  color: #fff;
  
  }
+ 
+ /*============= member ===================*/
+ 
+ #header .member{
+	height : 350px;
+}
+ 
+ #header #a_member, #header #m_detail {
+	width: 109px;
+    height: 38px;
+    margin: 11px 4px 0 98px;
+    background-color: transparent;
+    border-color: #017467;;
+    border-style: solid;
+    color: #017467;;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    padding: 11px 24px;
+}
+
+ #header #a_member:hover, #header #m_detail:hover {
+ 	background-color: #017467;
+	color: #fff;
+	text-decoration: none;
+}
+
+#header #a_rev, #header #m_like {
+	width: 109px;
+    height: 38px;
+    margin: 11px 4px 0 11px;
+    background-color: transparent;
+    border-color: #017467;
+    border-style: solid;
+    color: #017467;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    padding: 11px 24px;
+}
+
+#header #a_rev:hover, #header #m_like:hover{
+	background-color: #017467;
+	color: #fff;
+	text-decoration: none;
+}
+
+#header #a_movie, #header #m_rev{
+	width: 109px;
+    height: 38px;
+    margin: 11px 4px 0 98px;
+    background-color: transparent;
+    border-color: #C71B1B;
+    border-style: solid;
+    color: #C71B1B;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    padding: 11px 24px;
+}
+#header #a_movie:hover, #header #m_rev:hover{
+	background-color: #C71B1B;
+	color: #fff;
+	text-decoration: none;
+}
+
+#header #a_logout, #header #m_logout{
+	width: 109px;
+    height: 38px;
+    margin: 11px 10px 0 11px;
+    background-color: transparent;
+    border-color: #E08F23;
+    border-style: solid;
+    color: #E08F23;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    padding: 11px 24px;
+}
+#header #a_logout:hover, #header #m_logout:hover{
+	background-color: #E08F23;
+	color: #fff;
+	text-decoration: none;
+}
+
+#header .member .membercontent {
+	font-size: 19px;
+    text-align: left;
+    position: relative;
+    left: 205px;
+    top: -28px;
+    color: #017467;
+    
+}
+ 
+  /*================================*/
+ 
  
   #small-dialog {
         background: white;

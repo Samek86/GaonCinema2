@@ -23,4 +23,4 @@ public class QnaDTO {//필드이름
 	public void setWdate(Date wdate) { this.wdate = wdate; }
 	public int getCount() { return count; }
 	public void setCount(int count) { this.count = count; }
-}
+}//QnaDTO class END 

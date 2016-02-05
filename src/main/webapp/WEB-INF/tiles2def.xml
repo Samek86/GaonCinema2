@@ -22,6 +22,7 @@
 	
 	<!-- member -->
 	<definition name="member" template="/WEB-INF/views/member/member.jsp"/>
+	<definition name="memberPreEdit" template="/WEB-INF/views/member/memberEdit.jsp"/>
 	
 	<!-- movie -->
 	<definition name="movie" template="/WEB-INF/views/movie/movie.jsp"/>
@@ -32,6 +33,9 @@
 	<!-- qna -->
 	<definition name="qna" template="/WEB-INF/views/qna/qna.jsp"/>
 	<definition name="qnaList" template="/WEB-INF/views/qna/qnaList.jsp"/>
+	<definition name="qnaDetail" template="/WEB-INF/views/qna/qnaDetail.jsp"/>
+	<definition name="qnaEdit" template="/WEB-INF/views/qna/qnaEdit.jsp"/>
+	<definition name="qnaDelete" template="/WEB-INF/views/qna/qnaDelete.jsp"/>
 	
 	<!-- reservation -->
 	<definition name="reservation" template="/WEB-INF/views/reservation/reservation.jsp"/>
@@ -41,12 +45,10 @@
 	
 	<!-- theater -->
 	<definition name="theater" template="/WEB-INF/views/theater/theater.jsp"/>
+	
 	<definition name="theaterSchedule" template="/WEB-INF/views/theater/theaterSchedule.jsp"/>
 
 	<!-- join -->
 	<definition name="join" template="/WEB-INF/views/join/join.jsp"/>
-	
-	<!-- login -->
-	<definition name="login" template="/WEB-INF/views/login/login.jsp"/>
 	
 </tiles-definitions>

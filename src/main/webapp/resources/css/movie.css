@@ -1,0 +1,54 @@
+
+#movie {
+    margin: 150px 0 150px;
+    width: 100%;
+    height: auto;
+    display: inline-flex;
+}
+
+#movie .movie-wrap{
+	background-color: #ddd;
+	width: 1280px;
+    position: relative;
+    margin: 0 auto;
+	
+}
+
+#movie li.item {
+    display: block;
+    width: 232px;
+    height: 505px;
+    border: 1px solid #a4a4a4;
+    margin: 7px;
+    float: left;
+}
+
+#movie li.item img{
+	width: 100%;
+}
+
+#movie .star-empty {
+	background: url(../img/movie/star_empty.png) no-repeat;
+    background-size: cover;
+    width: 131px;
+    height: 20px;
+    float: left;
+    position: relative;
+    left: 88px;
+    top: 15px;
+}
+
+#movie .star-wrap {
+    width: 80px; /*수치 변화시 줄어듬 13.1*평점 */
+    height: 20px;
+    display: block;
+    overflow: hidden;
+}
+
+#movie .star {
+	background: url(../img/movie/star_fill.png) no-repeat;
+    background-size: 100%;
+    width: 131px;
+    height: 20px;
+    display: block;
+}
