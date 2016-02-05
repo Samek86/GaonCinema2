@@ -13,7 +13,7 @@ import com.gaon.cinema.join.JoinDTO;
 public class MemberDAO {
 	@Autowired
 	private SqlSessionTemplate temp;
-	private static Logger logger = LoggerFactory.getLogger(JoinDAO.class);
+	private static Logger logger = LoggerFactory.getLogger(MemberDAO.class);
 	
 	public MemberDTO dbmember(MemberDTO dto){
 		dto = temp.selectOne("member.member",dto);
@@ -28,5 +28,30 @@ public class MemberDAO {
 		int ok = temp.delete("member.delete", dto);
 		logger.info("ok="+ok);
 		return ok;
+	}
+
+	public int idSerch(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		int count = temp.selectOne("member.searchidCount", dto);
+		logger.info("ok = " + count);
+		return count;
+	}
+
+	public int pwSerch(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		int count = temp.selectOne("member.searchpwCount", dto);
+		logger.info("ok = " + count);
+		return count;
+	}
+
+	public MemberDTO idSelect(MemberDTO dto) {
+		dto = temp.selectOne("member.idSelect", dto);
+		// TODO Auto-generated method stub
+		return dto;
+	}
+	public MemberDTO pwSelect(MemberDTO dto) {
+		dto = temp.selectOne("member.pwSelect", dto);
+		// TODO Auto-generated method stub
+		return dto;
 	}
 }
