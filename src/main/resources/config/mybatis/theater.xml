@@ -14,6 +14,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT DISTINCT LNAME FROM GC_THEATER WHERE CNAME = #{cname} ORDER BY LNAME
 	</select>
 	
+	<!-- 영화관에서 상영하는 영화 정보 가져오기 -->
+	<select id="selectAll" resultType="com.gaon.cinema.theater.TheaterDTO">
+		SELECT * FROM GC_THEATER ORDER BY CNAME, LNAME, TNAME
+	</select>
+	
+	<!-- 도시 영화관에서 상영하는 영화 정보 가져오기 -->
+	<select id="selectAllByCname" resultType="com.gaon.cinema.theater.TheaterDTO" parameterType="String">
+		SELECT * FROM GC_THEATER WHERE CNAME = #{cname} ORDER BY LNAME, TNAME
+	</select>
+	
+	<!-- 지역 영화관에서 상영하는 영화 정보 가져오기 -->
+	<select id="selectAllByLname" resultType="com.gaon.cinema.theater.TheaterDTO" parameterType="String">
+		SELECT * FROM GC_THEATER WHERE LNAME = #{lname} ORDER BY TNAME
+	</select>
+	
 </mapper>
 
 
