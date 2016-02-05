@@ -1,6 +1,7 @@
 package com.gaon.cinema.theater;
 
 public class TheaterDTO {
+	/* GC_THEATER */
 	private int theater_id;
 	private String cname;
 	private String lname;
@@ -11,6 +12,10 @@ public class TheaterDTO {
 	private java.sql.Date mstarthour;
 	private java.sql.Date mendhour;
 	private int price;
+	
+	private int start;
+	private int end;
+	private int pagenum;
 	
 	public int getTheater_id() { return theater_id; }
 	public void setTheater_id(int theater_id) { this.theater_id = theater_id; }
@@ -32,4 +37,11 @@ public class TheaterDTO {
 	public void setMendhour(java.sql.Date mendhour) { this.mendhour = mendhour; }
 	public int getPrice() { return price; }
 	public void setPrice(int price) { this.price = price; }
+	
+	public int getStart() { return start; }
+	public void setStart(int start) { this.start = start; }
+	public int getEnd() { return end; }
+	public void setEnd(int end) { this.end = end; }
+	public int getPagenum() { return pagenum; }
+	public void setPagenum(int pagenum) { this.pagenum = pagenum; }
 }

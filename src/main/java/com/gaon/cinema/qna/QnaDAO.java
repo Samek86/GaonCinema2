@@ -13,43 +13,53 @@ public class QnaDAO {
 	
 	@Autowired
 	private SqlSessionTemplate temp;
-
-	public List<QnaDTO> dbSelect( ){
-		List<QnaDTO> list=temp.selectList("qna.selectAll");
-	  return list;
-	}//end
 	
-	/*public QnaDTO dbDetail(int data ){
-		QnaDTO dto=temp.selectOne("detail", data);
-		return dto;
-		}//end 수정하기 전에 잘못된파일
-*/	
+	/* 검색된 게시글 리스트 출력 */
+	public List<QnaDTO> dbSelect(QnaDTO dto){
+		List<QnaDTO> list=temp.selectList("qna.selectAll", dto);
+		return list;
+	}//dbSelect end
+	
+	/* 선택한 게시글 출력  */
 	public QnaDTO dbDetail(int qna_id) {
 		QnaDTO detail = temp.selectOne("qna.detail", qna_id);
 		return detail;
-	}//end
+	}//dbDetail end
 	
+	/* 모든 페이지 카운터 */
+	public int dbCountAll() {
+		int cnt = temp.selectOne("countAll");
+		return cnt;
+	}//dbcountAll
 	
+	/* 검색 페이지 카운터 */
+	public int dbCountSearch(QnaDTO dto) {
+		int cnt = temp.selectOne("qna.countSearch", dto);
+		return cnt;
+	}
+	
+	/* 데이타 입력 */
+	public void dbInsert(QnaDTO dto) {
+		temp.insert("qna.insert", dto);
+	}
+	
+	/* 선택한 데이터 수정 */
+	public void dbEdit(QnaDTO dto){
+		temp.update("qna.edit", dto);
+	}//dbEdit end
+	
+	/* 선택한 게시글을 누를 경우 조회수 1 증가 */
+	public void dbAddCount(int qna_id) {
+		temp.update("qna.addCount", qna_id);
+	}
+	
+	/* 선택한 데이터 삭제 */
 	public void dbDelete(QnaDTO dto){
 	  temp.delete("qna.delete", dto);
-	}//end
+	}//dbDelete end
 	
-	public void  dbEdit(QnaDTO dto){
-		temp.update("qna.edit", dto);
-	}//end
 	
-	/*public int dbCount( ){
-	  int total=316;
-	  return total;
-	}//end
-	*/
 
-
-	
-	
-	
-	
-	
 }//QnaDAO class END
 	
 

@@ -52,9 +52,9 @@
 		<b>이 름 : ${Nowname}</b><br>
 		<b>포인트 :${Nowpoint}</b><br>
 		</span>
-		<a href="" id="a_member">회원관리</a>
-		<a href="" id="a_rev" >예약관리</a><br><br><br>
-		<a href="" id="a_movie" >영화관리</a>
+		<a href="adminMemberList.do" id="a_member">회원관리</a>
+		<a href="adminReservationList.do" id="a_rev" >예약관리</a><br><br><br>
+		<a href="adminMovieList.do" id="a_movie" >영화관리</a>
 		<a href="logout.do" id="a_logout">로그아웃</a>
 	</c:if>
 	<c:if test="${NowUser!='admin'}">
