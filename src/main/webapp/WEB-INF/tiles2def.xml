@@ -33,8 +33,9 @@
 	<definition name="qna" template="/WEB-INF/views/qna/qna.jsp"/>
 	<definition name="qnaList" template="/WEB-INF/views/qna/qnaList.jsp"/>
 	<definition name="qnaDetail" template="/WEB-INF/views/qna/qnaDetail.jsp"/>
+	<definition name="qnaInsert" template="/WEB-INF/views/qna/qnaInsert.jsp"/>
 	<definition name="qnaEdit" template="/WEB-INF/views/qna/qnaEdit.jsp"/>
-	<definition name="qnaDelete" template="/WEB-INF/views/qna/qnaDelete.jsp"/>
+	
 	
 	<!-- reservation -->
 	<definition name="reservation" template="/WEB-INF/views/reservation/reservation.jsp"/>

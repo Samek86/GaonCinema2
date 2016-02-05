@@ -5,26 +5,29 @@
 
 <html>
 <head>
-<title>[qnaEdit.jsp]</title>
+<title>[qnaInsert.jsp]</title>
   <style type="text/css">
     b,input,td{font-size:16pt;font-family: Comic Sans MS; font-weight:bold;}
 		a{text-decoration:none; font-family:Comic Sans MS; color:blue;}
 	</style>
 </head>
 <body>
-	<form action="qnaEdit.do" method="get">
-		<input name="qna_id" type="hidden" value="${bean.qna_id}">
+	<form action="qnaInsert.do" method="get">
 		<table>
 			<tr>
+				<td>사용자 : </td>
+				<td><input name="userid" type="text"></td>
+			</tr>
+			<tr>
 				<td>제목 : </td>
-				<td><input name="title" type="text" value="${bean.title}"></td>
+				<td><input name="title" type="text"></td>
 			</tr>
 			<tr>
 				<td>내용 : </td>
-				<td><input name="contents" type="text" value="${bean.contents}"></td>
+				<td><input name="contents" type="text"></td>
 			</tr>
 			<tr><td colspan="2" align="center">
-				<input type="submit" value="수정">
+				<input type="submit" value="등록">
 			</td></tr>
 		</table>
 	</form>

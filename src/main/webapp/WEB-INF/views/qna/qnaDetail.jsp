@@ -18,6 +18,7 @@
 		 		<td>글번호</td><td>글쓴이</td><td>제목</td><td>내용</td><td>작성일</td><td>조회수</td>
 		 	</tr>
 			<tr>
+				
 		  	<td>${bean.qna_id}</td>
 		  	<td>${bean.userid}</td>
 		  	<td>${bean.title}</td>
@@ -28,7 +29,7 @@
 			<tr>
 				<td colspan="6" align="center">
 					<input type="button" value="수정" onclick="location.href='qnaPreEdit.do?qna_id=${bean.qna_id}'">
-					<!-- <input type="reset" value="취소" >  여기서부터수정-->
+					<input type="button" value="삭제" onclick="location.href='qnaDelete.do?qna_id=${bean.qna_id}'">  
 				</td>
 			</tr>
 		</table>
