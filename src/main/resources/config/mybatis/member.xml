@@ -8,6 +8,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	resultType="com.gaon.cinema.member.MemberDTO">
 		select * from gc_member where userid = #{userid}
 	</select>
+	
+	<select id="searchidCount" parameterType="com.gaon.cinema.member.MemberDTO" 
+	resultType="int">
+		select count(*) cnt from gc_member where name = #{name} and email = #{email}
+	</select>
+
+	<select id="searchpwCount" parameterType="com.gaon.cinema.member.MemberDTO" 
+	resultType="int">
+		select count(*) cnt from gc_member where name = #{name} and email = #{email} and userid=#{userid}
+	</select>
+
+	<select id="idSelect" parameterType="com.gaon.cinema.member.MemberDTO" 
+	resultType="com.gaon.cinema.member.MemberDTO">
+		select userid from gc_member where name = #{name} and email = #{email}
+	</select>
+
+	<select id="pwSelect" parameterType="com.gaon.cinema.member.MemberDTO" 
+	resultType="com.gaon.cinema.member.MemberDTO">
+		select userpw from gc_member where name = #{name} and email = #{email} and userid=#{userid}
+	</select>
 
 	<delete id="delete" parameterType="com.gaon.cinema.member.MemberDTO">
 		delete from gc_member where userid = #{userid}

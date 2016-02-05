@@ -18,7 +18,14 @@ public class MemberDTO {
 	private String gender;
 	private String img_file;
 	private int point;
+	private int cnt;
 	
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	public int getPoint() {
 		return point;
 	}
