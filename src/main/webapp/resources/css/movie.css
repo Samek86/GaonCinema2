@@ -43,6 +43,7 @@ rgba(11, 13, 12, 0.5);
 
 #movie li.item .poster{
 	width: 100%;
+	height: 329px;
 }
 
 #movie #moviesbt {
@@ -69,7 +70,7 @@ rgba(11, 13, 12, 0.5);
 	 color : #fff;
 }
 
-#movie .movieselect {
+#movie .selected {
 	background-color: #017467;
 	color : #fff;
 }
@@ -89,6 +90,18 @@ rgba(11, 13, 12, 0.5);
     text-shadow: 1px 1px 1px #000;
     
 }
+
+#movie .rank_empty {
+	position: relative;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+    top: -306px;
+    left: 0px;
+    font-size: 27px;
+    padding: 4px 15px;
+}
+
 
 /* ================== ∆Ú¡° ==================== */
 
@@ -145,7 +158,7 @@ rgba(11, 13, 12, 0.5);
     height: 60px;
     background-color: transparent;
     border-style: hidden;
-    padding: 16px 0 0 13px;
+    padding: 16px 10px 0 13px;
 }
 
 
@@ -163,6 +176,10 @@ rgba(11, 13, 12, 0.5);
     position: relative;
     top: -28px;
     left: 43px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 160px;
  }
  
  #movie .detail, #movie .rev {
@@ -195,3 +212,17 @@ rgba(11, 13, 12, 0.5);
   background-color : #C71B1B;
   color : #fff;
   }
+  
+  #movie .nowmoviepage {
+  display: block;
+  }
+  
+  #movie .nextmoviepage {
+  display: none;
+  }
+  
+  
+  
+  
+  
+  

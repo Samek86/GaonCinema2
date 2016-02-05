@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.web.multipart.MultipartFile;
 
 public class MovieDTO {
+	private int rn;
 	private int MOVIE_ID;
 	private String NAME_K;
 	private String NAME_E; 
@@ -15,7 +16,7 @@ public class MovieDTO {
 	private String  ACTOR  ;  
 	private String GENRE   ; 
 	private String PAGE	;
-	private int AVG		;
+	private double AVG		;
 	private int AVG_NUM;
 	private String CONTENT	;
 	private String POSTER	;
@@ -89,10 +90,10 @@ public class MovieDTO {
 	public void setPAGE(String pAGE) {
 		PAGE = pAGE;
 	}
-	public int getAVG() {
+	public double getAVG() {
 		return AVG;
 	}
-	public void setAVG(int aVG) {
+	public void setAVG(double aVG) {
 		AVG = aVG;
 	}
 	public int getAVG_NUM() {
@@ -178,6 +179,12 @@ public class MovieDTO {
 	}
 	public void setENDDATE(Date eNDDATE) {
 		ENDDATE = eNDDATE;
+	}
+	public int getRn() {
+		return rn;
+	}
+	public void setRn(int rn) {
+		this.rn = rn;
 	}
 	private Date ENDDATE;
 }

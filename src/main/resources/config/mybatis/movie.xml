@@ -5,15 +5,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="movie">
 
 	<select id="nowmovie" resultType="com.gaon.cinema.movie.MovieDTO" parameterType="String" >
-	  select * from gc_movie 
+	  select rownum rn, MOVIE_ID, NAME_K, NAME_E, AGE, AGEtext, D_DAY, DIRECTOR, ACTOR, GENRE, PAGE, ROUND(AVG, 2) AVG,
+    AVG_NUM, CONTENT, POSTER, MOVIE, STEEL1, STEEL2, STEEL3, STEEL4, STEEL5, STEEL6,
+    STEEL7, R_TIME, STARTDATE, ENDDATE from (
+    	select * from gc_movie 
       	where (STARTDATE <![CDATA[<=]]> to_date(#{today})) and (ENDDATE <![CDATA[ >=]]> to_date(#{today}))
-      	order by AVG desc
+      	order by AVG desc)
 	</select>
 	
 	<select id="nextmovie" resultType="com.gaon.cinema.movie.MovieDTO" parameterType="String" >
-		select ROUND(AVG, 2) AVG from gc_movie 
+		select rownum rn, MOVIE_ID, NAME_K, NAME_E, AGE, AGEtext, D_DAY, DIRECTOR, ACTOR, GENRE, PAGE, ROUND(AVG, 2) AVG,
+    AVG_NUM, CONTENT, POSTER, MOVIE, STEEL1, STEEL2, STEEL3, STEEL4, STEEL5, STEEL6,
+    STEEL7, R_TIME, STARTDATE, ENDDATE from (
+    	select * from gc_movie 
       	where STARTDATE <![CDATA[ >=]]> to_date(#{today})
-      	order by AVG desc
+      	order by AVG desc)
 	</select>
 	
 	

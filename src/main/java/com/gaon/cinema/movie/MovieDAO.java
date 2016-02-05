@@ -10,13 +10,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.gaon.cinema.join.JoinDAO;
+import com.gaon.cinema.movie.MovieDAO;
 
 @Repository
 public class MovieDAO {
 	@Autowired
 	private SqlSessionTemplate sql;
-	private static Logger logger = LoggerFactory.getLogger(JoinDAO.class);
+	
+	private static Logger logger = LoggerFactory.getLogger(MovieDAO.class);
 
 	java.util.Date javatoday = new java.util.Date();     //오늘 날짜 
 	SimpleDateFormat trans = new SimpleDateFormat("yyyyMMdd");
@@ -28,6 +29,7 @@ public class MovieDAO {
 	public List<MovieDTO> dbNowMovie(){
 		System.out.println("오늘날짜 : "+today);
 		List<MovieDTO> list = sql.selectList("movie.nowmovie", today);
+		System.out.println("DBOK");
 		return list;
 	}
 	

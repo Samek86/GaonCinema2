@@ -1,12 +1,6 @@
 package com.gaon.cinema.movie;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,15 +31,4 @@ public class MovieController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/movieselect.do", method = RequestMethod.GET)
-	public void nowmovie(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException{
-		PrintWriter out = response.getWriter();
-		String movieselect = request.getParameter("movieselect");
-		if(movieselect.equals("nowmovie")){
-			out.print("{\"moviepage\": \"nowmovie\"}");
-		}else if(movieselect.equals("nextmovie")){
-			out.print("{\"moviepage\": \"nextmovie\"}");
-		}
-		
-	}
 }
