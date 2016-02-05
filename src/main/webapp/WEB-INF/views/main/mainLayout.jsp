@@ -31,6 +31,10 @@
 	<script src="./resources/js/jquery.datePicker.js"></script>
 	<script src="./resources/js/jquery.magnific-popup.js"></script>
 	
+	
+	<link href="./resources/css/movie.css" rel="stylesheet">
+	<script src="./resources/js/movie.js"></script>
+	
 </head>
 <body>
 	<div id="header">
