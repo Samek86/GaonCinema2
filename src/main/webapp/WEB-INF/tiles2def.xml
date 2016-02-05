@@ -50,5 +50,8 @@
 
 	<!-- join -->
 	<definition name="join" template="/WEB-INF/views/join/join.jsp"/>
+
+	<!-- idpwSerch -->
+	<definition name="memberPreSearch" template="/WEB-INF/views/member/memberSerch.jsp"/>
 	
 </tiles-definitions>

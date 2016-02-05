@@ -1,3 +1,21 @@
+/* 
+
+붉은 색 : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+아이보리 : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+청녹색 : #017467;
+rgba(1, 116, 103, 0.5);
+
+귤색 : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+검은색 : #0B0D0C;
+rgba(11, 13, 12, 0.5);
+
+*/
 
 #movie {
     margin: 150px 0 150px;
@@ -8,10 +26,9 @@
 
 #movie .movie-wrap{
 	background-color: #ddd;
-	width: 1280px;
+	width: 1358px;
     position: relative;
     margin: 0 auto;
-	
 }
 
 #movie li.item {
@@ -19,14 +36,81 @@
     width: 232px;
     height: 505px;
     border: 1px solid #a4a4a4;
-    margin: 7px;
+    margin: 12px;
     float: left;
+    background-color: #eee;
 }
 
-#movie li.item img{
+#movie li.item .poster{
 	width: 100%;
 }
 
+#movie #moviesbt {
+	
+}
+
+#movie .nowmovie, #movie .nextmovie {
+	padding: 9px 17px;
+    font-size: 19px;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: transparent;
+    line-height: inherit;
+    border-style: solid;
+    border-color: #017467;
+    border-width: 3px;
+    margin: 0 -3px 17px;
+    color : #017467;
+}
+
+#movie .nowmovie:hover, #movie .nextmovie:hover {
+	 background-color: #017467;
+	 color : #fff;
+}
+
+#movie .movieselect {
+	background-color: #017467;
+	color : #fff;
+}
+
+/* ================== 순위 ==================== */
+
+#movie .rank {
+	position: relative;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(1, 116, 103, 0.7);
+    top: -306px;
+    left: 0px;
+    font-size: 27px;
+    padding: 4px 15px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    
+}
+
+/* ================== 평점 ==================== */
+
+#movie .AVG-wrap{
+	position: static;
+    width: 230px;
+    height: 53px;
+    background-color: transparent;
+    border-bottom: 1px;
+    border-style: hidden hidden solid;
+    border-color: #bbb;
+    padding: 16px 0 0 13px;
+    margin-top: -36px;
+}
+
+#movie .AVG {
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* ================== 평점(별) ==================== */
 #movie .star-empty {
 	background: url(../img/movie/star_empty.png) no-repeat;
     background-size: cover;
@@ -34,8 +118,8 @@
     height: 20px;
     float: left;
     position: relative;
-    left: 88px;
-    top: 15px;
+    left: 72px;
+    top: -22px;
 }
 
 #movie .star-wrap {
@@ -52,3 +136,62 @@
     height: 20px;
     display: block;
 }
+
+/* ================== 영화제목 ==================== */
+
+#movie li.item .title-wrap {
+	position: static;
+    width: 230px;
+    height: 60px;
+    background-color: transparent;
+    border-style: hidden;
+    padding: 16px 0 0 13px;
+}
+
+
+#movie li.item .AGE{
+	position: relative;
+    top: 1px;
+    left: 4px;
+    width: 25px;
+   }
+ 
+ #movie li.item .title {
+ 	font-size: 21px;
+    font-weight: bold;
+    color: #444;
+    position: relative;
+    top: -28px;
+    left: 43px;
+ }
+ 
+ #movie .detail, #movie .rev {
+ 	padding: 9px 16px;
+    font-size: 15px;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 2px;
+    background-color: transparent;
+ }
+ 
+  #movie .detail {
+  margin: 3px 6px 9px 13px;
+  color : #E08F23;
+  border-color: #E08F23;
+  }
+  
+  #movie .detail:hover {
+  background-color: #E08F23;
+  color : #fff;
+  }
+  
+  #movie .rev{
+  margin: 3px 6px;
+  color : #C71B1B;
+  border-color: #C71B1B;
+  }
+  
+  #movie .rev:hover{
+  background-color : #C71B1B;
+  color : #fff;
+  }

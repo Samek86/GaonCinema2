@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="qna">
+	<select id="selectAll" resultType="com.gaon.cinema.qna.QnaDTO">
+		select * from gc_qna order by qna_id
+	</select>
+	
+	<select id="detail" parameterType="int" resultType="com.gaon.cinema.qna.QnaDTO">
+	 select * from gc_qna where qna_id = #{qna_id}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from gc_qna where qna_id = #{qna_id}
+	</delete>
+	
+	<update id="edit" parameterType="com.gaon.cinema.qna.QnaDTO">
+		update gc_qna set title = #{title}, contents = #{contents}, wdate = sysdate 
+		where qna_id = #{qna_id}
+	</update>
+	
+	<insert id="add" parameterType="com.gaon.cinema.qna.QnaDTO">
+		insert into gc_qna values(gc_seq.nextval,
+		 #{qna_id}, #{userid}, #{title}, #{contents} #{wdate}, #{count})
+	</insert>
+	
+</mapper>

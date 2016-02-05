@@ -1,0 +1,127 @@
+/* 
+
+붉은 색 : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+아이보리 : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+청녹색 : #017467;
+rgba(1, 116, 103, 0.5);
+
+귤색 : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+검은색 : #0B0D0C;
+rgba(11, 13, 12, 0.5);
+
+*/
+
+#theater {
+	text-align: center;
+}
+
+#theater .main_menu {
+	width: 800px; height: 77px;
+	background-color: red;
+	text-align: center;
+	display: inline-block;
+}
+
+#theater .main_menu ul {
+	margin: 0; padding: 0;
+}
+
+#theater .main_menu li {
+	text-align: center;
+	display: inline-flex;
+}
+
+#theater .main_menu li a {
+	color : #D6BA8A;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 23px 23px;
+	border-bottom: solid;
+	border-top: solid;
+	border-color: #017467;
+	transition : all 0.3s;
+}
+
+#theater .main_menu li a:hover {
+	background-color: #005E57;
+	border-bottom: solid;
+	border-top: solid;
+	border-color: #E08F23;
+}
+
+#theater .sub_menu {
+	width: 800px; height: 77px;
+	background-color: green;
+	text-align: center;
+	display: inline-block;
+}
+
+#theater .sub_menu ul {
+	margin: 0; padding: 0;
+}
+
+#theater .sub_menu li {
+	display: inline-flex;
+}
+
+#theater .sub_menu li a {
+	color : #D6BA8A;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 23px 23px;
+	border-bottom: solid;
+	border-top: solid;
+	border-color: #017467;
+	transition : all 0.3s;
+}
+
+#theater .sub_menu li a:hover {
+	background-color: #005E57;
+	border-bottom: solid;
+	border-top: solid;
+	border-color: #E08F23;
+}
+
+#theater .list {
+	width: 800px;
+	display: inline-block;
+	background-color: blue;
+}
+
+/* 참고 */
+/*
+#header .nav {
+	background-color: #017467;
+	position: absolute;
+	left : 180px;
+	width : 1000px;
+}
+
+#header .nav > li {
+	display : inline-block;
+}
+
+#header .nav > li > a {
+	color : #D6BA8A;
+	font-size: 18px;
+    font-weight: bold;
+    padding: 23px 23px;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: #017467;
+    transition : all 0.3s;
+}
+
+#header .nav > li > a:hover {
+	background-color: #005E57;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: #E08F23;
+}
+*/

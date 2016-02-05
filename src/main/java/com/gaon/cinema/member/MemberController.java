@@ -1,10 +1,13 @@
 package com.gaon.cinema.member;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -15,6 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gaon.cinema.login.LoginDTO;
+import com.gaon.mail.Email;
+import com.gaon.mail.EmailController;
+
 @Controller
 public class MemberController {
 	@Autowired
@@ -22,6 +29,39 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	@Autowired
 	private ServletContext application;
+	
+	@RequestMapping("/memberPreSerch.do")
+	public ModelAndView memberPreSerch(HttpServletRequest request, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("page", "memberPreSearch");
+		mav.setViewName("mainLayout");
+		return mav;
+	}
+
+	@RequestMapping("/memberidSerch.do")
+	public void memberidSerch(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		try {
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+			String name = request.getParameter("searchName");
+			String email = request.getParameter("searchEmail");
+			MemberDTO dto = new MemberDTO();
+			dto.setName(name);
+			dto.setEmail(email);
+			int count = dao.idSerch(dto);
+			if(count == 1){
+				dto = dao.idSelect(dto);
+				System.out.println("{\"check\": \""+ count +"\",\"id\": \""+count+"\"}");
+				out.print("{\"check\": \""+ count +"\",\"id\": \""+dto.getUserid()+"\"}");
+			}else{
+				mav.addObject("check", dto.getCnt());
+				System.out.println("{\"check\": \" 존재하지않는 아이디입니다 \"}");
+				out.print("{\"check\": \" 존재하지않는 아이디입니다 \"}");
+			}
+		}catch(Exception ex){	ex.printStackTrace();	}
+	}
 	
 	@RequestMapping("/member.do")
 	public ModelAndView member(HttpServletRequest request, HttpSession session) {
@@ -120,11 +160,13 @@ public class MemberController {
 		int ok = dao.dbDelete(dto);
 		if(ok == 1){
 			session.setAttribute("ok","이용해주셔서 감사합니다.");
-			mav.setViewName("redirect:/main.do");
+			session.removeAttribute("NowUser"); 
+			mav.addObject("page", "main");
+			mav.setViewName("mainLayout");
 			return mav;
 		}
 		mav.setViewName("redirect:/main.do");
 		return mav;
 	}
-
+	
 }

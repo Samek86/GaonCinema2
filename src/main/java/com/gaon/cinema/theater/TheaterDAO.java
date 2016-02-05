@@ -21,4 +21,19 @@ public class TheaterDAO {
 		List<String> list = temp.selectList("theater.selectLname", cname);
 		return list;
 	}
+	
+	public List<TheaterDTO> dbSelectAll() {
+		List<TheaterDTO> list = temp.selectList("theater.selectAll");
+		return list;
+	}
+	
+	public List<TheaterDTO> dbSelectAllByCname(String cname) {
+		List<TheaterDTO> list = temp.selectList("theater.selectAllByCname", cname);
+		return list;
+	}
+
+	public List<TheaterDTO> dbSelectAllByLname(String lname) {
+		List<TheaterDTO> list = temp.selectList("theater.selectAllByLname", lname);
+		return list;
+	}
 }
