@@ -114,11 +114,12 @@ public class MemberController {
 		int ok = dao.dbDelete(dto);
 		if(ok == 1){
 			session.setAttribute("ok","이용해주셔서 감사합니다.");
-			mav.setViewName("redirect:/main.do");
+			session.removeAttribute("NowUser"); 
+			mav.addObject("page", "main");
+			mav.setViewName("mainLayout");
 			return mav;
 		}
 		mav.setViewName("redirect:/main.do");
 		return mav;
 	}
-
 }

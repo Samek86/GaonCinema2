@@ -21,7 +21,9 @@ function screensize(){
 
 <c:if test="${not empty ok }">
 	g_alert("${ok}");
-	<%session.removeAttribute("ok");  %>
+	<%
+	session.removeAttribute("ok");  
+	%>
 </c:if>
 </script>
 
