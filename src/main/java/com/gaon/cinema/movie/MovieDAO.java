@@ -19,7 +19,7 @@ public class MovieDAO {
 	private static Logger logger = LoggerFactory.getLogger(JoinDAO.class);
 
 	java.util.Date javatoday = new java.util.Date();     //오늘 날짜 
-	SimpleDateFormat trans = new SimpleDateFormat("yyyy/MM/dd");
+	SimpleDateFormat trans = new SimpleDateFormat("yyyyMMdd");
 	String today = trans.format(javatoday); //오늘 날짜를 스트링으로 변환 
 	
 	/*String bgn = '20150907';
@@ -28,6 +28,12 @@ public class MovieDAO {
 	public List<MovieDTO> dbNowMovie(){
 		System.out.println("오늘날짜 : "+today);
 		List<MovieDTO> list = sql.selectList("movie.nowmovie", today);
+		return list;
+	}
+	
+	public List<MovieDTO> dbNextMovie(){
+		System.out.println("오늘날짜 : "+today);
+		List<MovieDTO> list = sql.selectList("movie.nextmovie", today);
 		return list;
 	}
 	
