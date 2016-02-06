@@ -20,14 +20,16 @@ function screensize(){
 	return screensize;
 }
 
+<c:if test="${not empty ok }">
+g_alert("${ok}");
+<%
+session.removeAttribute("ok");  
+%>
+</c:if>
+
 </script>
 
-<c:if test="${not empty ok }">
-	g_alert("${ok}");
-	<%
-	session.removeAttribute("ok");  
-	%>
-</c:if>
+
 
 	<div class="fotorama"
   	 	data-fit = "cover" data-autoplay="6000" data-transition="dissolve"
