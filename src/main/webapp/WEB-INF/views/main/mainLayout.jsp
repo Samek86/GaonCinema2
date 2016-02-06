@@ -7,6 +7,7 @@
 <% session.getAttribute("Nowpoint");  %>
 <% session.getAttribute("Nowimg");  %>
 <% session.getAttribute("Nowpath");  %>
+<% session.getAttribute("ok");  %>
 <html>
 <head> 
 	<title>가온시네마</title>
