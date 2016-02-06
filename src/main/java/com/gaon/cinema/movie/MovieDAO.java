@@ -36,6 +36,14 @@ public class MovieDAO {
 		return list;
 	}
 	
+	public MovieDTO dbMovieDetail(String MOVIE_ID){
+		MovieDTO dto = new MovieDTO();
+		dto.setToday(today);
+		dto.setMOVIE_ID(Integer.parseInt(MOVIE_ID));
+		MovieDTO dto2 = sql.selectOne("movie.movieDetail", dto);
+		return dto2;
+	}
+	
 /*	public void dbEdit(MovieDTO dto){
 		temp.update("member.edit",dto);
 	};
