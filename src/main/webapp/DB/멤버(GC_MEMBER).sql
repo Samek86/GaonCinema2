@@ -25,4 +25,5 @@ insert into GC_MEMBER values
 
 insert into GC_MEMBER values 
 	(GC_MEMBER_SEQ.nextval,'hb','1234','img.jpg','김회원','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0);
+	
 commit;
