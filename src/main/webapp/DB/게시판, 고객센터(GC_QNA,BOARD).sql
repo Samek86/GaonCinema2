@@ -1,52 +1,16 @@
-/* GAON_CINEMA 테이블 구성 */
 
-/* 테이블 목록 */
---GC_MEMBER       --회원         --시퀀스 : GC_MEMBER_SEQ
---GC_NOTICE       --공지사항     --시퀀스 : GC_NOTICE_SEQ
---GC_EVENT        --이벤트       --시퀀스 : GC_EVENT_SEQ
---GC_BOARD        --게시판       --시퀀스 : GC_BOARD_SEQ
---GC_BOARD_REPLY  --게시판댓글
---GC_QNA          --고객센터     --시퀀스 : GC_QNA_SEQ
---GC_QNA_REPLY    --고객센터댓글
---GC_MOVIE        --영화         --시퀀스 : GC_MOVIE_SEQ
---GC_THEATER      --영화관       --시퀀스 : GC_THEATER_SEQ
---GC_THEATER_SEAT --영화관좌석
---GC_RESERVATION  --예매         --시퀀스 : GC_RESERVATION_SEQ
+ALTER TABLE GC_BOARD_REPLY drop CONSTRAINT BOARD_REPLY_FK;
+ALTER TABLE GC_QNA_REPLY drop CONSTRAINT QNA_REPLY_FK;
 
-/* 테이블 및 시퀀스 삭제 */
 
 DROP TABLE GC_BOARD_REPLY;
-DROP TABLE GC_BOARD; DROP SEQUENCE GC_BOARD_SEQ;
+DROP TABLE GC_BOARD; 
+DROP SEQUENCE GC_BOARD_SEQ;
 DROP TABLE GC_QNA_REPLY;
-DROP TABLE GC_QNA; DROP SEQUENCE GC_QNA_SEQ;
+DROP TABLE GC_QNA; 
+DROP SEQUENCE GC_QNA_SEQ;
 
 COMMIT;
-
-
-/* 테이블 및 시퀀스 생성 */
-
-
-/* GC_NOTICE 테이블 (공지사항) */
-CREATE TABLE GC_NOTICE (
-  NOTICE_ID NUMBER(10)          NOT NULL PRIMARY KEY,  --NOTICE 고유키
-  TITLE     VARCHAR2(30 CHAR)   NOT NULL,              --제목
-  CONTENTS  VARCHAR2(3000 CHAR) NOT NULL,              --내용
-  WDATE     DATE                NOT NULL,              --작성일
-  COUNT     NUMBER(10)          NOT NULL               --조회수
-);
-CREATE SEQUENCE GC_NOTICE_SEQ;
-
-
-/* GC_EVENT 테이블 (이벤트) !수정 필요! */
-CREATE TABLE GC_EVENT (
-  EVENT_ID NUMBER(10)          NOT NULL PRIMARY KEY,  --EVENT 고유키
-  TITLE    VARCHAR2(30 CHAR)   NOT NULL,              --제목
-  CONTENTS VARCHAR2(3000 CHAR) NOT NULL,              --내용
-  WDATE    DATE                NOT NULL,              --작성일
-  COUNT    NUMBER(10)          NOT NULL               --조회수
-);
-CREATE SEQUENCE GC_EVENT_SEQ;
-
 
 /* GC_BOARD 테이블 (자유게시판) */
 CREATE TABLE GC_BOARD (
@@ -92,8 +56,6 @@ CREATE TABLE GC_QNA_REPLY (
 
 ALTER TABLE GC_QNA_REPLY ADD CONSTRAINT QNA_REPLY_FK FOREIGN KEY (QNA_ID)
 REFERENCES GC_QNA(QNA_ID) ON DELETE CASCADE;
-
-
 
 
 COMMIT;
