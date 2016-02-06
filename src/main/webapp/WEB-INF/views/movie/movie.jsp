@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script>
 
 $(document).ready(function(){ 
@@ -18,6 +18,8 @@ $(document).ready(function(){
             $('.nowmovie').css({"background-color" : "transparent", "color" : "#017467"});
     });
 });
+
+
 </script>
 
 
@@ -46,9 +48,8 @@ $(document).ready(function(){
 		<c:forEach  var="bean" items="${nextmovie}">
 		<li class=item>
 			<img class="poster" src="./resources/img/movie/${bean.POSTER }">
-			<c:if test="${bean.rn <= 5}"> <span class="rank">${bean.rn}</span> </c:if>
-			<c:if test="${bean.rn > 5}"> <span class="rank_empty"></span> </c:if>
-			<div class="AVG-wrap"><div class="AVG">개봉일 ${bean.STARTDATE }</div>D-</div>
+			 <span class="rank_empty"></span>
+			<div class="AVG-wrap"><div class="AVG"><fmt:formatDate value="${bean.STARTDATE }" pattern="yyyy-MM-dd"/> </div><span class="dday">D-${bean.dday}</span></div>
 			<div class="title-wrap"><img class="AGE" src="./resources/img/movie/movie${bean.AGE }.png"><div class="title">${bean.NAME_K}</div></div>
 		 	<button class="detail">상세정보</button><button class="rev">예매하기</button>
 		 </li>

@@ -30,6 +30,7 @@ public class MovieDTO {
 	private String STEEL7;
 	private int R_TIME	;
 	private Date STARTDATE;
+	private int dday;
 	public int getMOVIE_ID() {
 		return MOVIE_ID;
 	}
@@ -185,6 +186,12 @@ public class MovieDTO {
 	}
 	public void setRn(int rn) {
 		this.rn = rn;
+	}
+	public int getDday() {
+		return dday;
+	}
+	public void setDday(int dday) {
+		this.dday = dday;
 	}
 	private Date ENDDATE;
 }

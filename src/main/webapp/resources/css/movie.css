@@ -15,6 +15,9 @@ rgba(224, 143, 35, 0.5);
 검은색 : #0B0D0C;
 rgba(11, 13, 12, 0.5);
 
+letter-spacing: 5px;
+line-height: 1.2;
+
 */
 
 #movie {
@@ -63,6 +66,7 @@ rgba(11, 13, 12, 0.5);
     border-width: 3px;
     margin: 0 -3px 17px;
     color : #017467;
+    outline: none;
 }
 
 #movie .nowmovie:hover, #movie .nextmovie:hover {
@@ -122,6 +126,26 @@ rgba(11, 13, 12, 0.5);
     font-weight: bold;
     color: #555;
 }
+
+#movie .nextmoviepage .AVG-wrap{
+    padding: 12px 0 0 13px;
+}
+
+#movie .nextmoviepage .AVG {
+	display: inline;
+}
+
+#movie .nextmoviepage .dday {
+	background-color: #017467;
+    padding: 7px 25px;
+    border-radius: 10px;
+    font-size: 19px;
+    font-weight: 600;
+    margin-left: 20px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
 
 /* ================== 평점(별) ==================== */
 #movie .star-empty {
