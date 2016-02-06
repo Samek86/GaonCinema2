@@ -27,6 +27,8 @@ public class LoginDAO {
 		int count = 0;
 		try {
 			LoginDTO IDPW = sst.selectOne("login.count", id);
+			System.out.println(IDPW);
+			System.out.println(IDPW.getUSERID());
 			if(IDPW.getUSERID().equals(id) && !IDPW.getUSERPW().equals(pw)){
 				count = 1;
 			}else if(IDPW.getUSERID().equals(id) && IDPW.getUSERPW().equals(pw)){

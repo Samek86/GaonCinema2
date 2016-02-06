@@ -53,11 +53,9 @@ public class MemberController {
 			int count = dao.idSerch(dto);
 			if(count == 1){
 				dto = dao.idSelect(dto);
-				System.out.println("{\"check\": \""+ count +"\",\"id\": \""+count+"\"}");
 				out.print("{\"check\": \""+ count +"\",\"id\": \""+dto.getUserid()+"\"}");
 			}else{
 				mav.addObject("check", dto.getCnt());
-				System.out.println("{\"check\": \" 존재하지않는 아이디입니다 \"}");
 				out.print("{\"check\": \" 존재하지않는 아이디입니다 \"}");
 			}
 		}catch(Exception ex){	ex.printStackTrace();	}

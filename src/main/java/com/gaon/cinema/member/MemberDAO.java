@@ -33,14 +33,25 @@ public class MemberDAO {
 	public int idSerch(MemberDTO dto) {
 		// TODO Auto-generated method stub
 		int count = temp.selectOne("member.searchidCount", dto);
-		logger.info("ok = " + count);
 		return count;
 	}
 
-	public int pwSerch(MemberDTO dto) {
+	public int pwSerch(String id, String name, String email) {
 		// TODO Auto-generated method stub
-		int count = temp.selectOne("member.searchpwCount", dto);
-		logger.info("ok = " + count);
+		int count=4;
+		try {
+		MemberDTO dto = temp.selectOne("member.searchpwCount", id);
+		if(dto == null){
+			count = 0;
+		}else if(!dto.getName().equals(name)){
+			count = 1; //1= 이름틀렸을때
+		} else if(!dto.getEmail().equals(email)){
+			count = 2; //2= 이메일틀렸을때
+		}else if(dto.getUserid().equals(id) && dto.getName().equals(name) && dto.getEmail().equals(email)){
+			count = 3; //모두 맞을때
+		}
+		
+		}catch(Exception ex){}
 		return count;
 	}
 
