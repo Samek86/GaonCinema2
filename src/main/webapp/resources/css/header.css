@@ -213,6 +213,13 @@ rgba(11, 13, 12, 0.5);
 	height : 350px;
 }
  
+ #header .member .nowimg{
+ 	width: 100px;
+ 	height: 100px;
+ 	margin-left: 77px;
+    margin-bottom: -50px;
+ }
+ 
  #header #a_member, #header #m_detail {
 	width: 109px;
     height: 38px;
@@ -296,7 +303,7 @@ rgba(11, 13, 12, 0.5);
     text-align: left;
     position: relative;
     left: 205px;
-    top: -28px;
+    top: -38px;
     color: #017467;
     
 }

@@ -32,7 +32,7 @@
 	<script src="./resources/js/fotorama.js"></script>
 	<script src="./resources/js/jquery.datePicker.js"></script>
 	<script src="./resources/js/jquery.magnific-popup.js"></script>
-	
+	<script src="./resources/js/header.js"></script>
 	
 	<link href="./resources/css/movie.css" rel="stylesheet">
 	<script src="./resources/js/movie.js"></script>

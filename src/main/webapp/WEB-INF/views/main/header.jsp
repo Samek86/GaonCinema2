@@ -2,8 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <title>[header.jsp]</title>
 
-<script src="./resources/js/header.js"></script>
-
 <div class="backcolor"></div>
 <div class="header-wrap">
 	
@@ -46,7 +44,7 @@
 	<c:if test="${NowUser=='admin'}">
 	 	<img id = "loginlogo" src="./resources/img/login_logo.png"><br>
 		<button type="button" class="close">&times;</button>
-		<img width="100px" height="100px" src="./resources/img/member/${Nowimg}"><br>
+		<img class="nowimg img-circle" src="./resources/img/member/${Nowimg}"><br>
 		<span class="membercontent">
 		<b>아이디 :${NowUser}</b><br>	
 		<b>이 름 : ${Nowname}</b><br>
@@ -60,7 +58,7 @@
 	<c:if test="${NowUser!='admin'}">
 	 	<img id = "loginlogo" src="./resources/img/login_logo.png"><br>
 		<button type="button" class="close">&times;</button>
-		<img width="100px" height="100px" src="./resources/img/member/${Nowimg}"><br>
+		<img class="nowimg img-circle" src="./resources/img/member/${Nowimg}"><br>
 		<span class="membercontent">
 		<b>아이디 : ${NowUser}</b><br>	
 		<b>이 름 : ${Nowname}</b><br>
