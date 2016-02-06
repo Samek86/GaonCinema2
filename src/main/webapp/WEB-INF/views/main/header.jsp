@@ -21,10 +21,10 @@
 			<li><button id="loginbt">로그인</button></li>
 		</c:when>
 		<c:when test="${NowUser=='admin'}">
-			<li><button id="memberbt">${NowUser}</button></li>
+			<li><button id="memberbt"><img class="nowimg img-circle memberbt" src="./resources/img/member/${Nowimg}">${Nowname}</button></li>
 		</c:when>
 		<c:otherwise>
-			<li><button id="memberbt">${NowUser}</button></li>
+			<li><button id="memberbt"><img class="nowimg img-circle memberbt" src="./resources/img/member/${Nowimg}">${Nowname}</button></li>
 		</c:otherwise>
 	</c:choose>
 	
