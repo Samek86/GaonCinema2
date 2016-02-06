@@ -972,7 +972,7 @@ fotoramaVersion = '4.6.4';
 
 	OPTIONS = {
 		// dimensions
-		width : null, // 500 || '100%'
+		width : '100%', // 500 || '100%'
 		minwidth : null,
 		maxwidth : '100%', // '100%'
 		height : null,

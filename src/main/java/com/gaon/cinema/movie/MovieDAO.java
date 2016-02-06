@@ -27,14 +27,11 @@ public class MovieDAO {
 	Date bgnday = trans.parse(bgn);*/
 	
 	public List<MovieDTO> dbNowMovie(){
-		System.out.println("오늘날짜 : "+today);
 		List<MovieDTO> list = sql.selectList("movie.nowmovie", today);
-		System.out.println("DBOK");
 		return list;
 	}
 	
 	public List<MovieDTO> dbNextMovie(){
-		System.out.println("오늘날짜 : "+today);
 		List<MovieDTO> list = sql.selectList("movie.nextmovie", today);
 		return list;
 	}

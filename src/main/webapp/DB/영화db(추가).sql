@@ -33,31 +33,31 @@ DROP SEQUENCE GC_MOVIE_SEQ;
 
 	/* GC_MOVIE 테이블 (영화) */
 CREATE TABLE GC_MOVIE (
-  MOVIE_ID   NUMBER(10)        NOT NULL PRIMARY KEY,  --MOVIE 고유키
-  NAME_K      VARCHAR2(100 CHAR) NOT NULL,              --영화 이름 한글
-  NAME_E      VARCHAR2(100 CHAR) NOT NULL,              --영화 이름 영어
-  AGE       VARCHAR2(20 CHAR) NOT NULL,				--영화 관람등급 all , 12, 15, 19
-  AGEtext       VARCHAR2(50 CHAR) NOT NULL,				--영화 관람등급 전체관람가, 12세 관람가, 15세 관람가, 청소년 관람불가
-  D_DAY	      DATE				NOT NULL,				--개봉일
-  DIRECTOR  VARCHAR2(30 CHAR) NOT NULL,                --영화 감독
-  ACTOR     VARCHAR2(100 CHAR)	NOT NULL,				--배우
-  GENRE     VARCHAR2(50 CHAR) NOT NULL,                --영화 장르
-  PAGE		 VARCHAR2(100 CHAR) NOT NULL,				--공식홈페이지
-  AVG		 NUMBER(10, 2)			NOT NULL,				--평점 예)7점
-  AVG_NUM NUMBER(20)    NOT NULL,       --평점매긴 사람 숫자 예)10명 (AVG_NUM x AVG +내점수)/ AVG_NUM+1) = 새로운 평점 -> update 새로운평점, 평점매긴사람+1
-  CONTENT	VARCHAR2(3000 CHAR)	NOT NULL,				--줄거리
-  POSTER	VARCHAR2(30 CHAR) 	NOT	NULL,				--포스터	
-  MOVIE 	VARCHAR2(100 CHAR)	NOT NULL, 				--동영상
-  STEEL1	VARCHAR2(30 CHAR)	NOT NULL,                --스틸컷1
-  STEEL2	VARCHAR2(30 CHAR)	NOT NULL,                --스틸컷2
-  STEEL3	VARCHAR2(30 CHAR)	NOT NULL,                --스틸컷3
-  STEEL4	VARCHAR2(30 CHAR)	NOT NULL,                --스틸컷4
-  STEEL5	VARCHAR2(30 CHAR)	NOT NULL,                --스틸컷5
-  STEEL6	VARCHAR2(30 CHAR)	NOT NULL,                --스틸컷6
-  STEEL7	VARCHAR2(30 CHAR)	NOT NULL,                --스틸컷7
-  R_TIME	NUMBER(4)			NOT NULL,				--상영시간
-  STARTDATE DATE              NOT NULL,              --영화 상영 시작일
-  ENDDATE   DATE              NOT NULL               --영화 상영 종료일 
+  MOVIE_ID   NUMBER(10)        NOT NULL PRIMARY KEY, 
+  NAME_K      VARCHAR2(100 CHAR)  NOT NULL,           
+  NAME_E      VARCHAR2(100 CHAR)  NOT NULL,             
+  AGE       VARCHAR2(20 CHAR)  NOT NULL,				
+  AGEtext       VARCHAR2(50 CHAR)  NOT NULL,			
+  D_DAY	       DATE				 NOT NULL,			
+  DIRECTOR   VARCHAR2(30 CHAR)  NOT NULL,             
+  ACTOR      VARCHAR2(100 CHAR) 	NOT NULL,			
+  GENRE       VARCHAR2(50 CHAR)  NOT NULL,               
+  PAGE		  VARCHAR2(100 CHAR)  NOT NULL,			
+  AVG		  NUMBER(10, 2)		 	 NOT NULL,				
+  AVG_NUM  NUMBER(20)      NOT NULL,       
+  CONTENT 	  VARCHAR2(3000 CHAR)	  NOT  NULL,			
+  POSTER      VARCHAR2(30 CHAR)    	NOT 	NULL,			
+  MOVIE 	  VARCHAR2(100 CHAR)   	NOT NULL,
+  STEEL1	   VARCHAR2(30 CHAR)  	NOT NULL,          
+  STEEL2	  VARCHAR2(30 CHAR)  	NOT NULL,                
+  STEEL3	  VARCHAR2(30 CHAR)  	NOT NULL,                
+  STEEL4  	VARCHAR2(30 CHAR)  	NOT NULL,                
+  STEEL5	  VARCHAR2(30 CHAR)	  NOT NULL,               
+  STEEL6  	VARCHAR2(30 CHAR)  	NOT NULL,              
+  STEEL7	  VARCHAR2(30 CHAR)	  NOT NULL,               
+  R_TIME	  NUMBER(4)			  NOT NULL,				
+  STARTDATE   DATE               NOT NULL,            
+  ENDDATE     DATE              NOT NULL               
 );
 CREATE SEQUENCE GC_MOVIE_SEQ;
 
@@ -200,15 +200,3 @@ commit;
 select ROUND(AVG, 2) AVG from gc_movie 
       where (STARTDATE <= to_date('2016/02/5') ) and  (ENDDATE  >= to_date('2016/02/5'))
       order by AVG desc;
-
-STARTDATE  ENDDATE 
-
-
-
-select roomID ri, roomType rt from gaon_room
-        where roomID not in(
-        select revRoomID from gaon_reservation where 
-        (('"+revIn+"') >= revIn and ('"+revIn+"') < revOut) 
-          or (('"+revIn+"') > revIn and ('"+revOut+"') < revOut) 
-         or (('"+revIn+"') <= revIn and ('"+revOut+"') >= revOut) 
-         or (('"+revOut+"') > revIn and ('"+revOut+"') <= revOut)) 

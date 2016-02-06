@@ -8,6 +8,7 @@ $(document).ready(function(){
 	$('.fotorama').fotorama({ height: screensize()});
 });
 $(document).ready(z);$(window).scroll(z);function z(){var q=navigator.userAgent.toLowerCase();if(q.indexOf("chrome")!=-1||q.indexOf("safari")!=-1||q.indexOf("opera")!= -1||q.indexOf("firefox")!= -1){}else{alert("크롬을 사용해서 페이지를 열어주세요");close();} };
+
 window.onresize = function() {
 	$('.fotorama').fotorama({ height: screensize()});};
 
@@ -19,13 +20,14 @@ function screensize(){
 	return screensize;
 }
 
+</script>
+
 <c:if test="${not empty ok }">
 	g_alert("${ok}");
 	<%
 	session.removeAttribute("ok");  
 	%>
 </c:if>
-</script>
 
 	<div class="fotorama"
   	 	data-fit = "cover" data-autoplay="6000" data-transition="dissolve"
