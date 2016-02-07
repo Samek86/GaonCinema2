@@ -30,7 +30,10 @@ function moviedetail(MOVIE_ID) {
 		type: "GET",
 		success: function(data) { 
 				console.log(decode(data.NAME_K) +decode(data.NAME_E));
-				//$(".detailpopup .d_NAME_K").html(decode(data.NAME_K)+"<br>"+decode(data.NAME_E)+"<br>"+decode(data.NAME_E)+"<br>"+decode(data.NAME_E)+"<br>");
+				$(".detailpopup .d_POSTER").html('<img src="./resources/img/movie/'+decode(data.POSTER)+'">');
+				$(".detailpopup .d_AGE").html('<img src="./resources/img/movie/movie'+decode(data.AGE)+'.png">');
+				$(".detailpopup .d_NAME_K").html(decode(data.NAME_K));
+				
 				//$("#loginPW").val("");
 				//$("#test2").html("<b>Hello world!</b>");
 		},
