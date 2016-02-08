@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+	
+	<!-- 영화관 목록 -->
+	<select id="selectTheaterAll" resultType="com.gaon.cinema.theater.TheaterDTO">
+		SELECT * FROM GC_THEATER ORDER BY CNAME, LNAME, TNAME
+	</select>
+	
+	<!-- 영화 목록 -->
+	<select id="selectMovieAll" resultType="com.gaon.cinema.movie.MovieDTO">
+		SELECT * FROM GC_MOVIE ORDER BY NAME_K
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
