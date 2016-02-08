@@ -60,6 +60,7 @@ function g_alert(data){
 	});
 }
 
+
 $(document).ready(function(){
 $("#loginbtn").click(function() {
 	if ($("#loginID").val() == "") {

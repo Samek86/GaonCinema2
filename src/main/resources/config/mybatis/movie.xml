@@ -29,6 +29,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       	where MOVIE_ID = #{MOVIE_ID}
 	</select>
 	
+	<update id="movieRate">
+		update gc_movie set AVG = #{AVG}, AVG_NUM = #{AVG_NUM} where MOVIE_ID = #{MOVIE_ID}
+	</update>
+	
+	<select id="movieRateDetail" resultType="com.gaon.cinema.movie.MovieDTO" parameterType="com.gaon.cinema.movie.MovieDTO" >
+		select ROUND(AVG, 2) AVG, AVG_NUM from  gc_movie where MOVIE_ID = #{MOVIE_ID}
+	</select>
+	
+	<select id="RateCheck" resultType="com.gaon.cinema.join.JoinDTO" parameterType="String" >
+		select MOVIE_RATE from GC_MEMBER where USERID = #{NowUser}
+	</select>
+	
+	<update id="RateUpdate" parameterType="com.gaon.cinema.movie.RateDTO" >
+		update GC_MEMBER set MOVIE_RATE = #{MOVIE_RATE} where USERID = #{NowUser}
+	</update>
+	
+	<select id="LikeCheck" resultType="com.gaon.cinema.join.JoinDTO" parameterType="String" >
+		select MOVIE_LIKE from GC_MEMBER where USERID = #{NowUser}
+	</select>
+	
+	<update id="LikeUpdate" parameterType="com.gaon.cinema.movie.RateDTO" >
+		update GC_MEMBER set MOVIE_LIKE = #{MOVIE_LIKE} where USERID = #{NowUser}
+	</update>
+	
 	
 	<!-- <select id="detail" parameterType="int" resultType="com.gaon.cinema.qna.QnaDTO">
 	 select * from gc_qna where qna_id = #{qna_id}
