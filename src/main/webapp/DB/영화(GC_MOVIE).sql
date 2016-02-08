@@ -44,7 +44,7 @@ CREATE TABLE GC_MOVIE (
   GENRE       VARCHAR2(50 CHAR)  NOT NULL,               
   PAGE		  VARCHAR2(100 CHAR)  NOT NULL,			
   AVG		  NUMBER(10, 2)		 	 NOT NULL,				
-  AVG_NUM  NUMBER(20)      NOT NULL,       
+  AVG_NUM  	NUMBER(20)      NOT NULL,       
   CONTENT 	  VARCHAR2(3000 CHAR)	  NOT  NULL,			
   POSTER      VARCHAR2(30 CHAR)    	NOT 	NULL,			
   MOVIE 	  VARCHAR2(100 CHAR)   	NOT NULL,
@@ -59,6 +59,7 @@ CREATE TABLE GC_MOVIE (
   STARTDATE   DATE               NOT NULL,            
   ENDDATE     DATE              NOT NULL               
 );
+
 CREATE SEQUENCE GC_MOVIE_SEQ;
 
 
@@ -87,7 +88,7 @@ insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '굿 다이노', 'The Good Din
   'GD_poster.jpg', 'https://www.youtube.com/watch?v=aMeL8_U1Eso', 'GD_01.jpg', 'GD_02.jpg', 'GD_03.jpg', 'GD_04.jpg',
   'GD_05.jpg', 'GD_06.jpg', 'GD_07.jpg', 101, to_date('2016/01/07'), to_date('2016/03/17') );
 
-insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '겁쟁이 페달', '劇場版 弱虫ペダル', 'all', '전체 관람가', to_date('2016/01/14'), '나가누마 노리히로', 
+insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '겁쟁이 페달', '劇場版 よわむしペダル', 'all', '전체 관람가', to_date('2016/01/14'), '나가누마 노리히로', 
   '야마시타 다이키(오노다 사카미치), 토리우미 코스케(이마이즈미 슌스케)','애니메이션', 'http://movie.naver.com/movie/bi/mi/detail.nhn?code=143335', 9.14, 10,
   '구마모토 불의 나라 산맥 레이스<br>최고의 팀을 가르기 위한 대결이 시작된다!<br>소호쿠 고등학교 사이클부에 입단 후 새로운 재능과 꿈을 발견하게 된 오노다. <br> 팀원들의 뜨거운 응원과 도움으로 전국체전에서 승리의 주역이 되며 <br> 신입임에도 불구하고 소호쿠의 새로운 에이스로 떠오르게 된다. <br> 소호쿠 팀은 로드 바이크 레이스 중에서도 가장 고난도 레이스로 손꼽히는 <br> 구마모토 불의 나라 산맥 레이스에 출전, <br>라이벌이자 랭킹 1위의 하코네 고등학교를 비롯 쟁쟁한 경쟁팀들과 우승을 향한 본격적인 대결을 시작한다. <br> 하지만, 정신적 지주였던 마키시마 선배의 갑작스러운 탈퇴 소식 실망한 오노다는 <br> 경기 도중 결정적 실수를 하게 되고 소호쿠 팀은 최악의 위기에 빠지게 되는데… <br><br> 소호쿠 팀은 위기를 극복하고 최고의 로드 바이크 팀의 명성을 되찾을 수 있을까?',
   'PD_poster.jpg', 'https://www.youtube.com/watch?v=ucJyTdwlgwY', 'PD_01.jpg', 'PD_02.jpg', 'PD_03.jpg', 'PD_04.jpg',

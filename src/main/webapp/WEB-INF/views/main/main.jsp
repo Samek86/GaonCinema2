@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%session.getAttribute("NowUser");  %>
-<%session.getAttribute("ok");  %>
 <script>
 
 $(document).ready(function(){
@@ -19,15 +17,14 @@ function screensize(){
 	screensize = screensize-174 +"px";
 	return screensize;
 }
+<c:if test="${not empty ok }">
+g_alert("${ok}");
+<%
+session.removeAttribute("ok");  
+%>
+</c:if>
 
 </script>
-
-<c:if test="${not empty ok }">
-	g_alert("${ok}");
-	<%
-	session.removeAttribute("ok");  
-	%>
-</c:if>
 
 	<div class="fotorama"
   	 	data-fit = "cover" data-autoplay="6000" data-transition="dissolve"

@@ -31,6 +31,9 @@ public class MovieDTO {
 	private int R_TIME	;
 	private Date STARTDATE;
 	private int dday;
+	private String today;
+	
+	
 	public int getMOVIE_ID() {
 		return MOVIE_ID;
 	}
@@ -192,6 +195,12 @@ public class MovieDTO {
 	}
 	public void setDday(int dday) {
 		this.dday = dday;
+	}
+	public String getToday() {
+		return today;
+	}
+	public void setToday(String today) {
+		this.today = today;
 	}
 	private Date ENDDATE;
 }
