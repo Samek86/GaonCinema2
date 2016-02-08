@@ -78,6 +78,11 @@
 			<div class="like"><button type="button" onclick="likeplus()" class="likebt">찜하기</button></div>
 		</div>
 	</div>
+	<div class="d_middle">
+	
+	</div>
+	
+	
 	</div>
 </div> 
 

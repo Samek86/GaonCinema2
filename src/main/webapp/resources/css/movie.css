@@ -494,6 +494,11 @@ line-height: 1.2;
     float: left;
  }
  
+ .detailpopup .d_middle {
+ 	display: table;
+ }
+ 
+ 
       /* 
       
       
