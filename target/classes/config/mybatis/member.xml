@@ -14,9 +14,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) cnt from gc_member where name = #{name} and email = #{email}
 	</select>
 
-	<select id="searchpwCount" parameterType="com.gaon.cinema.member.MemberDTO" 
-	resultType="int">
-		select count(*) cnt from gc_member where name = #{name} and email = #{email} and userid=#{userid}
+	<select id="searchpwCount" parameterType="String" 
+	resultType="com.gaon.cinema.member.MemberDTO">
+		select * from gc_member where userid=#{userid}
 	</select>
 
 	<select id="idSelect" parameterType="com.gaon.cinema.member.MemberDTO" 
