@@ -24,13 +24,22 @@ public class EventDAO {
 	java.util.Date javatoday = new java.util.Date();     //오늘 날짜 
 	String today = trans.format(javatoday); //오늘 날짜를 스트링으로 변환 
 	
-	public List<EventDTO> dbNowevent(){
+	public List<EventDTO> dbNowEvent(){
 		List<EventDTO> list = sql.selectList("event.nowevent", today);
+		
+		EventDTO dto = new EventDTO();
+		dto.setToday(today);
+		
 		return list;
+		
 	}
 
-	public List<EventDTO> dbEndevent(){
+	public List<EventDTO> dbEndEvent(){
 		List<EventDTO> list = sql.selectList("event.endevent", today);
+		
+		EventDTO dto = new EventDTO();
+		dto.setToday(today);
+		
 		return list;
 	}
 	

@@ -11,33 +11,26 @@
 </div>
 <div class="nowmoviepage">
 	<ul>
-		<c:forEach  var="bean" items="${nowmovie}">
+		<c:forEach  var="bean" items="${nowevent}">
 		<li class=item>
-			<img class="poster" src="./resources/img/movie/${bean.POSTER }">
-			<c:if test="${bean.rn <= 5}"> <span class="rank">${bean.rn}</span> </c:if>
-			<c:if test="${bean.rn > 5}"> <span class="rank_empty"></span> </c:if>
-			<div class="AVG-wrap"><div class="AVG">평점 ${bean.AVG }</div><div class="star-empty"><span class="star-wrap"  style="width:${13.1*bean.AVG} ;"><span class="star"></span></span></div></div>
-			<div class="title-wrap"><img class="AGE" src="./resources/img/movie/movie${bean.AGE}.png"><div class="title">${bean.NAME_K}</div></div>
-		 	<button class="detail" onclick="moviedetail('${bean.MOVIE_ID}')">상세정보</button><button class="rev">예매하기</button>
+			<img class="poster" onclick="moviedetail('${bean.event_ID}')" src="./resources/img/event/${bean.POSTER }">
+			<div class="title-wrap"><div class="title">${bean.title}</div></div>
 		 </li>
 		 </c:forEach>
 	</ul>
 </div>
 <div class="nextmoviepage">
 	<ul>
-		<c:forEach  var="bean" items="${nextmovie}">
+		<c:forEach  var="bean" items="${endevent}">
 		<li class=item>
-			<img class="poster" src="./resources/img/movie/${bean.POSTER }">
-			 <span class="rank_empty"></span>
-			<div class="AVG-wrap"><div class="AVG"><fmt:formatDate value="${bean.STARTDATE }" pattern="yyyy-MM-dd"/> </div><span class="dday">D-${bean.dday}</span></div>
-			<div class="title-wrap"><img class="AGE" src="./resources/img/movie/movie${bean.AGE }.png"><div class="title">${bean.NAME_K}</div></div>
-		 	<button class="detail">상세정보</button><button class="rev">예매하기</button>
+			<img class="poster" onclick="moviedetail('${bean.event_ID}')" src="./resources/img/event/${bean.POSTER }">
+			<div class="title-wrap"><div class="title">${bean.title}</div></div>
 		 </li>
 		 </c:forEach>
 	</ul>
 </div>
 </div>
-
+<!--  
 <div class='detailpopup mfp-hide'>
 	<button type='button' class='mfp-close'>×</button>
 	<div class="d_top">
@@ -67,7 +60,7 @@
 		</div>
 	</div>
 </div>
-
+-->
 </div>
 
 
