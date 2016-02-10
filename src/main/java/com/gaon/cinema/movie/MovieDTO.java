@@ -7,8 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class MovieDTO {
 	private int rn;
 	private int MOVIE_ID;
-	private String NAME_K;
-	private String NAME_E; 
+	private String NAME_K ;
+	private String NAME_E ; 
 	private String  AGE   ;
 	private String AGEtext ;  
 	private Date  D_DAY	; 
@@ -22,7 +22,7 @@ public class MovieDTO {
 	private String POSTER	;
 	private String MOVIE 	;
 	private String STEEL1	;
-	private String STEEL2;
+	private String STEEL2	;
 	private String STEEL3	;
 	private String STEEL4	;
 	private String STEEL5	;
@@ -32,6 +32,7 @@ public class MovieDTO {
 	private Date STARTDATE;
 	private int dday;
 	private String today;
+	private String ratevalue;
 	
 	
 	public int getMOVIE_ID() {
@@ -201,6 +202,12 @@ public class MovieDTO {
 	}
 	public void setToday(String today) {
 		this.today = today;
+	}
+	public String getRatevalue() {
+		return ratevalue;
+	}
+	public void setRatevalue(String ratevalue) {
+		this.ratevalue = ratevalue;
 	}
 	private Date ENDDATE;
 }

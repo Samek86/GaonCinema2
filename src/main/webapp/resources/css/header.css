@@ -33,6 +33,13 @@ rgba(11, 13, 12, 0.5);
   src: local('¡Ø'), url('http://image3.megabox.co.kr/mop/font/NanumGothicBold.eot?#iefix') format('embedded-opentype'), url('http://image3.megabox.co.kr/mop/font/NanumGothicBold.woff') format('woff'), url('http://image3.megabox.co.kr/mop/font/NanumGothicBold.ttf') format('truetype');
 }
 
+a, button, div, input, a:hover, button:hover, div:hover, input:hover,
+a:after, button:after, div:after, input:after,
+a:focus, button:focus, div:focus, input:focus
+ {
+	outline: none;
+	text-decoration: none;
+}
 
 #header {
 	background-color: #017467;

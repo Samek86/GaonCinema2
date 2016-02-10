@@ -29,11 +29,11 @@ public class EventController {
 	@RequestMapping(value = "/event.do", method = RequestMethod.GET)
 	public ModelAndView event() {
 		ModelAndView mav = new ModelAndView();
-		List<EventDTO> nowlist = dao.dbNowevent();
-		List<EventDTO> nextlist = dao.dbEndevent();
-		mav.addObject("eventpage", "nowevent");
-		mav.addObject("nowevent", nowlist);
-		mav.addObject("nextevent", nextlist);
+		//List<EventDTO> nowlist = dao.dbNowevent();
+		//List<EventDTO> nextlist = dao.dbEndevent();
+		//mav.addObject("eventpage", "nowevent");
+		//mav.addObject("nowevent", nowlist);
+		//mav.addObject("nextevent", nextlist);
 		mav.addObject("page", "event");
 		mav.setViewName("mainLayout");
 		return mav;

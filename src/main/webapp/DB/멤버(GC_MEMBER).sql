@@ -16,14 +16,16 @@ CREATE TABLE GC_MEMBER (
   ZIPCODE   VARCHAR2(10 CHAR)  NOT NULL,              --우편번호
   ADDRESS1  VARCHAR2(100 CHAR) NOT NULL,              --주소
   ADDRESS2  VARCHAR2(100 CHAR) NULL,                  --세부주소
-  POINT	    NUMBER(10)			   	                      --포인트	
+  POINT	    NUMBER(10),			   	                      --포인트
+  MOVIE_RATE VARCHAR2(300 CHAR),                      --평점매긴 영화들
+  MOVIE_LIKE VARCHAR2(300 CHAR)                       --찜한 영화들
 );
 CREATE SEQUENCE GC_MEMBER_SEQ;
 
 insert into GC_MEMBER values 
-	(GC_MEMBER_SEQ.nextval,'admin','1234','img.jpg','관리자','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0);
+	(GC_MEMBER_SEQ.nextval,'admin','1234','img.jpg','관리자','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0, 'empty', 'empty');
 
 insert into GC_MEMBER values 
-	(GC_MEMBER_SEQ.nextval,'hb','1234','img.jpg','김회원','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0);
+	(GC_MEMBER_SEQ.nextval,'hb','1234','img.jpg','김회원','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0, 'empty', 'empty');
 	
 commit;

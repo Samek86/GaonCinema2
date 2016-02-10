@@ -62,6 +62,7 @@ public class JoinController {
 		File file = new File(path,img);
 		dto.getUpload().transferTo(file);
 		dto.setImg_file(img);
+		dto.setMOVIE_RATE("");
 		ok=dao.dbjoin(dto);
 		if(ok==1){
 			session.setAttribute("ok","회원가입 축하드립니다."+ "<br>" +"2000포인트 지급되었습니다.");
