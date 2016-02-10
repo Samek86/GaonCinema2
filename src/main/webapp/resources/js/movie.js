@@ -80,7 +80,12 @@ function moviedetail(MOVIE_ID, id, nownext) {
 				$(".detailpopup .info_wrap li").eq(1).html('<strong>감독</strong> : '+decode(data.DIRECTOR));
 				$(".detailpopup .info_wrap li").eq(2).html('<strong>출연진</strong> : '+decode(data.ACTOR));
 				$(".detailpopup .info_wrap li").eq(3).html('<strong>장르</strong> : '+decode(data.GENRE));
-				$(".detailpopup .info_wrap li").eq(4).html('<strong>공식 홈페이지</strong> : <a href="'+decode(data.PAGE)+'">'+decode(data.PAGE)+'</a>');
+				if(decode(data.PAGE).match(".*naver.*") ){
+					$(".detailpopup .info_wrap li").eq(4).html('<strong>홈페이지</strong> : <a href="'+decode(data.PAGE)+'">네이버 페이지</a>');
+				}else{
+					$(".detailpopup .info_wrap li").eq(4).html('<strong>공식 홈페이지</strong> : <a href="'+decode(data.PAGE)+'">'+decode(data.PAGE)+'</a>');
+				}
+				$(".detailpopup .d_middle").html("<strong>줄거리</strong> :  "+decode(data.CONTENT));
 				
 				//$(".detailpopup .like button").attr("onclick", "likeplus("+data.MOVIE_ID+")");
 				$(".detailpopup .d_revbt").attr("href", "http://www.w3schools.com/jquery");
@@ -146,6 +151,7 @@ function moviedetail(MOVIE_ID, id, nownext) {
 $(document).ready(function(){ 
 	$("#detailstar").on("rating.change", function(event, value, caption) {
 		if(NowUser=='null'||NowUser==''){
+			$('#detailstar').rating("clear");
 		   alert("로그인 후에 참여해주세요");
 		   return;
 	   }else{
@@ -357,6 +363,7 @@ $(document).ready(function(){
 	$(".poster_star").on("rating.change", function(event, value, caption) {
 		console.log(NowUser+" , "+starNum);
 		if(NowUser=='null'||NowUser==''){
+			$('.movieNum_'+starNum+' .poster_star').rating("clear");
 		   g_alert("로그인 후에 참여해주세요");
 		   return;
 	   }else{

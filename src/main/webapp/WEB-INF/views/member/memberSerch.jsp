@@ -103,14 +103,15 @@ $(document).ready(function(){
 	});
 </script>
 </head>
+
 <ul class="nav">
 	<li><button id="idSearch">아이디 찾기</button></li>
-<div class="id" style="display: none;">
-		<button type="button" class="close">&times;</button>
-		<input type="text" id="idName" placeholder="이름"> <br>
-		<input type="text" id="idEmail" placeholder="이메일 주소"> <br>
-		<input type="button" id="idSerchBtn" value="확인"> <br>
-</div>
+		<div class="id" style="display: none;">
+			<button type="button" class="close">&times;</button>
+			<input type="text" id="idName" placeholder="이름"> <br>
+			<input type="text" id="idEmail" placeholder="이메일 주소"> <br>
+			<input type="button" id="idSerchBtn" value="확인"> <br>
+		</div>
 	<li><button id="pwSearch">비밀번호 찾기</button></li>
 		<div class="pw" style="display: none;">
 			<button type="button" class="close">&times;</button>
