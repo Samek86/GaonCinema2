@@ -48,9 +48,8 @@
 	<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 	<script src="http://vjs.zencdn.net/5.6.0/video.js"></script> -->
 
-	<link rel="stylesheet" type="text/css" href="./resources/css/elastislide.css" />
-	<script src="./resources/js/modernizr.custom.17475.js"></script>
-	<script type="text/javascript" src="./resources/js/jquery.elastislide.js"></script>
+	<script type="text/javascript" src="./resources/js/jssor.slider.mini.js"></script>
+	
 </head>
 <body>
 	<div id="header">

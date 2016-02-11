@@ -82,7 +82,56 @@
 		<strong>줄거리</strong> :  기다려... 우리가 꼭 데리러 갈게...<br><br> 해발 8,750 미터 히말라야 에베레스트 데스존<br> 인간의 접근을 허락하지 않은 신의 영역 그곳에 우리 동료가 묻혀있다.<br> 산 아래 하나였고, 또 다른 가족이었던 사람들<br> 생을 마감한 후배 대원의 시신을 찾기 위해 기록도, 명예도, 보상도 없는 가슴 뜨거운 여정을 시작한다. 그 누구도 시도하지 않았던 위대한 도전 엄홍길 대장과 휴먼원정대의 감동 실화가 공개된다! 
 	</div>
 	
-	
+    <div id="jssor_1" style="position: relative; margin: 80px auto 50px; top: 0px; left: 0px; width: 920px; height: 580px; overflow: hidden; visibility: hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('./img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 920px; height: 580px; overflow: hidden;">
+            <div data-p="112.50" style="display: none;">
+                <img data-u="image" src="./resources/img/movie/BG_01.jpg" />
+            </div>
+            <div data-p="112.50" style="display: none;">
+                <img data-u="image" src="./resources/img/movie/BG_02.jpg" />
+            </div>
+            <div data-p="112.50" style="display: none;">
+                <img data-u="image" src="./resources/img/movie/BG_03.jpg" />
+            </div>
+            <div data-p="112.50" style="display: none;">
+                <img data-u="image" src="./resources/img/movie/BG_04.jpg" />
+            </div>
+            <div data-p="112.50" style="display: none;">
+                <img data-u="image" src="./resources/img/movie/BG_05.jpg" />
+            </div>
+            <div data-p="112.50" style="display: none;">
+                <img data-u="image" src="./resources/img/movie/BG_06.jpg" />
+            </div>
+            <div data-p="112.50" style="display: none;">
+                <img data-u="image" src="./resources/img/movie/BG_07.jpg" />
+            </div>
+        </div>
+        <!-- Thumbnail Navigator -->
+        <div u="thumbnavigator" class="jssort03" style="position:absolute;left:0px;top:-80px;width:920px;height:80px;" data-autocenter="1">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height:100%; background-color: #000; filter:alpha(opacity=30.0); opacity:0.3;"></div>
+            <!-- Thumbnail Item Skin Begin -->
+            <div u="slides" style="cursor: default; width:920px; height:80px;">
+                <div u="prototype" class="p" style="width:130px; height:80px;">
+                    <div class="w" style="width:130px; height:80px;">
+                        <div u="thumbnailtemplate" class="t" style="width:130px; height:80px;"></div>
+                    </div>
+                    <div class="c" style="width:130px; height:80px;"></div>
+                </div>
+            </div>
+            <!-- Thumbnail Item Skin End -->
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora02l" style="top:200px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora02r" style="top:200px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
+    </div>
+    <div class="youtube_wrap">
+    <iframe width="920" height="518" src="https://www.youtube.com/embed/9FS0YFIJU7Q?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+	</div>
 	</div>
 </div> 
 

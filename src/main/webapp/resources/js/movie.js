@@ -88,8 +88,26 @@ function moviedetail(MOVIE_ID, id, nownext) {
 				$(".detailpopup .d_middle").html("<strong>줄거리</strong> :  "+decode(data.CONTENT));
 				
 				//$(".detailpopup .like button").attr("onclick", "likeplus("+data.MOVIE_ID+")");
-				$(".detailpopup .d_revbt").attr("href", "http://www.w3schools.com/jquery");
+				$(".detailpopup .d_revbt").attr("href", "#");
 		
+				$(".detailpopup #jssor_1 img").eq(0).attr('src', './resources/img/movie/'+decode(data.STEEL1));
+				$(".detailpopup #jssor_1 img").eq(1).attr('src', './resources/img/movie/'+decode(data.STEEL2));
+				$(".detailpopup #jssor_1 img").eq(2).attr('src', './resources/img/movie/'+decode(data.STEEL3));
+				$(".detailpopup #jssor_1 img").eq(3).attr('src', './resources/img/movie/'+decode(data.STEEL4));
+				$(".detailpopup #jssor_1 img").eq(4).attr('src', './resources/img/movie/'+decode(data.STEEL5));
+				$(".detailpopup #jssor_1 img").eq(5).attr('src', './resources/img/movie/'+decode(data.STEEL6));
+				$(".detailpopup #jssor_1 img").eq(6).attr('src', './resources/img/movie/'+decode(data.STEEL7));
+				$(".detailpopup #jssor_1 img").eq(7).attr('src', './resources/img/movie/'+decode(data.STEEL1));
+				$(".detailpopup #jssor_1 img").eq(8).attr('src', './resources/img/movie/'+decode(data.STEEL2));
+				$(".detailpopup #jssor_1 img").eq(9).attr('src', './resources/img/movie/'+decode(data.STEEL3));
+				$(".detailpopup #jssor_1 img").eq(10).attr('src', './resources/img/movie/'+decode(data.STEEL4));
+				$(".detailpopup #jssor_1 img").eq(11).attr('src', './resources/img/movie/'+decode(data.STEEL5));
+				$(".detailpopup #jssor_1 img").eq(12).attr('src', './resources/img/movie/'+decode(data.STEEL6));
+				$(".detailpopup #jssor_1 img").eq(13).attr('src', './resources/img/movie/'+decode(data.STEEL7));
+					
+				//$(".detailpopup .youtube_wrap").html('<iframe width="920" height="518" src="'+decode(data.MOVIE)+'?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>')
+				$(".detailpopup .youtube_wrap iframe").attr("src", decode(data.MOVIE)+"?rel=0&amp;controls=0&amp;showinfo=0");
+				
 				$.ajax({
 					url: "RateCheck.do",
 					data: 'NowUser='+NowUser+'&MOVIE_ID='+MOVIE_ID,
@@ -409,4 +427,43 @@ $(document).ready(function(){
 	   }
 	});
 	
+});
+
+
+
+jQuery(document).ready(function ($) {
+    
+    var jssor_1_options = {
+      $AutoPlay: true,
+      $ArrowNavigatorOptions: {
+        $Class: $JssorArrowNavigator$
+      },
+      $ThumbnailNavigatorOptions: {
+        $Class: $JssorThumbnailNavigator$,
+        $Cols: 9,
+        $SpacingX: 3,
+        $SpacingY: 3,
+        $Align: 260
+      }
+    };
+    
+    var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+    
+    //responsive code begin
+    //you can remove responsive code if you don't want the slider scales while window resizing
+    function ScaleSlider() {
+        var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+        if (refSize) {
+            refSize = Math.min(refSize, 920);
+            jssor_1_slider.$ScaleWidth(refSize);
+        }
+        else {
+            window.setTimeout(ScaleSlider, 30);
+        }
+    }
+    ScaleSlider();
+    $(window).bind("load", ScaleSlider);
+    $(window).bind("resize", ScaleSlider);
+    $(window).bind("orientationchange", ScaleSlider);
+    //responsive code end
 });
