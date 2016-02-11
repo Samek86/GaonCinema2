@@ -68,9 +68,11 @@
 		</tr>
 		
 		<!-- 게시글 작성 버튼 -->
+		<% if(session.getAttribute("NowUser") != null) { %>
 		<tr><td colspan="5" align="center">
 			<input type="button" value="게시글 작성" onclick="location.href='qnaPreInsert.do'">
 		</td></tr>
+		<% } %>
 	</table>
 	<p>
 	</div>

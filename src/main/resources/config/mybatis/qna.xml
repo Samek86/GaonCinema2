@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 데이터 추가 -->
 	<insert id="add" parameterType="com.gaon.cinema.qna.QnaDTO">
 		insert into gc_qna values(gc_seq.nextval,
-		 #{qna_id}, #{userid}, #{title}, #{contents} #{wdate}, #{count})
+		 #{qna_id}, #{userid}, #{title}, #{contents}, #{wdate}, #{count})
 	</insert>
 	
 	<!-- 선택한 게시글을 누를 경우 조회수 1 증가 -->
@@ -52,5 +52,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="delete" parameterType="int">
 		delete from gc_qna where qna_id = #{qna_id}
 	</delete>
-	
 </mapper>

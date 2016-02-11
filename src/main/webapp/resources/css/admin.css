@@ -36,6 +36,25 @@ rgba(11, 13, 12, 0.5);
 	display: inline-block;
 }
 
+/* adminMovieInsert.jsp 부분 */
+#adminMovieInsert {
+	text-align: center;
+}
+
+#adminMovieInsert > form {
+	display: inline-block;
+}
+
+/* adminTheaterInsert.jsp 부분 */
+#adminTheaterInsert {
+	text-align: center;
+}
+
+#adminTheaterInsert > form {
+	display: inline-block;
+}
+
+
 
 /* 아래쪽은 참고용 */
 #adminMovieList .main_menu {

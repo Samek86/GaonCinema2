@@ -22,7 +22,8 @@
 			</tr>
 		</c:forEach>
 		<tr><td colspan="9" align="center">
-			<input type="button" value="영화 상영 시간표 추가" onclick="location.href='adminMoviePreInsert.do'">
+			<input type="button" value="영화 추가" onclick="location.href='adminMoviePreInsert.do'">
+			<input type="button" value="영화 상영 시간표 추가" onclick="location.href='adminTheaterPreInsert.do'">
 		</td></tr>
 	</table>
 </div>

@@ -45,7 +45,7 @@ function moviedetail(MOVIE_ID, id, nownext) {
 		dataType: "json",
 		type: "GET",
 		success: function(data) { 
-				console.log(decode(data.NAME_K) +decode(data.NAME_E));
+				//console.log(decode(data.NAME_K) +decode(data.NAME_E));
 				//리셋 ↓
 				$('#detailstar').rating("clear");
 				$("#detailstar").rating("refresh", {disabled: false});
@@ -96,7 +96,7 @@ function moviedetail(MOVIE_ID, id, nownext) {
 					dataType: "json",
 					type: "GET",
 					success: function(data) { 
-							console.log(data);
+							//console.log(data);
 							if(data.check == 1){
 								$("#detailstar").rating("refresh", {disabled: true});
 								$('#detailstar').rating("clear");
@@ -115,7 +115,7 @@ function moviedetail(MOVIE_ID, id, nownext) {
 					dataType: "json",
 					type: "GET",
 					success: function(data) { 
-							console.log(data);
+							//console.log(data);
 							if(data.check == 1){
 								$(".detailpopup .likebt").text("찜했음");
 								$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"});
@@ -162,7 +162,7 @@ $(document).ready(function(){
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					console.log(data);
+					//console.log(data);
 					if(data.check=="1"){
 						alert("이미 참여하셨습니다");
 						$("#detailstar").rating("refresh", {disabled: true});
@@ -210,7 +210,7 @@ function likeplus(){
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					console.log(data);
+					//console.log(data);
 					if(data.check=="1"){
 						alert("이미 찜하셨습니다");
 						return;
@@ -255,7 +255,7 @@ function poster_likeplus(MOVIE_ID, NowUser){
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					console.log(data);
+					//console.log(data);
 					if(data.check=="1"){
 						g_alert("이미 찜하셨습니다");
 						return;
@@ -331,7 +331,7 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					console.log(data);
+					//console.log(data);
 					if(data.check=="1"){
 						$('.movieNum_'+starNum+' .poster_like .likebt').css("cursor", "no-drop");
 						$('.movieNum_'+starNum+' .poster_like .likebt:hover').css({"background-color": "#D6BA8A", "border-color": "#D6BA8A"});
@@ -361,7 +361,7 @@ function posterleave(MOVIE_ID) {
 
 $(document).ready(function(){ 
 	$(".poster_star").on("rating.change", function(event, value, caption) {
-		console.log(NowUser+" , "+starNum);
+		//console.log(NowUser+" , "+starNum);
 		if(NowUser=='null'||NowUser==''){
 			$('.movieNum_'+starNum+' .poster_star').rating("clear");
 		   g_alert("로그인 후에 참여해주세요");
@@ -374,7 +374,7 @@ $(document).ready(function(){
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					console.log(data);
+					//console.log(data);
 					if(data.check=="1"){
 						g_alert("이미 참여하셨습니다");
 						return;

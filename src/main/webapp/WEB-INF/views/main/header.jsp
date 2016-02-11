@@ -36,9 +36,28 @@
 		<input type="text" id="loginID" placeholder="아이디"> <br>
 		<input type="password" id ="loginPW" name="secret" placeholder="비밀번호">
 		<input type="button" id="loginbtn" value="로그인"><br>
-		<a href="memberPreSerch.do"><input type="button" id="idpwFind" value="ID/PW찾기"></a>
+		<input type="button" id="idpwFind" value="ID/PW찾기"><!-- <a href="memberPreSerch.do"></a> -->
 		<a href="write.do"><input type="button" id="joinbt" value="회원가입"></a>
 	</div>
+	
+	<div class="idpwFind_wrap">
+		<button type="button" class="close">&times;</button>
+	 	<img id = "loginlogo" src="./resources/img/login_logo.png">
+	 	<button id="idSearch">아이디 찾기</button><button id="pwSearch">비밀번호 찾기</button>
+	 	<div class="id" style="display:block; ">
+			<input type="text" id="idName" placeholder="이름"> <br>
+			<input type="text" id="idEmail" placeholder="이메일 주소"> <br>
+			<input type="button" id="idSerchBtn" value="확인"><input type="button" class="closebtn" value="취소"> <br>
+		</div>
+		<div class="pw" style="display: none;">
+			<input type="text" id="pwId" name="pwId" placeholder="아이디"> <br>
+			<input type="text" id="pwName" name="pwName" placeholder="이름"> <br>
+			<input type="text" id="pwEmail" name="pwEmail" placeholder="이메일 주소"> <br>
+			<input type="button" id="pwSerchbtn" name="pwSerchbtn" value="확인"><input type="button" class="closebtn" value="취소"> <br>
+		</div>
+	</div>
+	
+	
 	
 	<div class="member">
 	<c:if test="${NowUser=='admin'}">

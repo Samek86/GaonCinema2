@@ -16,6 +16,10 @@
 	<definition name="adminMemberList" template="/WEB-INF/views/admin/adminMemberList.jsp"/>
 	<definition name="adminMovieList" template="/WEB-INF/views/admin/adminMovieList.jsp"/>
 	<definition name="adminMovieInsert" template="/WEB-INF/views/admin/adminMovieInsert.jsp"/>
+	<definition name="adminMovieEdit" template="/WEB-INF/views/admin/adminMovieEdit.jsp"/>
+	<definition name="adminTheaterList" template="/WEB-INF/views/admin/adminTheaterList.jsp"/>
+	<definition name="adminTheaterInsert" template="/WEB-INF/views/admin/adminTheaterInsert.jsp"/>
+	<definition name="adminTheaterEdit" template="/WEB-INF/views/admin/adminTheaterEdit.jsp"/>
 	<definition name="adminReservationList" template="/WEB-INF/views/admin/adminReservationList.jsp"/>
 	
 	<!-- board -->
@@ -35,7 +39,6 @@
 	<definition name="notice" template="/WEB-INF/views/notice/notice.jsp"/>
 	
 	<!-- qna -->
-	<definition name="qna" template="/WEB-INF/views/qna/qna.jsp"/>
 	<definition name="qnaList" template="/WEB-INF/views/qna/qnaList.jsp"/>
 	<definition name="qnaDetail" template="/WEB-INF/views/qna/qnaDetail.jsp"/>
 	<definition name="qnaInsert" template="/WEB-INF/views/qna/qnaInsert.jsp"/>
@@ -49,7 +52,6 @@
 	
 	<!-- theater -->
 	<definition name="theater" template="/WEB-INF/views/theater/theater.jsp"/>
-	
 	<definition name="theaterSchedule" template="/WEB-INF/views/theater/theaterSchedule.jsp"/>
 
 	<!-- join -->
