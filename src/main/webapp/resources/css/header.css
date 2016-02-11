@@ -142,7 +142,7 @@ a:focus, button:focus, div:focus, input:focus
     margin: 40px 20% 20px 20%;
 }
 
-#header .login, #header .member{
+#header .login, #header .member, #header .idpwFind_wrap{
 	display: none;
 	background-color : #fff;
 	position: absolute;
@@ -374,3 +374,71 @@ a:focus, button:focus, div:focus, input:focus
 	height : 44px;
     margin-right: 10px;
 }
+
+#header .idpwFind_wrap{
+	height: 296px;
+	text-align: center;
+}
+
+#header #idSearch, #header #pwSearch{
+	padding: 5px 12px;
+    font-size: 19px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: transparent;
+    line-height: inherit;
+    border-style: solid;
+    border-color: #E08F23;
+    border-width: 3px;
+    margin: 0 3px 17px;
+    color: #E08F23;
+    outline: none;
+}
+
+#header #idSearch, #header #idSearch:hover, #header #pwSearch:hover {
+	background-color: #E08F23;
+	color: #fff;
+}
+
+#header #idName, #header #idEmail, #header #pwId, #header #pwName, #header #pwEmail{
+	height: 30px;
+    margin-left: 0;
+    background-color: #e3e3e3;
+    border-style: solid;
+    border-color: #bbb;
+    border-width: 1px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #555;
+    width: 222px;
+    font-family: san-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+#header #idName:hover, #header #idEmail:hover, #header #pwId:hover, #header #pwName:hover, #header #pwEmail:hover{
+	border-color: #017467;
+}
+
+#header #idSerchBtn, #header #pwSerchbtn, #header .closebtn{
+	width: 75px;
+    height: 34px;
+    top: 97px;
+    right: 61px;
+    background-color: #017467;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px 3px;
+}
+
+#header #idSerchBtn:hover, #header #pwSerchbtn:hover, #header .closebtn:hover {
+	background-color: #015f53;
+}
+
+
+
+
