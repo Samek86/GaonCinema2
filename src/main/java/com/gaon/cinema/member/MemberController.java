@@ -53,11 +53,9 @@ public class MemberController {
 			int count = dao.idSerch(dto);
 			if(count == 1){
 				dto = dao.idSelect(dto);
-				System.out.println("{\"check\": \""+ count +"\",\"id\": \""+count+"\"}");
 				out.print("{\"check\": \""+ count +"\",\"id\": \""+dto.getUserid()+"\"}");
 			}else{
 				mav.addObject("check", dto.getCnt());
-				System.out.println("{\"check\": \" 존재하지않는 아이디입니다 \"}");
 				out.print("{\"check\": \" 존재하지않는 아이디입니다 \"}");
 			}
 		}catch(Exception ex){	ex.printStackTrace();	}
@@ -110,15 +108,11 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		try{
-		String path=application.getRealPath("resources/upload");
-		String img=dto.getUpload().getOriginalFilename();
-		logger.info("넘어온 파일=" + img);
-		//MultipartFile클래스는 파일이름만 기억=> upload폴더로 전달
-		logger.info("path="+path);
-		File file= new File(path, img);
+		String path = application.getRealPath("/resources/img/member/");
+		String img = dto.getUpload().getOriginalFilename();
+		File file = new File(path,img);
 		dto.getUpload().transferTo(file);
 		dto.setImg_file(img);
-		logger.info("넘어온 파일=" + dto.getUpload());
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String year = request.getParameter("year");
@@ -140,6 +134,7 @@ public class MemberController {
 		session.setAttribute("Nowname", dto.getName());
 		session.setAttribute("Nowpoint", dto.getPoint());
 		session.setAttribute("Nowimg", dto.getImg_file());
+		session.setAttribute("Nowpath", path);
 		
 		mav.addObject("year", year);
 		mav.addObject("month", month);

@@ -1,0 +1,15 @@
+
+DROP TABLE GC_NOTICE; 
+DROP SEQUENCE GC_NOTICE_SEQ;
+
+/* GC_NOTICE 테이블 (공지사항) */
+CREATE TABLE GC_NOTICE (
+  NOTICE_ID NUMBER(10)          NOT NULL PRIMARY KEY,  --NOTICE 고유키
+  TITLE     VARCHAR2(30 CHAR)   NOT NULL,              --제목
+  CONTENTS  VARCHAR2(3000 CHAR) NOT NULL,              --내용
+  WDATE     DATE                NOT NULL,              --작성일
+  COUNT     NUMBER(10)          NOT NULL               --조회수
+);
+CREATE SEQUENCE GC_NOTICE_SEQ;
+
+COMMIT;

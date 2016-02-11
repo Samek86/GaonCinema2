@@ -16,8 +16,30 @@ rgba(224, 143, 35, 0.5);
 rgba(11, 13, 12, 0.5);
 
 */
+@charset "utf-8";
 
+@font-face {
+  font-family: NanumGothic;
+  font-style: normal;
+  font-weight: 400;
+  src: url('http://image3.megabox.co.kr/mop/font/NanumGothic.eot');
+  src: local('¡Ø'), url('http://image3.megabox.co.kr/mop/font/NanumGothic.eot?#iefix') format('embedded-opentype'), url('http://image3.megabox.co.kr/mop/font/NanumGothic.woff') format('woff'), url('http://image3.megabox.co.kr/mop/font/NanumGothic.ttf') format('truetype');
+}
+@font-face {
+  font-family: NanumGothic;
+  font-style: normal;
+  font-weight: 700;
+  src: url('http://image3.megabox.co.kr/mop/font/NanumGothicBold.eot');
+  src: local('¡Ø'), url('http://image3.megabox.co.kr/mop/font/NanumGothicBold.eot?#iefix') format('embedded-opentype'), url('http://image3.megabox.co.kr/mop/font/NanumGothicBold.woff') format('woff'), url('http://image3.megabox.co.kr/mop/font/NanumGothicBold.ttf') format('truetype');
+}
 
+a, button, div, input, a:hover, button:hover, div:hover, input:hover,
+a:after, button:after, div:after, input:after,
+a:focus, button:focus, div:focus, input:focus
+ {
+	outline: none;
+	text-decoration: none;
+}
 
 #header {
 	background-color: #017467;
@@ -73,6 +95,7 @@ rgba(11, 13, 12, 0.5);
 }
 
 
+
 #header .nav > li > a {
 	color : #D6BA8A;
 	font-size: 18px;
@@ -104,7 +127,12 @@ rgba(11, 13, 12, 0.5);
     font-weight: bold;
     transition : all 0.3s;
 }
-
+ #header #memberbt {
+    margin-left: 50px;
+    padding: 1px 12px;
+    border: none;
+ }
+ 
 #header #loginbt:hover, #header #memberbt:hover {
 	background-color: #E08F23;
 	color : #fff;
@@ -210,8 +238,15 @@ rgba(11, 13, 12, 0.5);
  /*============= member ===================*/
  
  #header .member{
-	height : 350px;
+	height : 360px;
 }
+ 
+ #header .member .nowimg{
+ 	width: 100px;
+ 	height: 100px;
+ 	margin-left: 77px;
+    margin-bottom: -50px;
+ }
  
  #header #a_member, #header #m_detail {
 	width: 109px;
@@ -296,7 +331,7 @@ rgba(11, 13, 12, 0.5);
     text-align: left;
     position: relative;
     left: 205px;
-    top: -28px;
+    top: -38px;
     color: #017467;
     
 }
@@ -322,6 +357,7 @@ rgba(11, 13, 12, 0.5);
 	    font-size: 23px;
 	    font-weight: bold;
   }
+  
   #small-dialog .dialogbtn{
   	margin-top: 23px;
     padding: 5px 36px;
@@ -332,3 +368,9 @@ rgba(11, 13, 12, 0.5);
     font-size: 19px;
     font-weight: bold;
   }
+  
+  #header .nav .img-circle { 
+	width: 44px;
+	height : 44px;
+    margin-right: 10px;
+}

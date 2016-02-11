@@ -25,7 +25,7 @@ rgba(11, 13, 12, 0.5); */
 }
 
 #main .fotorama{
-	
+	width: 100%;
 }
 
 #main .fotorama .banner-text {

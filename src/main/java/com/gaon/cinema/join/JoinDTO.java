@@ -19,6 +19,8 @@ public class JoinDTO {
 	private String img_file;
 	private MultipartFile upload;
 	private int point;
+	private String MOVIE_RATE;
+	private String MOVIE_LIKE;
 	
 	
 	public int getPoint() {
@@ -105,6 +107,18 @@ public class JoinDTO {
 	}
 	public void setAddress2(String address2) {
 		this.address2 = address2;
+	}
+	public String getMOVIE_RATE() {
+		return MOVIE_RATE;
+	}
+	public void setMOVIE_RATE(String mOVIE_RATE) {
+		MOVIE_RATE = mOVIE_RATE;
+	}
+	public String getMOVIE_LIKE() {
+		return MOVIE_LIKE;
+	}
+	public void setMOVIE_LIKE(String mOVIE_LIKE) {
+		MOVIE_LIKE = mOVIE_LIKE;
 	}
 	
 	

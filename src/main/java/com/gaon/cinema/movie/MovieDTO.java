@@ -5,9 +5,10 @@ import java.util.Date;
 import org.springframework.web.multipart.MultipartFile;
 
 public class MovieDTO {
+	private int rn;
 	private int MOVIE_ID;
-	private String NAME_K;
-	private String NAME_E; 
+	private String NAME_K ;
+	private String NAME_E ; 
 	private String  AGE   ;
 	private String AGEtext ;  
 	private Date  D_DAY	; 
@@ -15,13 +16,13 @@ public class MovieDTO {
 	private String  ACTOR  ;  
 	private String GENRE   ; 
 	private String PAGE	;
-	private int AVG		;
+	private double AVG		;
 	private int AVG_NUM;
 	private String CONTENT	;
 	private String POSTER	;
 	private String MOVIE 	;
 	private String STEEL1	;
-	private String STEEL2;
+	private String STEEL2	;
 	private String STEEL3	;
 	private String STEEL4	;
 	private String STEEL5	;
@@ -29,6 +30,11 @@ public class MovieDTO {
 	private String STEEL7;
 	private int R_TIME	;
 	private Date STARTDATE;
+	private int dday;
+	private String today;
+	private String ratevalue;
+	
+	
 	public int getMOVIE_ID() {
 		return MOVIE_ID;
 	}
@@ -89,10 +95,10 @@ public class MovieDTO {
 	public void setPAGE(String pAGE) {
 		PAGE = pAGE;
 	}
-	public int getAVG() {
+	public double getAVG() {
 		return AVG;
 	}
-	public void setAVG(int aVG) {
+	public void setAVG(double aVG) {
 		AVG = aVG;
 	}
 	public int getAVG_NUM() {
@@ -178,6 +184,30 @@ public class MovieDTO {
 	}
 	public void setENDDATE(Date eNDDATE) {
 		ENDDATE = eNDDATE;
+	}
+	public int getRn() {
+		return rn;
+	}
+	public void setRn(int rn) {
+		this.rn = rn;
+	}
+	public int getDday() {
+		return dday;
+	}
+	public void setDday(int dday) {
+		this.dday = dday;
+	}
+	public String getToday() {
+		return today;
+	}
+	public void setToday(String today) {
+		this.today = today;
+	}
+	public String getRatevalue() {
+		return ratevalue;
+	}
+	public void setRatevalue(String ratevalue) {
+		this.ratevalue = ratevalue;
 	}
 	private Date ENDDATE;
 }

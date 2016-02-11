@@ -29,6 +29,20 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){ 
+	$('.memberbt').click(function(){
+		var state = $('.member').css('display');
+        if(state == 'none'){
+            $('.member').show();
+        }else{ 
+            $('.member').hide();     
+        }
+	});
+	$('.member .close').click(function(){
+    	$('.member').hide();
+    });
+});
+
 
 function dialogclose(){
 	$.magnificPopup.close();
@@ -43,8 +57,9 @@ function g_alert(data){
 		    	  '<button type="button" class="dialogbtn" onclick="dialogclose()">닫기</button></div>',
 		      type: 'inline',
 		  }
-		});
+	});
 }
+
 
 $(document).ready(function(){
 $("#loginbtn").click(function() {
@@ -84,23 +99,15 @@ $("#loginbtn").click(function() {
 	$(window).scroll(menuScroll);
 	
 	function menuScroll() { 
-	/*    var banner = document.getElementsByClassName('banner-top')[0];
-	    var screen = document.documentElement.clientWidth;*/
 	    
 	    var nowscroll = $(window).scrollTop();
 	    
 	    if(nowscroll<=1){
 	    	$('#logoimg').css({'width' : '150px', 'height' : '150px'});
 	    	$('#logoimg').attr({'src' : './resources/img/Gaonlogo.png'});
-	    	//$('#header .nav > li > a').css({'padding': '28px 19px'});
-	    	//$('#header .backcolor').css({'height': '87px'});
-	    	//$('#header .login').css({'top': '69px'});
 	    }else {
 	    	$('#logoimg').css({'width' : '150px', 'height' : '77px'});
 	    	$('#logoimg').attr({'src' : './resources/img/Gaonlogo2.png'});
-	    	//$('#header .nav > li > a').css({'padding': '18px 19px'});
-	    	//$('#header .backcolor').css({'height': '67px'});
-	    	//$('#header .login').css({'top': '59px'});
 	    }
 	}
 	

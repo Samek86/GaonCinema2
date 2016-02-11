@@ -7,6 +7,7 @@
 <% session.getAttribute("Nowpoint");  %>
 <% session.getAttribute("Nowimg");  %>
 <% session.getAttribute("Nowpath");  %>
+<% session.getAttribute("ok");  %>
 <html>
 <head> 
 	<title>가온시네마</title>
@@ -14,6 +15,7 @@
 	<link rel="shotcut icon" href="./resources/img/favicon.ico">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<link href="./resources/css/bootstrap.css" rel="stylesheet">
 	<link href="./resources/css/bootstrap-select.css" rel="stylesheet">
 	<link href="./resources/css/fotorama.css" rel="stylesheet">
@@ -23,19 +25,26 @@
 	<link href="./resources/css/main.css" rel="stylesheet">
 	<link href="./resources/css/footer.css" rel="stylesheet">
 	<link href="./resources/css/theater.css" rel="stylesheet">
+	<link href="./resources/css/admin.css" rel="stylesheet">
 	<link rel="stylesheet" href="./resources/css/magnific-popup.css">
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="./resources/js/bootstrap.js"></script>
 	<script src="./resources/js/bootstrap-select.js"></script>
 	<script src="./resources/js/fotorama.js"></script>
 	<script src="./resources/js/jquery.datePicker.js"></script>
 	<script src="./resources/js/jquery.magnific-popup.js"></script>
-	
+	<script src="./resources/js/header.js"></script>
 	
 	<link href="./resources/css/movie.css" rel="stylesheet">
 	<script src="./resources/js/movie.js"></script>
+	<link href="./resources/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+	<script src="./resources/js/star-rating.js" type="text/javascript"></script>
 	
+
+
 </head>
 <body>
 	<div id="header">

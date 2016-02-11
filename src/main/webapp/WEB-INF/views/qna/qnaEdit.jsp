@@ -28,20 +28,5 @@
 			</td></tr>
 		</table>
 	</form>
-	<!-- 
-	<form action="qnaEdit.do" method="get">
-		<input type="hidden" name="qna_id" value="${bean.qna_id}">
-		<b>사용자 아이디 :</b><input type="text" name="contents">
-		<b>제목 :</b><input type="text" name="title" value="${bean.title}">
-		<b>내용 :</b><input type="text" name="contents" value="${bean.contents}">
-		<input type="submit" value="수정">
-	</form>
-	 -->
-	<input type="button" value="삭제" onclick="loaction.href='qnaDelete.do?qna_id=${bean.qna_id}">
 </body>
 </html>
-
-
-<%-- <td><a href="qnaDetail.do?qna_id=${bean.qna_id}">${bean.title}</a></td> --%>
-<%-- <input type="button" value="수정" onclick="location.href='qnaPreEdit.do?qna_id=${bean.qna_id}'">
- --%>

@@ -2,8 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <title>[header.jsp]</title>
 
-<script src="./resources/js/header.js"></script>
-
 <div class="backcolor"></div>
 <div class="header-wrap">
 	
@@ -23,10 +21,10 @@
 			<li><button id="loginbt">로그인</button></li>
 		</c:when>
 		<c:when test="${NowUser=='admin'}">
-			<li><button id="memberbt">${NowUser}</button></li>
+			<li><button id="memberbt"><img class="nowimg img-circle memberbt" src="./resources/img/member/${Nowimg}">${Nowname}</button></li>
 		</c:when>
 		<c:otherwise>
-			<li><button id="memberbt">${NowUser}</button></li>
+			<li><button id="memberbt"><img class="nowimg img-circle memberbt" src="./resources/img/member/${Nowimg}">${Nowname}</button></li>
 		</c:otherwise>
 	</c:choose>
 	
@@ -46,21 +44,21 @@
 	<c:if test="${NowUser=='admin'}">
 	 	<img id = "loginlogo" src="./resources/img/login_logo.png"><br>
 		<button type="button" class="close">&times;</button>
-		<img width="100px" height="100px" src="./resources/img/member/${Nowimg}"><br>
+		<img class="nowimg img-circle" src="./resources/img/member/${Nowimg}"><br>
 		<span class="membercontent">
 		<b>아이디 :${NowUser}</b><br>	
 		<b>이 름 : ${Nowname}</b><br>
 		<b>포인트 :${Nowpoint}</b><br>
 		</span>
-		<a href="" id="a_member">회원관리</a>
-		<a href="" id="a_rev" >예약관리</a><br><br><br>
-		<a href="" id="a_movie" >영화관리</a>
+		<a href="adminMemberList.do" id="a_member">회원관리</a>
+		<a href="adminReservationList.do" id="a_rev" >예약관리</a><br><br><br>
+		<a href="adminMovieList.do" id="a_movie" >영화관리</a>
 		<a href="logout.do" id="a_logout">로그아웃</a>
 	</c:if>
 	<c:if test="${NowUser!='admin'}">
 	 	<img id = "loginlogo" src="./resources/img/login_logo.png"><br>
 		<button type="button" class="close">&times;</button>
-		<img width="100px" height="100px" src="./resources/img/member/${Nowimg}"><br>
+		<img class="nowimg img-circle" src="./resources/img/member/${Nowimg}"><br>
 		<span class="membercontent">
 		<b>아이디 : ${NowUser}</b><br>	
 		<b>이 름 : ${Nowname}</b><br>
