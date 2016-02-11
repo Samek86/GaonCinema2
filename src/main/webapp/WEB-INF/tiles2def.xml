@@ -39,7 +39,6 @@
 	<definition name="notice" template="/WEB-INF/views/notice/notice.jsp"/>
 	
 	<!-- qna -->
-	<definition name="qna" template="/WEB-INF/views/qna/qna.jsp"/>
 	<definition name="qnaList" template="/WEB-INF/views/qna/qnaList.jsp"/>
 	<definition name="qnaDetail" template="/WEB-INF/views/qna/qnaDetail.jsp"/>
 	<definition name="qnaInsert" template="/WEB-INF/views/qna/qnaInsert.jsp"/>
@@ -53,7 +52,6 @@
 	
 	<!-- theater -->
 	<definition name="theater" template="/WEB-INF/views/theater/theater.jsp"/>
-	
 	<definition name="theaterSchedule" template="/WEB-INF/views/theater/theaterSchedule.jsp"/>
 
 	<!-- join -->

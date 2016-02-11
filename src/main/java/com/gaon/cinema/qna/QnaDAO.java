@@ -57,9 +57,6 @@ public class QnaDAO {
 	public void dbDelete(QnaDTO dto){
 	  temp.delete("qna.delete", dto);
 	}//dbDelete end
-	
-	
-
 }//QnaDAO class END
 	
 

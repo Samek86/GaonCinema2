@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javafx.scene.media.Media;
 import com.gaon.cinema.qna.QnaDTO;
+import com.gaon.cinema.qnaReply.QnaReplyDAO;
+import com.gaon.cinema.qnaReply.QnaReplyDTO;
 import com.gaon.cinema.util.PagingHandler;
 
 @Controller
@@ -21,6 +23,9 @@ public class QnaController {
 	
 	@Autowired
 	private QnaDAO dao;
+	
+	@Autowired
+	private QnaReplyDAO qrdao;
 
 	private static final Logger logger = LoggerFactory.getLogger(QnaController.class);
 
@@ -30,7 +35,7 @@ public class QnaController {
 		ModelAndView mav = new ModelAndView();
 		
 		/* 검색 처리 */
-		String skey = dto.getSkey() == null ? "title" : dto.getSkey();
+		String skey =  dto.getSkey() == null ? "title" : dto.getSkey();
 		String sval = dto.getSval() == null ? "" : dto.getSval();
 		String returnstring = "&skey=" + skey + "&sval=" +sval;
 		//검색 dto 세팅
@@ -69,35 +74,22 @@ public class QnaController {
 	
 	//--한건상세
 	@RequestMapping(value="/qnaDetail.do")
-	public ModelAndView qnadetail(@RequestParam int qna_id) {	
+	public ModelAndView qnaDetail(@RequestParam int qna_id) {	
 		ModelAndView mav = new ModelAndView();
+		
+		/* 게시판 */
 		dao.dbAddCount(qna_id); //게시글을 클릭하자마자 조회수 1 증가
 		QnaDTO dto = dao.dbDetail(qna_id);
 		mav.addObject("bean", dto);
+		
+		/* 게시판 댓글 */
+		List<QnaReplyDTO> replyList = qrdao.dbSelectQnaReply(qna_id);
+		mav.addObject("replyList", replyList);
+		
 		mav.addObject("page", "qnaDetail");
 		mav.setViewName("mainLayout");
 		return mav;
 	}//end
-	
-	//--수정(가짜)
-	@RequestMapping(value = "/qnaPreEdit.do", method = RequestMethod.GET)
-	public ModelAndView qnaPreEdit(@RequestParam int qna_id) {
-		ModelAndView mav = new ModelAndView();
-		QnaDTO dto = dao.dbDetail(qna_id);
-		mav.addObject("bean", dto);
-		mav.addObject("page", "qna Edit");
-		mav.setViewName("mainLayout");
-		return mav;
-	}//PreEdit end
-	
-	//수정(진짜)
-	@RequestMapping(value = "/qnaEdit.do", method = RequestMethod.GET)
-	public ModelAndView qnaEdit(QnaDTO dto) {
-		ModelAndView mav = new ModelAndView();	
-		dao.dbEdit(dto);
-		mav.setViewName("redirect:/qnaList.do");
-		return mav;
-	}//Edit end
 	
 	// --게시글 작성폼 띄우기
 	@RequestMapping(value = "/qnaPreInsert.do", method = RequestMethod.GET)
@@ -119,6 +111,26 @@ public class QnaController {
 		mav.setViewName("redirect:/qnaList.do");
 		return mav;
 	}
+	
+//--수정(가짜)
+	@RequestMapping(value = "/qnaPreEdit.do", method = RequestMethod.GET)
+	public ModelAndView qnaPreEdit(@RequestParam int qna_id) {
+		ModelAndView mav = new ModelAndView();
+		QnaDTO dto = dao.dbDetail(qna_id);
+		mav.addObject("bean", dto);
+		mav.addObject("page", "qnaEdit");
+		mav.setViewName("mainLayout");
+		return mav;
+	}//PreEdit end
+	
+	//수정(진짜)
+	@RequestMapping(value = "/qnaEdit.do", method = RequestMethod.GET)
+	public ModelAndView qnaEdit(QnaDTO dto) {
+		ModelAndView mav = new ModelAndView();	
+		dao.dbEdit(dto);
+		mav.setViewName("redirect:/qnaList.do");
+		return mav;
+	}//Edit end
 	
 	//--삭제
 	@RequestMapping(value = "/qnaDelete.do", method = RequestMethod.GET)
