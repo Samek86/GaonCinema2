@@ -4,15 +4,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin">
 	
+	<!-- 영화 목록 -->
+	<select id="selectMovieAll" resultType="com.gaon.cinema.movie.MovieDTO">
+		SELECT * FROM GC_MOVIE ORDER BY NAME_K
+	</select>
+	
+	<!-- 영화 추가 -->
+	<insert id="insertMovie" parameterType="com.gaon.cinema.movie.MovieDTO">
+		INSERT INTO GC_MOVIE VALUES (
+			GC_MOVIE_SEQ.NEXTVAL, #{NAME_K}, #{NAME_E}, #{AGE}, #{AGEtext}, 
+			#{D_DAY}, #{DIRECTOR}, #{ACTOR}, #{GENRE}, #{PAGE}, 
+			#{AVG}, #{AVG_NUM}, #{CONTENT}, #{POSTER}, #{MOVIE}, 
+			#{STEEL1}, #{STEEL2}, #{STEEL3}, #{STEEL4}, #{STEEL5}, 
+			#{STEEL6}, #{STEEL7}, #{R_TIME}, #{STARTDATE}, #{ENDDATE}
+		)
+	</insert>
+	
 	<!-- 영화관 목록 -->
 	<select id="selectTheaterAll" resultType="com.gaon.cinema.theater.TheaterDTO">
 		SELECT * FROM GC_THEATER ORDER BY CNAME, LNAME, TNAME
 	</select>
 	
-	<!-- 영화 목록 -->
-	<select id="selectMovieAll" resultType="com.gaon.cinema.movie.MovieDTO">
-		SELECT * FROM GC_MOVIE ORDER BY NAME_K
-	</select>
+	<!-- 영화관 추가 -->
+	<insert id="insertTheater" parameterType="com.gaon.cinema.theater.TheaterDTO">
+		INSERT INTO GC_THEATER VALUES (
+			GC_THEATER_SEQ.NEXTVAL, #{cname}, #{lname}, #{tname}, #{ttype}, 
+			#{seatcount}, #{mname}, #{mstarthour}, #{mendhour}, #{price}
+		)
+	</insert>
 	
 </mapper>
 
