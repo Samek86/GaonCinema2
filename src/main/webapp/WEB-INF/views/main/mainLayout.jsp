@@ -28,6 +28,7 @@
 	<link href="./resources/css/admin.css" rel="stylesheet">
 	<link rel="stylesheet" href="./resources/css/magnific-popup.css">
 	
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
   	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -43,8 +44,13 @@
 	<link href="./resources/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
 	<script src="./resources/js/star-rating.js" type="text/javascript"></script>
 	
+	<!-- <link href="http://vjs.zencdn.net/5.6.0/video-js.css" rel="stylesheet">
+	<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+	<script src="http://vjs.zencdn.net/5.6.0/video.js"></script> -->
 
-
+	<link rel="stylesheet" type="text/css" href="./resources/css/elastislide.css" />
+	<script src="./resources/js/modernizr.custom.17475.js"></script>
+	<script type="text/javascript" src="./resources/js/jquery.elastislide.js"></script>
 </head>
 <body>
 	<div id="header">

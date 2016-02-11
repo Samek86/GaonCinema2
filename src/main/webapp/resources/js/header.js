@@ -44,6 +44,7 @@ $(document).ready(function(){
 });
 
 
+
 function dialogclose(){
 	$.magnificPopup.close();
 }
@@ -111,6 +112,142 @@ $("#loginbtn").click(function() {
 	    }
 	}
 	
-	
+	//================================= 아이디 비번 찾기 ==============================
 
+	
+	$(document).ready(function(){ 
+	    $('#idpwFind').click(function(){
+	        var state = $('.idpwFind_wrap').css('display');
+	        if(state == 'none'){
+	            $('.idpwFind_wrap').show();
+	            $('#idName').focus();
+	        }else{ 
+	            $('.idpwFind_wrap').hide();  
+	        }
+	    });
+	    $('.close').click(function(){
+	    	$('.idpwFind_wrap').hide();
+	    	$('.login').hide();
+	    });
+	    $('.closebtn').click(function(){
+	    	$('.idpwFind_wrap').hide();
+	    	$('.login').hide();
+	    });
+	    
+	});
+	
+	
+	$(document).ready(function(){ 
+	    $('#idSearch').click(function(){
+	        var state = $('.id').css('display');
+	        	$('.pw').hide(); 
+	        	$('#header .idpwFind_wrap').css("height", "296px");
+	            $('#header #idSearch').css({"background-color": "#E08F23", "color": "#fff"});
+	        	$('.id').show();
+	            $('#idName').focus();
+	            $("#header #idSearch").hover(function(){
+	            	 $('#header #idSearch').css({"background-color": "#E08F23", "color": "#fff"})}, function(){
+	                 $('#header #idSearch').css({"background-color": "#E08F23", "color": "#fff"})
+	            	 });
+	            $("#header #pwSearch").hover(function(){
+					$("#header #pwSearch").css({"background-color": "#E08F23", "color": "#fff"})}, function(){
+					$("#header #pwSearch").css({"background-color": "transparent", "color": "#E08F23"})
+				});
+	            $('#header #pwSearch').css({"background-color": "transparent", "color": "#E08F23"});
+	            
+	            
+	    });
+	});
+	$(document).ready(function(){ 
+	    $('#pwSearch').click(function(){
+	        var state = $('.pw').css('display');
+	        	$('.id').hide();
+	        	$('#header .idpwFind_wrap').css("height", "330px");
+	        	$('#header #pwSearch').css({"background-color": "#E08F23", "color": "#fff"});
+	            $('.pw').show();
+	            $('#pwId').focus();
+	            $("#header #pwSearch").hover(function(){
+	            	 $('#header #pwSearch').css({"background-color": "#E08F23", "color": "#fff"})}, function(){
+	                 $('#header #pwSearch').css({"background-color": "#E08F23", "color": "#fff"})
+	            	 });
+	            $("#header #idSearch").hover(function(){
+					$("#header #idSearch").css({"background-color": "#E08F23", "color": "#fff"})}, function(){
+					$("#header #idSearch").css({"background-color": "transparent", "color": "#E08F23"})
+				});
+	            $('#header #idSearch').css({"background-color": "transparent", "color": "#E08F23"});
+	    });
+	});
+	
+	$(document).ready(function(){
+		$("#idSerchBtn").click(function() {
+			if ($("#idName").val() == "") {
+				g_alert("이름을 입력해주세요.");
+				return;
+			} else if($("#idEmail").val() == "") {
+				g_alert("이메일 주소를 입력해주세요.");
+				return;
+			} else{
+			$.ajax({
+				url: "memberidSerch.do",
+				data: "searchName=" + $("#idName").val() + "&searchEmail=" + $("#idEmail").val(),
+				dataType: "json",
+				type: "GET",
+				success: function(data) {
+					if(data.check==1){
+						g_alert("잃어버리신 아이디입니다. <br>"+data.id);
+					}else{
+						$("#idName").val("");
+						$("#idEmail").val("");
+						g_alert("이름과 이메일을 확인해 주세요.");
+						$("#idName").focus();
+					}
+				},
+				error: function(data) {
+					alert("error = " + data);
+				}
+			}); }
+		});
+		});
+		
+	$(document).ready(function(){
+		$("#pwSerchbtn").click(function() {
+			if ($("#pwId").val() == "") {
+				g_alert("아이디를 입력해주세요.");
+				return;
+			}
+			else if ($("#pwName").val() == "") {
+				g_alert("이름을 입력해주세요.");
+				return;
+			} else if($("#pwEmail").val() == "") {
+				g_alert("이메일 주소를 입력해주세요.");
+				return;
+			} else{
+			$.ajax({
+				url: "memberpwSerch.do", //메일컨트롤러	
+				data: "searchId=" + $("#pwId").val() +"&searchName=" + $("#pwName").val() + "&searchEmail=" + $("#pwEmail").val(),
+				dataType: "json",
+				type: "GET",
+				success: function(data) {
+					if(data.check==0){
+						g_alert("아이디를 확인해주세요.");
+						$("#pwId").val("");
+						$("#pwId").focus();
+					}else if(data.check==1){
+						g_alert("이름을 확인해주세요.");
+						$("#pwName").val("");
+						$("#pwName").focus();
+					}else if(data.check==2){
+						g_alert("이메일을 확인해주세요.");
+						$("#pwEmail").val("");
+						$("#pwEmail").focus();
+					}else if(data.check==3){
+						g_alert(data.ok);
+					}
+				},
+				error: function(data) {
+					alert("error = " + data);
+				}
+			}); }
+		});
+		});
 	
