@@ -36,7 +36,7 @@
 		<input type="text" id="loginID" placeholder="아이디"> <br>
 		<input type="password" id ="loginPW" name="secret" placeholder="비밀번호">
 		<input type="button" id="loginbtn" value="로그인"><br>
-		<input type="button" id="idpwFind" value="ID/PW찾기"><!-- <a href="memberPreSerch.do"></a> -->
+		<input type="button" id="idpwFind" value="ID/PW찾기">
 		<a href="write.do"><input type="button" id="joinbt" value="회원가입"></a>
 	</div>
 	
