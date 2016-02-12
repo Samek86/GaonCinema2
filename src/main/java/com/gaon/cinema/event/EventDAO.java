@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gaon.cinema.event.EventDAO;
 import com.gaon.cinema.event.EventDTO;
+import com.gaon.cinema.movie.MovieDTO;
 import com.gaon.cinema.event.EventDTO;
 
 @Repository
@@ -25,23 +26,25 @@ public class EventDAO {
 	String today = trans.format(javatoday); //오늘 날짜를 스트링으로 변환 
 	
 	public List<EventDTO> dbNowEvent(){
-		List<EventDTO> list = sql.selectList("event.nowevent", today);
-		
 		EventDTO dto = new EventDTO();
 		dto.setToday(today);
-		
+		List<EventDTO> list = sql.selectList("event.nowevent",dto);
 		return list;
-		
 	}
 
 	public List<EventDTO> dbEndEvent(){
-		List<EventDTO> list = sql.selectList("event.endevent", today);
-		
 		EventDTO dto = new EventDTO();
 		dto.setToday(today);
-		
+		List<EventDTO> list = sql.selectList("event.endevent",dto);
 		return list;
 	}
+
+	/*
+	public MovieDTO dbEventDetail(String Event_id) {
+		
+		return null;
+	}
+	*/
 	
 	
 }

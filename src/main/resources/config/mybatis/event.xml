@@ -4,19 +4,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="event">
 
-	<select id="nowevent" resultType="com.gaon.cinema.event.EventDTO" parameterType="String" >
-	  select rownum rn, event_ID, title, contents, poster, img, wdate, start, end from (
+	<select id="nowevent" resultType="com.gaon.cinema.event.EventDTO" parameterType="com.gaon.cinema.event.EventDTO" >
+	  select rownum rn, event_ID, title, contents, poster, img, wdate, E_START, E_END from (
     	select * from gc_event 
-      	where (START <![CDATA[<=]]> to_date(#{today})) and (END <![CDATA[ >=]]> to_date(#{today}))
+      	where (E_START <![CDATA[<=]]> to_date(#{today})) and (E_END <![CDATA[ >=]]> to_date(#{today}))
       	order by event_id desc)
 	</select>
 	
-	<select id="endevent" resultType="com.gaon.cinema.event.EventDTO" parameterType="String" >
-		select rownum rn, event_ID, title, contents, poster, img, wdate, start, end, (end - to_date(#{today})) as dday from (
+	<select id="endevent" resultType="com.gaon.cinema.event.EventDTO" parameterType="com.gaon.cinema.event.EventDTO" >
+		select rownum rn, event_ID, title, contents, poster, img, wdate, E_START, E_END from (
     	select * from gc_event 
-      	where end <![CDATA[ <=]]> to_date(#{today})
-      	order by end)
+      	where E_end <![CDATA[ <=]]> to_date(#{today})
+      	order by E_end)
 	</select>
-	
 	
 </mapper>

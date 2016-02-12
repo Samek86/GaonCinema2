@@ -106,7 +106,7 @@ function yearcheck(){
 	}//end
 	
 	$(document).ready(function(){
-		$("#checkBtn").click(function() {
+		$(".joinIdcheckBtn").click(function() {
 			if ($("#checkId").val() == "") {
 				g_alert("아이디를 입력해주세요.");
 				return;

@@ -28,6 +28,7 @@
 	<link href="./resources/css/admin.css" rel="stylesheet">
 	<link rel="stylesheet" href="./resources/css/magnific-popup.css">
 	
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
   	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -40,13 +41,21 @@
 	
 	<link href="./resources/css/store.css" rel="stylesheet">
 	<script src="./resources/js/store.js"></script>
+	<script type="text/javascript" src="./resources/js/jssor.slider.mini.js"></script>
 	<link href="./resources/css/movie.css" rel="stylesheet">
 	<script src="./resources/js/movie.js"></script>
 	<link href="./resources/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
 	<script src="./resources/js/star-rating.js" type="text/javascript"></script>
 	
+	<link href="./resources/css/join.css" rel="stylesheet">
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<script src="./resources/js/join.js"></script>
+	
+	<!-- <link href="http://vjs.zencdn.net/5.6.0/video-js.css" rel="stylesheet">
+	<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+	<script src="http://vjs.zencdn.net/5.6.0/video.js"></script> -->
 
-
+	
 </head>
 <body>
 	<div id="header">

@@ -21,21 +21,21 @@ line-height: 1.2;
 */
 @charset "utf-8";
 
-#movie {
+#event {
     margin: 150px 0 150px;
     width: 100%;
     height: auto;
     display: inline-flex;
 }
 
-#movie .movie-wrap{
+#event .event-wrap{
 	background-color: #ddd;
 	width: 1358px;
     position: relative;
     margin: 0 auto;
 }
 
-#movie li.item {
+#event li.item {
     display: block;
     width: 232px;
     height: 505px;
@@ -45,7 +45,7 @@ line-height: 1.2;
     background-color: #eee;
 }
 
-#movie li.item .poster{
+#event li.item .poster{
 	width: 100%;
 	height: 329px;
 	cursor: pointer;
@@ -53,22 +53,22 @@ line-height: 1.2;
 	transition : all 0.3s;
 }
 	
-#movie .poster-wrap:hover .poster{
+#event .poster-wrap:hover .poster{
 	-webkit-filter: brightness(50%);
     filter: brightness(50%);	
 }
 
-#movie li.item :hover{
+#event li.item :hover{
 	
 }
 
 .poster-wrap .rating-container{
 	position: relative;
     top: -148px;
-    left: 38px;
+    left: 44px;
     margin-top: -55px;
     display: none;
-    width: 152px;
+    width: 140px;
 }
 
 .poster-wrap .btn{
@@ -92,7 +92,7 @@ line-height: 1.2;
    /*  transition : all 0.4s; */
 }
 
-.nextmoviepage .item .poster_like {
+.nexteventpage .item .poster_like {
 	margin-top: -60px;
 }
 
@@ -120,11 +120,11 @@ line-height: 1.2;
 }
 
 
-#movie #moviesbt {
+#event #eventsbt {
 	
 }
 
-#movie .nowmovie, #movie .nextmovie {
+#event .nowevent, #event .nextevent {
 	padding: 9px 17px;
     font-size: 19px;
     font-family: inherit;
@@ -140,19 +140,19 @@ line-height: 1.2;
     outline: none;
 }
 
-#movie .nowmovie:hover, #movie .nextmovie:hover {
+#event .nowevent:hover, #event .nextevent:hover {
 	 background-color: #017467;
 	 color : #fff;
 }
 
-#movie .selected {
+#event .selected {
 	background-color: #017467;
 	color : #fff;
 }
 
 /* ================== 순위 ==================== */
 
-#movie .rank {
+#event .rank {
 	position: relative;
     width: 44px;
     height: 44px;
@@ -166,7 +166,7 @@ line-height: 1.2;
     
 }
 
-#movie .rank_empty {
+#event .rank_empty {
 	position: relative;
     width: 44px;
     height: 44px;
@@ -180,7 +180,7 @@ line-height: 1.2;
 
 /* ================== 평점 ==================== */
 
-#movie .AVG-wrap{
+#event .AVG-wrap{
 	position: static;
     width: 230px;
     height: 53px;
@@ -192,21 +192,21 @@ line-height: 1.2;
     margin-top: -36px;
 }
 
-#movie .AVG {
+#event .AVG {
     font-size: 15px;
     font-weight: bold;
     color: #555;
 }
 
-#movie .nextmoviepage .AVG-wrap{
+#event .nexteventpage .AVG-wrap{
     padding: 12px 0 0 13px;
 }
 
-#movie .nextmoviepage .AVG {
+#event .nexteventpage .AVG {
 	display: inline;
 }
 
-#movie .nextmoviepage .dday {
+#event .nexteventpage .dday {
 	background-color: #017467;
     padding: 7px 25px;
     border-radius: 10px;
@@ -220,8 +220,8 @@ line-height: 1.2;
 
 /* ================== 평점(별) ==================== */
 
-#movie .star-empty {
-	background: url(../img/movie/star_empty.png) no-repeat;
+#event .star-empty {
+	background: url(../img/event/star_empty.png) no-repeat;
     background-size: cover;
     width: 131px;
     height: 20px;
@@ -231,15 +231,15 @@ line-height: 1.2;
     top: -22px;
 }
 
-#movie .star-wrap {
+#event .star-wrap {
     width: 80px; /*수치 변화시 줄어듬 13.1*평점 */
     height: 20px;
     display: block;
     overflow: hidden;
 }
 
-#movie .star {
-	background: url(../img/movie/star_fill_orange.png) no-repeat;
+#event .star {
+	background: url(../img/event/star_fill_orange.png) no-repeat;
     background-size: 100%;
     width: 131px;
     height: 20px;
@@ -248,7 +248,7 @@ line-height: 1.2;
 
 /* ================== 영화제목 ==================== */
 
-#movie li.item .title-wrap {
+#event li.item .title-wrap {
 	position: static;
     width: 230px;
     height: 60px;
@@ -258,14 +258,14 @@ line-height: 1.2;
 }
 
 
-#movie li.item .AGE{
+#event li.item .AGE{
 	position: relative;
     top: 1px;
     left: 4px;
     width: 25px;
    }
  
- #movie li.item .title {
+ #event li.item .title {
  	font-size: 21px;
     font-weight: bold;
     color: #444;
@@ -278,7 +278,7 @@ line-height: 1.2;
     width: 160px;
  }
  
- #movie .detail, #movie .rev {
+ #event .detail, #event .rev {
  	padding: 9px 16px;
     font-size: 15px;
     font-weight: bold;
@@ -287,33 +287,33 @@ line-height: 1.2;
     background-color: transparent;
  }
  
-  #movie .detail {
+  #event .detail {
   margin: 3px 6px 9px 13px;
   color : #E08F23;
   border-color: #E08F23;
   }
   
-  #movie .detail:hover {
+  #event .detail:hover {
   background-color: #E08F23;
   color : #fff;
   }
   
-  #movie .rev{
+  #event .rev{
   margin: 3px 6px;
   color : #C71B1B;
   border-color: #C71B1B;
   }
   
-  #movie .rev:hover{
+  #event .rev:hover{
   background-color : #C71B1B;
   color : #fff;
   }
   
-  #movie .nowmoviepage {
+  #event .noweventpage {
   display: block;
   }
   
-  #movie .nextmoviepage {
+  #event .nexteventpage {
   display: none;
   }
   
@@ -407,7 +407,7 @@ line-height: 1.2;
  }
  
   .detailpopup .star-empty {
-	background: url(../img/movie/star_empty.png) no-repeat;
+	background: url(../img/event/star_empty.png) no-repeat;
     background-size: cover;
     width: 131px;
     height: 20px;
@@ -424,7 +424,7 @@ line-height: 1.2;
 }
 
 .detailpopup .star {
-	background: url(../img/movie/star_fill_orange.png) no-repeat;
+	background: url(../img/event/star_fill_orange.png) no-repeat;
     background-size: 100%;
     width: 131px;
     height: 20px;
@@ -509,7 +509,7 @@ line-height: 1.2;
       
  .detailpopup 
       
-  #movie .white-popup #detailpopupTop{
+  #event .white-popup #detailpopupTop{
 	  	border-bottom: 1px;
 	    border-bottom-style: solid;
 	    border-bottom-color: #aaa;
@@ -518,7 +518,7 @@ line-height: 1.2;
 	    font-weight: bold;
   }
   
-   #movie .white-popup .detailpopupbtn{
+   #event .white-popup .detailpopupbtn{
   	margin-top: 23px;
     padding: 5px 36px;
     background-color: #017467;
@@ -531,105 +531,4 @@ line-height: 1.2;
    */
   
   
-  
-  
-   
-        /* jssor slider arrow navigator skin 02 css */
-        /*
-        .jssora02l                  (normal)
-        .jssora02r                  (normal)
-        .jssora02l:hover            (normal mouseover)
-        .jssora02r:hover            (normal mouseover)
-        .jssora02l.jssora02ldn      (mousedown)
-        .jssora02r.jssora02rdn      (mousedown)
-        */
-        .jssora02l, .jssora02r {
-            display: block;
-            position: absolute;
-            /* size of arrow element */
-            width: 55px;
-            height: 55px;
-            cursor: pointer;
-            background: url('../img/a02.png') no-repeat;
-            overflow: hidden;
-            top:200px;
-        }
-        .jssora02l { background-position: -3px -33px; }
-        .jssora02r { background-position: -63px -33px; }
-        .jssora02l:hover { background-position: -123px -33px; }
-        .jssora02r:hover { background-position: -183px -33px; }
-        .jssora02l.jssora02ldn { background-position: -3px -33px; }
-        .jssora02r.jssora02rdn { background-position: -63px -33px; }
-
-        /* jssor slider thumbnail navigator skin 03 css */
-        /*
-        .jssort03 .p            (normal)
-        .jssort03 .p:hover      (normal mouseover)
-        .jssort03 .pav          (active)
-        .jssort03 .pdn          (mousedown)
-        */
-        
-        .jssort03 .p {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 62px;
-            height: 32px;
-        }
-        
-        .jssort03 .t {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .jssort03 .w, .jssort03 .pav:hover .w {
-            position: absolute;
-            width: 60px;
-            height: 30px;
-            border: white 1px dashed;
-            box-sizing: content-box;
-        }
-        
-        .jssort03 .pdn .w, .jssort03 .pav .w {
-            border-style: solid;
-        }
-        
-        .jssort03 .c {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 62px;
-            height: 32px;
-            background-color: #000;
-        
-            filter: alpha(opacity=45);
-            opacity: .45;
-            transition: opacity .6s;
-            -moz-transition: opacity .6s;
-            -webkit-transition: opacity .6s;
-            -o-transition: opacity .6s;
-        }
-        
-        .jssort03 .p:hover .c, .jssort03 .pav .c {
-            filter: alpha(opacity=0);
-            opacity: 0;
-        }
-        
-        .jssort03 .p:hover .c {
-            transition: none;
-            -moz-transition: none;
-            -webkit-transition: none;
-            -o-transition: none;
-        }
-        
-        * html .jssort03 .w {
-            width /**/: 62px;
-            height /**/: 32px;
-        }
-        
- 
   

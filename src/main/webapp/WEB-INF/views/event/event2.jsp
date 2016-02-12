@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-
 <div id="movie">
 <div class="movie-wrap">
 <div align="center" id="moviesbt">
@@ -15,8 +14,8 @@
 			<li class=item>
 				<img class="poster" onclick="moviedetail('${bean.event_id}')" src="./resources/img/event/${bean.poster }">
 				<div class="title-wrap"><div class="title">${bean.title}</div></div>
-			</li>
-		</c:forEach>
+			 </li>
+		 </c:forEach>
 	</ul>
 </div>
 <div class="nextmoviepage">
@@ -30,8 +29,6 @@
 	</ul>
 </div>
 </div>
-
-
 
 <!--  
 <div class='detailpopup mfp-hide'>
@@ -65,18 +62,5 @@
 </div>
 -->
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

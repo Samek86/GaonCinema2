@@ -34,6 +34,7 @@ session.removeAttribute("ok");
 	  <div data-img="./resources/img/kumsa_1600x600.jpg" class="banner-text" ><div>검사외전</div><div class="banner-text2">검사와 사기꾼의 유쾌한 버디플레이!</div></div>
 	</div>
 	
+	
 	<h1>[main.jsp]</h1><br>
 	<h1>[main.jsp]</h1><br>
 	<h1>[main.jsp]</h1><br>
