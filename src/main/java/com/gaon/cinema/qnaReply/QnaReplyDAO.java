@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.gaon.cinema.qna.QnaDTO;
+
 @Repository
 public class QnaReplyDAO {
 	
@@ -23,14 +25,15 @@ public class QnaReplyDAO {
 		temp.insert("qnaReply.addQnaReply", dto);
 	}//dbAddQnaReply end
 	
-	/* 댓글 수정*/
-	public void dbReplyEdit(QnaReplyDTO dto){
-		temp.update("qnaReply.ReplyEdit", dto);
-	}//dbreplyedit end
+	/* 댓글 수정 */
+	public void dbEditQnaReply(QnaReplyDTO dto){
+		temp.update("qnaReply.editQnaReply", dto);
+	}//dbEditQnaReply end
+
 	
-	/* 댓글 삭제*/
-	public void dbReplyDelete(QnaReplyDTO dto) {
-		temp.delete("qnaReply.ReplyDelete", dto);
+	/* 댓글 삭제 */
+	public void dbDeleteQnaReply(QnaReplyDTO dto) {
+		temp.delete("qnaReply.deleteQnaReply", dto);
 	}//dbreplydelete end
 	
 }//class QnaReplyDAO end
