@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="./resources/js/join.js"></script>
-<div>
+
+<div id="joinwrap">
 	<form name="insert" method="post" enctype="multipart/form-data" onsubmit="return check()" action="join.do">
 		<table id="jointable">
 			<tr>
@@ -33,9 +32,9 @@
 			</tr>
 			<tr>
 				<td>
-					<input  type="text" id="year" name="year" placeholder="년도" onblur="yearcheck()">
-					<input  type="text" id="month" name="month" placeholder="월" onblur="monthcheck()">
-					<input  type="text" id="day" name="day" placeholder="일" onblur="daycheck()">
+					<input  type="text" id="year" name="year" class="xs" placeholder="년도" onblur="yearcheck()">
+					<input  type="text" id="month" name="month" class="xs" placeholder="월" onblur="monthcheck()">
+					<input  type="text" id="day" name="day" class="xs" placeholder="일" onblur="daycheck()">
 				</td>
 			</tr>
 			<tr>
