@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,6 +42,29 @@ public class EventController {
 		mav.setViewName("mainLayout");
 		return mav;
 	}
+	
+	@RequestMapping(value="/eventDetail.do", method=RequestMethod.GET)
+	public void eventDetail(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		System.out.println("이벤트디테일두");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+		PrintWriter out = response.getWriter();
+		String event_id = request.getParameter("event_id");
+		EventDTO dto = dao.dbEventDetail(event_id);
+		StringBuilder sb = new StringBuilder();
+		sb.append("{");
+		sb.append("\"event_id\": \"" + dto.getEvent_id() + "\", " );
+		sb.append("\"title\": \""+ dto.getTitle() + "\", ");
+		sb.append("\"e_start\": \"" + dto.getE_start() + "\", ");
+		sb.append("\"e_end\": \"" + dto.getE_end() + "\", ");
+		sb.append("\"poster\": \"" + dto.getPoster() + "\", ");
+		sb.append("\"img\": \"" + dto.getImg() + "\" ");
+		sb.append("}");
+		System.out.println(sb);
+		out.print(sb.toString());
+	}
+	
 	
 	/*	
 	@RequestMapping(value = "/movieDetail.do", method = RequestMethod.GET)

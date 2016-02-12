@@ -38,6 +38,14 @@ public class EventDAO {
 		List<EventDTO> list = sql.selectList("event.endevent",dto);
 		return list;
 	}
+	
+	public EventDTO dbEventDetail(String event_id){
+		EventDTO dto = new EventDTO();
+		dto.setToday(today);
+		dto.setEvent_id(Integer.parseInt(event_id));
+		dto = sql.selectOne("event.eventdetail",dto);
+		return dto;
+	}
 
 	/*
 	public MovieDTO dbEventDetail(String Event_id) {

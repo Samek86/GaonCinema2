@@ -12,18 +12,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 댓글 등록 -->
 	<insert id="addQnaReply" parameterType="com.gaon.cinema.qnaReply.QnaReplyDTO">
-		insert into gc_qna_reply values (#{qna_id}, #{userid}, #{contents}, sysdate)
+		insert into gc_qna_reply values (gc_qna_reply_seq.nextval, #{qna_id}, #{userid}, #{contents}, sysdate)
 	</insert>
 	
 	<!-- 댓글 수정 -->
-	<update id = "replyedit" parameterType="com.gaon.cinema.qnaReply.QnaReplyDTO"> 
-		update gc_qna set title = #{userid}, contents = #{contents}, wdate = sysdate
-		where qna_id = #{qna_id}
+	<update id = "editQnaReply" parameterType="com.gaon.cinema.qnaReply.QnaReplyDTO"> 
+		update gc_qna_reply set contents = #{contents}, wdate = sysdate 
+		where qna_reply_id = #{qna_reply_id}
 	</update>
 	
 	<!-- 댓글 삭제 -->
-	<delete id = "replydelete" parameterType="int">
-		delete from gc_qna where qna_id =#{qna_id}
+	<delete id = "deleteQnaReply" parameterType="com.gaon.cinema.qnaReply.QnaReplyDTO">
+		delete from gc_qna_reply where qna_reply_id = #{qna_reply_id}
 	</delete>
 	
 </mapper>

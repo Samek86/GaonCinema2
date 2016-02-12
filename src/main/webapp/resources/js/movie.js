@@ -13,20 +13,19 @@ function starID(id, Num){
 	starNum = Num;
 }
 
-
 $(document).ready(function(){ 
     $('.nowmovie').click(function(){
             $('.nextmoviepage').hide();     
             $('.nowmoviepage').show();
-            $('.nowmovie').css({"background-color" : "#017467", "color" : "#fff"});
-            $('.nextmovie').css({"background-color" : "transparent", "color" : "#017467"});
+            $('.nextmovie').removeClass('selected');
+            $('.nowmovie').addClass('selected');
     });
     
     $('.nextmovie').click(function(){
             $('.nowmoviepage').hide();     
             $('.nextmoviepage').show();
-            $('.nextmovie').css({"background-color" : "#017467", "color" : "#fff"});
-            $('.nowmovie').css({"background-color" : "transparent", "color" : "#017467"});
+            $('.nowmovie').removeClass('selected');
+            $('.nextmovie').addClass('selected');
     });
 });
 
@@ -123,7 +122,7 @@ function moviedetail(MOVIE_ID, id, nownext) {
 							}
 					},
 					error: function(data) {
-						console.log(data);
+						//console.log(data);
 					}
 				});
 				
@@ -145,12 +144,12 @@ function moviedetail(MOVIE_ID, id, nownext) {
 							}
 					},
 					error: function(data) {
-						console.log(data);
+						//console.log(data);
 					}
 				});
 		},
 		error: function(data) {
-			console.log(data);
+			//console.log(data);
 		}
 	});
 	
@@ -202,13 +201,13 @@ $(document).ready(function(){
 										$("#detailstar").rating("refresh", {disabled: true});
 								},
 								error: function(data) {
-									console.log(data);
+									//console.log(data);
 								}
 							});
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	   
@@ -250,13 +249,13 @@ function likeplus(){
 									}
 								},
 								error: function(data) {
-									console.log(data);
+									//console.log(data);
 								}
 							});
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	  };
@@ -296,13 +295,13 @@ function poster_likeplus(MOVIE_ID, NowUser){
 									}
 								},
 								error: function(data) {
-									console.log(data);
+									//console.log(data);
 								}
 							});
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	  };
@@ -315,13 +314,14 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 	AVG = poster_avg;
 	AVG_NUM = poster_avgNum;
 	//console.log(NowUser+" , "+starNum);
-		
+	
+	
 	 if(nownext=='now'){
 		$('.movieNum_'+MOVIE_ID+' .poster-wrap .rating-container').css("display", "block");
 	 }
 	 $('.movieNum_'+MOVIE_ID+' .poster_like').css({"display": "block"});
 	 $('.movieNum_'+MOVIE_ID+' .poster_star').rating("clear");
-	
+	 if(NowUser==null||NowUser==""){return;};
 	 $.ajax({
 			url: "RateCheck.do",
 			data: 'NowUser='+NowUser+'&MOVIE_ID=' +starNum,
@@ -340,7 +340,7 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	 $.ajax({
@@ -357,7 +357,7 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	 
@@ -365,6 +365,7 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 }
 
 function posterleave(MOVIE_ID) {
+	
 	//console.log('.movieNum_'+MOVIE_ID+' .poster-wrap .rating-container');
 	$('.poster-wrap div').eq(0).css("margin-top", "0px");
 	//$('.movieNum_'+MOVIE_ID+' .poster_like').css("margin-top", "-45px");
@@ -414,13 +415,13 @@ $(document).ready(function(){
 										return;
 								},
 								error: function(data) {
-									console.log(data);
+									//console.log(data);
 								}
 							});
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	   
@@ -430,40 +431,3 @@ $(document).ready(function(){
 });
 
 
-
-jQuery(document).ready(function ($) {
-    
-    var jssor_1_options = {
-      $AutoPlay: true,
-      $ArrowNavigatorOptions: {
-        $Class: $JssorArrowNavigator$
-      },
-      $ThumbnailNavigatorOptions: {
-        $Class: $JssorThumbnailNavigator$,
-        $Cols: 9,
-        $SpacingX: 3,
-        $SpacingY: 3,
-        $Align: 260
-      }
-    };
-    
-    var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-    
-    //responsive code begin
-    //you can remove responsive code if you don't want the slider scales while window resizing
-    function ScaleSlider() {
-        var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-        if (refSize) {
-            refSize = Math.min(refSize, 920);
-            jssor_1_slider.$ScaleWidth(refSize);
-        }
-        else {
-            window.setTimeout(ScaleSlider, 30);
-        }
-    }
-    ScaleSlider();
-    $(window).bind("load", ScaleSlider);
-    $(window).bind("resize", ScaleSlider);
-    $(window).bind("orientationchange", ScaleSlider);
-    //responsive code end
-});

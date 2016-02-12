@@ -27,13 +27,39 @@ rgba(11, 13, 12, 0.5);
 	text-aling: center;
 }
 
-/* adminMovieList.jsp 부분 */
-#adminMovieList {
+/* adminMovieTheaterList.jsp 부분 */
+#adminMovieTheaterList {
 	text-align: center;
 }
 
-#adminMovieList > table {
+#adminMovieTheaterList > table {
 	display: inline-block;
+}
+
+#adminMovieTheaterList .movieListButton, #adminMovieTheaterList .theaterListButton {
+	padding: 9px 17px;
+	font-size: 19px;
+	font-family: inherit;
+	font-size: 17px;
+	font-weight: bold;
+	background-color: transparent;
+	line-height: inherit;
+	border-style: solid;
+	border-color: #017467;
+	border-width: 3px;
+	margin: 0 -3px 17px;
+	color : #017467;
+	outline: none;
+}
+
+#adminMovieTheaterList .movieListButton:hover, #adminMovieTheaterList .theaterListButton:hover {
+	background-color: #017467;
+	color : #fff;
+}
+
+#adminMovieTheaterList .selected {
+	background-color: #017467;
+	color : #fff;
 }
 
 /* adminMovieInsert.jsp 부분 */
@@ -57,23 +83,23 @@ rgba(11, 13, 12, 0.5);
 
 
 /* 아래쪽은 참고용 */
-#adminMovieList .main_menu {
+#adminMovieTheaterList .main_menu {
 	width: 800px; height: 77px;
 	background-color: red;
 	text-align: center;
 	display: inline-block;
 }
 
-#adminMovieList .main_menu > ul {
+#adminMovieTheaterList .main_menu > ul {
 	margin: 0; padding: 0;
 }
 
-#adminMovieList .main_menu > ul > li {
+#adminMovieTheaterList .main_menu > ul > li {
 	text-align: center;
 	display: inline-flex;
 }
 
-#adminMovieList .main_menu > ul > li > a {
+#adminMovieTheaterList .main_menu > ul > li > a {
 	text-decoration: none;
 	cursor: pointer;
 	color : #D6BA8A;
@@ -86,29 +112,29 @@ rgba(11, 13, 12, 0.5);
 	transition : all 0.3s;
 }
 
-#adminMovieList .main_menu > ul > li > a:hover {
+#adminMovieTheaterList .main_menu > ul > li > a:hover {
 	background-color: #005E57;
 	border-bottom: solid;
 	border-top: solid;
 	border-color: #E08F23;
 }
 
-#adminMovieList .sub_menu {
+#adminMovieTheaterList .sub_menu {
 	width: 800px; height: 77px;
 	background-color: green;
 	text-align: center;
 	display: inline-block;
 }
 
-#adminMovieList .sub_menu > ul {
+#adminMovieTheaterList .sub_menu > ul {
 	margin: 0; padding: 0;
 }
 
-#adminMovieList .sub_menu > ul > li {
+#adminMovieTheaterList .sub_menu > ul > li {
 	display: inline-flex;
 }
 
-#adminMovieList .sub_menu > ul > li > a {
+#adminMovieTheaterList .sub_menu > ul > li > a {
 	text-decoration: none;
 	cursor: pointer;
 	color : #D6BA8A;
@@ -121,14 +147,14 @@ rgba(11, 13, 12, 0.5);
 	transition : all 0.3s;
 }
 
-#adminMovieList .sub_menu > ul > li > a:hover {
+#adminMovieTheaterList .sub_menu > ul > li > a:hover {
 	background-color: #005E57;
 	border-bottom: solid;
 	border-top: solid;
 	border-color: #E08F23;
 }
 
-#adminMovieList .list {
+#adminMovieTheaterList .list {
 	width: 800px;
 	display: inline-block;
 	background-color: blue;

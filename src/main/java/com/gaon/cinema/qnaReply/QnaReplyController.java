@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gaon.cinema.qna.QnaDTO;
+
 @Controller
 public class QnaReplyController {
 	
@@ -31,5 +33,29 @@ public class QnaReplyController {
 		mav.setViewName("redirect:/qnaDetail.do?qna_id=" + dto.getQna_id());
 		return mav;
 	}//qnaReplyInsert end 
+	
+	
+	//수정
+	@RequestMapping(value = "/EditQnaReply.do", method = RequestMethod.GET)
+	public ModelAndView EditQnaReply(QnaReplyDTO dto) {
+		ModelAndView mav = new ModelAndView();	
+		
+		dao.dbEditQnaReply(dto);
+		
+		mav.setViewName("redirect:/qnaDetail.do?qna_id=" + dto.getQna_id());
+		return mav;
+	}//Edit end
+	
+	//--삭제
+	@RequestMapping(value = "/DeleteQnaReply.do", method = RequestMethod.GET)
+	public ModelAndView DeleteQnaReply(QnaReplyDTO dto) {
+		ModelAndView mav = new ModelAndView();	
+		
+		System.out.println("qna_reply_id = " + dto.getQna_reply_id());
+		dao.dbDeleteQnaReply(dto);
+		
+		mav.setViewName("redirect:/qnaDetail.do?qna_id=" + dto.getQna_id());
+		return mav;
+	}//DeleteQnaReply end
 	
 }//QnaController class END

@@ -29,7 +29,6 @@ line-height: 1.2;
 }
 
 #movie .movie-wrap{
-	background-color: #ddd;
 	width: 1358px;
     position: relative;
     margin: 0 auto;
@@ -42,7 +41,7 @@ line-height: 1.2;
     border: 1px solid #a4a4a4;
     margin: 12px;
     float: left;
-    background-color: #eee;
+    background-color: #fff;
 }
 
 #movie li.item .poster{
@@ -320,6 +319,20 @@ line-height: 1.2;
   /* ================== ¿µÈ­»ó¼¼Á¤º¸ ==================== */
   
   
+ .eventpopup {
+    background: white;
+    padding: 65px 40px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 40px auto;
+    position: relative;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 1000px;
+    height: auto;
+    font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+ }
+ 
  .detailpopup {
     background: white;
     padding: 65px 40px;
