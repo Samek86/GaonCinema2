@@ -36,7 +36,7 @@
 		<input type="text" id="loginID" placeholder="아이디"> <br>
 		<input type="password" id ="loginPW" name="secret" placeholder="비밀번호">
 		<input type="button" id="loginbtn" value="로그인"><br>
-		<input type="button" id="idpwFind" value="ID/PW찾기"><!-- <a href="memberPreSerch.do"></a> -->
+		<input type="button" id="idpwFind" value="ID/PW찾기">
 		<a href="write.do"><input type="button" id="joinbt" value="회원가입"></a>
 	</div>
 	
@@ -71,7 +71,7 @@
 		</span>
 		<a href="adminMemberList.do" id="a_member">회원관리</a>
 		<a href="adminReservationList.do" id="a_rev" >예약관리</a><br><br><br>
-		<a href="adminMovieList.do" id="a_movie" >영화관리</a>
+		<a href="adminMovieTheaterList.do" id="a_movie" >영화관리</a>
 		<a href="logout.do" id="a_logout">로그아웃</a>
 	</c:if>
 	<c:if test="${NowUser!='admin'}">

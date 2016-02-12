@@ -13,9 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gaon.cinema.member.MemberDTO;
 import com.gaon.cinema.movie.MovieDTO;
+import com.gaon.cinema.reservation.ReservationDTO;
 import com.gaon.cinema.theater.TheaterDTO;
 
 @Controller
@@ -33,6 +36,10 @@ public class AdminController {
 	@RequestMapping(value = "/adminMemberList.do", method = RequestMethod.GET)
 	public ModelAndView adminMemberList() {
 		ModelAndView mav = new ModelAndView();
+		
+		List<MemberDTO> memberList = dao.dbSelectMemberAll();
+		mav.addObject("memberList", memberList);
+		
 		mav.addObject("page", "adminMemberList");
 		mav.setViewName("mainLayout");
 		return mav;
@@ -42,25 +49,31 @@ public class AdminController {
 	@RequestMapping(value = "/adminReservationList.do", method = RequestMethod.GET)
 	public ModelAndView adminReservationList() {
 		ModelAndView mav = new ModelAndView();
+		
+		List<ReservationDTO> reservationList = dao.dbSelectReservationAll();
+		mav.addObject("reservationList", reservationList);
+		
 		mav.addObject("page", "adminReservationList");
 		mav.setViewName("mainLayout");
 		return mav;
 	}
 	
-	/* 영화관리 목록보기 */
-	@RequestMapping(value = "/adminMovieList.do", method = RequestMethod.GET)
-	public ModelAndView adminMovieList() {
+	/* 영화, 영화관 목록보기 */
+	@RequestMapping(value = "/adminMovieTheaterList.do", method = RequestMethod.GET)
+	public ModelAndView adminMovieTheaterList() {
 		ModelAndView mav = new ModelAndView();
 		
-		List<TheaterDTO> list = dao.dbSelectTheaterAll();
-		mav.addObject("list", list);
+		List<MovieDTO> movieList = dao.dbSelectMovieAll();
+		List<TheaterDTO> theaterList = dao.dbSelectTheaterAll();
+		mav.addObject("movieList", movieList);
+		mav.addObject("theaterList", theaterList);
 		
-		mav.addObject("page", "adminMovieList");
+		mav.addObject("page", "adminMovieTheaterList");
 		mav.setViewName("mainLayout");
 		return mav;
 	}
 	
-	/* 영화관리 영화 추가하기 폼 */
+	/* 영화 추가하기 폼 */
 	@RequestMapping(value = "/adminMoviePreInsert.do", method = RequestMethod.GET)
 	public ModelAndView adminMoviePreInsert() {
 		ModelAndView mav = new ModelAndView();
@@ -70,7 +83,7 @@ public class AdminController {
 		return mav;
 	}
 	
-	/* 영화관리 영화 추가하기 동작 */
+	/* 영화 추가하기 동작 */
 	@RequestMapping(value = "/adminMovieInsert.do", method = RequestMethod.POST)
 	public ModelAndView adminMovieInsert(MovieDTO dto) {
 		ModelAndView mav = new ModelAndView();
@@ -132,46 +145,17 @@ public class AdminController {
 			dto.setSTARTDATE(sdf.parse(dto.getSTARTDATESTRING()));
 			dto.setENDDATE(sdf.parse(dto.getENDDATESTRING()));
 		} catch(Exception e) { e.printStackTrace(); }
-		
-		System.out.println(dto.getD_DAYSTRING());
-		System.out.println(dto.getSTARTDATESTRING());
-		System.out.println(dto.getENDDATESTRING());
 		/**
 		 * 날짜 포맷 설정 끝
 		 */
 		
-		System.out.println("NAME_K : " + dto.getNAME_K());
-		System.out.println("NAME_E : " + dto.getNAME_E());
-		System.out.println("AGE : " + dto.getAGE());
-		System.out.println("AGEtext : " + dto.getAGEtext());
-		System.out.println("D_DAY : " + dto.getD_DAY());
-		System.out.println("DIRECTOR : " + dto.getDIRECTOR());
-		System.out.println("ACTOR : " + dto.getACTOR());
-		System.out.println("GENRE : " + dto.getGENRE());
-		System.out.println("PAGE : " + dto.getPAGE());
-		System.out.println("AVG : " + dto.getAVG());
-		System.out.println("AVG_NUM : " + dto.getAVG_NUM());
-		System.out.println("CONTENT : " + dto.getCONTENT());
-		System.out.println("POSTER : " + dto.getPOSTER());
-		System.out.println("MOVIE : " + dto.getMOVIE());
-		System.out.println("STEEL1 : " + dto.getSTEEL1());
-		System.out.println("STEEL2 : " + dto.getSTEEL2());
-		System.out.println("STEEL3 : " + dto.getSTEEL3());
-		System.out.println("STEEL4 : " + dto.getSTEEL4());
-		System.out.println("STEEL5 : " + dto.getSTEEL5());
-		System.out.println("STEEL6 : " + dto.getSTEEL6());
-		System.out.println("STEEL7 : " + dto.getSTEEL7());
-		System.out.println("R_TIME : " + dto.getR_TIME());
-		System.out.println("STARTDATE : " + dto.getSTARTDATE());
-		System.out.println("ENDDATE : " + dto.getENDDATE());
-		
 		dao.dbInsertMovie(dto);
 		
-		mav.setViewName("redirect:/adminMovieList.do");
+		mav.setViewName("redirect:/adminMovieTheaterList.do");
 		return mav;
 	}
 	
-	/* 영화관리 영화 수정하기 폼 */
+	/* 영화 수정하기 폼 */
 	@RequestMapping(value = "/adminMoviePreEdit.do", method = RequestMethod.GET)
 	public ModelAndView adminMoviePreEdit() {
 		ModelAndView mav = new ModelAndView();
@@ -181,31 +165,25 @@ public class AdminController {
 		return mav;
 	}
 	
-	/* 영화관리 영화 수정하기 동작 */
+	/* 영화 수정하기 동작 */
 	@RequestMapping(value = "/adminMovieEdit.do", method = RequestMethod.GET)
-	public ModelAndView adminMovieEdit() {
+	public ModelAndView adminMovieEdit(MovieDTO dto) {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("redirect:/adminMovieList.do");
+		dao.dbUpdateMovie(dto);
+		
+		mav.setViewName("redirect:/adminMovieTheaterList.do");
 		return mav;
 	}
 	
-	/* 영화관리 영화 삭제하기 동작 */
+	/* 영화 삭제하기 동작 */
 	@RequestMapping(value = "/adminMovieDelete.do", method = RequestMethod.GET)
-	public ModelAndView adminMovieDelete() {
+	public ModelAndView adminMovieDelete(@RequestParam int movie_id) {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("redirect:/adminMovieList.do");
-		return mav;
-	}
-	
-	/* 영화관 목록보기 */
-	@RequestMapping(value = "/adminTheaterList.do", method = RequestMethod.GET)
-	public ModelAndView adminTheaterList() {
-		ModelAndView mav = new ModelAndView();
+		dao.dbDeleteMovie(movie_id);
 		
-		mav.addObject("page", "adminTheaterInsert");
-		mav.setViewName("mainLayout");
+		mav.setViewName("redirect:/adminMovieTheaterList.do");
 		return mav;
 	}
 	
@@ -224,9 +202,9 @@ public class AdminController {
 	public ModelAndView adminTheaterInsert(TheaterDTO dto) {
 		ModelAndView mav = new ModelAndView();
 		
+		dao.dbInsertTheater(dto);
 		
-		
-		mav.setViewName("redirect:/adminMovieList.do");
+		mav.setViewName("redirect:/adminMovieTheaterList.do");
 		return mav;
 	}
 	
@@ -242,19 +220,23 @@ public class AdminController {
 	
 	/* 영화관 수정하기 동작 */
 	@RequestMapping(value = "/adminTheaterEdit.do", method = RequestMethod.GET)
-	public ModelAndView adminTheaterEdit() {
+	public ModelAndView adminTheaterEdit(TheaterDTO dto) {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("redirect:/adminTheaterList.do");
+		dao.dbUpdateTheater(dto);
+		
+		mav.setViewName("redirect:/adminMovieTheaterList.do");
 		return mav;
 	}
 	
 	/* 영화관 삭제하기 동작 */
 	@RequestMapping(value = "/adminTheaterDelete.do", method = RequestMethod.GET)
-	public ModelAndView adminTheaterDelete() {
+	public ModelAndView adminTheaterDelete(@RequestParam int theater_id) {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("redirect:/adminTheaterList.do");
+		dao.dbDeleteTheater(theater_id);
+		
+		mav.setViewName("redirect:/adminMovieTheaterList.do");
 		return mav;
 	}
 }
