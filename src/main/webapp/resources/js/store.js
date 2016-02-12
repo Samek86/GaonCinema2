@@ -13,19 +13,68 @@ function starID(id, Num){
 	starNum = Num;
 }
 
+
 $(document).ready(function(){ 
-    $('.nowmovie').click(function(){
-            $('.nextmoviepage').hide();     
-            $('.nowmoviepage').show();
-            $('.nextmovie').removeClass('selected');
-            $('.nowmovie').addClass('selected');
+    $('.popcorn').click(function(){
+            $('.drinkpage').hide();     
+            $('.snackpage').hide();     
+            $('.combopage').hide();     
+            $('.giftpage').hide();     
+            $('.popcornpage').show();
+            $('.popcorn').css({"background-color" : "#017467", "color" : "#fff"});
+            $('.drink').css({"background-color" : "transparent", "color" : "#017467"});
+            $('.snack').css({"background-color" : "transparent", "color" : "#017467"});
+            $('.combo').css({"background-color" : "transparent", "color" : "#017467"});
+            $('.gift').css({"background-color" : "transparent", "color" : "#017467"});
     });
     
-    $('.nextmovie').click(function(){
-            $('.nowmoviepage').hide();     
-            $('.nextmoviepage').show();
-            $('.nowmovie').removeClass('selected');
-            $('.nextmovie').addClass('selected');
+    $('.drink').click(function(){
+        $('.snackpage').hide();     
+        $('.combopage').hide();     
+        $('.giftpage').hide();     
+        $('.popcornpage').hide();
+        $('.drinkpage').show();     
+        $('.drink').css({"background-color" : "#017467", "color" : "#fff"});
+        $('.popcorn').css({"background-color" : "transparent", "color" : "#017467"});
+        $('.snack').css({"background-color" : "transparent", "color" : "#017467"});
+        $('.combo').css({"background-color" : "transparent", "color" : "#017467"});
+        $('.gift').css({"background-color" : "transparent", "color" : "#017467"});
+    });
+    $('.snack').click(function(){
+    	$('.drinkpage').hide();     
+    	$('.combopage').hide();     
+    	$('.giftpage').hide();     
+    	$('.popcornpage').hide();
+    	$('.snackpage').show();     
+    	$('.snack').css({"background-color" : "#017467", "color" : "#fff"});
+    	$('.popcorn').css({"background-color" : "transparent", "color" : "#017467"});
+    	$('.drink').css({"background-color" : "transparent", "color" : "#017467"});
+    	$('.combo').css({"background-color" : "transparent", "color" : "#017467"});
+    	$('.gift').css({"background-color" : "transparent", "color" : "#017467"});
+    });
+    $('.combo').click(function(){
+    	$('.drinkpage').hide();     
+    	$('.snackpage').hide();     
+    	$('.giftpage').hide();     
+    	$('.popcornpage').hide();
+    	$('.combopage').show();     
+    	$('.combo').css({"background-color" : "#017467", "color" : "#fff"});
+    	$('.popcorn').css({"background-color" : "transparent", "color" : "#017467"});
+    	$('.snack').css({"background-color" : "transparent", "color" : "#017467"});
+    	$('.drink').css({"background-color" : "transparent", "color" : "#017467"});
+    	$('.gift').css({"background-color" : "transparent", "color" : "#017467"});
+    });
+    $('.gift').click(function(){
+    	$('.drinkpage').hide();     
+    	$('.snackpage').hide();     
+    	$('.combopage').hide();     
+    	$('.popcornpage').hide();
+    	$('.giftpage').show();     
+    	$('.gift').css({"background-color" : "#017467", "color" : "#fff"});
+    	$('.popcorn').css({"background-color" : "transparent", "color" : "#017467"});
+    	$('.snack').css({"background-color" : "transparent", "color" : "#017467"});
+    	$('.combo').css({"background-color" : "transparent", "color" : "#017467"});
+    	$('.drink').css({"background-color" : "transparent", "color" : "#017467"});
     });
 });
 
@@ -35,120 +84,22 @@ function decode(data){
 	return result;
 }
 
-function moviedetail(MOVIE_ID, id, nownext) {
+function storeDetail(store_id) {
 	var Ca = /\+/g;
-	NowUser = id;
 	$.ajax({
-		url: "movieDetail.do",
-		data: "MOVIE_ID=" +MOVIE_ID,
+		url: "StoreDetail.do",
+		data: "store_id=" +store_id,
 		dataType: "json",
 		type: "GET",
 		success: function(data) { 
-				//console.log(decode(data.NAME_K) +decode(data.NAME_E));
-				//리셋 ↓
-				$('#detailstar').rating("clear");
-				$("#detailstar").rating("refresh", {disabled: false});
-				$(".detailpopup .likebt").text("찜하기");
-				$(".detailpopup .likebt").css({"color": "#E08F23", "background-color": "transparent", "cursor":"pointer"});
-				$(".detailpopup .likebt").hover(function(){
-					$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"pointer"})}, function(){
-					$(".detailpopup .likebt").css({"color": "#E08F23", "background-color": "transparent", "cursor":"pointer"})
-				});
-				$(".detailpopup .d_rate .label").html("평점을 입력해주세요");
-				//개봉전 영화일 경우 ↓
-				if(nownext=='next'){
-					$("#detailstar").rating("refresh", {disabled: true});
-					$('#detailstar').rating("clear");
-					$(".detailpopup .d_rate .label").html("아직 개봉 전 입니다.");
-					$(".detailpopup .popupstar").html("<div style='height:10px;'></div>");
-				}
-				//
-				$(".detailpopup .d_hidden").html('<div class="d_movieNum_'+data.MOVIE_ID+'">' +
-						'<input id="h_MOVIE_ID" type="hidden" value="'+data.MOVIE_ID+'">' +
-						'<input id="h_AVG" type="hidden" value="'+data.AVG+'">' +
-						'<input id="h_AVG_NUM" type="hidden" value="'+data.AVG_NUM+'">')
-						
-				$(".detailpopup .d_POSTER").html('<img src="./resources/img/movie/'+decode(data.POSTER)+'">');
-				$(".detailpopup .d_AGE").html('<img src="./resources/img/movie/movie'+decode(data.AGE)+'.png">');
-				$(".detailpopup .d_NAME_K").html(decode(data.NAME_K));
-				$(".detailpopup .d_NAME_E").html(decode(data.NAME_E));
-				$(".detailpopup .d_AVG").html(data.AVG);
-				$(".detailpopup .d_AVG_NUM").html('('+data.AVG_NUM+'명 참여)');
-				$(".detailpopup .star-wrap").css("width", 13.1*data.AVG);
-				$(".detailpopup .info_wrap li").eq(0).html('<strong>개봉일</strong> : '+data.STARTDATE);
-				$(".detailpopup .info_wrap li").eq(1).html('<strong>감독</strong> : '+decode(data.DIRECTOR));
-				$(".detailpopup .info_wrap li").eq(2).html('<strong>출연진</strong> : '+decode(data.ACTOR));
-				$(".detailpopup .info_wrap li").eq(3).html('<strong>장르</strong> : '+decode(data.GENRE));
-				if(decode(data.PAGE).match(".*naver.*") ){
-					$(".detailpopup .info_wrap li").eq(4).html('<strong>홈페이지</strong> : <a href="'+decode(data.PAGE)+'">네이버 페이지</a>');
-				}else{
-					$(".detailpopup .info_wrap li").eq(4).html('<strong>공식 홈페이지</strong> : <a href="'+decode(data.PAGE)+'">'+decode(data.PAGE)+'</a>');
-				}
-				$(".detailpopup .d_middle").html("<strong>줄거리</strong> :  "+decode(data.CONTENT));
-				
-				//$(".detailpopup .like button").attr("onclick", "likeplus("+data.MOVIE_ID+")");
-				$(".detailpopup .d_revbt").attr("href", "#");
-		
-				$(".detailpopup #jssor_1 img").eq(0).attr('src', './resources/img/movie/'+decode(data.STEEL1));
-				$(".detailpopup #jssor_1 img").eq(1).attr('src', './resources/img/movie/'+decode(data.STEEL2));
-				$(".detailpopup #jssor_1 img").eq(2).attr('src', './resources/img/movie/'+decode(data.STEEL3));
-				$(".detailpopup #jssor_1 img").eq(3).attr('src', './resources/img/movie/'+decode(data.STEEL4));
-				$(".detailpopup #jssor_1 img").eq(4).attr('src', './resources/img/movie/'+decode(data.STEEL5));
-				$(".detailpopup #jssor_1 img").eq(5).attr('src', './resources/img/movie/'+decode(data.STEEL6));
-				$(".detailpopup #jssor_1 img").eq(6).attr('src', './resources/img/movie/'+decode(data.STEEL7));
-				$(".detailpopup #jssor_1 img").eq(7).attr('src', './resources/img/movie/'+decode(data.STEEL1));
-				$(".detailpopup #jssor_1 img").eq(8).attr('src', './resources/img/movie/'+decode(data.STEEL2));
-				$(".detailpopup #jssor_1 img").eq(9).attr('src', './resources/img/movie/'+decode(data.STEEL3));
-				$(".detailpopup #jssor_1 img").eq(10).attr('src', './resources/img/movie/'+decode(data.STEEL4));
-				$(".detailpopup #jssor_1 img").eq(11).attr('src', './resources/img/movie/'+decode(data.STEEL5));
-				$(".detailpopup #jssor_1 img").eq(12).attr('src', './resources/img/movie/'+decode(data.STEEL6));
-				$(".detailpopup #jssor_1 img").eq(13).attr('src', './resources/img/movie/'+decode(data.STEEL7));
-					
-				//$(".detailpopup .youtube_wrap").html('<iframe width="920" height="518" src="'+decode(data.MOVIE)+'?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>')
-				$(".detailpopup .youtube_wrap iframe").attr("src", decode(data.MOVIE)+"?rel=0&amp;controls=0&amp;showinfo=0");
-				
-				$.ajax({
-					url: "RateCheck.do",
-					data: 'NowUser='+NowUser+'&MOVIE_ID='+MOVIE_ID,
-					dataType: "json",
-					type: "GET",
-					success: function(data) { 
-							//console.log(data);
-							if(data.check == 1){
-								$("#detailstar").rating("refresh", {disabled: true});
-								$('#detailstar').rating("clear");
-								$(".detailpopup .d_rate .label").html("이미 참여하셨습니다");
-								return;
-							}
-					},
-					error: function(data) {
-						console.log(data);
-					}
-				});
-				
-				$.ajax({
-					url: "LikeCheck.do",
-					data: 'NowUser='+NowUser+'&MOVIE_ID='+MOVIE_ID,
-					dataType: "json",
-					type: "GET",
-					success: function(data) { 
-							//console.log(data);
-							if(data.check == 1){
-								$(".detailpopup .likebt").text("찜했음");
-								$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"});
-								$(".detailpopup .likebt").hover(function(){
-									$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})}, function(){
-									$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})
-								});
-								return;
-							}
-					},
-					error: function(data) {
-						console.log(data);
-					}
-				});
+				$(".storeDtail .store_POSTER").html('<img src="./resources/img/store/'+decode(data.imgfile)+'">');
+				$(".storeDtail .store_title").html(decode(data.title));
+				$(".storeDtail .store_subtitle").html(decode(data.subtitle));
+				$(".storeDtail .storeinfo_wrap li").eq(0).html('<strong>가격</strong> : '+data.price);
+				$(".storeDtail .storeinfo_wrap li").eq(1).html('<strong>상품설명</strong> : '+decode(data.content));
 		},
 		error: function(data) {
+			alert(data);
 			console.log(data);
 		}
 	});
@@ -156,7 +107,7 @@ function moviedetail(MOVIE_ID, id, nownext) {
 	
 	$.magnificPopup.open({
 		  items: {
-		      src: '.detailpopup',
+		      src: '.storeDtail',
 		      type: 'inline',
 		  },
 		 closeBtnInside: true
@@ -179,7 +130,7 @@ $(document).ready(function(){
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					//console.log(data);
+					console.log(data);
 					if(data.check=="1"){
 						alert("이미 참여하셨습니다");
 						$("#detailstar").rating("refresh", {disabled: true});
@@ -227,7 +178,7 @@ function likeplus(){
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					//console.log(data);
+					console.log(data);
 					if(data.check=="1"){
 						alert("이미 찜하셨습니다");
 						return;
@@ -272,7 +223,7 @@ function poster_likeplus(MOVIE_ID, NowUser){
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					//console.log(data);
+					console.log(data);
 					if(data.check=="1"){
 						g_alert("이미 찜하셨습니다");
 						return;
@@ -348,7 +299,7 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					//console.log(data);
+					console.log(data);
 					if(data.check=="1"){
 						$('.movieNum_'+starNum+' .poster_like .likebt').css("cursor", "no-drop");
 						$('.movieNum_'+starNum+' .poster_like .likebt:hover').css({"background-color": "#D6BA8A", "border-color": "#D6BA8A"});
@@ -378,7 +329,7 @@ function posterleave(MOVIE_ID) {
 
 $(document).ready(function(){ 
 	$(".poster_star").on("rating.change", function(event, value, caption) {
-		//console.log(NowUser+" , "+starNum);
+		console.log(NowUser+" , "+starNum);
 		if(NowUser=='null'||NowUser==''){
 			$('.movieNum_'+starNum+' .poster_star').rating("clear");
 		   g_alert("로그인 후에 참여해주세요");
@@ -391,7 +342,7 @@ $(document).ready(function(){
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					//console.log(data);
+					console.log(data);
 					if(data.check=="1"){
 						g_alert("이미 참여하셨습니다");
 						return;
@@ -427,5 +378,3 @@ $(document).ready(function(){
 	});
 	
 });
-
-
