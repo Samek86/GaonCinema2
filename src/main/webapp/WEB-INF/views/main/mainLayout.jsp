@@ -39,6 +39,7 @@
 	<script src="./resources/js/jquery.magnific-popup.js"></script>
 	<script src="./resources/js/header.js"></script>
 	
+	<script type="text/javascript" src="./resources/js/jssor.slider.mini.js"></script>
 	<link href="./resources/css/movie.css" rel="stylesheet">
 	<script src="./resources/js/movie.js"></script>
 	<link href="./resources/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
@@ -48,7 +49,6 @@
 	<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 	<script src="http://vjs.zencdn.net/5.6.0/video.js"></script> -->
 
-	<script type="text/javascript" src="./resources/js/jssor.slider.mini.js"></script>
 	
 </head>
 <body>
