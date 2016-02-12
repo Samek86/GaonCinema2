@@ -38,6 +38,8 @@
 	<script src="./resources/js/jquery.magnific-popup.js"></script>
 	<script src="./resources/js/header.js"></script>
 	
+	<link href="./resources/css/store.css" rel="stylesheet">
+	<script src="./resources/js/store.js"></script>
 	<link href="./resources/css/movie.css" rel="stylesheet">
 	<script src="./resources/js/movie.js"></script>
 	<link href="./resources/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
