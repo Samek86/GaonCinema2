@@ -2,46 +2,72 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <script>
-	/*
 	$(function() {
-		$('.movieList').click(function() {
-			alert("test");
-			$('.movieList').css({"background-color" : "#017467", "color" : "#fff"});
-			$('.theaterList').css({"background-color" : "transparent", "color" : "#017467"});
+		$('#theaterListTable').hide();
+		$('.movieListButton').click(function() {
+			$('.movieListButton').addClass('selected');
+			$('.theaterListButton').removeClass('selected');
+			$('#movieListTable').show();
+			$('#theaterListTable').hide();
 		});
 		
-		$('.theaterList').click(function() {
-			alert("test");
-			$('.movieList').css({"background-color" : "transparent", "color" : "#017467"});
-			$('.theaterList').css({"background-color" : "#017467", "color" : "#fff"});
+		$('.theaterListButton').click(function() {
+			$('.movieListButton').removeClass('selected');
+			$('.theaterListButton').addClass('selected');
+			$('#movieListTable').hide();
+			$('#theaterListTable').show();
 		});
 	});
-	*/
 </script>
 
 <div id="adminMovieTheaterList">
 	<h1>[adminMovieTheaterList.jsp]</h1>
 	<div>
-		<button class="movieList selected" type="button" value="movieList">영화 목록</button>
-		<button class="theaterList" type="button" value="theaterList">영화관 목록</button>
+		<button class="movieListButton selected" type="button" value="movieList">영화 목록</button>
+		<button class="theaterListButton" type="button" value="theaterList">영화관 목록</button>
 	</div>
 	<div align="center">
 		<!-- 영화 목록 출력 -->
-		<table border="1" cellspacing="0">
+		<table id="movieListTable" border="1" cellspacing="0">
 			<tr>
-				<th></th>
+				<th>영화이름(한글)</th>
+				<th>영화이름(영문)</th>
+				<th>감독</th>
+				<th>장르</th>
+				<th>상영시간(분)</th>
+				<th>상영시작일</th>
+				<th>상영종료일</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 			<c:forEach var="movieBean" items="${movieList}">
 				<tr>
-					<td></td>
+					<td>${movieBean.NAME_K}</td>
+					<td>${movieBean.NAME_E}</td>
+					<td>${movieBean.DIRECTOR}</td>
+					<td>${movieBean.GENRE}</td>
+					<td>${movieBean.r_TIME}</td>
+					<td>${movieBean.STARTDATESTRING}</td>
+					<td>${movieBean.ENDDATESTRING}</td>
+					<td><input type="button" value="수정" onclick="location.href='adminMoviePreEdit.do?movie_id=${movieBean.MOVIE_ID}'"></td>
+					<td><input type="button" value="삭제" onclick="location.href='adminMovieDelete.do?movie_id=${movieBean.MOVIE_ID}'"></td>
 				</tr>
 			</c:forEach>
 		</table>
 		<!-- 영화관 목록 출력 -->
-		<table border="1" cellspacing="0">
+		<table id="theaterListTable" border="1" cellspacing="0">
 			<tr>
-				<th>도시이름</th><th>지역이름</th><th>영화관이름</th><th>영화관종류</th>
-				<th>좌석개수</th><th>영화이름</th><th>시작시간</th><th>종료시간</th><th>가격</th>
+				<th>도시이름</th>
+				<th>지역이름</th>
+				<th>영화관이름</th>
+				<th>영화관종류</th>
+				<th>좌석개수</th>
+				<th>영화이름</th>
+				<th>시작시간</th>
+				<th>종료시간</th>
+				<th>가격</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 			<c:forEach var="theaterBean" items="${theaterList}">
 				<tr>
@@ -54,6 +80,8 @@
 					<td>${theaterBean.mstarthour}</td>
 					<td>${theaterBean.mendhour}</td>
 					<td>${theaterBean.price}</td>
+					<td><input type="button" value="수정" onclick="location.href='adminTheaterPreEdit.do?theater_id=${theaterBean.theater_id}'"></td>
+					<td><input type="button" value="삭제" onclick="location.href='adminTheaterDelete.do?theater_id=${theaterBean.theater_id}'"></td>
 				</tr>
 			</c:forEach>
 		</table>

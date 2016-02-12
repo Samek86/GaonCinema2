@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 영화 목록 -->
 	<select id="selectMovieAll" resultType="com.gaon.cinema.movie.MovieDTO">
-		SELECT * FROM GC_MOVIE ORDER BY NAME_K
+		SELECT * FROM GC_MOVIE ORDER BY MOVIE_ID
 	</select>
 	
 	<!-- 영화 추가 -->
@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO GC_MOVIE VALUES (
 			GC_MOVIE_SEQ.NEXTVAL, #{NAME_K}, #{NAME_E}, #{AGE}, #{AGEtext}, 
 			#{D_DAY}, #{DIRECTOR}, #{ACTOR}, #{GENRE}, #{PAGE}, 
-			#{AVG}, #{AVG_NUM}, #{CONTENT}, #{POSTER}, #{MOVIE}, 
+			0, 0, #{CONTENT}, #{POSTER}, #{MOVIE}, 
 			#{STEEL1}, #{STEEL2}, #{STEEL3}, #{STEEL4}, #{STEEL5}, 
 			#{STEEL6}, #{STEEL7}, #{R_TIME}, #{STARTDATE}, #{ENDDATE}
 		)
