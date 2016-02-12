@@ -14,10 +14,9 @@
 	<!-- admin -->
 	<definition name="admin" template="/WEB-INF/views/admin/admin.jsp"/>
 	<definition name="adminMemberList" template="/WEB-INF/views/admin/adminMemberList.jsp"/>
-	<definition name="adminMovieList" template="/WEB-INF/views/admin/adminMovieList.jsp"/>
+	<definition name="adminMovieTheaterList" template="/WEB-INF/views/admin/adminMovieTheaterList.jsp"/>
 	<definition name="adminMovieInsert" template="/WEB-INF/views/admin/adminMovieInsert.jsp"/>
 	<definition name="adminMovieEdit" template="/WEB-INF/views/admin/adminMovieEdit.jsp"/>
-	<definition name="adminTheaterList" template="/WEB-INF/views/admin/adminTheaterList.jsp"/>
 	<definition name="adminTheaterInsert" template="/WEB-INF/views/admin/adminTheaterInsert.jsp"/>
 	<definition name="adminTheaterEdit" template="/WEB-INF/views/admin/adminTheaterEdit.jsp"/>
 	<definition name="adminReservationList" template="/WEB-INF/views/admin/adminReservationList.jsp"/>
