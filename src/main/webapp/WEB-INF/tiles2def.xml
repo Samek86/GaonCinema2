@@ -48,6 +48,9 @@
 	
 	<!-- store -->
 	<definition name="store" template="/WEB-INF/views/store/store.jsp"/>
+
+	<!-- buy -->
+	<definition name="buy" template="/WEB-INF/views/store/buy.jsp"/>
 	
 	<!-- theater -->
 	<definition name="theater" template="/WEB-INF/views/theater/theater.jsp"/>

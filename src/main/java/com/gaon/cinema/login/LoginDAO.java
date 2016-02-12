@@ -21,6 +21,12 @@ public class LoginDAO {
 		dto = sst.selectOne("login.select",dto);
 		return dto;
 	}//end
+	public LoginDTO Select(String id){
+		LoginDTO dto = new LoginDTO();
+		dto.setUSERID(id);
+		dto = sst.selectOne("login.select2",dto);
+		return dto;
+	}//end
 
 
 	public int loginSerch(String id, String pw) {

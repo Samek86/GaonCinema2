@@ -38,58 +38,58 @@ insert into gc_store values(gc_store_seq.nextval,'popcorn','팝콘','오리지�
 온라인 매점에서 구매하고 현장에서 바로 받아보실 수 있습니다. 영화를 보는 내내 고소한 맛을 즐길 수 있습니다!!','Popcorn_L7.png',4000);
 commit;
 /*음료*/
-insert into gc_store values(gc_store_seq.nextval,'drink','콜라','콜라(대)','온라인 매점 음료 - 콜라
+insert into gc_store values(gc_store_seq.nextval,'drink','콜라','(대)','온라인 매점 음료 - 콜라
 큰 사이즈로 2인 이상 충분히 즐길 수 있는 양입니다.
 고소한 팝콘과 함께 즐기면 훨씬 즐겁겠죠?','coke_L.png',2500);
-insert into gc_store values(gc_store_seq.nextval,'drink','스프라이트','스프라이트(대)','온라인 매점 음료 - 사이다
+insert into gc_store values(gc_store_seq.nextval,'drink','스프라이트','(대)','온라인 매점 음료 - 사이다
 큰 사이즈로 2인 이상 충분히 즐길 수 있는 양입니다.
 달콤+고소 트윈 팝콘과 함께 즐기면 훨씬 즐겁겠죠?','cider_L.png',2500);
-insert into gc_store values(gc_store_seq.nextval,'drink','포도환타','포도환타(대)','온라인 매점 음료 - 포도환타
+insert into gc_store values(gc_store_seq.nextval,'drink','포도환타','(대)','온라인 매점 음료 - 포도환타
 큰 사이즈로 2인 이상 충분히 즐길 수 있는 양입니다.
 고소한 팝콘과 함께 즐겨 보세요, 포도향이 입안에서 팝콘과 잘 어울립니다.','Fanta_Grape_L.png',2500);
-insert into gc_store values(gc_store_seq.nextval,'drink','오렌지환타','오렌지환타(대)','온라인 매점 음료 - 오렌지환타
+insert into gc_store values(gc_store_seq.nextval,'drink','오렌지환타','(대)','온라인 매점 음료 - 오렌지환타
 큰 사이즈로 2인 이상 충분히 즐길 수 있는 양입니다.
 라이스 팝과 함께 즐겨 보세요, 오렌지 환타를 더 맛있게 즐길 수 있습니다.','Fanta_orange_L.png',2500);
-insert into gc_store values(gc_store_seq.nextval,'drink','콜라제로','콜라제로(대)','온라인 매점 음료 - 콜라제로
+insert into gc_store values(gc_store_seq.nextval,'drink','콜라제로','(대)','온라인 매점 음료 - 콜라제로
 큰 사이즈로 2인 이상 충분히 즐길 수 있는 양입니다.
 다이어트 콜라! 칼로리 제로!','coke_zero_L.png',2500);
-insert into gc_store values(gc_store_seq.nextval,'drink','자몽 에이드','자몽 에이드(대)','온라인 매점 음료 - 자몽 에이드
+insert into gc_store values(gc_store_seq.nextval,'drink','자몽 에이드','(대)','온라인 매점 음료 - 자몽 에이드
 중간 사이즈로 혼자 찾는 관객에게는 제격!
 달콤 팝콘, 맛밤, 나쵸와 함께 즐겨보세요','ade2.png',2500);
-insert into gc_store values(gc_store_seq.nextval,'drink','오렌지 에이드','오렌지 에이드(대)','온라인 매점 음료 - 오렌지 에이드
+insert into gc_store values(gc_store_seq.nextval,'drink','오렌지 에이드','(대)','온라인 매점 음료 - 오렌지 에이드
 중간 사이즈로 혼자 찾는 관객에게는 제격!
 달콤 팝콘, 맛밤, 나쵸와 함께 즐겨보세요','ade2.png',2500);
 
-insert into gc_store values(gc_store_seq.nextval,'drink','콜라','콜라(중)','온라인 매점 음료 - 콜라
+insert into gc_store values(gc_store_seq.nextval,'drink','콜라','(중)','온라인 매점 음료 - 콜라
 중간 사이즈로 혼자 찾는 관객에게는 제격!
 나쵸, 맛밤, 핫도그와 함께 즐겨보세요','coke_M.png',2500);
-insert into gc_store values(gc_store_seq.nextval,'drink','스프라이트','스프라이트(중)','온라인 매점 음료 - 사이다
+insert into gc_store values(gc_store_seq.nextval,'drink','스프라이트','(중)','온라인 매점 음료 - 사이다
 중간 사이즈로 혼자 찾는 관객에게는 제격!
 나쵸, 맛밤, 핫도그와 함께 즐겨보세요','cider_M.png',2500);
-insert into gc_store values(gc_store_seq.nextval,'drink','포도환타','포도환타(중)','온라인 매점 음료 - 사이다
+insert into gc_store values(gc_store_seq.nextval,'drink','포도환타','(중)','온라인 매점 음료 - 사이다
 중간 사이즈로 혼자 찾는 관객에게는 제격!
 나쵸, 맛밤, 핫도그와 함께 즐겨보세요','Fanta_Grape_M.png',2500);
-insert into gc_store values(gc_store_seq.nextval,'drink','오렌지환타','오렌지환타(중)','온라인 매점 음료 - 사이다
+insert into gc_store values(gc_store_seq.nextval,'drink','오렌지환타','(중)','온라인 매점 음료 - 사이다
 중간 사이즈로 혼자 찾는 관객에게는 제격!
 나쵸, 맛밤, 핫도그와 함께 즐겨보세요','Fanta_orange_M.png',2500);
-insert into gc_store values(gc_store_seq.nextval,'drink','콜라제로','콜라제로(중)','온라인 매점 음료 - 사이다
+insert into gc_store values(gc_store_seq.nextval,'drink','콜라제로','(중)','온라인 매점 음료 - 사이다
 중간 사이즈로 혼자 찾는 관객에게는 제격!
 나쵸, 맛밤, 핫도그와 함께 즐겨보세요','coke_zero_M.png',2500);
 commit;
 /*스낵*/
-insert into gc_store values(gc_store_seq.nextval,'snack','핫도그','핫도그','핫도그
+insert into gc_store values(gc_store_seq.nextval,'snack','핫도그','기본','핫도그
 따뜻하고 부드러운 빵사이에 있는 소시지와 머스타드 소스와 캐첩의 어울림!
 한끼 식사로 충분합니다.','hotdog_basic.png',3500);
-insert into gc_store values(gc_store_seq.nextval,'snack','오징어(완제품)','오징어(완제품)','땅콩 버터 오징어
+insert into gc_store values(gc_store_seq.nextval,'snack','오징어','오징어','땅콩 버터 오징어
 땅콩의 고소함과 버터향이 어울리는 건조 오징어.
 영화를 보며 입이 심심할때는 오징어만한 것이 없습니다!
 콜라 음료와 즐겨보세요!!','ojing.png',3000);
-insert into gc_store values(gc_store_seq.nextval,'snack','즉석버터구이오징어','즉석버터구이오징어(몸통)','즉석버터구이오징어(몸통)','ojing2.png',4000);
-insert into gc_store values(gc_store_seq.nextval,'snack','즉석버터구이오징어','즉석버터구이오징어(다리)','즉석버터구이오징어(다리) 
+insert into gc_store values(gc_store_seq.nextval,'snack','즉석버터구이오징어','(몸통)','즉석버터구이오징어(몸통)','ojing2.png',4000);
+insert into gc_store values(gc_store_seq.nextval,'snack','즉석버터구이오징어','(다리)','즉석버터구이오징어(다리) 
 콜라 음료와 즐겨보세요!!','ojing3.png',4000);
-insert into gc_store values(gc_store_seq.nextval,'snack','칠리치즈나쵸','칠리치즈나쵸','칠리치즈나쵸
+insert into gc_store values(gc_store_seq.nextval,'snack','칠리치즈나쵸','소스 2개','칠리치즈나쵸
 나쵸와 칠리치즈 소스의 환상 궁합을 느껴보세요!','nacho.png',4000);
-insert into gc_store values(gc_store_seq.nextval,'snack','맛밤','맛밤','이미 시중에 인기중인 CJ 맛밤
+insert into gc_store values(gc_store_seq.nextval,'snack','맛밤','기본','이미 시중에 인기중인 CJ 맛밤
 온라인 매점에서도 선 구매가 가능하며 극장 매장에서 수령하실 수 있습니다.
 한 입에 하나씩 쏙쏙!! 고소한 맛을 느껴보세요','bam.png',3000);
 commit;

@@ -6,6 +6,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="select"  resultType="com.gaon.cinema.login.LoginDTO" parameterType="com.gaon.cinema.login.LoginDTO">
 		select * from GC_MEMBER where USERID=#{USERID} and USERPW=#{USERPW}
 	</select>
+	<select id="select2"  resultType="com.gaon.cinema.login.LoginDTO" parameterType="com.gaon.cinema.login.LoginDTO">
+		select * from GC_MEMBER where USERID=#{USERID}
+	</select>
 	
 	
 	<select id="count"  resultType="com.gaon.cinema.login.LoginDTO" parameterType="String">

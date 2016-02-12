@@ -41,6 +41,7 @@
 	<script src="./resources/js/header.js"></script>
 	
 	<script src="./resources/js/event.js"></script>
+	<script src="./resources/js/buy.js"></script>
 	<link href="./resources/css/store.css" rel="stylesheet">
 	<script src="./resources/js/store.js"></script>
 	<script type="text/javascript" src="./resources/js/jssor.slider.mini.js"></script>
