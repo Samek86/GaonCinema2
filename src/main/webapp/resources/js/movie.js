@@ -122,7 +122,7 @@ function moviedetail(MOVIE_ID, id, nownext) {
 							}
 					},
 					error: function(data) {
-						console.log(data);
+						//console.log(data);
 					}
 				});
 				
@@ -144,12 +144,12 @@ function moviedetail(MOVIE_ID, id, nownext) {
 							}
 					},
 					error: function(data) {
-						console.log(data);
+						//console.log(data);
 					}
 				});
 		},
 		error: function(data) {
-			console.log(data);
+			//console.log(data);
 		}
 	});
 	
@@ -201,13 +201,13 @@ $(document).ready(function(){
 										$("#detailstar").rating("refresh", {disabled: true});
 								},
 								error: function(data) {
-									console.log(data);
+									//console.log(data);
 								}
 							});
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	   
@@ -249,13 +249,13 @@ function likeplus(){
 									}
 								},
 								error: function(data) {
-									console.log(data);
+									//console.log(data);
 								}
 							});
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	  };
@@ -295,13 +295,13 @@ function poster_likeplus(MOVIE_ID, NowUser){
 									}
 								},
 								error: function(data) {
-									console.log(data);
+									//console.log(data);
 								}
 							});
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	  };
@@ -314,13 +314,14 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 	AVG = poster_avg;
 	AVG_NUM = poster_avgNum;
 	//console.log(NowUser+" , "+starNum);
-		
+	
+	
 	 if(nownext=='now'){
 		$('.movieNum_'+MOVIE_ID+' .poster-wrap .rating-container').css("display", "block");
 	 }
 	 $('.movieNum_'+MOVIE_ID+' .poster_like').css({"display": "block"});
 	 $('.movieNum_'+MOVIE_ID+' .poster_star').rating("clear");
-	
+	 if(NowUser==null||NowUser==""){return;};
 	 $.ajax({
 			url: "RateCheck.do",
 			data: 'NowUser='+NowUser+'&MOVIE_ID=' +starNum,
@@ -339,7 +340,7 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	 $.ajax({
@@ -356,7 +357,7 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	 
@@ -364,6 +365,7 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 }
 
 function posterleave(MOVIE_ID) {
+	
 	//console.log('.movieNum_'+MOVIE_ID+' .poster-wrap .rating-container');
 	$('.poster-wrap div').eq(0).css("margin-top", "0px");
 	//$('.movieNum_'+MOVIE_ID+' .poster_like').css("margin-top", "-45px");
@@ -413,13 +415,13 @@ $(document).ready(function(){
 										return;
 								},
 								error: function(data) {
-									console.log(data);
+									//console.log(data);
 								}
 							});
 					}
 			},
 			error: function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 		});
 	   

@@ -17,8 +17,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 댓글 수정 -->
 	<update id = "editQnaReply" parameterType="com.gaon.cinema.qnaReply.QnaReplyDTO"> 
-		update gc_qna_reply set title = #{userid}, contents = #{contents}, wdate = sysdate
-		where qna_id = #{qna_id}
+		update gc_qna_reply set contents = #{contents}, wdate = sysdate 
+		where qna_reply_id = #{qna_reply_id}
 	</update>
 	
 	<!-- 댓글 삭제 -->

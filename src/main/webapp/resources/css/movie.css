@@ -29,7 +29,6 @@ line-height: 1.2;
 }
 
 #movie .movie-wrap{
-	background-color: #ddd;
 	width: 1358px;
     position: relative;
     margin: 0 auto;
@@ -42,7 +41,7 @@ line-height: 1.2;
     border: 1px solid #a4a4a4;
     margin: 12px;
     float: left;
-    background-color: #eee;
+    background-color: #fff;
 }
 
 #movie li.item .poster{

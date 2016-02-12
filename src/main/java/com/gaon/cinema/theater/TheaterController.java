@@ -49,6 +49,7 @@ public class TheaterController {
 				if(i < list.size() - 1) { json = json + ", "; }
 			}
 			json = json + "]}";
+			System.out.println(json);
 			/* JSON 끝 */
 			out.print(json);
 		} catch(Exception e) { e.printStackTrace(); }

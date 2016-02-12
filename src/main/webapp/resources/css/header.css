@@ -39,6 +39,7 @@ a:focus, button:focus, div:focus, input:focus
  {
 	outline: none;
 	text-decoration: none;
+	transition : all 0.3s;
 }
 
 #header {
@@ -239,6 +240,11 @@ a:focus, button:focus, div:focus, input:focus
  
  #header .member{
 	height : 360px;
+	-webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
  
  #header .member .nowimg{
@@ -260,6 +266,7 @@ a:focus, button:focus, div:focus, input:focus
     font-weight: bold;
     outline: none;
     padding: 11px 24px;
+    transition : all 0.3s;
 }
 
  #header #a_member:hover, #header #m_detail:hover {
@@ -280,6 +287,7 @@ a:focus, button:focus, div:focus, input:focus
     font-weight: bold;
     outline: none;
     padding: 11px 24px;
+    transition : all 0.3s;
 }
 
 #header #a_rev:hover, #header #m_like:hover{
@@ -300,6 +308,7 @@ a:focus, button:focus, div:focus, input:focus
     font-weight: bold;
     outline: none;
     padding: 11px 24px;
+    transition : all 0.3s;
 }
 #header #a_movie:hover, #header #m_rev:hover{
 	background-color: #C71B1B;
@@ -333,6 +342,7 @@ a:focus, button:focus, div:focus, input:focus
     left: 205px;
     top: -38px;
     color: #017467;
+    cursor: default;
     
 }
  
@@ -394,6 +404,7 @@ a:focus, button:focus, div:focus, input:focus
     margin: 0 3px 17px;
     color: #E08F23;
     outline: none;
+    transition : all 0.3s;
 }
 
 #header #idSearch, #header #idSearch:hover, #header #pwSearch:hover {
@@ -416,6 +427,7 @@ a:focus, button:focus, div:focus, input:focus
     font-weight: bold;
     margin-bottom: 10px;
     outline: none;
+    transition : all 0.3s;
 }
 
 #header #idName:hover, #header #idEmail:hover, #header #pwId:hover, #header #pwName:hover, #header #pwEmail:hover{
@@ -433,6 +445,7 @@ a:focus, button:focus, div:focus, input:focus
     font-size: 16px;
     font-weight: bold;
     margin: 0px 3px;
+    transition : all 0.3s;
 }
 
 #header #idSerchBtn:hover, #header #pwSerchbtn:hover, #header .closebtn:hover {

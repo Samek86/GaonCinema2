@@ -1,7 +1,10 @@
 package com.gaon.cinema.qna;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,7 +77,7 @@ public class QnaController {
 	
 	//--한건상세
 	@RequestMapping(value="/qnaDetail.do")
-	public ModelAndView qnaDetail(@RequestParam int qna_id) {	
+	public ModelAndView qnaDetail(HttpServletResponse response, @RequestParam int qna_id) {	
 		ModelAndView mav = new ModelAndView();
 		
 		/* 게시판 */
