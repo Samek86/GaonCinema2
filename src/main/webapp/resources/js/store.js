@@ -87,7 +87,7 @@ function storeDetail(store_id) {
 			console.log(data);
 		}
 	});
-	
+	//asdasd수정용
 	
 	$.magnificPopup.open({
 		  items: {
