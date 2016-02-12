@@ -5,17 +5,25 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 
 <script>
-	$(function() {
-		alert("test");
-		$('#editQnaReply').hide();
-	});
-	
 	function checkReplyContents() {
 		if($('#replyContents').val() == '') {
 			alert("댓글을 입력하세요.");
 			return false;
 		}
 		return true;
+	}
+	
+	function editQnaReply(qna_reply_id, contents) {
+		if($('#editButton' + qna_reply_id).val() == "수정") {
+			$('#editButton' + qna_reply_id).val("수정취소");
+			$('#editContents' + qna_reply_id).val(contents);
+			$('#editQnaReplyForm' + qna_reply_id).show();
+			$('#qnaReplyContents' + qna_reply_id).hide();
+		} else if($('#editButton' + qna_reply_id).val() == "수정취소") {
+			$('#editButton' + qna_reply_id).val("수정");
+			$('#editQnaReplyForm' + qna_reply_id).hide();
+			$('#qnaReplyContents' + qna_reply_id).show();
+		}
 	}
 </script>
 <div align="center">
@@ -41,16 +49,18 @@
 				<c:forEach var="bean" items="${replyList}">
 					<tr>
 						<td>${bean.userid}</td>
-						<td id="editQnaReply">
-							<form action="editQnaReply.do">
-								<input type="text">
+						<td id="editQnaReplyForm${bean.qna_reply_id}" style="display: none;">
+							<form action="EditQnaReply.do">
+								<input name="qna_reply_id" type="hidden" value="${bean.qna_reply_id}">
+								<input name="qna_id" type="hidden" value="${bean.qna_id}">
+								<input name="contents" id="editContents${bean.qna_reply_id}" type="text">
 								<input type="submit" value="댓글수정">
 							</form>
 						</td>
-						<td>${bean.contents}</td>
+						<td id="qnaReplyContents${bean.qna_reply_id}">${bean.contents}</td>
 						<td>${bean.wdate}</td>
 						<c:if test="${sessionScope.NowUser == bean.userid}">
-							<td><input type="button" onclick="" value="수정"></td>
+							<td><input id="editButton${bean.qna_reply_id}" type="button" onclick="editQnaReply(${bean.qna_reply_id}, '${bean.contents}')" value="수정"></td>
 							<td><input type="button" onclick="location.href='DeleteQnaReply.do?qna_id=${bean.qna_id}&qna_reply_id=${bean.qna_reply_id}'" value="삭제"></td>
 						</c:if>
 					</tr>
