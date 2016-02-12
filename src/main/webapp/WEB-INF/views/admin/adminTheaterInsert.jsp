@@ -7,6 +7,15 @@
 			dateFormat: 'yy-mm-dd'
 		});
 	});
+	
+	function setSeat() {
+		var seat = "";
+		for(i = 0; i < $('#seatrow').val(); i++) {
+			seat = seat + "<tr><td>" + String.fromCharCode(i + 65) + " 행 열 개수</td>";
+			seat = seat + "<td><input type='number' min='0' max='20'></td></tr>";
+		}
+		$('#seatPosition').html(seat);
+	}
 </script>
 <div id="adminTheaterInsert">
 	<h1>[adminTheaterInsert.jsp]</h1>
@@ -21,6 +30,11 @@
 					<option value="3D">3D</option>
 				</select>
 			</td></tr>
+			<tr>
+				<td>좌석 행 개수</td>
+				<td><input id="seatrow" type="number" min="0" max="26" onchange="setSeat()"></td>
+			</tr>
+			<tr id="seatPosition"></tr>
 			<tr><td>좌석개수</td><td><input name="seatcount" type="text" placeholder="좌석개수"></td></tr>
 			<tr><td>영화이름</td><td><input name="mname" type="text" placeholder="영화이름"></td></tr>
 			<tr><td>상영시작시간</td><td><input name="mstarthour" class="datepicker" type="text" placeholder="상영시작시간"></td></tr>

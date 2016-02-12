@@ -28,7 +28,7 @@ public class MovieDTO {
 	private String STEEL5	;
 	private String STEEL6	;
 	private String STEEL7;
-	private int R_TIME	;
+	private int R_TIME;
 	private Date STARTDATE;
 	private Date ENDDATE;
 	private int dday;
@@ -91,8 +91,7 @@ public class MovieDTO {
 	public void setSTEEL6(String sTEEL6) { STEEL6 = sTEEL6; }
 	public String getSTEEL7() { return STEEL7; }
 	public void setSTEEL7(String sTEEL7) { STEEL7 = sTEEL7; }
-	public int getR_TIME() { return R_TIME; }
-	public void setR_TIME(int r_TIME) { R_TIME = r_TIME; }
+	
 	public Date getSTARTDATE() { return STARTDATE; }
 	public void setSTARTDATE(Date sTARTDATE) { STARTDATE = sTARTDATE; }
 	public Date getENDDATE() { return ENDDATE; }
@@ -105,7 +104,8 @@ public class MovieDTO {
 	public void setToday(String today) { this.today = today; }
 	public String getRatevalue() { return ratevalue; }
 	public void setRatevalue(String ratevalue) { this.ratevalue = ratevalue; }
-	
+	public int getR_TIME() { return R_TIME; }
+	public void setR_TIME(int r_TIME) { R_TIME = r_TIME; }
 	public String getD_DAYSTRING() { return D_DAYSTRING; }
 	public void setD_DAYSTRING(String d_DAYSTRING) { D_DAYSTRING = d_DAYSTRING; }
 	public String getSTARTDATESTRING() { return STARTDATESTRING; }

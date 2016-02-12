@@ -65,6 +65,11 @@ public class AdminController {
 		
 		List<MovieDTO> movieList = dao.dbSelectMovieAll();
 		List<TheaterDTO> theaterList = dao.dbSelectTheaterAll();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
+		for(int i = 0; i < movieList.size(); i++) {
+			movieList.get(i).setSTARTDATESTRING(sdf.format(movieList.get(i).getSTARTDATE()));
+			movieList.get(i).setENDDATESTRING(sdf.format(movieList.get(i).getENDDATE()));
+		}
 		mav.addObject("movieList", movieList);
 		mav.addObject("theaterList", theaterList);
 		
@@ -97,7 +102,7 @@ public class AdminController {
 		/** 
 		 * 이미지 파일 설정
 		 */
-		String path = application.getRealPath("/resources/upload");
+		String path = application.getRealPath("/resources/img/movie");
 		String POSTER = dto.getPOSTERFILE().getOriginalFilename();
 		dto.setPOSTER(POSTER);
 		File POSTERFILE = new File(path, POSTER);
