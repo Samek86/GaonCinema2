@@ -7,8 +7,7 @@
 			<tr>
 				<td>
 					<input  type="text" name="userid" id=checkId placeholder="아이디">
-					<input  type=button value="ID중복확인" id=checkBtn>
-					<span ></span>
+					<input  type=button value="ID중복확인" class="joinIdcheckBtn">
 				</td>
 			</tr>
 			<tr>
