@@ -3,14 +3,14 @@ function yearcheck(){
 		var num_check=/^[0-9]*$/;
 		if(num_check.test(birth.value)){
 			if( birth.value.length !=4){
-			alert("4자리로 입력해주세요 예)1990");
+			g_alert("4자리로 입력해주세요 예)1990");
 			birth.value="";
 			birth.focus();
 			return false;
 			}
 		}
 		else{
-		alert ( "숫자만 입력할 수 있습니다." );
+			g_alert ( "숫자만 입력할 수 있습니다." );
 		birth.value="";
 		birth.focus();
 		return false;
@@ -22,14 +22,14 @@ function yearcheck(){
 		var num_check=/^[0-9]*$/;
 		if(num_check.test(month.value)){
 			if( month.value > 12 || month.value < 1){
-			alert("1~12사이의 숫자를 입력해주세요");
+				g_alert("1~12사이의 숫자를 입력해주세요");
 			month.value="";
 			month.focus();
 			return false;
 			}
 		}
 		else{
-		alert ( "숫자만 입력할 수 있습니다." );
+			g_alert ( "숫자만 입력할 수 있습니다." );
 		month.value="";
 		month.focus();
 		return false;
@@ -41,14 +41,14 @@ function yearcheck(){
 		var num_check=/^[0-9]*$/;
 		if(num_check.test(day.value)){
 			if( day.value > 31 || day.value < 1){
-			alert("1~31사이의 숫자를 입력해주세요");
+				g_alert("1~31사이의 숫자를 입력해주세요");
 			day.value="";
 			day.focus();
 			return false;
 			}
 		}
 		else{
-		alert ( "숫자만 입력할 수 있습니다." );
+			g_alert ( "숫자만 입력할 수 있습니다." );
 		day.value="";
 		day.focus();
 		return false;
@@ -66,6 +66,7 @@ function yearcheck(){
 		        return false;		 
 		    }//if end		
 		}//for end
+		document.insert.submit();
 	}//end
 	
 	function telcheck(){
