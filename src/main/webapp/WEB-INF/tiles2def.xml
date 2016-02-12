@@ -26,7 +26,7 @@
 	<definition name="board" template="/WEB-INF/views/board/board.jsp"/>
 	
 	<!-- event -->
-	<definition name="event" template="/WEB-INF/views/event/event2.jsp"/>
+	<definition name="event" template="/WEB-INF/views/event/event.jsp"/>
 	
 	<!-- member -->
 	<definition name="member" template="/WEB-INF/views/member/member.jsp"/>

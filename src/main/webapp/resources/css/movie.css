@@ -320,6 +320,20 @@ line-height: 1.2;
   /* ================== ¿µÈ­»ó¼¼Á¤º¸ ==================== */
   
   
+ .eventpopup {
+    background: white;
+    padding: 65px 40px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 40px auto;
+    position: relative;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 1000px;
+    height: auto;
+    font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+ }
+ 
  .detailpopup {
     background: white;
     padding: 65px 40px;
