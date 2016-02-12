@@ -36,7 +36,7 @@ rgba(11, 13, 12, 0.5);
 	display: inline-block;
 }
 
-#adminMovieTheaterList .movieList, #adminMovieTheaterList .theaterList {
+#adminMovieTheaterList .movieListButton, #adminMovieTheaterList .theaterListButton {
 	padding: 9px 17px;
 	font-size: 19px;
 	font-family: inherit;
@@ -52,7 +52,7 @@ rgba(11, 13, 12, 0.5);
 	outline: none;
 }
 
-#adminMovieTheaterList .movieList:hover, #adminMovieTheaterList .theaterList:hover {
+#adminMovieTheaterList .movieListButton:hover, #adminMovieTheaterList .theaterListButton:hover {
 	background-color: #017467;
 	color : #fff;
 }
