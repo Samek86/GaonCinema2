@@ -13,5 +13,6 @@
 		<mapper resource="config/mybatis/movie.xml"/>
 		<mapper resource="config/mybatis/event.xml"/>
 		<mapper resource="config/mybatis/store.xml"/>
+		<mapper resource="config/mybatis/code.xml"/>
 	</mappers>
 </configuration>
