@@ -245,6 +245,10 @@ line-height: 1.2;
     display: block;
 }
 
+
+#movie .rating-xs {
+    font-size: 2.15em;
+}
 /* ================== 영화제목 ==================== */
 
 #movie li.item .title-wrap {

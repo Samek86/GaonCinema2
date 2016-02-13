@@ -57,9 +57,10 @@
 			<tr>
 				<td>프로필 사진</td>
 				<td>
-					<img src="${member.point}">
+				<div class="profile200 img-circle">
+					<img src="./resources/img/member/${member.img_file}"  onload="resize(this)">
+				</div>
 				</td>
-				<!-- <td><input type=file class="filebt" name=upload value=img placeholder="프로필사진"></td> -->
 			</tr>
 		</table>
 					<input type="button" value="수정하기" onclick="location.href='memberPreEdit.do'">

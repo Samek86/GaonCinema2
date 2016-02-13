@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="add" parameterType="com.gaon.cinema.join.JoinDTO">
 		insert into GC_MEMBER values(GC_MEMBER_SEQ.nextval,
 		#{userid}, #{userpw}, #{img_file}, #{name}, #{gender}, #{birth}, #{telnum},
-		#{email}, #{zipcode}, #{address1}, #{address2},2000, #{MOVIE_RATE})
+		#{email}, #{zipcode}, #{address1}, #{address2},2000, 'empty', 'empty')
 	</insert>
 	
 	<select id="search" resultType="int" parameterType="String">

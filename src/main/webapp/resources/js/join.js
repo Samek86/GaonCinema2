@@ -55,17 +55,22 @@ function yearcheck(){
 		}
 	}//end
 
-
+var idchecked = false;
 	function check(){
-		var length = document.forms[0].length-1; 
+		var length = document.forms[0].length-1;
+		
 		for(var i = 0; i < length; i++){      
 		    if(document.forms[0][i].value == null || document.forms[0][i].value == ""){	
 		    		//html 내에 기술된 첫번째 form에서 i+1번째 요소 
-		        alert(document.forms[0][i].placeholder + "을/를 입력하세요."); 	 
+		        g_alert(document.forms[0][i].placeholder + "을/를 입력하세요."); 	 
 		        document.forms[0][i].focus();           
 		        return false;		 
-		    }//if end		
+		    }//if end
 		}//for end
+		if(idchecked==false){
+			g_alert("아이디 중복체크를 해주세요");
+			return false;	
+		}
 		document.insert.submit();
 	}//end
 	
@@ -122,8 +127,10 @@ function yearcheck(){
 						g_alert("아이디가 중복됩니다.");
 						$("#checkId").val("");
 						$("#checkId").focus();
+						idchecked = false;
 					}else{
 						g_alert("사용 가능한 아이디입니다.");
+						idchecked = true;
 					}
 				},
 				error: function(data) {

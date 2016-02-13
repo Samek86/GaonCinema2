@@ -93,7 +93,6 @@ public class MemberController {
 		String year = new SimpleDateFormat("yyyy").format(dto.getBirth());
 		String month = new SimpleDateFormat("MM").format(dto.getBirth());
 		String day = new SimpleDateFormat("dd").format(dto.getBirth());
-		
 		mav.addObject("year", year);
 		mav.addObject("month", month);
 		mav.addObject("day", day);
