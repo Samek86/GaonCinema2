@@ -1,4 +1,7 @@
-
+var inputPoint;
+var myPoint = $(".myPoint").text();
+var total;
+var getPoint;
 $(document).ready(function(){
 	$(".userName1").blur(function(){
 		var a = $(".userName1").val();
@@ -13,62 +16,10 @@ $(document).ready(function(){
 			return;
 		}
 	});
-	$(".userName2").blur(function(){
-		var a = $(".userName2").val();
-		var namePattern = /^[가-힣]{2,8}|[a-zA-Z]{2,20}\s[a-zA-Z]{2,20}$/;
-		if (!namePattern.test(a)){
-			alert("한/영 2~10자에 맞게 입력하세요");
-			$(".userName2").val("");
-			$(".userName2").focus();
-			return;
-		}
-		else{
-			return;
-		}
-	});
-	$(".userName3").blur(function(){
-		var a = $(".userName3").val();
-		var namePattern = /^[가-힣]{2,8}|[a-zA-Z]{2,20}\s[a-zA-Z]{2,20}$/;
-		if (!namePattern.test(a)){
-			alert("한/영 2~10자에 맞게 입력하세요");
-			$(".userName3").val("");
-			$(".userName3").focus();
-			return;
-		}
-		else{
-			return;
-		}
-	});
-	$(".userName4").blur(function(){
-		var a = $(".userName4").val();
-		var namePattern = /^[가-힣]{2,8}|[a-zA-Z]{2,20}\s[a-zA-Z]{2,20}$/;
-		if (!namePattern.test(a)){
-			alert("한/영 2~10자에 맞게 입력하세요");
-			$(".userName4").val("");
-			$(".userName4").focus();
-			return;
-		}
-		else{
-			return;
-		}
-	});
-	$(".userName5").blur(function(){
-		var a = $(".userName5").val();
-		var namePattern = /^[가-힣]{2,8}|[a-zA-Z]{2,20}\s[a-zA-Z]{2,20}$/;
-		if (!namePattern.test(a)){
-			alert("한/영 2~10자에 맞게 입력하세요");
-			$(".userName5").val("");
-			$(".userName5").focus();
-			return;
-		}
-		else{
-			return;
-		}
-	});
 });
 $(document).ready(function(){
 	$("#buycancle").click(function(){
-		$("#total").html($("#price_sale").text());
+		$(".total").html($(".price_sale").text());
 	});
 });
 
@@ -87,91 +38,100 @@ $(document).ready(function(){
 		}
 	});
 });
+$(document).on("keyup", "input:text[numberOnly]", function() {$(this).val( $(this).val().replace(/[^0-9]/gi,"") );});
+$(document).ready(function(){
+	$(".inputPoint").change(function(){
+		inputPoint = $(".inputPoint").val();
+		getPoint = $(".getPoint").val();
+		total = $(".total").val();
+		if(inputPoint > parseInt(myPoint) || inputPoint < 0){
+			g_alert("포인트를 확인해주세요.");
+			$(".inputPoint").val("0");
+			$(".getPoint").val("0");
+			$(".buyMoney").val(total-getPoint);
+			return;
+		}else{
+			$(".getPoint").val(inputPoint);
+			getPoint = $(".getPoint").val();
+			if(total == 0){
+				$(".inputPoint").val(0);
+				$(".getPoint").val(0);
+				$(".buyMoney").val(0);
+				return;
+			}
+			$(".myPoint").text(parseInt(myPoint)-inputPoint);
+			$(".buyMoney").val(total-getPoint);
+		}
+	});
+});
 
 
 $(document).ready(function (){
-	var a=0
-	var b=0
-	var c=0
-	var d=0
-	var e=0;
+	var a=0;
 	$("#buycount1").change(function(){
-		alert("1번째버튼");
 		var count = $("#buycount1 option:selected").val();
-		var sum = $("#price_sale").text();
+		var sum = $(".price_sale").text();
 		if($(".userName1").val()=="" || $(".userName1").val()==null || $(".userEmail1").val()=="" || $(".userEmail1").val()==null){
-			alert("이름과 이메일주소를 모두 입력후 이용하세요");
+			g_alert("이름과 이메일주소를 모두 입력후 이용하세요");
 			$('#buycount1').find('option:first').attr('selected', 'selected');  
 			return;
 		}else{
+			inputPoint = $(".inputPoint").val();
+			myPoint = $(".myPoint").text();
+			getPoint = $(".getPoint").val();
 			a = count * sum;
-			alert("a:"+a);
-			$("#total").html(a+b+c+d+e);
-			alert(count);
+			$(".total").val(a);
+			total = $(".total").val();
+			$(".buyMoney").val(total-getPoint);
 		}
 	});
-	$("#buycount2").change(function(){
-		alert("2번째버튼");
-		var count = $("#buycount2 option:selected").val();
-		var sum = $("#price_sale").text();
-		alert("sum = "+sum);
-		if($(".userName2").val()=="" || $(".userName2").val()==null || $(".userEmail2").val()=="" || $(".userEmail2").val()==null){
-			alert("이름과 이메일주소를 입력후 이용하세요");
-			$('#buycount2').find('option:first').attr('selected', 'selected');  
-			return;
-		}else{
-			alert("sum = "+sum);
-			b = count * sum;
-			$("#total").html(a+b+c+d+e);
-			alert(count);
+});
+$(document).ready(function(){
+	$(".buy").click(function(){
+		var length = document.forms[0].length;
+		for(var i=0; i <length; i++){
+			if(document.forms[0][i].value == null || document.forms[0][i].value == ""){
+				g_alert(document.forms[0][i].placeholder + "을/를 입력하세요.");
+				document.forms[0][i].focus();
+				return;
+			}
 		}
-	});
-	$("#buycount3").change(function(){
-		alert("3번째버튼");
-		var count = $("#buycount3 option:selected").val();
-		var sum = $("#price_sale").text();
-		alert("sum = "+sum);
-		if($(".userName3").val()=="" || $(".userName3").val()==null || $(".userEmail3").val()=="" || $(".userEmail3").val()==null){
-			alert("이름과 이메일주소를 입력후 이용하세요");
-			$('#buycount3').find('option:first').attr('selected', 'selected');  
+		if(document.forms[0][3].value == 0){
+			g_alert("수량은 최소 1개 이상 선택하셔야합니다.");
 			return;
-		}else{
-			alert("sum = "+sum);
-			c = count * sum;
-			$("#total").html(a+b+c+d+e);
-			alert(count);
 		}
-	});
-	$("#buycount4").change(function(){
-		alert("4번째버튼");
-		var count = $("#buycount4 option:selected").val();
-		var sum = $("#price_sale").text();
-		alert("sum = "+sum);
-		if($(".userName4").val()=="" || $(".userName4").val()==null || $(".userEmail4").val()=="" || $(".userEmail4").val()==null){
-			alert("이름과 이메일주소를 입력후 이용하세요");
-			$('#buycount4').find('option:first').attr('selected', 'selected');  
-			return;
-		}else{
-			alert("sum = "+sum);
-			d = count * sum;
-			$("#total").html(a+b+c+d+e);
-			alert(count);
-		}
-	});
-	$("#buycount5").change(function(){
-		alert("4번째버튼");
-		var count = $("#buycount5 option:selected").val();
-		var sum = $("#price_sale").text();
-		alert("sum = "+sum);
-		if($(".userName5").val()=="" || $(".userName5").val()==null || $(".userEmail5").val()=="" || $(".userEmail5").val()==null){
-			alert("이름과 이메일주소를 입력후 이용하세요");
-			$('#buycount5').find('option:first').attr('selected', 'selected');  
-			return;
-		}else{
-			alert("sum = "+sum);
-			e = count * sum;
-			$("#total").html(a+b+c+d+e);
-			alert(count);
-		}
+		var senderName = $(".senderName").text();
+		var senderEmail = $(".senderEmail").val();
+		var userName1 = $(".userName1").val();
+		var userEmail1 = $(".userEmail1").val();
+		var total = $(".total").val();
+		var type = $(".type").val();
+		var price_sale = $(".price_sale").text();
+		var item_name = $(".item_name").text();
+		var buycount1 = $("#buycount1").val();
+		var getPoint = $(".getPoint").val();
+		var buyMoney = $(".buyMoney").val();
+		var store_id = $(".store_id").val();
+		var myPoint = $(".myPoint").text();
+		//document.insert.submit(); ajax 구현
+		$.ajax({
+			url:"buyMail.do",
+			data:"type="+type+"&itemname="+item_name+"&store_id="+store_id+"&pricesale="+price_sale+"&senderName="+senderName+"&senderEmail="+senderEmail+"&userName1="+userName1+"&userEmail1="+userEmail1+"&buycount1="+buycount1+"&getPoint="+getPoint+"&myPoint="+myPoint+"&buyMoney="+buyMoney+"&total="+total,
+			dataType:"json",
+			type:"get",
+			success:function(data){
+				if(data.check==1){
+					var url = "main.do";
+					g_alert(data.msg);
+					$(function() {
+				    timer = setInterval(function () {
+				    	$(location).attr('href',url);
+				}, 3000);});
+				}
+			},
+			error:function(request,status,error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});
 	});
 });

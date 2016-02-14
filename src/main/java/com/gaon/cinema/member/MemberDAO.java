@@ -15,6 +15,15 @@ public class MemberDAO {
 	private SqlSessionTemplate temp;
 	private static Logger logger = LoggerFactory.getLogger(MemberDAO.class);
 	
+	public int potinSub(String id,int point){
+		MemberDTO dto = new MemberDTO();
+		int ok=0;
+		dto.setUserid(id);
+		dto.setPoint(point);
+		ok = temp.update("member.potinSub",dto);
+		return ok;
+	}
+	
 	public MemberDTO dbmember(MemberDTO dto){
 		dto = temp.selectOne("member.member",dto);
 		return dto;

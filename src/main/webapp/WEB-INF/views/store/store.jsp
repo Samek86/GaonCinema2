@@ -19,7 +19,8 @@
 		<li class=item>
 			<img class="storeimg" src="./resources/img/store/${list.img_file }">
 			<div class="title-wrap"><div class="subtitle"> ${list.subtitle} </div><br><div class="title">${list.title}</div></div>
-		 	<button class="detail" onclick="storeDetail('${list.store_id}')">상세정보</button><button class="rev">구매하기</button>
+		 	<button class="detail" onclick="storeDetail('${list.store_id}')">상세정보</button>
+		 	<button class="rev" onclick="storeBuy(${list.store_id},'${NowUser }')">구매하기</button>
 		 </li>
 		 </c:if>
 	</c:forEach>
@@ -46,7 +47,8 @@
 		<li class=item>
 			<img class="storeimg" src="./resources/img/store/${list.img_file }">
 			<div class="title-wrap"><div class="subtitle"> ${list.subtitle} </div><br><div class="title">${list.title}</div></div>
-		 	<button class="detail" onclick="storeDetail('${list.store_id}')">상세정보</button><button class="rev">구매하기</button>
+		 	<button class="detail" onclick="storeDetail('${list.store_id}')">상세정보</button>
+		 	<button class="rev" onclick="storeBuy(${list.store_id},'${NowUser }')">구매하기</button>
 		 </li>
 		 </c:if>
 	</c:forEach>
@@ -59,7 +61,8 @@
 		<li class=item>
 			<img class="storeimg" src="./resources/img/store/${list.img_file }">
 			<div class="title-wrap"><div class="subtitle"> ${list.subtitle} </div><br><div class="title">${list.title}</div></div>
-		 	<button class="detail" onclick="storeDetail('${list.store_id}')">상세정보</button><button class="rev">구매하기</button>
+		 	<button class="detail" onclick="storeDetail('${list.store_id}')">상세정보</button>
+		 	<button class="rev" onclick="storeBuy(${list.store_id},'${NowUser }')">구매하기</button>
 		 </li>
 		 </c:if>
 	</c:forEach>
@@ -72,7 +75,8 @@
 		<li class=item>
 			<img class="storeimg" src="./resources/img/store/${list.img_file }">
 			<div class="title-wrap"><div class="subtitle"> ${list.subtitle} </div><br><div class="title">${list.title}</div></div>
-		 	<button class="detail" onclick="storeDetail('${list.store_id}')">상세정보</button><button class="rev">구매하기</button>
+		 	<button class="detail" onclick="storeDetail('${list.store_id}')">상세정보</button>
+		 	<button class="rev" onclick="storeBuy(${list.store_id},'${NowUser }')">구매하기</button>
 		 </li>
 		 </c:if>
 	</c:forEach>
@@ -92,9 +96,6 @@
 			<div class="store_name">
 				<div class="store_subtitle">subtitle</div>
 				<div class="store_title">title</div>
-			</div>
-			<div class="store_rev">
-				<a class="store_revbt" type="button" href="#">구매하기</a>
 			</div>
 			<ul class="storeinfo_wrap">
 				<li><strong>가격</strong> : 99999</li>

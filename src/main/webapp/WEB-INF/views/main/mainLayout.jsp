@@ -52,6 +52,7 @@
 	
 	<link href="./resources/css/join.css" rel="stylesheet">
 	<link href="./resources/css/member.css" rel="stylesheet">
+	<link href="./resources/css/memberEdit.css" rel="stylesheet">
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script src="./resources/js/join.js"></script>
 	

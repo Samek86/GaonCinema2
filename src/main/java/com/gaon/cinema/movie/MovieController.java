@@ -122,5 +122,25 @@ public class MovieController {
 		out.print("{\"check\":\"1\"}");
 	}
 	
+	@RequestMapping(value = "/LikeRemove.do", method = RequestMethod.GET)
+	public void LikeRemove(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException{
+		PrintWriter out = response.getWriter();
+		String MOVIE_ID = request.getParameter("MOVIE_ID");
+		String NowUser = request.getParameter("NowUser");
+		dao.dbLikeDelete(MOVIE_ID, NowUser);
+		out.print("{\"check\":\"1\"}");
+	}
 	
+	
+	@RequestMapping(value = "/LikeMovie.do", method = RequestMethod.GET)
+	public ModelAndView LikeMovie(HttpServletRequest request) throws ServletException, IOException{
+		ModelAndView mav = new ModelAndView();
+		String NowUser = request.getParameter("NowUser");
+		List<MovieDTO> likeMovie = dao.dbLikeMovie(NowUser);
+		//mav.addObject("moviepage", "nowmovie");
+		mav.addObject("likeMovie", likeMovie);
+		mav.addObject("page", "likeMovie");
+		mav.setViewName("mainLayout");
+		return mav;
+	}
 }

@@ -2,7 +2,7 @@ package com.gaon.cinema.movie;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-
+import java.util.ArrayList;
 import java.util.Date;
 
 import java.util.List;
@@ -88,12 +88,48 @@ public class MovieDAO {
 	public void dbLikeInsert(String MOVIE_ID, String NowUser){
 		JoinDTO joindto= new JoinDTO();
 		joindto = sql.selectOne("movie.LikeCheck", NowUser);
-		String MOVIE_LIKE = joindto.getMOVIE_LIKE() + "/" + MOVIE_ID;
+		String MOVIE_LIKE = joindto.getMOVIE_LIKE() + "/" + MOVIE_ID + "/";
+		while(MOVIE_LIKE.matches(".*//.*")){
+			MOVIE_LIKE = MOVIE_LIKE.replaceAll("//", "/");
+		}
 		RateDTO dto = new RateDTO();
 		dto.setNowUser(NowUser);
 		dto.setMOVIE_LIKE(MOVIE_LIKE);
 		sql.update("movie.LikeUpdate", dto);
 	}
+	
+	public void dbLikeDelete(String MOVIE_ID, String NowUser){
+		JoinDTO joindto= new JoinDTO();
+		joindto = sql.selectOne("movie.LikeCheck", NowUser);
+		String MOVIE_LIKE = joindto.getMOVIE_LIKE().replace(MOVIE_ID, "");
+		while(MOVIE_LIKE.matches(".*//.*")){
+			MOVIE_LIKE = MOVIE_LIKE.replaceAll("//", "/");
+		}
+		RateDTO dto = new RateDTO();
+		dto.setNowUser(NowUser);
+		dto.setMOVIE_LIKE(MOVIE_LIKE);
+		sql.update("movie.LikeUpdate", dto);
+	}
+	
+	public List<MovieDTO> dbLikeMovie(String NowUser){
+		List<MovieDTO> list = new ArrayList<MovieDTO>();
+		JoinDTO joindto= new JoinDTO();
+		joindto = sql.selectOne("movie.LikeCheck", NowUser);
+		String likelist = joindto.getMOVIE_LIKE();
+		MovieDTO spend = new MovieDTO();
+		while(!likelist.equals("empty/")){
+			System.out.println(likelist);
+			String MOVIE_ID = likelist.substring(likelist.indexOf("/")+1, likelist.indexOf("/", likelist.indexOf("/")+1));
+			spend.setToday(today);
+			spend.setMOVIE_ID(Integer.parseInt(MOVIE_ID));
+			MovieDTO dto = sql.selectOne("movie.likemovie", spend);
+			list.add(dto);
+			likelist = likelist.replaceFirst("/"+MOVIE_ID, "");
+			//likelist = likelist.replace("/"+MOVIE_ID, "");
+		}
+		return list;
+	}
+	
 	
 /*	public void dbEdit(MovieDTO dto){
 		temp.update("member.edit",dto);

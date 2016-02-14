@@ -41,6 +41,13 @@ a:focus, button:focus, div:focus, input:focus
 	text-decoration: none;
 	transition : all 0.3s;
 }
+body{
+	-webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
 
 #header {
 	background-color: #017467;
@@ -127,11 +134,14 @@ a:focus, button:focus, div:focus, input:focus
 	font-size: 18px;
     font-weight: bold;
     transition : all 0.3s;
+    
 }
  #header #memberbt {
     margin-left: 50px;
     padding: 1px 12px;
     border: none;
+    top: -4px;
+    position: relative;
  }
  
 #header #loginbt:hover, #header #memberbt:hover {
@@ -246,13 +256,27 @@ a:focus, button:focus, div:focus, input:focus
   -o-user-select: none;
   user-select: none;
 }
+
+ #header .member .profile100 {
+	width: 100px;
+ 	height: 100px;
+ 	margin-left: 77px;
+    margin-bottom: -50px; 
+	overflow: hidden;
+	display: inline-block;
+}
+
+ #header .member .profile100 .nowimg {
+    height: 100%;
+    background-size: cover;
+}
  
- #header .member .nowimg{
+/*  #header .member .nowimg{
  	width: 100px;
  	height: 100px;
  	margin-left: 77px;
     margin-bottom: -50px;
- }
+ } */
  
  #header #a_member, #header #m_detail {
 	width: 109px;
@@ -379,10 +403,18 @@ a:focus, button:focus, div:focus, input:focus
     font-weight: bold;
   }
   
+
+ #header .nav .profile100 .nowimg {
+	width: 44px;
+}
+  
   #header .nav .img-circle { 
 	width: 44px;
 	height : 44px;
     margin-right: 10px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 #header .idpwFind_wrap{

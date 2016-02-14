@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<title>[header.jsp]</title>
 
 <div class="backcolor"></div>
 <div class="header-wrap">
@@ -20,11 +19,13 @@
 		<c:when test="${NowUser==null}">
 			<li><button id="loginbt">로그인</button></li>
 		</c:when>
-		<c:when test="${NowUser=='admin'}">
-			<li><button id="memberbt"><img class="nowimg img-circle memberbt" src="./resources/img/member/${Nowimg}">${Nowname}</button></li>
-		</c:when>
 		<c:otherwise>
-			<li><button id="memberbt"><img class="nowimg img-circle memberbt" src="./resources/img/member/${Nowimg}">${Nowname}</button></li>
+			<li><button id="memberbt">
+			<div class="profile100 img-circle memberbt">
+				<img class="nowimg" src="./resources/img/member/${Nowimg}" onload="resize(this)">
+			</div>
+			<%-- <img class="nowimg img-circle memberbt" src="./resources/img/member/${Nowimg}"> --%>
+			${Nowname}</button></li>
 		</c:otherwise>
 	</c:choose>
 	
@@ -63,7 +64,10 @@
 	<c:if test="${NowUser=='admin'}">
 	 	<img id = "loginlogo" src="./resources/img/login_logo.png"><br>
 		<button type="button" class="close">&times;</button>
-		<img class="nowimg img-circle" src="./resources/img/member/${Nowimg}"><br>
+		<div class="profile100 img-circle">
+			<img class="nowimg" src="./resources/img/member/${Nowimg}">
+		</div>
+		<br>
 		<span class="membercontent">
 		<b>아이디 :${NowUser}</b><br>	
 		<b>이 름 : ${Nowname}</b><br>
@@ -77,14 +81,17 @@
 	<c:if test="${NowUser!='admin'}">
 	 	<img id = "loginlogo" src="./resources/img/login_logo.png"><br>
 		<button type="button" class="close">&times;</button>
-		<img class="nowimg img-circle" src="./resources/img/member/${Nowimg}"><br>
+		<div class="profile100 img-circle">
+			<img class="nowimg" src="./resources/img/member/${Nowimg}" onload="resize(this)">
+		</div><br>
+		<%-- <img class="nowimg img-circle" src="./resources/img/member/${Nowimg}"><br> --%>
 		<span class="membercontent">
 		<b>아이디 : ${NowUser}</b><br>	
 		<b>이 름 : ${Nowname}</b><br>
 		<b>포인트 :${Nowpoint}</b><br>
 		</span>
 		<a href="member.do" id="m_detail" >회원정보</a>
-		<a href="#" id="m_like" >찜한영화</a><br><br><br>
+		<a href="LikeMovie.do?NowUser=${NowUser}" id="m_like" >찜한영화</a><br><br><br>
 		<a href="#" id="m_rev" >예약확인</a>
 		<a href="logout.do" id="m_logout">로그아웃</a>
 	</c:if>
