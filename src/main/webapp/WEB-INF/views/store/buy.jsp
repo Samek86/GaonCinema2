@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=utf-8" %>
+<% request.setCharacterEncoding("utf-8"); %>
+<% response.setContentType("text/html; charset=utf-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <h2>주문 정보 입력</h2>
 	<div>
 			<img src="./resources/img/store/${detail.img_file }" id="ctl00_bodyPlaceHolder_imgProductImg" alt="상품명" width="153" height="161"> 
@@ -9,7 +10,8 @@
 				<dt class="blind_txt">상품</dt>
 				<dd class="item_name">${detail.title }${detail.subtitle }</dd>
 				<dt class="blind_txt">정상가</dt>
-				<dd id="price_sale">${detail.price }</dd>
+				<dd class="price_sale">${detail.price }</dd>
+				<dd class="content">${detail.content}</dd>
 			</dl>		
 		</div>
 <div>
@@ -20,113 +22,44 @@
 			<dt>구매 하시는분</dt>
 				<dd>
 					이름
-					<label>${member.NAME }</label>	
+					<label class="senderName">${member.NAME }</label>	
 					이메일 주소	
-					<input type="text" value="${member.EMAIL }" placeholder="이메일 입력해주세요">
+					<input type="text" class="senderEmail" name="senderEmail" value="${member.EMAIL }" placeholder="이메일 입력해주세요">
 					* 이메일주소 변경시에도 회원정보에 반영되지 않습니다.	
 				</dd>
 			</dl>
 </div>
 				<hr>
 <div class="receiver">
-<form action="">
+<form>
+<input type="text" class="type" name="type" value="${detail.type}" placeholder="타입" style="display: none;">
+<input type="text" class="store_id" name="store_id" value="${detail.store_id}" placeholder="타입" style="display: none;">
 	<dl>
-			<dt>1	 사용 하시는분</dt>
+			<dt>사용 하시는분</dt>
 				<dd>
 					이름
-					<input type="text" class="userName1" value="${member.NAME }" placeholder="이름을 입력해 주세요">
+					<input type="text" class="userName1" name="userName1" value="${member.NAME }" placeholder="이름을 입력해 주세요">
 					이메일 주소	
-					<input type="text" class="userEmail1" value="${member.EMAIL }" placeholder="이메일 입력해주세요">	
+					<input type="text" class="userEmail1" name="userEmail1" value="${member.EMAIL }" placeholder="이메일 입력해주세요">	
 					수량
-					<select id="buycount1">
+					<select id="buycount1" name="buycount1">
+						<option value="0">0
 						<option value="1">1
 						<option value="2">2
 						<option value="3">3
 						<option value="4">4
 						<option value="5">5
 					</select>
-				</dd>
-			</dl>
-			<hr>
-	<dl>
-			<dt>2	 사용 하시는분</dt>
-				<dd>
-					이름
-					<input type="text" class="userName2" value="" placeholder="이름을 입력해 주세요">
-					이메일 주소	
-					<input type="text" class="userEmail2" value="" placeholder="이메일 입력해주세요">	
-					수량
-					<select id="buycount2">
-						<option value="1">1
-						<option value="2">2
-						<option value="3">3
-						<option value="4">4
-						<option value="5">5
-					</select>
-				</dd>
-			</dl>
-			<hr>
-	<dl>
-			<dt>3	 사용 하시는분</dt>
-				<dd>
-					이름
-					<input type="text" class="userName3"  value="" placeholder="이름을 입력해 주세요">
-					이메일 주소	
-					<input type="text"  class="userEmail3" value="" placeholder="이메일 입력해주세요">	
-					수량
-					<select id="buycount3">
-						<option value="1">1
-						<option value="2">2
-						<option value="3">3
-						<option value="4">4
-						<option value="5">5
-					</select>
-				</dd>
-			</dl>
-			<hr>
-	<dl>
-			<dt>4	 사용 하시는분</dt>
-				<dd>
-					이름
-					<input type="text" class="userName4"  value="" placeholder="이름을 입력해 주세요">
-					이메일 주소	
-					<input type="text" class="userEmail4"  value="" placeholder="이메일 입력해주세요">	
-					수량
-					<select id="buycount4">
-						<option value="1">1
-						<option value="2">2
-						<option value="3">3
-						<option value="4">4
-						<option value="5">5
-					</select>
-				</dd>
-			</dl>
-			<hr>
-	<dl>
-			<dt>5	 사용 하시는분</dt>
-				<dd>
-					이름
-					<input type="text" class="userName5"  value="" placeholder="이름을 입력해 주세요">
-					이메일 주소	
-					<input type="text" class="userEmail5"  value="" placeholder="이메일 입력해주세요">	
-					수량
-					<select id="buycount5">
-						<option value="1">1
-						<option value="2">2
-						<option value="3">3
-						<option value="4">4
-						<option value="5">5
-					</select>
-				</dd>
-			</dl>
-			<hr>
 					<input type="reset" id="buycancle" value="초기화">
+				</dd>
+			</dl>
+			<hr>
 			<dl>
-				<dt>현재 보유중인 포인트  <b>${member.point }p</b></dt>
-				<dt>사용할 포인트 입력 <input type="text" placeholder="0" style="width: 45px"><b>point</b></dt> 
+				<dt>현재 보유중인 포인트  <b class="myPoint">${member.point }</b><b>p</b></dt>
+				<dt>사용할 포인트 입력 <input numberonly="true" type="text" placeholder="0" name="inputPoint" class="inputPoint" value="0"><b>point</b></dt> 
 			<dt>
-				상품 총 금액 <b id="total">${detail.price }</b> - 할인금액 <b id="point">4546</b> = 최종결제금액 <b id="buymoney">56464</b><b>원</b>
-				<input type="submit" value="구매하기">
+				상품 총 금액 <input type="text" class="total" value="0" name="total" readonly="readonly"> - 할인금액 <input type="text" class="getPoint" value="0" readonly="readonly"> = 최종결제금액 <input type="text" class="buyMoney" value="0" readonly="readonly"><b>원</b>
+				<input type="button" class="buy" value="구매하기">
 			</dt>
 			</dl>
 			<div>
