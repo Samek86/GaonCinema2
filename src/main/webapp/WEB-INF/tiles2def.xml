@@ -33,6 +33,7 @@
 	
 	<!-- movie -->
 	<definition name="movie" template="/WEB-INF/views/movie/movie.jsp"/>
+	<definition name="likeMovie" template="/WEB-INF/views/movie/likeMovie.jsp"/>
 	
 	<!-- notice -->
 	<definition name="notice" template="/WEB-INF/views/notice/notice.jsp"/>
