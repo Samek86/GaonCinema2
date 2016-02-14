@@ -9,7 +9,7 @@ CREATE TABLE GC_EVENT (
   POSTER   VARCHAR2(100 CHAR)  NOT NULL,              --포스터
   IMG      VARCHAR2(100 CHAR)  NOT NULL,              --내용이미지
   WDATE    DATE                NOT NULL,              --작성일
-  E_Star   DATE		           NOT NULL,              --시작일
+  E_Start   DATE		           NOT NULL,              --시작일
   E_END	   DATE		           NOT NULL              --종료일
 );
 

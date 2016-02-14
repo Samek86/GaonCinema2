@@ -1,5 +1,5 @@
 function eventdetail(event_id){
-	alert("1");
+	alert("event_id="+event_id);
 	$.ajax({
 		url:"eventDetail.do",
 		data: "event_id="+event_id,
@@ -7,11 +7,12 @@ function eventdetail(event_id){
 		type: "GET",
 		success: function(data){
 			console.log(data);
-			alert("성공"+data);
+			//alert("성공"+data.img+"\n"+data.e_start);
 			$(".eventpopup .e_title").html(data.title);
 			$(".eventpopup .event_id").html(data.event_id);
+			//$(".eventpopup .start")html(data.e_start);
 			//$(".eventpopup .start&end")html("기간: "+data.e_start+"~"+data.e_end);
-			//$(".eventpopup .e_img img")attr('src', './resources/img/event/'+data.img);
+			$(".eventpopup .e_middle img").eq(0).attr('src', './resources/img/event/'+data.img);
 			
 		},//sucess end
 		error: function(data){

@@ -47,7 +47,7 @@ public class EventController {
 	public void eventDetail(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		System.out.println("이벤트디테일두");
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 		PrintWriter out = response.getWriter();
 		String event_id = request.getParameter("event_id");
@@ -56,8 +56,8 @@ public class EventController {
 		sb.append("{");
 		sb.append("\"event_id\": \"" + dto.getEvent_id() + "\", " );
 		sb.append("\"title\": \""+ dto.getTitle() + "\", ");
-		sb.append("\"e_start\": \"" + dto.getE_start() + "\", ");
-		sb.append("\"e_end\": \"" + dto.getE_end() + "\", ");
+		sb.append("\"e_start\": \"" + sdf.format(dto.getE_start()) + "\", ");
+		sb.append("\"e_end\": \"" + sdf.format(dto.getE_end()) + "\", ");
 		sb.append("\"poster\": \"" + dto.getPoster() + "\", ");
 		sb.append("\"img\": \"" + dto.getImg() + "\" ");
 		sb.append("}");

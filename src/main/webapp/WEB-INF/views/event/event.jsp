@@ -37,18 +37,20 @@
 	<button type='button' class='mfp-close'>×</button>
 	
 	<div class="e_top">	          
-		<div class="e_title"> sadsad </div>  
+		<div class="e_title"> </div>  
 		<div>					
 			<p>
-				<span class="event_id"> sadsda </span>  
-				<span class="start&end"> sadsad </span> 
+				<span class="event_id">  </span>  
+				<span class="start">  </span> 
 			</p>  	
 		</div>   
 	</div>
 	
-  <div class="e_middle">						
-		<img src="" class="e_img">				
-	</div>
+	<div class="e_middle">	
+		<div>
+			<img src="./resources/img/event/img01.jpg">				
+		</div>					
+    </div>
 </div>
 
 
