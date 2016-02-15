@@ -61,12 +61,15 @@ $(document).ready(function(){
     //responsive code end
 });
 
-$('article').flipcarousel({
-	pagination : false,
-	loader : true,
-	itemsperpage: 3,
-	randomizer: 0.7
+$().ready(function(){
+	$('article').flipcarousel({
+		pagination : false,
+		loader : true,
+		itemsperpage: 4,
+		randomizer: 1
+	});
 });
+
 </script>
 
 	<div class="fotorama"
@@ -76,32 +79,23 @@ $('article').flipcarousel({
 	  <div data-img="./resources/img/panda_1600x600.jpg" class="banner-text" ><div>쿵푸팬더3</div><div class="banner-text2">쿵푸 마스터로 나선 '포'! 팬더 인생 최대의 도전이 시작된다!</div></div>
 	  <div data-img="./resources/img/kumsa_1600x600.jpg" class="banner-text" ><div>검사외전</div><div class="banner-text2">검사와 사기꾼의 유쾌한 버디플레이!</div></div>
 	</div>
-<article title="item1"><h1>Item 1</h1><span>$123</span><div class="fi-graph-pie"></div></article>
-<article title="item2"><h1>Item 2</h1><span>$980</span><div class="fi-asl"></div></article>
-<article title="item3"><h1>Item 3</h1><span>$67</span><div class="fi-asterisk"></div></article>
-<article title="item4"><h1>Item 4</h1><span>$13</span><div class="fi-blind"></div></article>
-<article title="item5"><h1>Item 5</h1><span>$134</span><div class="fi-burst-new"></div></article>
-<article title="item6"><h1>Item 6</h1><span>$456</span><div class="fi-calendar"></div></article>
-<article title="item7"><h1>Item 7</h1><span>$99</span><div class="fi-comment-quotes"></div></article>
-<article title="item8"><h1>Item 8</h1><span>$92</span><div class="fi-die-five"></div></article>
-<article title="item9"><h1>Item 9</h1><span>$3</span><div class="fi-dislike"></div></article>
-<article title="item10"><h1>Item 10</h1><span>$12</span><div class="fi-foot"></div></article>
-<article title="item11"><h1>Item 11</h1><span>(last)</span><div class="fi-trophy"></div></article>
+	
 
-<div id="movie">
+<div id="movie"><div id="mainmovie">
 <div class="movie-wrap">
 <div align="center" id="moviesbt">
 	<button class="nowmovie selected" type="button" value="nowmovie">현재상영작</button>
 	<button class="nextmovie" type="button" value="nextmovie">상영예정작</button>
 </div>
 <div class="nowmoviepage">
-	<ul>
 		<c:forEach  var="bean" items="${nowmovie}">
+	<article title="item${bean.rn}">
+	<ul style="padding:0;">
 		<li class=item>
 			<div class="movieNum_${bean.MOVIE_ID }">
 			<div class="poster-wrap" onmouseover="posterhover(${bean.MOVIE_ID}, '${NowUser}', '${bean.AVG}', '${bean.AVG_NUM}','now')" onmouseleave="posterleave(${bean.MOVIE_ID})">
 				<img class="poster" src="./resources/img/movie/${bean.POSTER }" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'now')">
-				<div><input class="poster_star rating" type="number" min=0 max=10 step=1 data-size="xs" data-show-clear="false" data-show-caption="false" onmouseover="starID('${NowUser}', ${bean.MOVIE_ID})"></div>
+				<div style="margin-top: 0px;"><input class="poster_star rating" type="number" min=0 max=10 step=1 data-size="xs" data-show-clear="false" data-show-caption="false" onmouseover="starID('${NowUser}', ${bean.MOVIE_ID})"></div>
 				<div class="poster_like"><button type="button" onclick="poster_likeplus(${bean.MOVIE_ID}, '${NowUser}')" class="likebt"><i class="fa fa-heart"></i></button></div>
 			</div>
 			<c:if test="${bean.rn <= 5}"> <span class="rank">${bean.rn}</span> </c:if>
@@ -111,12 +105,14 @@ $('article').flipcarousel({
 		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'now')">상세정보</button><button class="rev">예매하기</button>
 		 	</div>
 		 </li>
-		 </c:forEach>
 	</ul>
+	</article>
+		 </c:forEach>
 </div>
 <div class="nextmoviepage">
-	<ul>
-		<c:forEach  var="bean" items="${nextmovie}">
+	<c:forEach  var="bean" items="${nextmovie}">
+	<article title="item${bean.rn}">
+	<ul style="padding:0;">
 		<li class=item>
 			<div class="movieNum_${bean.MOVIE_ID }">
 			<div class="poster-wrap" onmouseover="posterhover(${bean.MOVIE_ID}, '${NowUser}', '${bean.AVG}', '${bean.AVG_NUM}','next')" onmouseleave="posterleave(${bean.MOVIE_ID})">
@@ -129,8 +125,9 @@ $('article').flipcarousel({
 		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'next')">상세정보</button><button class="rev">예매하기</button>
 		 	</div>
 		 </li>
-		 </c:forEach>
 	</ul>
+	</article>
+ </c:forEach>
 </div>
 </div>
 
@@ -219,3 +216,5 @@ $('article').flipcarousel({
 	</div>
 	</div>
 </div> 
+</div>
+</div>
