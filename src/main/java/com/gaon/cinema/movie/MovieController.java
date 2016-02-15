@@ -131,13 +131,15 @@ public class MovieController {
 		out.print("{\"check\":\"1\"}");
 	}
 	
-	
 	@RequestMapping(value = "/LikeMovie.do", method = RequestMethod.GET)
 	public ModelAndView LikeMovie(HttpServletRequest request) throws ServletException, IOException{
 		ModelAndView mav = new ModelAndView();
+		String emp = "true"; 
 		String NowUser = request.getParameter("NowUser");
 		List<MovieDTO> likeMovie = dao.dbLikeMovie(NowUser);
+		if(!likeMovie.isEmpty()){emp = "false";}
 		//mav.addObject("moviepage", "nowmovie");
+		mav.addObject("emp", emp);
 		mav.addObject("likeMovie", likeMovie);
 		mav.addObject("page", "likeMovie");
 		mav.setViewName("mainLayout");
