@@ -19,7 +19,11 @@ rgba(11, 13, 12, 0.5);
 
 /* adminMemberList.jsp 부분 */
 #adminMemberList {
-	text-aling: center;
+	text-align: center;
+}
+
+#adminMemberList > table {
+	display: inline-block;
 }
 
 /* adminReservationList.jsp 부분 */
@@ -77,8 +81,36 @@ rgba(11, 13, 12, 0.5);
 }
 
 #adminTheaterInsert > form {
+	text-align: center;
 	display: inline-block;
 }
+
+#adminTheaterInsert > form > table {
+	display: inline-block;
+}
+
+/* adminMovieEdit.jsp 부분 */
+#adminMovieEdit {
+	text-align: center;
+}
+
+#adminMovieEdit > form {
+	display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
