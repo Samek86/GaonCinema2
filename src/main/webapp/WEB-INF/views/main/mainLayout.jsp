@@ -42,6 +42,7 @@
 	<script src="./resources/js/header.js"></script>
 	
 	<script src="./resources/js/event.js"></script>
+	<link href="./resources/css/event.css" rel="stylesheet">
 	<script src="./resources/js/buy.js"></script>
 	<link href="./resources/css/store.css" rel="stylesheet">
 	<script src="./resources/js/store.js"></script>
@@ -60,6 +61,8 @@
 	<!-- <link href="http://vjs.zencdn.net/5.6.0/video-js.css" rel="stylesheet">
 	<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 	<script src="http://vjs.zencdn.net/5.6.0/video.js"></script> -->
+	<link href="./resources/css/flip-carousel.css" rel="stylesheet">
+	<script src="./resources/js/flip-carousel.js"></script>
 
 	<script type="text/javascript" src="./resources/js/jssor.slider.mini.js"></script>
 </head>

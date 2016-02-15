@@ -41,6 +41,7 @@ a:focus, button:focus, div:focus, input:focus
 	text-decoration: none;
 	transition : all 0.3s;
 }
+
 body{
 	-webkit-user-select: none;
     -khtml-user-select: none;
@@ -121,6 +122,13 @@ body{
     border-top: solid;
     border-color: #E08F23;
 }
+
+#header .nav > li > a:focus {
+	background-color: #005E57;
+	border-bottom: solid;
+    border-top: solid;
+    border-color: #E08F23;
+	}
 
 #header #loginbt, #header #memberbt {
 	display : inline-block;

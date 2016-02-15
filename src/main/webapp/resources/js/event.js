@@ -1,5 +1,4 @@
 function eventdetail(event_id){
-	alert("event_id="+event_id);
 	$.ajax({
 		url:"eventDetail.do",
 		data: "event_id="+event_id,
@@ -8,10 +7,9 @@ function eventdetail(event_id){
 		success: function(data){
 			console.log(data);
 			//alert("성공"+data.img+"\n"+data.e_start);
-			$(".eventpopup .e_title").html(data.title);
-			$(".eventpopup .event_id").html(data.event_id);
-			//$(".eventpopup .start")html(data.e_start);
-			//$(".eventpopup .start&end")html("기간: "+data.e_start+"~"+data.e_end);
+			$(".eventpopup .e_title").html("<h3>"+data.title+"</h3>");
+			$(".eventpopup .event_id").html("No."+data.event_id);
+			$(".eventpopup .start").html(data.e_start+" ~ "+data.e_end);
 			$(".eventpopup .e_middle img").eq(0).attr('src', './resources/img/event/'+data.img);
 			
 		},//sucess end
@@ -31,40 +29,51 @@ function eventdetail(event_id){
 	});
 }
 
+///////////////////////////////////////////////////////////////////////
 
-/*
-function detail(event_id) {
-	var Ca = /\+/g;
+var NowUser ="";
+var starNum;
+var AVG;
+var AVG_NUM;
+
+
+function userIDsave(id){
 	NowUser = id;
-	$.ajax({
-		url: "eventDetail.do",
-		data: "event_id=" +event_id,
-		dataType: "json",
-		type: "GET",
-		success: function(data) { 
-				//console.log(decode(data.NAME_K) +decode(data.NAME_E));
-				//리셋 ↓
-				//
-				$(".detailpopup .d_hidden").html('<div class="d_movieNum_'+data.event_id+'">')
-						
-				$(".detailpopup .d_POSTER").html('<img src="./resources/img/event/'+data.poster+'">');
-				$(".detailpopup .d_NAME_K").html(data.title);
-				$(".detailpopup .info_wrap li").eq(0).html('<strong>개봉일</strong> : '+data.e_start);
-				$(".detailpopup .e_middle img").attr('src', './resources/img/event/'+data.img+'">');
-				
-		},
-		error: function(data) {
-			console.log(data);
-		}
-	});
-	
-	
-	$.magnificPopup.open({
-		  items: {
-		      src: '.detailpopup',
-		      type: 'inline',
-		  },
-		 closeBtnInside: true
-	});
-	
-}*/
+}
+
+function starID(id, Num){
+	NowUser = id;
+	starNum = Num;
+}
+
+$(document).ready(function(){ 
+    $('.nowevent').click(function(){
+            $('.endeventpage').hide();     
+            $('.noweventpage').show();
+            $('.endevent').removeClass('selected');
+            $('.nowevent').addClass('selected');
+    });
+    
+    $('.endevent').click(function(){
+            $('.noweventpage').hide();     
+            $('.endeventpage').show();
+            $('.nowevent').removeClass('selected');
+            $('.endevent').addClass('selected');
+    });
+});
+
+function decode(data){
+	var Ca = /\+/g;
+	var result = decodeURIComponent(data).replace(Ca, " ");
+	return result;
+}
+
+
+
+
+
+
+
+
+
+
