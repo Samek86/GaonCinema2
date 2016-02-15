@@ -69,6 +69,7 @@ public class MemberController {
 		dto.setUserid(id);
 		dto=dao.dbmember(dto);
 		
+		System.out.println(id);
 		String year = new SimpleDateFormat("yyyy").format(dto.getBirth());
 		String month = new SimpleDateFormat("MM").format(dto.getBirth());
 		String day = new SimpleDateFormat("dd").format(dto.getBirth());

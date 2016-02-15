@@ -5,7 +5,9 @@ $(document).ready(function(){
 	if($('#gender').val()=='남'){
 		$('#man').attr("checked", "checked");
 	}else{$('#woman').attr("checked", "checked");}
+	idchecked = true;
 	});
+	
 </script>
 <div id="memverEditWarp">
 	<form name="insert" method="post" enctype="multipart/form-data" onsubmit="return check()" action="memberEdit.do">

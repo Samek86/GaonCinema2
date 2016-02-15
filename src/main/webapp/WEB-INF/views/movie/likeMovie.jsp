@@ -45,7 +45,12 @@ $(document).ready(function(){
 <div id="movie">
 <div class="movie-wrap">
 <div class="likemoviepage">
-	<ul>
+<c:choose>
+<c:when test="${emp=='true'}">
+	<h1>찜한 영화가 없습니다.</h1><br>
+</c:when>
+<c:otherwise>
+<ul>
 		<c:forEach  var="bean" items="${likeMovie}">
 		<li class=item>
 			<c:choose>
@@ -79,6 +84,9 @@ $(document).ready(function(){
 		 </li>
 		 </c:forEach>
 	</ul>
+</c:otherwise>
+</c:choose>
+	
 </div>
 
 </div>
