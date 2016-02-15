@@ -2,6 +2,7 @@ package com.gaon.cinema.admin;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -19,6 +20,7 @@ import com.gaon.cinema.member.MemberDTO;
 import com.gaon.cinema.movie.MovieDTO;
 import com.gaon.cinema.reservation.ReservationDTO;
 import com.gaon.cinema.theater.TheaterDTO;
+import com.gaon.cinema.theaterSeat.TheaterSeatDTO;
 
 @Controller
 public class AdminController {
@@ -203,10 +205,20 @@ public class AdminController {
 	
 	/* 영화관 추가하기 동작 */
 	@RequestMapping(value = "/adminTheaterInsert.do", method = RequestMethod.GET)
-	public ModelAndView adminTheaterInsert(TheaterDTO dto) {
+	public ModelAndView adminTheaterInsert(TheaterDTO tdto, TheaterSeatDTO tsdto, @RequestParam String listSeat) {
 		ModelAndView mav = new ModelAndView();
 		
-		dao.dbInsertTheater(dto);
+		String[] list = listSeat.split(",");
+		/* 영화관 추가 */
+		tdto.setSeatcount(list.length);
+		dao.dbInsertTheater(tdto);
+		
+		/* 영화관 좌석 추가 */
+		tsdto.setTheater_id(dao.dbSelectTheaterLastTheater_id());
+		for(int i = 0; i < list.length; i++) {
+			tsdto.setSeat(list[i]);
+			dao.dbInsertTheaterSeat(tsdto);
+		}
 		
 		mav.setViewName("redirect:/adminMovieTheaterList.do");
 		return mav;

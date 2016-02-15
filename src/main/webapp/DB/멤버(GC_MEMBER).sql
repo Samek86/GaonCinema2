@@ -23,9 +23,9 @@ CREATE TABLE GC_MEMBER (
 CREATE SEQUENCE GC_MEMBER_SEQ;
 
 insert into GC_MEMBER values 
-	(GC_MEMBER_SEQ.nextval,'admin','1234','img.jpg','관리자','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0, 'empty', 'empty');
+	(GC_MEMBER_SEQ.nextval,'admin','1234','img.jpg','관리자','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0, 'empty/', 'empty/');
 
 insert into GC_MEMBER values 
-	(GC_MEMBER_SEQ.nextval,'hb','1234','img.jpg','김회원','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0, 'empty', 'empty');
+	(GC_MEMBER_SEQ.nextval,'hb','1234','img.jpg','김회원','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0, 'empty/', 'empty/');
 	
 commit;

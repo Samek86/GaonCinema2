@@ -35,6 +35,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM GC_THEATER ORDER BY CNAME, LNAME, TNAME
 	</select>
 	
+	<!-- 영화관 최근 THEATER_ID -->
+	<select id="selectTheaterLastTheater_id" resultType="int">
+		SELECT MAX(THEATER_ID) THEATER_ID FROM GC_THEATER
+	</select>
+	
 	<!-- 영화관 추가 -->
 	<insert id="insertTheater" parameterType="com.gaon.cinema.theater.TheaterDTO">
 		INSERT INTO GC_THEATER VALUES (
@@ -43,8 +48,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</insert>
 	
+	<!-- 영화관 좌석 추가 -->
+	<insert id="insertTheaterSeat" parameterType="com.gaon.cinema.theaterSeat.TheaterSeatDTO">
+		INSERT INTO GC_THEATER_SEAT VALUES (
+			GC_THEATER_SEAT_SEQ.NEXTVAL, #{theater_id}, #{seat}, 'FALSE'
+		)
+	</insert>
+	
 	<!-- 영화관 수정 -->
 	<update id="updateTheater" parameterType="com.gaon.cinema.theater.TheaterDTO">
+		
+	</update>
+	
+	<!-- 영화관 좌석 수정 -->
+	<update id="updateTheaterSeat" parameterType="com.gaon.cinema.theaterSeat.TheaterSeatDTO">
 		
 	</update>
 	
@@ -59,7 +76,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 회원 목록 -->
-	<select id="selectMemberAll">
+	<select id="selectMemberAll" resultType="com.gaon.cinema.member.MemberDTO">
 		SELECT * FROM GC_MEMBER
 	</select>
 	
