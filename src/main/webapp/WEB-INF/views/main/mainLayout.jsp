@@ -26,6 +26,7 @@
 	<link href="./resources/css/footer.css" rel="stylesheet">
 	<link href="./resources/css/theater.css" rel="stylesheet">
 	<link href="./resources/css/admin.css" rel="stylesheet">
+	<link href="./resources/css/reservation.css" rel="stylesheet">
 	<link rel="stylesheet" href="./resources/css/magnific-popup.css">
 	
 	
