@@ -3,28 +3,30 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
-<div id="movie">
-<div class="movie-wrap">
-<div align="center" id="moviesbt">
-	<button class="nowmovie selected" type="button" value="nowmovie">현재 이벤트</button>
-	<button class="nextmovie" type="button" value="nextmovie">지난 이벤트</button>
+<div id="event">
+<div class="event-wrap">
+<div align="center" id="eventsbt">
+	<button class="nowevent selected" type="button" value="nowmovie">현재 이벤트</button>
+	<button class="endevent" type="button" value="nextmovie">지난 이벤트</button>
 </div>
-<div class="nowmoviepage">
+<div class="noweventpage">
 	<ul>
-		<c:forEach  var="bean" items="${nowevent}">
-			<li class=item>
-				<img class="poster" onclick="eventdetail('${bean.event_id}')" src="./resources/img/event/${bean.poster }">
-				<div class="title-wrap"><div class="title">${bean.title}</div></div>
+		<c:forEach  var="now" items="${nowevent}">
+			<li class="list">
+				<img class="e_poster" onclick="eventdetail('${now.event_id}')" src="./resources/img/event/${now.poster }">
+				<div class="title-wrap"><div class="e_title">${now.title}</div></div>
+				<div class="term"><fmt:formatDate value="${now.e_start}" pattern="yyyy-MM-dd"/>~<fmt:formatDate value="${now.e_end}" pattern="yyyy-MM-dd"/></div>
 			</li>
 		</c:forEach>
 	</ul>
 </div>
-<div class="asdasdasd">
+<div class="endeventpage">
 	<ul>
-		<c:forEach  var="bean" items="${nextevent}">
-			<li class=item>
-				<img class="poster" onclick="eventdetail(${bean.event_ID})" src="./resources/img/movie/${bean.poster }" >
-				<div class="title-wrap"><div class="title">${bean.title}</div></div>
+		<c:forEach  var="bean" items="${endevent}">
+			<li class="list">
+				<img class="e_poster" onclick="eventdetail(${bean.event_id})" src="./resources/img/event/${bean.poster }" >
+				<div class="title-wrap"><div class="e_title">${bean.title}</div></div>
+				<div class="term"><fmt:formatDate value="${bean.e_start}" pattern="yyyy-MM-dd"/>~<fmt:formatDate value="${bean.e_end}" pattern="yyyy-MM-dd"/></div>
 			</li>
 		</c:forEach>
 	</ul>
@@ -41,6 +43,7 @@
 		<div>					
 			<p>
 				<span class="event_id">  </span>  
+				  |    
 				<span class="start">  </span> 
 			</p>  	
 		</div>   
