@@ -23,9 +23,7 @@ public class ReservationController {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("movieList", dao.dbSelectMovieNameAge());
-		System.out.println("reservation1");
-		mav.addObject("theaterList", dao.dbSelectTheaterCname());
-		System.out.println("reservation2");
+		mav.addObject("theaterCnameList", dao.dbSelectTheaterCname());
 		
 		mav.addObject("page", "reservation");
 		mav.setViewName("mainLayout");

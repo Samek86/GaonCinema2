@@ -50,8 +50,8 @@
 						<div class="theater_body">
 							<div class="theater_city_list">
 								<ul>
-									<c:forEach var="theaterBean" items="${theaterList}">
-										<li><a href="#">${theaterbean.CNAME}</a></li>
+									<c:forEach var="theaterCnameBean" items="${theaterCnameList}">
+										<li><a href="#">${theaterCnameBean.cname}</a></li>
 									</c:forEach>
 								</ul>
 							</div>
