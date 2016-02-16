@@ -162,7 +162,7 @@ line-height: 1.2;
     padding: 4px 15px;
     color: #fff;
     text-shadow: 1px 1px 1px #000;
-    
+    margin-top: 0;
 }
 
 #movie .rank_empty {
@@ -655,3 +655,26 @@ line-height: 1.2;
     text-shadow: none;
  } */
   
+  #mainmovie {
+  	width : 100%;
+  }
+  
+  
+  #mainmovie li.item {
+    margin: 0px;
+  }
+  
+  #mainmovie .AVG-wrap {
+  	text-align: left;
+  	margin-top: -43px;
+  }
+  
+  #mainmovie li.item .title-wrap {
+    text-align: left;
+}
+
+ #mainmovie .item .poster_like {
+    margin-top: -80px;
+    right: 85px;
+ }
+ 

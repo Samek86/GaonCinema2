@@ -57,12 +57,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 영화관 수정 -->
 	<update id="updateTheater" parameterType="com.gaon.cinema.theater.TheaterDTO">
-		
+		UPDATE GC_THEATER SET 
 	</update>
 	
 	<!-- 영화관 좌석 수정 -->
 	<update id="updateTheaterSeat" parameterType="com.gaon.cinema.theaterSeat.TheaterSeatDTO">
-		
+		UPDATE GC_THEATER_SEAT SET 
 	</update>
 	
 	<!-- 영화관 삭제 -->

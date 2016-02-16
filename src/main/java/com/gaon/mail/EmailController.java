@@ -117,14 +117,14 @@ public class EmailController {
     		codeDto.setTitle(item_name);
     		String startdate = CodeDao.selectStartDate(code_name);
     		String enddate = CodeDao.selectEndDate(code_name);
-    		java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
+    		java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy년MM월dd일");
     		java.util.Date sdate = format.parse(startdate);
     		java.util.Date edate = format.parse(enddate);
     		 java.text.SimpleDateFormat format1 = new java.text.SimpleDateFormat("yyyy년MM월dd일");
     	   String a = format1.format(sdate);
     	   String b = format1.format(edate);
+    	   emailSender.codeSenderEmail(email);
     		emailSender.codeReciverEmail(email,codeDto,a,b);
-    		emailSender.codeSenderEmail(email);
     		out.print("{\"check\":\"" + ok + "\",\"msg\": \"결제 내역이 고객님의 메일로 발송되었습니다.\"}");
     	}
     }
