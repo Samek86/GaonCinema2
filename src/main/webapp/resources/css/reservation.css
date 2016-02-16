@@ -45,6 +45,11 @@ line-height: 1.2;
 	color: #DDD;
 }
 
+#reservation > .steps > .step1 .selected {
+	background-color: #333333;
+	color: #DDD;
+}
+
 #reservation > .steps > .step1 ul {
 	margin: 0;
 	padding: 0;
@@ -98,6 +103,9 @@ line-height: 1.2;
 
 #reservation > .steps > .step1 > .section_movie .movie_body {
 	width: 100%; height: 95%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
 }
 
 #reservation > .steps > .step1 > .section_movie .movie_list {
@@ -130,12 +138,25 @@ line-height: 1.2;
 #reservation > .steps > .step1 > .section_theater .theater_body {
 	width: 100%; height: 95%;
 	display: inline-flex;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
 }
 
 #reservation > .steps > .step1 > .section_theater .theater_city_list {
 	width: 50%; height: 100%;
 	overflow: auto;
 	white-space: nowrap;
+}
+
+#reservation > .steps > .step1 > .section_theater .theater_city_list a {
+	background-color: #777777;
+	color: #DDD;
+}
+
+#reservation > .steps > .step1 > .section_theater .theater_city_list a:hover {
+	background-color: #333333;
+	color: #DDD;
 }
 
 #reservation > .steps > .step1 > .section_theater .theater_location_list {
@@ -166,6 +187,9 @@ line-height: 1.2;
 
 #reservation > .steps > .step1 > .section_date .date_body {
 	width: 100%; height: 100%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
 }
 
 #reservation > .steps > .step1 > .section_date .date_list {
@@ -194,6 +218,19 @@ line-height: 1.2;
 
 #reservation > .steps > .step1 > .section_hour .hour_body {
 	width: 100%; height: 95%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour_body ul {
+	display: inline-block;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour_body li {
+	width: 33.333%;
+	display: inline-block;
+	float: left;
 }
 
 #reservation > .steps > .step1 > .section_hour .hour_list {

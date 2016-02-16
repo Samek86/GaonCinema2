@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<script>
+	$(function() {
+		
+	});
+	
+	function movieClick() {
+		
+	}
+</script>
+
 <div id="reservation">
 	<h1>[reservation.jsp]</h1>
 	<div class="steps">
@@ -19,30 +29,9 @@
 						<div class="movie_body">
 							<div class="movie_list">
 								<ul>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
+									<li><a class="movie" onclick="movieClick();" href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
+									<li><a class="movie" href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
+									<li><a class="movie" href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
 								</ul>
 							</div>
 						</div>
@@ -60,64 +49,18 @@
 						<div class="theater_body">
 							<div class="theater_city_list">
 								<ul>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
+									<li><a class="city" href="#">서울</a></li>
+									<li><a class="city" href="#">경기</a></li>
+									<li><a class="city" href="#">강원</a></li>
 								</ul>
 							</div>
 							<div class="theater_location_list">
 								<ul>
-									<li><a href="#">강남</a></li>
-									<li><a href="#">신촌</a></li>
-									<li><a href="#">성신</a></li>
-									<li><a href="#">미아</a></li>
-									<li><a href="#">수유</a></li>
-									<li><a href="#">강남</a></li>
-									<li><a href="#">신촌</a></li>
-									<li><a href="#">성신</a></li>
-									<li><a href="#">미아</a></li>
-									<li><a href="#">수유</a></li>
-									<li><a href="#">강남</a></li>
-									<li><a href="#">신촌</a></li>
-									<li><a href="#">성신</a></li>
-									<li><a href="#">미아</a></li>
-									<li><a href="#">수유</a></li>
-									<li><a href="#">강남</a></li>
-									<li><a href="#">신촌</a></li>
-									<li><a href="#">성신</a></li>
-									<li><a href="#">미아</a></li>
-									<li><a href="#">수유</a></li>
-									<li><a href="#">강남</a></li>
-									<li><a href="#">신촌</a></li>
-									<li><a href="#">성신</a></li>
-									<li><a href="#">미아</a></li>
-									<li><a href="#">수유</a></li>
-									<li><a href="#">강남</a></li>
-									<li><a href="#">신촌</a></li>
-									<li><a href="#">성신</a></li>
-									<li><a href="#">미아</a></li>
-									<li><a href="#">수유</a></li>
+									<li><a class="location" href="#">강남</a></li>
+									<li><a class="location" href="#">신촌</a></li>
+									<li><a class="location" href="#">성신</a></li>
+									<li><a class="location" href="#">미아</a></li>
+									<li><a class="location" href="#">수유</a></li>
 								</ul>
 							</div>
 						</div>
@@ -160,9 +103,30 @@
 							<div class="hour_list">
 								<div class="hour">
 									<ul>
-										<li>
-											<a href="#"><span>20:00</span> <span>100석</span></a>
-										</li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>	
+									</ul>
+								</div>
+								<div class="hour">
+									<ul>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
+										<li><a href="#"><span>20:00</span> <span>100석</span></a></li>
 									</ul>
 								</div>
 							</div>
