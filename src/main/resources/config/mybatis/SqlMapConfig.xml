@@ -15,5 +15,6 @@
 		<mapper resource="config/mybatis/store.xml"/>
 		<mapper resource="config/mybatis/code.xml"/>
 		<mapper resource="config/mybatis/main.xml"/>
+		<mapper resource="config/mybatis/reservation.xml"/>
 	</mappers>
 </configuration>

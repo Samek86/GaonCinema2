@@ -71,7 +71,7 @@ $().ready(function(){
 });
 
 </script>
-
+<div><a href="step2.do">step2.do</a></div>
 	<div class="fotorama"
   	 	data-fit = "cover" data-autoplay="6000" data-transition="dissolve"
 		data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" data-loop="true" 
