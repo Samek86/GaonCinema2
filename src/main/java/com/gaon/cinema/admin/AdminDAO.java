@@ -65,6 +65,11 @@ public class AdminDAO {
 		temp.update("admin.updateTheater", dto);
 	}
 	
+	/* 영화관 좌석 수정 */
+	public void dbUpdateTheaterSeat(TheaterSeatDTO dto) {
+		temp.update("admin.updateTheaterSeat", dto);
+	}
+	
 	/* 영화 삭제 */
 	public void dbDeleteMovie(int movie_id) {
 		temp.delete("admin.deleteMovie", movie_id);

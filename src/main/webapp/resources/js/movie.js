@@ -357,10 +357,11 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 	AVG_NUM = poster_avgNum;
 	//console.log(NowUser+" , "+starNum);
 	
-	
 	 if(nownext=='now'){
+		$('.movieNum_'+MOVIE_ID+' .poster_star').rating("clear");
 		$('.movieNum_'+MOVIE_ID+' .poster-wrap .rating-container').css("display", "block");
 	 }
+	 //$('#mainmovie .movieNum_'+MOVIE_ID+' .poster_like').css({"margin-top": "-45px"});
 	 $('.movieNum_'+MOVIE_ID+' .poster_like').css({"display": "block"});
 	 $('.movieNum_'+MOVIE_ID+' .poster_star').rating("clear");
 	 if(NowUser==null||NowUser==""){return;};
@@ -414,7 +415,8 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 function posterleave(MOVIE_ID) {
 	
 	//console.log('.movieNum_'+MOVIE_ID+' .poster-wrap .rating-container');
-	$('.poster-wrap div').eq(0).css("margin-top", "0px");
+	$('#movie .poster-wrap div').eq(0).css("margin-top", "0px");
+	//$('#mainmovie .movieNum_'+MOVIE_ID+' .poster_like').css({"margin-top": "-80px"});
 	//$('.movieNum_'+MOVIE_ID+' .poster_like').css("margin-top", "-45px");
 		//$('.movieNum_'+MOVIE_ID+' .poster-wrap div').eq(0).css("margin-top", "0px");
 		//$('.movieNum_'+MOVIE_ID+' .poster_like').css({"display": "none"});

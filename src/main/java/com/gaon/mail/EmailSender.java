@@ -33,13 +33,13 @@ public class EmailSender  {
     	"사용자 성함 " + email.getUserName() +"\n" +
     	"사용자 이메일 " + email.getUserEmail()+"\n" +
     	"상품 이름 " + email.getItem_name()+"\n" +
-    	"상품 가격 " + email.getPrice_sale()+"\n" +
-    	"상품 수량 " + email.getBuycount()+"\n" +
-    	"사용 포인트 " + email.getGetPoint()+"\n" + 
-    	"잔여 포인트 " + email.getMyPoint()+"\n" +
-    	"상품 총금액 " + email.getTotal()+"\n" +
-    	"할인 금액" + email.getGetPoint()+"\n" + 
-    	"최종 결제 금액" + email.getBuyMoney()
+    	"상품 가격 " + email.getPrice_sale()+"원\n" +
+    	"상품 수량 " + email.getBuycount()+"개\n" +
+    	"사용 포인트 " + email.getGetPoint()+"point\n" + 
+    	"잔여 포인트 " + email.getMyPoint()+"point\n" +
+    	"상품 총금액 " + email.getTotal()+"원\n" +
+    	"할인 금액" + email.getGetPoint()+"point\n" + 
+    	"최종 결제 금액" + email.getBuyMoney() + "원"
     	);
     	msg.setRecipient(RecipientType.TO , new InternetAddress(email.getSenderEmail()));
     	mailSender.send(msg); 
