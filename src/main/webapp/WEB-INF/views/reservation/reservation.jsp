@@ -40,30 +40,9 @@
 						<div class="theater_body">
 							<div class="theater_city_list">
 								<ul>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
-									<li><a href="#">서울</a></li>
-									<li><a href="#">경기</a></li>
-									<li><a href="#">강원</a></li>
+								<c:forEach var="theaterBean" items="${theaterList}">
+								<li><a href="#">${theaterbean.CNAME}</a></li>
+								</c:forEach>
 								</ul>
 							</div>
 							<div class="theater_location_list">

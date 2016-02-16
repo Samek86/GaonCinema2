@@ -17,4 +17,9 @@ public class ReservationDAO {
 		return list;
 	}//dbSelectMovieNameAge
 	
+	public List<ReservationShowDTO> dbSelectTheaterCname() {
+		List<ReservationShowDTO> list = temp.selectList("reservation.selectTheaterCname");
+		return list;
+	}//dbSelectTheaterCname
+	
 } //ReservationDAO class END

@@ -3,9 +3,16 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reservation">
+
 	<!-- 상영 영화 출력 -->
 	<select id="selectMovieNameAge" resultType="com.gaon.cinema.movie.MovieDTO">
 		select name_k, age from gc_movie order by name_k
 	</select>	
+	
+	 <!-- 영화관 리스트 출력 -->
+	<select id="selectTheaterCname" resultType="com.gaon.cinema.theater.TheaterDTO">
+		select cname from gc_theater
+	</select> 
+
 
 </mapper>
