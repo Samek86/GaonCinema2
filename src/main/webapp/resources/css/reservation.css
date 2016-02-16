@@ -233,6 +233,16 @@ line-height: 1.2;
 	float: left;
 }
 
+#reservation > .steps > .step1 > .section_hour .hour_body ul {
+	display: inline-block;
+}
+
+#reservation > .steps > .step1 > .section_hour .hour_body li {
+	width: 33.333%;
+	display: inline-block;
+	float: left;
+}
+
 #reservation > .steps > .step1 > .section_hour .hour_list {
 	width: 100%; height: 100%;
 	overflow: auto;

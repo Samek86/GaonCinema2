@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <script>
 	$(function() {
@@ -29,9 +30,9 @@
 						<div class="movie_body">
 							<div class="movie_list">
 								<ul>
-									<li><a class="movie" onclick="movieClick();" href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a class="movie" href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a class="movie" href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
+									<c:forEach var="movieBean" items="${movieList}">
+										<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie${movieBean.AGE}.png"> ${movieBean.NAME_K}</a></li>
+									</c:forEach>
 								</ul>
 							</div>
 						</div>
@@ -49,9 +50,9 @@
 						<div class="theater_body">
 							<div class="theater_city_list">
 								<ul>
-									<li><a class="city" href="#">서울</a></li>
-									<li><a class="city" href="#">경기</a></li>
-									<li><a class="city" href="#">강원</a></li>
+									<c:forEach var="theaterBean" items="${theaterList}">
+										<li><a href="#">${theaterbean.CNAME}</a></li>
+									</c:forEach>
 								</ul>
 							</div>
 							<div class="theater_location_list">
