@@ -19,13 +19,12 @@ public class ReservationController {
 	private static final Logger logger = LoggerFactory.getLogger(ReservationController.class);
 	
 	@RequestMapping(value = "/reservation.do", method = RequestMethod.GET)
-	public ModelAndView reservationMovie() {
+	public ModelAndView reservation() {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("movieList", dao.dbSelectMovieNameAge());
-		System.out.println("reservation1");
+		
 		mav.addObject("theaterList", dao.dbSelectTheaterCname());
-		System.out.println("reservation2");
 		
 		mav.addObject("page", "reservation");
 		mav.setViewName("mainLayout");
