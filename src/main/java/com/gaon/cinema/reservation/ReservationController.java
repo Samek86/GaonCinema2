@@ -20,13 +20,13 @@ public class ReservationController {
 	
 	@RequestMapping(value = "/reservation.do", method = RequestMethod.GET)
 	public ModelAndView reservation() {
-			ModelAndView mav = new ModelAndView();
-			
-			mav.addObject("movieList", dao.dbSelectMovieNameAge());
-			
-			mav.addObject("page", "reservation");
-			mav.setViewName("mainLayout");
-			return mav;
-			}//reservation
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("movieList", dao.dbSelectMovieNameAge());
+		
+		mav.addObject("page", "reservation");
+		mav.setViewName("mainLayout");
+		return mav;
+	}//reservation
 	
 }//ReservationController class END
