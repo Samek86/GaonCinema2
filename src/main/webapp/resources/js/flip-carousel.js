@@ -19,6 +19,7 @@ $.fn.flipcarousel = function(options) {
         //accrual : 1 //number of pages to preload (forthcoming)
         //pagination : false //specific page navigation (forthcoming)
       }, options);
+    
 
         //structural elements
     var $container = $('<div class="flip-carousel">'),

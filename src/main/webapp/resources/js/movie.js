@@ -14,18 +14,18 @@ function starID(id, Num){
 }
 
 $(document).ready(function(){ 
-    $('.nowmovie').click(function(){
-            $('.nextmoviepage').hide();     
-            $('.nowmoviepage').show();
-            $('.nextmovie').removeClass('selected');
-            $('.nowmovie').addClass('selected');
+    $('#movie2 .nowmovie').click(function(){
+            $('#movie2 .nextmoviepage').hide();     
+            $('#movie2 .nowmoviepage').show();
+            $('#movie2 .nextmovie').removeClass('selected');
+            $('#movie2 .nowmovie').addClass('selected');
     });
     
-    $('.nextmovie').click(function(){
-            $('.nowmoviepage').hide();     
-            $('.nextmoviepage').show();
-            $('.nowmovie').removeClass('selected');
-            $('.nextmovie').addClass('selected');
+    $('#movie2 .nextmovie').click(function(){
+            $('#movie2 .nowmoviepage').hide();     
+            $('#movie2 .nextmoviepage').show();
+            $('#movie2 .nowmovie').removeClass('selected');
+            $('#movie2 .nextmovie').addClass('selected');
     });
 });
 
@@ -107,6 +107,8 @@ function moviedetail(MOVIE_ID, id, nownext) {
 				//$(".detailpopup .youtube_wrap").html('<iframe width="920" height="518" src="'+decode(data.MOVIE)+'?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>')
 				$(".detailpopup .youtube_wrap iframe").attr("src", decode(data.MOVIE)+"?rel=0&amp;controls=0&amp;showinfo=0");
 				
+				
+				
 				$.ajax({
 					url: "RateCheck.do",
 					data: 'NowUser='+NowUser+'&MOVIE_ID='+MOVIE_ID,
@@ -147,6 +149,15 @@ function moviedetail(MOVIE_ID, id, nownext) {
 						//console.log(data);
 					}
 				});
+				
+				$.magnificPopup.open({
+					  items: {
+					      src: '.detailpopup',
+					      type: 'inline',
+					  },
+					 closeBtnInside: true
+				});
+				
 		},
 		error: function(data) {
 			//console.log(data);
@@ -154,13 +165,7 @@ function moviedetail(MOVIE_ID, id, nownext) {
 	});
 	
 	
-	$.magnificPopup.open({
-		  items: {
-		      src: '.detailpopup',
-		      type: 'inline',
-		  },
-		 closeBtnInside: true
-	});
+	
 	
 }
 
@@ -363,7 +368,7 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 	 }
 	 //$('#mainmovie .movieNum_'+MOVIE_ID+' .poster_like').css({"margin-top": "-45px"});
 	 $('.movieNum_'+MOVIE_ID+' .poster_like').css({"display": "block"});
-	 $('.movieNum_'+MOVIE_ID+' .poster_star').rating("clear");
+	 //$('.movieNum_'+MOVIE_ID+' .poster_star').rating("clear");
 	 if(NowUser==null||NowUser==""){return;};
 	 $.ajax({
 			url: "RateCheck.do",
@@ -467,6 +472,7 @@ $(document).ready(function(){
 									//console.log(data);
 								}
 							});
+						 g_alert("평점 참여에 감사합니다");
 					}
 			},
 			error: function(data) {

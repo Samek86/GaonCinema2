@@ -42,7 +42,7 @@ $(document).ready(function(){
 </script>
 
 
-<div id="movie">
+<div id="movie"><div id="movie2">
 <div class="movie-wrap">
 <div align="center" id="moviesbt">
 	<button class="nowmovie selected" type="button" value="nowmovie">현재상영작</button>
@@ -87,12 +87,13 @@ $(document).ready(function(){
 	</ul>
 </div>
 </div>
+</div>
 
 <div class='detailpopup mfp-hide'>
 	<div class="d_hidden"></div>
 	<button type='button' class='mfp-close'>×</button>
 	<div class="d_top">
-		<div class="d_POSTER"> <img src="./resources/img/movie/BG_poster.jpg"> </div>
+		<div class="d_POSTER"> <img src=""> </div>
 		<div class="d_top_right">
 			<div class="d_title">
 				<div class="d_AGE"><img src="./resources/img/movie/movie12.png"></div>

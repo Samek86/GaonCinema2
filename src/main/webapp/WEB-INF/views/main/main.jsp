@@ -80,13 +80,8 @@ $().ready(function(){
 	  <div data-img="./resources/img/kumsa_1600x600.jpg" class="banner-text" ><div>검사외전</div><div class="banner-text2">검사와 사기꾼의 유쾌한 버디플레이!</div></div>
 	</div>
 	
-
 <div id="movie"><div id="mainmovie">
 <div class="movie-wrap">
-<div align="center" id="moviesbt">
-	<button class="nowmovie selected" type="button" value="nowmovie">현재상영작</button>
-	<button class="nextmovie" type="button" value="nextmovie">상영예정작</button>
-</div>
 <div class="nowmoviepage">
 		<c:forEach  var="bean" items="${nowmovie}">
 	<article title="item${bean.rn}">
@@ -109,33 +104,13 @@ $().ready(function(){
 	</article>
 		 </c:forEach>
 </div>
-<div class="nextmoviepage">
-	<c:forEach  var="bean" items="${nextmovie}">
-	<article title="item${bean.rn}">
-	<ul style="padding:0;">
-		<li class=item>
-			<div class="movieNum_${bean.MOVIE_ID }">
-			<div class="poster-wrap" onmouseover="posterhover(${bean.MOVIE_ID}, '${NowUser}', '${bean.AVG}', '${bean.AVG_NUM}','next')" onmouseleave="posterleave(${bean.MOVIE_ID})">
-				<img class="poster" src="./resources/img/movie/${bean.POSTER }" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'next')">
-				<div class="poster_like"><button type="button" onclick="poster_likeplus(${bean.MOVIE_ID}, '${NowUser}')" class="likebt"><i class="fa fa-heart"></i></button></div>
-			 </div>
-			 <span class="rank_empty"></span>
-			<div class="AVG-wrap"><div class="AVG"><fmt:formatDate value="${bean.STARTDATE }" pattern="yyyy-MM-dd"/> </div><span class="dday">D-${bean.dday}</span></div>
-			<div class="title-wrap"><img class="AGE" src="./resources/img/movie/movie${bean.AGE }.png"><div class="title">${bean.NAME_K}</div></div>
-		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'next')">상세정보</button><button class="rev">예매하기</button>
-		 	</div>
-		 </li>
-	</ul>
-	</article>
- </c:forEach>
-</div>
 </div>
 
 <div class='detailpopup mfp-hide'>
 	<div class="d_hidden"></div>
 	<button type='button' class='mfp-close'>×</button>
 	<div class="d_top">
-		<div class="d_POSTER"> <img src="./resources/img/movie/BG_poster.jpg"> </div>
+		<div class="d_POSTER"> <img src=""> </div>
 		<div class="d_top_right">
 			<div class="d_title">
 				<div class="d_AGE"><img src="./resources/img/movie/movie12.png"></div>

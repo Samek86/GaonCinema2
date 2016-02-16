@@ -654,13 +654,17 @@ line-height: 1.2;
     color: transparent;
     text-shadow: none;
  } */
+ 
+  #movie2 {
+  	width : 100%;
+  }
   
   #mainmovie {
   	width : 100%;
   }
   
   
-  #mainmovie li.item {
+  #mainmovie li.item, #mainmovie li.set{
     margin: 0px;
   }
   
@@ -669,12 +673,15 @@ line-height: 1.2;
   	margin-top: -43px;
   }
   
-  #mainmovie li.item .title-wrap {
+  #mainmovie li.item .title-wrap, #mainmovie li.set .title-wrap  {
     text-align: left;
 }
 
- #mainmovie .item .poster_like {
+ #mainmovie .item .poster_like, #mainmovie .set .poster_like {
     margin-top: -80px;
     right: 85px;
  }
  
+ #mainmovie .poster-wrap .rating-container {
+	 color: transparent;
+ }

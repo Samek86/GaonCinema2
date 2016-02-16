@@ -54,6 +54,7 @@ line-height: 1.2;
 	cursor: pointer;
 	margin-top: 0px;
 	transition : all 0.3s;
+	cursor: default;
 }
 	
 #store .poster-wrap:hover .poster{
