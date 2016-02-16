@@ -26,6 +26,7 @@
 	<link href="./resources/css/footer.css" rel="stylesheet">
 	<link href="./resources/css/theater.css" rel="stylesheet">
 	<link href="./resources/css/admin.css" rel="stylesheet">
+	<link href="./resources/css/reservation.css" rel="stylesheet">
 	<link rel="stylesheet" href="./resources/css/magnific-popup.css">
 	
 	
@@ -41,7 +42,6 @@
 	<script src="./resources/js/header.js"></script>
 	
 	<script src="./resources/js/event.js"></script>
-	<link href="./resources/css/event.css" rel="stylesheet">
 	<script src="./resources/js/buy.js"></script>
 	<link href="./resources/css/store.css" rel="stylesheet">
 	<script src="./resources/js/store.js"></script>
