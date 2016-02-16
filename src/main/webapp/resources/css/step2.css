@@ -1,0 +1,81 @@
+/* 
+
+ºÓÀº »ö : #C71B1B;
+rgba(199, 27, 27, 0.5);
+
+¾ÆÀÌº¸¸® : #D6BA8A;
+rgba(214, 186, 138, 0.5);
+
+Ã»³ì»ö : #017467; -> #005E57
+rgba(1, 116, 103, 0.5);
+
+±Ö»ö : #E08F23;
+rgba(224, 143, 35, 0.5);
+
+°ËÀº»ö : #0B0D0C;
+rgba(11, 13, 12, 0.5);
+
+letter-spacing: 5px;
+line-height: 1.2;
+
+*/
+@charset "utf-8";
+
+.step2 {
+    background: white;
+    padding: 65px 40px;
+    text-align: center;
+    max-width: 1080px;
+    margin: 40px auto;
+    position: relative;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 1000px;
+    height: auto;
+    font-family: '³ª´®°íµñ', 'NanumGothic', san-serif;
+ }
+ 
+ .step2 .title{
+ 	text-align: left;
+    font-size: 23px;
+    font-weight: bold;
+    color: #222;
+    border-bottom: 1px solid #bbb;
+    line-height: 47px;
+    padding-left: 16px;
+ }
+ 
+ .step2 .step2_left {
+	background-color: #fff;
+    display: inline-block;
+    width: 690px;
+}
+ 
+ .step2 .seatselect {
+ 	font-size: 15px;
+    text-align: left;
+    padding: 6px 18px;
+    border-bottom: 1px solid #bbb;
+ }
+ 
+ .step2 .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 80px;
+}
+
+
+.step2 .step2_right {
+	background-color: #bbb;
+    display: inline;
+    width: 230;
+    height: 329px;
+    float: right;
+}
+
+
+.step2 .seat-wrap {
+	background-color: #d2e9ff;
+    width: 690px;
+    height: 350px;
+    display: inline-block;
+    border-bottom: 1px solid #bbb;
+}

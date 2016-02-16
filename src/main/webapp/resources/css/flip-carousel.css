@@ -207,7 +207,7 @@
 
 
 /* General and article-specific styles */
-
+/* 
 html, body{
 	margin:0;
 	padding:0;
@@ -224,7 +224,7 @@ body{
 	background: radial-gradient(ellipse at center,  #606c88 0%,#3f4c6b 100%);
 	font-family: arial, sans-serif;
 }
-
+ */
 
 article {
 	height: 505px;

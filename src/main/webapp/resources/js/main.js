@@ -1,6 +1,5 @@
 
 
-
 $(document).ready(function(){ 
     $('#mainmovie .nowmovie').click(function(){
             $('#mainmovie .nextmoviepage').hide();     

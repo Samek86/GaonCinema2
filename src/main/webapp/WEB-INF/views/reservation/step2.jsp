@@ -11,7 +11,6 @@
 	<div class="steps" style="background-color:red; width:1000px; height:720px;">
 		<div class="step step2" style="display: block; background-color:silver; width:1000px; height:720px;">
 			<div class="section section-seat three_line dimmed" style="background-color:red;">
-				
 				<div class="col-head" style="background-color:black; width:1000px; height:30px;">
 					<a href="#" id="reservarionDiscountInfo" style="float:left;
 					 left: 15px; color: rgb(255, 255, 255); font-weight: bold;">☞&nbsp;관람 할인 안내</a>

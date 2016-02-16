@@ -71,7 +71,7 @@ $().ready(function(){
 });
 
 </script>
-<div><a href="step2.do">step2.do</a></div>
+<div><a href="#" onclick="step2popup()">step2.do</a></div>
 	<div class="fotorama"
   	 	data-fit = "cover" data-autoplay="6000" data-transition="dissolve"
 		data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" data-loop="true" 
@@ -193,3 +193,43 @@ $().ready(function(){
 </div> 
 </div>
 </div>
+
+
+<div class="step2 mfp-hide">
+<div class="title" >인원/좌석 선택</div>
+<div class="step2_left">
+	<div class="seatselect">
+		일반
+		<select name="adult" class="selectpicker" data-size="8">
+			<option value="0">0명</option>
+			<c:forEach begin="1" end="8" var="i">
+				<option value="${i}">${i}명</option>
+			</c:forEach>
+		</select>
+		청소년
+		<select name="children" class="selectpicker" data-size="8">
+			<option value="0">0명</option>
+			<c:forEach begin="1" end="8" var="i">
+				<option value="${i}">${i}명</option>
+			</c:forEach>
+		</select>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 인원선택은 총 8명까지 가능합니다.
+	</div>
+	
+	<div class="seat-wrap"></div>
+	
+	
+	
+</div>
+<div class="step2_right">영화포스터</div>
+</div>
+
+
+
+
+
+
+
+
+
+
