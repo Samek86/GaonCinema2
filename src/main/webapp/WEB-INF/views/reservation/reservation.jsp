@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div id="reservation">
 	<h1>[reservation.jsp]</h1>
@@ -19,30 +20,9 @@
 						<div class="movie_body">
 							<div class="movie_list">
 								<ul>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie19.png"> 데드풀</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movieall.png"> 쿵푸팬더</a></li>
-									<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie15.png"> 캐롤</a></li>
+									<c:forEach var="movieBean" items="${movieList}">
+										<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie${movieBean.AGE}.png"> ${movieBean.NAME_K}</a></li>
+									</c:forEach>
 								</ul>
 							</div>
 						</div>

@@ -4,8 +4,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reservation">
 	<!-- 상영 영화 출력 -->
-	<select id="selectMovieNameAge" resultType="com.gaon.cinema.reservation.ReservationShowDTO">
-		select a.name_k, a.age from gc_movie a inner join GC_THEATER b on a.name_k = b.mname
+	<select id="selectMovieNameAge" resultType="com.gaon.cinema.movie.MovieDTO">
+		select name_k, age from gc_movie order by name_k
 	</select>	
 
 </mapper>
