@@ -4,15 +4,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reservation">
 
-	<!-- 상영 영화 출력 -->
-	<select id="selectMovieNameAge" resultType="com.gaon.cinema.movie.MovieDTO">
-		select name_k, age from gc_movie order by name_k
-	</select>	
+	<!-- 영화를 클릭 했을 경우 -->
+	<select id="selectCnameOnClickMovie" parameterType="com.gaon.cinema.theater.TheaterDTO" resultType="String">
+		SELECT DISTINCT CNAME FROM GC_THEATER WHERE MNAME = #{mname}
+	</select>
 	
-	 <!-- 영화관 리스트 출력 -->
-	<select id="selectTheaterCname" resultType="com.gaon.cinema.theater.TheaterDTO">
-		select cname from gc_theater
-	</select> 
-
-
+	<select id="selectLnameOnClickMovie" parameterType="com.gaon.cinema.theater.TheaterDTO" resultType="String">
+		SELECT DISTINCT LNAME FROM GC_THEATER WHERE MNAME = #{mname} AND CNAME = #{cname}
+	</select>
+	
+	<select id="selectMstarthourOnClickMovie" parameterType="com.gaon.cinema.theater.TheaterDTO" resultType="Date">
+		SELECT DISTINCT TO_CHAR(MSTARTHOUR, 'YYYY-MM-DD') MSTARTHOUR FROM GC_THEATER WHERE MNAME = #{mname}
+	</select>
+	
+	<!-- 영화관 도시를 클릭 했을 경우 -->
+	<select id="selectMnameOnClickCity" resultType="com.gaon.cinema.theater.TheaterDTO">
+		
+	</select>
+	
+	<select id="selectMnameOnClickCity" resultType="com.gaon.cinema.theater.TheaterDTO">
+		
+	</select>
+	
+	<!-- 영화관 지역을 클릭 했을 경우 -->
+	<select id="test1" resultType="com.gaon.cinema.theater.TheaterDTO">
+		
+	</select>
+	
+	<!-- 날짜를 클릭 했을 경우 -->
+	<select id="test2">
+	</select>
 </mapper>
