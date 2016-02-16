@@ -51,6 +51,16 @@ public class MainController {
 		return mav;
 		
 	}
+/*test*/
+	@RequestMapping(value = "/step2.do", method = RequestMethod.GET)
+	public ModelAndView step2() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("page", "step2");
+		mav.setViewName("mainLayout");
+		return mav;
+		
+	}
+/*test*/
 	
 	@RequestMapping(value = "/mainDetail.do", method = RequestMethod.GET)
 	public void movieDetail(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException{
