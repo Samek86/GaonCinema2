@@ -46,6 +46,8 @@
 	
 	<!-- reservation -->
 	<definition name="reservation" template="/WEB-INF/views/reservation/reservation.jsp"/>
+	<!-- step2 -->
+	<definition name="reservation" template="/WEB-INF/views/reservation/step2.jsp"/>
 	
 	<!-- store -->
 	<definition name="store" template="/WEB-INF/views/store/store.jsp"/>

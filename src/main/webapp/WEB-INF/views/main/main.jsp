@@ -80,6 +80,7 @@ $().ready(function(){
 	  <div data-img="./resources/img/kumsa_1600x600.jpg" class="banner-text" ><div>검사외전</div><div class="banner-text2">검사와 사기꾼의 유쾌한 버디플레이!</div></div>
 	</div>
 	
+	
 
 <div id="movie"><div id="mainmovie">
 <div class="movie-wrap">
