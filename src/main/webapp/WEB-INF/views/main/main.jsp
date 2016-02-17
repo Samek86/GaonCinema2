@@ -71,7 +71,7 @@ $().ready(function(){
 });
 
 </script>
-<div style="position: absolute;top: 200;left: 200; z-index: 100;"><button class="btn btn-small btn-success" type="button" onclick="step2popup()" >step2.do</button></div>
+<div style="position: absolute;top: 200;left: 200; z-index: 100;"><button class="btn btn-small btn-success" type="button" onclick="step2popup('${NowUser}', 1, '서울', '신촌', '2관', 1, '09:00')" >step2.do</button></div>
 	<div class="fotorama"
   	 	data-fit = "cover" data-autoplay="6000" data-transition="dissolve"
 		data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" data-loop="true" 
