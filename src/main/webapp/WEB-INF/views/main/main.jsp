@@ -221,7 +221,12 @@ $().ready(function(){
 		<!-- 좌석뿌릴곳 -->
 		</div>
 	</div>
-	<div class="seat-setting">좌석붙임설정</div>
+	<div class="seat-setting">좌석붙임설정
+		<input type="radio" name="radio" class="radio1" value="1" > ■
+	    <input type="radio" name="radio" class="radio2" value="2" > ■■ 
+	    <input type="radio" name="radio" class="radio3" value="3" > ■■■ 
+	    <input type="radio" name="radio" class="radio4" value="4" > ■■■■ 
+	</div>
 	
 	
 </div>

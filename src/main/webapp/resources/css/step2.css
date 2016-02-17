@@ -153,15 +153,20 @@ line-height: 1.2;
     cursor: pointer;
 }
 
+.seat_hover {
+    background-color: #017467;
+    color: #fff;
+}
+
 .step2 .seat:hover {
     background-color: #017467;
     color: #fff;
 }
 
-.step2 .emptyseat {
+.emptyseat {
     width: 20;
     height: 20px;
-    background-color: #555;
+    background-color: #ddd;
     display: inline-block;
     font-size: 13px;
     text-align: center;

@@ -35,20 +35,23 @@ function step2popup(USER_ID, MOVIE_ID, THEATER_ID, CNAME, LNAME, TNAME, SEATSTYL
 	//var rev1 = revstring.charCodeAt(1);
 	//var a = String.fromCharCode(65);
 	
-	var col = 10;
-	var row = 9;
-	var revstring = "/A01/A02/A03/";
+	var row = 9; 	//DB에서 받아서
+	var col = 11; 	//DB에서 받아서
+	var revstring = "/A1/A2/A3/"; //DB에서 받아서
+	
 	var seat_html = "";
 	var ABC = 64; 
-	for(var i=1; i<=col; i++){
+	for(var i=1; i<=row; i++){
 		seat_html = seat_html+'<span class="seatline">'+String.fromCharCode(ABC+i)+'</span>';
-			for(var j=1; j<=row; j++){
+			for(var j=1; j<=col; j++){
 			seat_html = seat_html+'<span class="seat seat'+String.fromCharCode(ABC+i)+j+'">'+j+'</span>';
 			}
 		seat_html = seat_html + '<br>';
 	};
 		
 	$(".step2 .seat-all").html(seat_html);
+	//$(".step2 .seatA1").css({"background-color": "#bbb", "cursor" : "default"});
+	$(".step2 .seatA1").css({'background-color': '#ddd'});
 	
 	$.magnificPopup.open({
 		  items: {
@@ -57,6 +60,50 @@ function step2popup(USER_ID, MOVIE_ID, THEATER_ID, CNAME, LNAME, TNAME, SEATSTYL
 		  },
 		 closeBtnInside: true
 	});
-} 
+}; //step2popup end 
 
+
+$(document).ready(function(){
+		$(".seat-setting .radio2").click(function(){
+			//var a = $(':radio[name="radio"]:checked').val();
+			$(".seat-all span[class*='seat']").mouseover(function(){
+				$(this).css({'background-color': '#017467'});
+				$(this).next().css({'background-color': '#017467'});
+			});
+			$(".seat-all span[class*='seat']").mouseout(function(){
+				$(this).css({'background-color': '#555'});
+				$(this).next().css({'background-color': '#555'});
+			});
+		});
+		
+		
+		$(".seat-setting .radio3").click(function(){
+			//var a = $(':radio[name="radio"]:checked').val();
+			$(".seat").mouseover(function(){
+				$(this).css({'background-color': '#017467'});
+				$(this).next().css({'background-color': '#017467'});
+				$(this).next().next().css({'background-color': '#017467'});
+			});
+			$(".seat").mouseout(function(){
+				$(this).css({'background-color': '#555'});
+				$(this).next().css({'background-color': '#555'});
+				$(this).next().next().css({'background-color': '#555'});
+			});
+		});
+		$(".seat-setting .radio4").click(function(){
+			//var a = $(':radio[name="radio"]:checked').val();
+			$(".seat").mouseover(function(){
+				$(this).css({'background-color': '#017467'});
+				$(this).next().css({'background-color': '#017467'});
+				$(this).next().next().css({'background-color': '#017467'});
+				$(this).next().next().next().css({'background-color': '#017467'});
+			});
+			$(".seat").mouseout(function(){
+				$(this).css({'background-color': '#555'});
+				$(this).next().css({'background-color': '#555'});
+				$(this).next().next().css({'background-color': '#555'});
+				$(this).next().next().next().css({'background-color': '#555'});
+			});
+		});
+	});
 
