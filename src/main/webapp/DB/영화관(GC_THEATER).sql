@@ -10,9 +10,9 @@ CREATE TABLE GC_THEATER (
   TNAME        VARCHAR2(10 CHAR) NOT NULL,              --영화관 이름 (1관, 2관, 3D관, 4D관)
   TTYPE        VARCHAR2(10 CHAR) NOT NULL,              --영화관 종류 (일반, 3D, 4D)
   TIMG         VARCHAR2(50 CHAR) NOT NULL,              --영화관 이미지
-  SEATCOUNT    NUMBER(3)         NOT NULL,              --좌석 개수
-  SEATROWCOUNT NUMBER(2)         NOT NULL,
-  SEATCOLCOUNT NUMBER(2)         NOT NULL,
+  SEATCOUNT    NUMBER(3)         NOT NULL,              --좌석 총 개수
+  SEATROWCOUNT NUMBER(2)         NOT NULL,              --좌석 행 개수
+  SEATCOLCOUNT NUMBER(2)         NOT NULL,              --좌석 열 개수
   SEATSTYLE    NUMBER(2)         NOT NULL               --스타일
 );
 CREATE SEQUENCE GC_THEATER_SEQ;
