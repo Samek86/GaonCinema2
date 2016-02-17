@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 영화관 도시를 클릭 했을 경우 -->
-	<select id="selectMnameOnClickCity" resultType="com.gaon.cinema.theater.TheaterDTO">
+	<!-- <select id="selectMnameOnClickCity" resultType="com.gaon.cinema.theater.TheaterDTO">
 		
 	</select>
 	
@@ -26,10 +26,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 	
-	<!-- 영화관 지역을 클릭 했을 경우 -->
+	영화관 지역을 클릭 했을 경우
 	<select id="test1" resultType="com.gaon.cinema.theater.TheaterDTO">
 		
-	</select>
+	</select> -->
 	
 	<!-- 날짜를 클릭 했을 경우 -->
 	<select id="test2">
