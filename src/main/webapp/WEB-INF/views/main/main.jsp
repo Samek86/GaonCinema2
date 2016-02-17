@@ -218,13 +218,22 @@ $().ready(function(){
 	<div class="seat-wrap">
 		<div class="screen">SCREEN</div><br>
 		<div class="seat-all">
-		<c:forEach begin="1" end="16" var="i">
+		
+		<c:forEach begin="1" end="16" var="col">
 			<span class="seatline"><%=alp%></span>
-			<c:forEach begin="1" end="17" var="i">
-				<span class="seat">${i}</span>
+			<c:forEach begin="1" end="16" var="row">
+				<c:choose>
+					<c:when test="">
+						<span class="seat">${row}</span>
+					</c:when>
+					<c:otherwise>
+						<span class="emptyseat">${row}</span>
+					</c:otherwise>
+				</c:choose>
 			</c:forEach><br>
 			<%alp++;%>
 		</c:forEach>
+		
 		</div>
 	</div>
 	<div class="seat-setting">좌석붙임설정</div>

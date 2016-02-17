@@ -58,10 +58,21 @@ line-height: 1.2;
     border-bottom: 1px solid #bbb;
  }
  
+ .btn-group.bootstrap-select, .btn-group.bootstrap-select:hover {
+ }
+ 
  .step2 .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
     width: 80px;
 }
 
+.step2 .btn-group {
+}
+
+.step2 .btn-group > .btn:first-child {
+    margin-left: 0;
+    height: 28px;
+    padding: 3px 25px 3px 20px;
+}
 
 .step2 .step2_right {
 	background-color: #444;
@@ -84,11 +95,11 @@ line-height: 1.2;
 .step2 .seat-wrap {
 	background-color: transparent;
     width: 745px;
-    height: 377px;
+    height: 383px;
     display: inline-block;
     border-bottom: 1px solid #bbb;
     padding: 0px 0px 20px 0px;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: auto;
     
 }
@@ -141,6 +152,30 @@ line-height: 1.2;
     color: #fff;
     margin: 0px;
     cursor: pointer;
+}
+
+.step2 .seat:hover {
+    background-color: #017467;
+    color: #fff;
+}
+
+.step2 .emptyseat {
+    width: 20;
+    height: 20px;
+    background-color: #555;
+    display: inline-block;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.step2 .emptyseat:hover {
+    background-color: #017467;
+    color: #fff;
 }
 
 .seat-setting {
