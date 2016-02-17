@@ -71,7 +71,7 @@ $().ready(function(){
 });
 
 </script>
-<div style="position: absolute;top: 200;left: 200; z-index: 100;"><button class="btn btn-small btn-success" type="button" onclick="step2popup('${NowUser}', 1, '서울', '신촌', '2관', 1, '09:00')" >step2.do</button></div>
+<div style="position: absolute;top: 200;left: 200; z-index: 100;"><button class="btn btn-small btn-success" type="button" onclick="step2popup('${NowUser}', 1, 1, '서울', '신촌', '2관', 1,'2017-02-17', '09:00')" >step2.do</button></div>
 	<div class="fotorama"
   	 	data-fit = "cover" data-autoplay="6000" data-transition="dissolve"
 		data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" data-loop="true" 
@@ -218,22 +218,7 @@ $().ready(function(){
 	<div class="seat-wrap">
 		<div class="screen">SCREEN</div><br>
 		<div class="seat-all">
-		
-		<c:forEach begin="1" end="16" var="col">
-			<span class="seatline"><%=alp%></span>
-			<c:forEach begin="1" end="16" var="row">
-				<c:choose>
-					<c:when test="">
-						<span class="seat">${row}</span>
-					</c:when>
-					<c:otherwise>
-						<span class="emptyseat">${row}</span>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach><br>
-			<%alp++;%>
-		</c:forEach>
-		
+		<!-- 좌석뿌릴곳 -->
 		</div>
 	</div>
 	<div class="seat-setting">좌석붙임설정</div>
