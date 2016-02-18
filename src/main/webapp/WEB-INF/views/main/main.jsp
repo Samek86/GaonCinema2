@@ -172,7 +172,7 @@ $().ready(function(){
         <div u="thumbnavigator" class="jssort03" style="position:absolute;left:0px;top:-80px;width:920px;height:80px;" data-autocenter="1">
             <div style="position: absolute; top: 0; left: 0; width: 100%; height:100%; background-color: #000; filter:alpha(opacity=30.0); opacity:0.3;"></div>
             <!-- Thumbnail Item Skin Begin -->
-            <div u="slides" style="cursor: default; width:920px; height:80px;">
+            <div u="slides" style="cursor: default; width:920px; height:80px;" data-hello="asdf">
                 <div u="prototype" class="p" style="width:130px; height:80px;">
                     <div class="w" style="width:130px; height:80px;">
                         <div u="thumbnailtemplate" class="t" style="width:130px; height:80px;"></div>
@@ -222,10 +222,11 @@ $().ready(function(){
 		</div>
 	</div>
 	<div class="seat-setting">좌석붙임설정
-		<input type="radio" name="radio" class="radio1" value="1" > ■
-	    <input type="radio" name="radio" class="radio2" value="2" > ■■ 
-	    <input type="radio" name="radio" class="radio3" value="3" > ■■■ 
-	    <input type="radio" name="radio" class="radio4" value="4" > ■■■■ 
+		<input type="radio" name="radio" class="radio1" value="1" disabled="disabled"> ■
+	    <input type="radio" name="radio" class="radio2" value="2" disabled="disabled"> ■■ 
+	    <input type="radio" name="radio" class="radio3" value="3" disabled="disabled"> ■■■ 
+	    <input type="radio" name="radio" class="radio4" value="4" disabled="disabled"> ■■■■ 
+	    다시선택 좌석선택인원 0/1 명
 	</div>
 	
 	
@@ -238,13 +239,11 @@ $().ready(function(){
 		<div class="s2_NAME_E">Bungaeman</div></div>
 		<div class="s2_loc">서울 신촌 2관</div>
 		<div class="s2_date">2016. 02. 17 (수) 10:20</div>
-		<div class="s2_people">일반 3명</div>
+		<div class="s2_people">&nbsp;<!-- 전체인원수 삽입 --></div>
 		<div class="s2_selected">
-			<div class="s2_seat">A2</div>
-			<div class="s2_seat">A3</div>
-			<div class="s2_seat">A4</div>
+			<!-- 선택된 시트가 삽입됨 -->
 		</div>
-		<div class="s2_cost">33,000원</div>
+		<div class="s2_cost"><!-- 가격 삽입 -->0원</div>
 		<div class="s2_btn"><input type="button" value="이전"><input type="button" value="다음"></div>
 	</div>
 </div>
