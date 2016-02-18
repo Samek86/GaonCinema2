@@ -23,7 +23,7 @@ line-height: 1.2;
 
 .step2 {
     background: white;
-    padding: 65px 40px;
+    padding: 35px 40px 40px;
     text-align: center;
     max-width: 1080px;
     margin: 40px auto;
@@ -48,7 +48,7 @@ line-height: 1.2;
  .step2 .step2_left {
 	background-color: #fff;
     display: inline-block;
-    width: 690px;
+    width: 745px;
 }
  
  .step2 .seatselect {
@@ -58,24 +58,191 @@ line-height: 1.2;
     border-bottom: 1px solid #bbb;
  }
  
+ .btn-group.bootstrap-select, .btn-group.bootstrap-select:hover {
+ }
+ 
  .step2 .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
     width: 80px;
 }
 
+.step2 .btn-group {
+}
+
+.step2 .btn-group > .btn:first-child {
+    margin-left: 0;
+    height: 28px;
+    padding: 3px 25px 3px 20px;
+}
 
 .step2 .step2_right {
-	background-color: #bbb;
+	background-color: #444;
     display: inline;
-    width: 230;
-    height: 329px;
+    width: 175px;
+    height: 470px;
     float: right;
+    color: #fff;
+    font-size: 15px;
+    text-align: left;
+}
+
+.step2 .step2_right_bottom {
+	width: auto;
+	height: auto;
+	padding: 10px;
+	line-height: 1.5;
+}
+
+.step2 .seat-wrap {
+	background-color: transparent;
+    width: 745px;
+    height: 383px;
+    display: inline-block;
+    border-bottom: 1px solid #bbb;
+    padding: 0px 0px 20px 0px;
+    overflow-x: auto;
+    overflow-y: auto;
+    
+}
+
+.step2 .screen {
+    background-color: #ddd;
+    margin: 12px 60px;
+    width: 600px;
+    height: 23px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.seat-all {
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin: auto;
+    line-height: 1.1;
+    vertical-align: middle;
+    display: inline-block;
+    
+}
+
+.step2 .seatline {
+    width: 20;
+    height: 20px;
+    background-color: #fff;
+    border : 1px solid;
+    display: inline-block;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.6;
+    color: #333;
+    margin: 0px;
+    cursor: default;
+}
+.step2 .seat-all .seat{
+    width: 20;
+    height: 20px;
+    background-color: #555;
+    display: inline-block;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.6;
+    color: #fff;
+    margin: 1px;
+    cursor: pointer;
+}
+
+.seat_hover {
+    background-color: #017467;
+    color: #fff;
+}
+
+.step2 .seat:hover {
+    background-color: #017467;
+    color: #fff;
+}
+
+.emptyseat {
+    width: 20;
+    height: 20px;
+    background-color: #ddd;
+    display: inline-block;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.step2 .emptyseat:hover {
+    background-color: #017467;
+    color: #fff;
+}
+
+.seat-setting {
+    background-color: transparent;
+    border-bottom: 1px solid #bbb;
+    line-height: 45px;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 20px;
 }
 
 
-.step2 .seat-wrap {
-	background-color: #d2e9ff;
-    width: 690px;
-    height: 350px;
+.step2_right .s2_poster {
+	width: 175px;	
+	height: 249px;
+	
+}
+
+.step2_right .s2_AGE {
     display: inline-block;
-    border-bottom: 1px solid #bbb;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.step2_right .s2_AGE img {
+    width: 27px;
+}
+
+.step2_right .s2_NAME {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.s2_loc {
+    margin-top: 3px;
+}
+
+.step2_right .s2_date {
+    font-size: 14px;
+}
+
+.s2_selected {
+    height: 44px;
+}
+
+.s2_seat {
+    display: inline-block;
+    border: 1px solid #ddd;
+    padding: 0 4px;
+}
+
+.s2_cost {
+    text-align: right;
+    font-size: 16px;
+}
+
+.step2_right input[type="button"] {
+    color: #fff;
+    padding: 4px 19px;
+    margin: 1px 4px;
+    background-color: #017467;
+    border: 1px solid #017467;
+    margin-top: 4px;
+    font-weight: bold;
 }

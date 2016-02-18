@@ -71,7 +71,7 @@ $().ready(function(){
 });
 
 </script>
-<div><a href="#" onclick="step2popup()">step2.do</a></div>
+<div style="position: absolute;top: 200;left: 200; z-index: 100;"><button class="btn btn-small btn-success" type="button" onclick="step2popup('${NowUser}', 1, 1, '서울', '신촌', '2관', 1,'2017-02-17', '09:00')" >step2.do</button></div>
 	<div class="fotorama"
   	 	data-fit = "cover" data-autoplay="6000" data-transition="dissolve"
 		data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" data-loop="true" 
@@ -194,7 +194,7 @@ $().ready(function(){
 </div>
 </div>
 
-
+<%char alp = 65;%>
 <div class="step2 mfp-hide">
 <div class="title" >인원/좌석 선택</div>
 <div class="step2_left">
@@ -215,13 +215,39 @@ $().ready(function(){
 		</select>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 인원선택은 총 8명까지 가능합니다.
 	</div>
-	
-	<div class="seat-wrap"></div>
-	
+	<div class="seat-wrap">
+		<div class="screen">SCREEN</div><br>
+		<div class="seat-all">
+		<!-- 좌석뿌릴곳 -->
+		</div>
+	</div>
+	<div class="seat-setting">좌석붙임설정
+		<input type="radio" name="radio" class="radio1" value="1" > ■
+	    <input type="radio" name="radio" class="radio2" value="2" > ■■ 
+	    <input type="radio" name="radio" class="radio3" value="3" > ■■■ 
+	    <input type="radio" name="radio" class="radio4" value="4" > ■■■■ 
+	</div>
 	
 	
 </div>
-<div class="step2_right">영화포스터</div>
+<div class="step2_right">
+	<img class="s2_poster" src="./resources/img/movie/BG_poster.jpg">
+	<div class="step2_right_bottom">
+		<div class="s2_AGE"><img src="./resources/img/movie/movie12.png"></div>
+		<div class="s2_NAME"><div class="s2_NAME_K">번개맨</div>
+		<div class="s2_NAME_E">Bungaeman</div></div>
+		<div class="s2_loc">서울 신촌 2관</div>
+		<div class="s2_date">2016. 02. 17 (수) 10:20</div>
+		<div class="s2_people">일반 3명</div>
+		<div class="s2_selected">
+			<div class="s2_seat">A2</div>
+			<div class="s2_seat">A3</div>
+			<div class="s2_seat">A4</div>
+		</div>
+		<div class="s2_cost">33,000원</div>
+		<div class="s2_btn"><input type="button" value="이전"><input type="button" value="다음"></div>
+	</div>
+</div>
 </div>
 
 
