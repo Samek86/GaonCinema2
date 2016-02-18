@@ -12,28 +12,33 @@ public class TheaterDAO {
 	@Autowired
 	private SqlSessionTemplate temp;
 	
-	public List<String> dbSelectCname() {
-		List<String> list = temp.selectList("theater.selectCname");
+	/* 도시 목록 가져오기 */
+	public List<TheaterDTO> dbSelectCname() {
+		List<TheaterDTO> list = temp.selectList("theater.selectCname");
 		return list;
 	}
 	
+	/* 지역 목록 가져오기 */
 	public List<String> dbSelectLname(String cname) {
 		List<String> list = temp.selectList("theater.selectLname", cname);
 		return list;
 	}
 	
-	public List<TheaterDTO> dbSelectAll() {
-		List<TheaterDTO> list = temp.selectList("theater.selectAll");
+	/* 전체 영화관 소개 가져오기 */
+	public List<TheaterDTO> dbSelectIntroAll() {
+		List<TheaterDTO> list = temp.selectList("theater.selectIntroAll");
 		return list;
 	}
 	
-	public List<TheaterDTO> dbSelectAllByCname(String cname) {
-		List<TheaterDTO> list = temp.selectList("theater.selectAllByCname", cname);
+	/* 도시로 영화관 소개 가져오기 */
+	public List<TheaterDTO> dbSelectIntroByCname(String cname) {
+		List<TheaterDTO> list = temp.selectList("theater.selectIntroByCname", cname);
 		return list;
 	}
-
-	public List<TheaterDTO> dbSelectAllByLname(String lname) {
-		List<TheaterDTO> list = temp.selectList("theater.selectAllByLname", lname);
+	
+	/* 지역으로 영화관 소개 가져오기 */
+	public List<TheaterDTO> dbSelectIntroByLname(String lname) {
+		List<TheaterDTO> list = temp.selectList("theater.selectIntroByLname", lname);
 		return list;
 	}
 }

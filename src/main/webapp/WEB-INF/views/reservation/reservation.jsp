@@ -1,22 +1,62 @@
-<html>
-<head>
-	<title>[reservation.jsp]</title>
-</head>
-<body>
-	<h1>reservation.jsp</h1>
-	
-</body>
-</html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <script>
-	$(function() {
-		
-	});
 	
 	function movieClick() {
 		
+	}
+	
+	function theaterCnameClick(cname) {
+		selectTheaterLname(cname);
+		selectMovieNameAgeByTheaterCname(cname);
+	}
+	
+	function theaterLnameClick() {
+		
+	}
+	
+	function dateClick() {
+		
+	}
+	
+	/* 영화관 지역이름 가져오기 */
+	function selectTheaterLname(cname) {
+		$.ajax({
+			url: "reservationSelectTheaterLname.do",
+			data: "cname=" + cname,
+			dataType: "json",
+			type: "GET",
+			success: function(data) {
+				var strHTML = "<ul>";
+				for(i = 0; i < data.list.length; i++) {
+					strHTML = strHTML + "<li><a href='#'>" + data.list[i].lname + "</a></li>";
+				}
+				strHTML = strHTML + "</ul>";
+				$('.theater_location_list').html(strHTML);
+			},
+			error: function(data) { alert("error : " + data) }
+		});
+	}
+	
+	function selectMovieNameAgeByTheaterCname(cname) {
+		$.ajax({
+			url: "reservationSelectMovieNameAgeByTheaterCname.do",
+			data: "cname=" + cname,
+			dataType: "json",
+			type: "GET",
+			success: function(data) {
+				var strHTML = "<ul>";
+				for(i = 0; i < data.list.length; i++) {
+					strHTML = strHTML + "<li><a href='#'>";
+					strHTML = strHTML + "<img width='30' height='30' src='resources/img/movie/movie" + data.list[i].age + ".png'> ";
+					strHTML = strHTML + data.list[i].name_k + "</a></li>";
+				}
+				strHTML = strHTML + "</ul>";
+				$('.movie_list').html(strHTML);
+			},
+			error: function(data) { alert("error : " + data) }
+		});
 	}
 </script>
 
@@ -40,7 +80,7 @@
 							<div class="movie_list">
 								<ul>
 									<c:forEach var="movieBean" items="${movieList}">
-										<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie${movieBean.AGE}.png"> ${movieBean.NAME_K}</a></li>
+										<li><a href="#"><img width="30" height="30" src="resources/img/movie/movie${movieBean.age}.png"> ${movieBean.name_k}</a></li>
 									</c:forEach>
 								</ul>
 							</div>
@@ -60,17 +100,15 @@
 							<div class="theater_city_list">
 								<ul>
 									<c:forEach var="theaterCnameBean" items="${theaterCnameList}">
-										<li><a href="#">${theaterCnameBean.cname}</a></li>
+										<li><a href="#" onclick="theaterCnameClick('${theaterCnameBean.cname}')">${theaterCnameBean.cname}</a></li>
 									</c:forEach>
 								</ul>
 							</div>
 							<div class="theater_location_list">
 								<ul>
-									<li><a class="location" href="#">강남</a></li>
-									<li><a class="location" href="#">신촌</a></li>
-									<li><a class="location" href="#">성신</a></li>
-									<li><a class="location" href="#">미아</a></li>
-									<li><a class="location" href="#">수유</a></li>
+									<c:forEach var="theaterLnameBean" items="${theaterLnameList}">
+										<li><a href="#">${theaterLnameBean.lname}</a></li>
+									</c:forEach>
 								</ul>
 							</div>
 						</div>
