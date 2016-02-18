@@ -115,7 +115,7 @@ insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '빅쇼트', 'The Big Short', 
 insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '로봇, 소리', 'SORI: Voice from the Heart', '12', '12세 관람가', to_date('2016/01/27'), 
   '이호재', '이성민(해관), 이희준(진호), 이하늬(지연)','드라마', 'http://movie.naver.com/movie/bi/mi/basic.nhn?code=136821', 7.58, 32,
   '10년전 실종된 딸, 포기하려는 순간 녀석이 나타났다!<br><br> 2003년 대구, 해관(이성민)의 하나뿐인 딸 유주가 실종되는 사건이 벌어진다.<br> 아무런 증거도 단서도 없이 사라진 딸의 흔적을 찾기 위해 해관은 10년 동안 전국을 찾아 헤맨다.<br> 모두가 이제 그만 포기하라며 해관을 말리던 그때, 세상의 모든 소리를 기억하는 로봇 소리를 만난다.<br><br> 미친 소리 같겠지만, 이 녀석이 내 딸을 찾아줄 것 같습니다.<br><br> 해관은 목소리를 통해 대상의 위치를 추적할 수 있는<br> 로봇의 특별한 능력을 감지하고 딸 유주를 찾기 위해 동행에 나선다.<br> 사라진 딸을 찾을 수 있다는 마지막 희망을 안고 소리가 기억해내는 유주의 흔적에 한 걸음씩 가까워지는 둘.<br> 한편, 사라진 로봇을 찾기 위해 해관과 소리를 향한 무리들의 감시망 역시 빠르게 조여오기 시작하는데…<br> 과연 그들은 사라진 딸 유주를 찾을 수 있을까?<br><br> 2016년 가장 희망적인 소리를 만난다!', 
-  'RB_poster.jpg', 'https://www.youtube.com/embed/dYGilqye6Is', 'RB_01.jpg', 'RB_02.jpg', 'RB_03.jpg', 'RB_04.jpg',
+  'RB_poster.jpg', 'https://www.youtube.com/watch?v=HvCByQLIi-k', 'RB_01.jpg', 'RB_02.jpg', 'RB_03.jpg', 'RB_04.jpg',
   'RB_05.jpg', 'RB_06.jpg', 'RB_07.jpg', 117, to_date('2016/01/27'), to_date('2016/03/21') );
 
 insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '쿵푸팬더3', 'Kung Fu Panda 3', 'all', '전체관람가', to_date('2016/01/28'), 
