@@ -79,7 +79,7 @@ insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '바닷마을 다이어리', '
 insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '내부자들:디오리지널', 'Inside Men:The Original', '19', '청소년 관람불가', to_date('2015/12/31'), 
   '우민호', '이병헌(안상구), 조승우(우장훈), 백윤식(이강희)','범죄,드라마', ' http://movie.naver.com/movie/bi/mi/basic.nhn?code=147001', 9.09, 18,
   '더 강렬하다! 더 리얼하다! <br>대한민국을 강타한 권력가들의 진짜 이야기<br>끌어만 주시면 짖지 않고 예쁘게 따라갑니다<br>복수를 계획하는 정치깡패의 과거_ 안상구<br><br>덮으라고요? 왜, 장필우가 들어오랍디까?<br>성공을 거래하는 열혈검사의 반격 _ 우장훈<br><br>너도 성공하고 싶으니까 나한테 온 거 아냐?<br>정치판을 설계하는 논설위원의 야망_ 이강희<br><br>조폭 검찰 언론 정치 재벌<br>내부자들의 숨겨진 이야기가 공개된다!',
-  'IN_poster.jpg', 'https://www.youtube.com/embed/EA_bRDDOQL8', 'IN_01.jpg', 'IN_02.jpg', 'IN_03.jpg', 'IN_04.jpg',
+  'IN_poster.jpg', 'https://www.youtube.com/watch?v=mCRzsf8Uduw', 'IN_01.jpg', 'IN_02.jpg', 'IN_03.jpg', 'IN_04.jpg',
   'IN_05.jpg', 'IN_06.jpg', 'IN_07.jpg', 180, to_date('2015/12/31'), to_date('2016/03/03') );
 
 insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '굿 다이노', 'The Good Dinosaur', 'all', '전체관람가', to_date('2016/01/07'), 
@@ -130,29 +130,29 @@ insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '검사외전', 'A Violent Pro
  'VP_poster.jpg', 'https://www.youtube.com/embed/timw-LXZvUc', 'VP_01.jpg', 'VP_02.jpg', 'VP_03.jpg', 'VP_04.jpg',
  'VP_05.jpg', 'VP_06.jpg', 'VP_07.jpg', 126, to_date('2016/02/03'), to_date('2016/04/13') );
 
-insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '데드풀', 'Deadpool', '19', '청소년 관람불가', to_date('2016/02/04'),
+insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '데드풀', 'Deadpool', '19', '청소년 관람불가', to_date('2016/02/17'),
  '팀 밀러', '라이언 레이놀즈(웨이드윌슨/데드풀), 모레나 바카린(바네사 칼리슨/카피캣), 에드 스크레인(아약스)','액션', 'http://movie.naver.com/movie/bi/mi/basic.nhn?code=75426', 6.45, 16,
  '정의감 제로, 책임감 제로, 정신은 인터스텔라급<br><br>마블 역사상 가장 매력 터지는 히어로 데드풀이 온다!<br><br>전직 특수부대 출신의 용병 웨이드 윌슨(라이언 레놀즈)은 암 치료를 위한 비밀 실험에 참여 후, 강력한 힐링팩터를<br> 지닌 슈퍼히어로 데드풀로 거듭난다. 탁월한 무술실력과 거침없는 유머감각을 지녔지만 흉측하게 일그러진 얼굴을<br> 갖게 된 데드풀은 자신의 삶을 완전히 망가뜨린 놈들을 찾아 뒤쫓기 시작하는데…', 
  'DP_poster.jpg', 'https://www.youtube.com/embed/MhylrGLoe2w', 'DP_01.jpg', 'DP_02.jpg', 'DP_03.jpg', 'DP_04.jpg',
- 'DP_05.jpg', 'DP_06.jpg', 'DP_07.jpg', 106, to_date('2016/02/04'), to_date('2016/04/10') );
+ 'DP_05.jpg', 'DP_06.jpg', 'DP_07.jpg', 106, to_date('2016/02/17'), to_date('2016/04/10') );
 
-insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '동주', 'DongJu', '12', '12세 관람가', to_date('2016/02/04'), 
+insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '동주', 'DongJu', '12', '12세 관람가', to_date('2016/02/17'), 
   '이준익', '강하늘(윤동주), 박정민(송몽규), 김인우(고등형사)','드라마', 'http://movie.naver.com/movie/bi/mi/basic.nhn?code=134899', 7.23, 24,
   '이름도, 언어도, 꿈도, 모든 것이 허락되지 않았던 일제강점기.<br><br>한 집에서 태어나고 자란 동갑내기 사촌지간 동주와 몽규.<br>시인을 꿈꾸는 청년 동주에게 신념을 위해 거침없이 행동하는 청년 몽규는 가장 가까운 벗이면서도, 넘기 힘든 산처럼 느껴진다.<br> 창씨개명을 강요하는 혼란스러운 나라를 떠나 일본 유학 길에 오른 두 사람.<br>일본으로 건너간 뒤 몽규는 더욱 독립 운동에 매진하게 되고, 절망적인 순간에도 시를 쓰며 시대의 비극을 아파하던 동주와의 갈등은 점점 깊어진다.<br> 어둠의 시대, 평생을 함께 한 친구이자 영원한 라이벌이었던 윤동주와 송몽규의 끝나지 않은 이야기가 지금 시작된다.', 
   'DJ_poster.jpg', 'https://www.youtube.com/embed/x50XTtoom3w', 'DJ_01.jpg', 'DJ_02.jpg', 'DJ_03.jpg', 'DJ_04.jpg',
-  'DJ_05.jpg', 'DJ_06.jpg', 'DJ_07.jpg', 110, to_date('2016/02/04'), to_date('2016/04/05') );
+  'DJ_05.jpg', 'DJ_06.jpg', 'DJ_07.jpg', 110, to_date('2016/02/17'), to_date('2016/04/05') );
 
-insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '좋아해줘', 'Like for Likes', '12', '12세 관람가', to_date('2016/02/04'), 
-  '박현진', '이미연(조경아), 최지우(함주란), 유아인(노진우)','로맨스,코미디', 'http://www.like2016.co.kr/', 4.87, 27,
+insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '좋아해줘', 'Like for Likes', '12', '12세 관람가', to_date('2016/02/17'), 
+  '박현진', '이미연(조경아), 최지우(함주란), 유아인(노진우)','로맨스,코미디', 'http://www.like2016.co.kr/', 7.87, 27,
   '잘 나가는 작가와 더 잘 나가는 스타<br><br> 사랑 잃은 노총각과 집 잃은 노처녀 연애 초짜 작곡가와 밀당 고수 PD<br> 대책 없이 좋아요를 누르다가 진짜 좋아져버린 내 생애 가장 설레는 로맨스<br> 2016년, 이제는 말하세요. 좋아해줘.', 
   'LL_poster.jpg', 'https://www.youtube.com/embed/ddrhCorDMOw', 'LL_01.jpg', 'LL_02.jpg', 'LL_03.jpg', 'LL_04.jpg',
-  'LL_05.jpg', 'LL_06.jpg', 'LL_07.jpg', 120, to_date('2016/02/04'), to_date('2016/04/10') );
+  'LL_05.jpg', 'LL_06.jpg', 'LL_07.jpg', 120, to_date('2016/02/17'), to_date('2016/04/10') );
 
-insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '번개맨', 'Bungaeman', 'all', '전체관람가', to_date('2016/02/04'), 
-  '조근현', '정현진(번개맨), 루나(한나), 송욱경(잘난 마왕)','판타지', 'http://movie.naver.com/movie/bi/mi/basic.nhn?code=139699', 5.23, 29,
+insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '번개맨', 'Bungaeman', 'all', '전체관람가', to_date('2016/02/11'), 
+  '조근현', '정현진(번개맨), 루나(한나), 송욱경(잘난 마왕)','판타지', 'http://movie.naver.com/movie/bi/mi/basic.nhn?code=139699', 4.23, 29,
   '더욱 강해진 번개파워!<br> 사상 최강의 마왕에 맞서 조이랜드를 지켜라<br><br> 꿈과 희망이 가득한 조이랜드를 호시탐탐 노리는 악당 잘난마왕은 조이랜드를 무너뜨리기 위해<br> 번개맨의 초능력인 번개파워를 없애려는 계획을 세운다.<br> 잘난마왕은 행동대장인 나잘난과 더잘난을 이용해 조이랜드 극장의 주인공이자<br> 말괄량이 소녀 한나에게 최면을 걸고, 날고 싶은 한나의 꿈을 이용해 블랙홀에 빠트린다.<br> 결국 한나를 구하려던 번개맨은 강력한 블랙홀로 인해 점점 번개파워를 잃어가는데...<br> 과연 번개맨은 블랙홀에서 벗어나 위기에 빠진 조이랜드를 구해낼 수 있을까?', 
   'BG_poster.jpg', 'https://www.youtube.com/embed/zMF_50s_5K4', 'BG_01.jpg', 'BG_02.jpg', 'BG_03.jpg', 'BG_04.jpg',
-  'BG_05.jpg', 'BG_06.jpg', 'BG_07.jpg', 72, to_date('2016/02/04'), to_date('2016/04/16') );
+  'BG_05.jpg', 'BG_06.jpg', 'BG_07.jpg', 72, to_date('2016/02/11'), to_date('2016/04/16') );
 
 insert into GC_MOVIE values(GC_MOVIE_SEQ.nextval, '순정', 'UNFORGETTABLE', '12', '12세 관람가', to_date('2016/02/24'), 
   '이은희', '도경수(범실), 김소현(수옥), 연준석(산돌)','드라마', 'http://movie.naver.com/movie/bi/mi/basic.nhn?code=139674', 0.00, 0,
