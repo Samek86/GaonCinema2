@@ -21,79 +21,74 @@ rgba(11, 13, 12, 0.5);
 	text-align: center;
 }
 
-#theater .main_menu {
-	width: 800px; height: 77px;
-	background-color: red;
-	text-align: center;
-	display: inline-block;
-}
-
-#theater .main_menu > ul {
-	margin: 0; padding: 0;
-}
-
-#theater .main_menu > ul > li {
-	text-align: center;
+#theater ul {
+	margin: 0;
+	padding: 0;
 	display: inline-flex;
 }
 
-#theater .main_menu > ul > li > a {
-	text-decoration: none;
-	cursor: pointer;
-	color : #D6BA8A;
-	font-size: 18px;
-	font-weight: bold;
-	padding: 23px 23px;
-	border-bottom: solid;
-	border-top: solid;
-	border-color: #017467;
-	transition : all 0.3s;
+#theater li {
+	line-height: 30px;
+	list-style: none;
+	display: block;
 }
 
-#theater .main_menu > ul > li > a:hover {
-	background-color: #005E57;
-	border-bottom: solid;
-	border-top: solid;
-	border-color: #E08F23;
+#theater a {
+	padding: 0px 10px;
+	display: block;
 }
 
-#theater .sub_menu {
-	width: 800px; height: 77px;
-	background-color: green;
-	text-align: center;
+#theater .theater_wrap {
+	width: 800px; height: 800px;
 	display: inline-block;
 }
 
-#theater .sub_menu > ul {
-	margin: 0; padding: 0;
+#theater .city_menu {
+	width: 100%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
 }
 
-#theater .sub_menu > ul > li {
-	display: inline-flex;
+#theater .city_menu a {
+	color: #333333;
 }
 
-#theater .sub_menu > ul > li > a {
-	text-decoration: none;
-	cursor: pointer;
-	color : #D6BA8A;
-	font-size: 18px;
-	font-weight: bold;
-	padding: 23px 23px;
-	border-bottom: solid;
-	border-top: solid;
-	border-color: #017467;
-	transition : all 0.3s;
+#theater .city_menu a:hover {
+	background-color: #333333;
+	color: #DDD;
 }
 
-#theater .sub_menu > ul > li > a:hover {
-	background-color: #005E57;
-	border-bottom: solid;
-	border-top: solid;
-	border-color: #E08F23;
+#theater .location_menu {
+	width: 100%;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #CCC;
 }
 
-#theater .list {
-	width: 800px;
-	display: inline-block;
-	background-color: blue;
+#theater .location_menu a {
+	color: #333333;
 }
+
+#theater .location_menu a:hover {
+	background-color: #333333;
+	color: #DDD;
+}
+
+#theater .theater_intro_wrap {
+	width: 100%; height: 300px;
+}
+
+#theater .theater_intro_wrap .head {
+	
+}
+
+#theater .theater_intro_wrap .body {
+	width: 100%; height: 300px;
+}
+
+#theater .theater_intro_wrap .body .text {
+	
+}
+
+

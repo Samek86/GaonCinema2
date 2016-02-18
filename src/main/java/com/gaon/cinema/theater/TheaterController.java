@@ -27,21 +27,24 @@ public class TheaterController {
 	@RequestMapping(value = "/theater.do", method = RequestMethod.GET)
 	public ModelAndView theater(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		List<String> cnameList = dao.dbSelectCname();
+		
+		List<TheaterDTO> cnameList = dao.dbSelectCname();
 		mav.addObject("cnameList", cnameList);
+		
 		mav.addObject("page", "theater");
 		mav.setViewName("mainLayout");
 		return mav;
 	}
 	
-	/* AJAX 도시 이름 보여주기 */
-	@RequestMapping(value = "/theaterAjaxSelectLname.do", method = RequestMethod.GET)
-	public void theaterAjaxSelectLname(@RequestParam String cname, HttpServletResponse response) {
+	/* 도시 이름 보여주기 */
+	@RequestMapping(value = "/theaterSelectLname.do", method = RequestMethod.GET)
+	public void theaterSelectLname(HttpServletResponse response, @RequestParam String cname) {
 		try {
-			List<String> list = dao.dbSelectLname(cname);
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
+			System.out.println(cname);
+			List<String> list = dao.dbSelectLname(cname);
 			/* JSON 시작 */
 			String json = "{\"list\":[";
 			for(int i = 0; i < list.size(); i++) {
@@ -54,105 +57,46 @@ public class TheaterController {
 		} catch(Exception e) { e.printStackTrace(); }
 	}
 	
-	/* AJAX 영화관 전체 목록 보여주기 */
-	@RequestMapping(value = "/theaterAjaxSelectAll.do", method = RequestMethod.GET)
-	public void theaterAjaxSelectAll(HttpServletResponse response) {
+	/* 전체 영화관 소개 가져오기 */
+	@RequestMapping(value = "/theaterSelectIntroAll.do", method = RequestMethod.GET)
+	public void theaterSelectIntroAll(HttpServletResponse response) {
 		try {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			
-			List<TheaterDTO> list = dao.dbSelectAll();
 			/* JSON 시작 */
-			String json = "{\"list\":[";
-			for(int i = 0; i < list.size(); i++) {
-				json = json + "{\"theater_id" + "\":" + "\"" + list.get(i).getTheater_id() + "\",";
-				json = json + "\"cname" + "\":" + "\"" + list.get(i).getCname() + "\",";
-				json = json + "\"lname" + "\":" + "\"" + list.get(i).getLname() + "\",";
-				json = json + "\"tname" + "\":" + "\"" + list.get(i).getTname() + "\",";
-				json = json + "\"ttype" + "\":" + "\"" + list.get(i).getTtype() + "\",";
-				json = json + "\"seatcount" + "\":" + "\"" + list.get(i).getSeatcount() + "\",";
-				json = json + "\"mname" + "\":" + "\"" + list.get(i).getMname() + "\",";
-				json = json + "\"mstarthour" + "\":" + "\"" + list.get(i).getMstarthour() + "\",";
-				json = json + "\"mendhour" + "\":" + "\"" + list.get(i).getMendhour() + "\",";
-				json = json + "\"price" + "\":" + "\"" + list.get(i).getPrice() + "\"}";
-				if(i < list.size() - 1) { json = json + ", "; }
-			}
-			json = json + "]}";
+			String json = "";
 			/* JSON 끝 */
 			out.print(json);
 		} catch(Exception e) { e.printStackTrace(); }
 	}
 	
-	/* AJAX 도시 영화관 전체 목록 보여주기 */
-	@RequestMapping(value = "/theaterAjaxSelectAllByCname.do", method = RequestMethod.GET)
-	public void theaterAjaxSelectAllByCname(@RequestParam String cname, HttpServletResponse response) {
+	/* 도시 영화관 소개 가져오기 */
+	@RequestMapping(value = "/theaterSelectIntroByCname.do", method = RequestMethod.GET)
+	public void theaterSelectIntroByCname(HttpServletResponse response, @RequestParam String cname) {
 		try {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			
-			List<TheaterDTO> list = dao.dbSelectAllByCname(cname);
 			/* JSON 시작 */
-			String json = "{\"list\":[";
-			for(int i = 0; i < list.size(); i++) {
-				json = json + "{\"theater_id" + "\":" + "\"" + list.get(i).getTheater_id() + "\",";
-				json = json + "\"cname" + "\":" + "\"" + list.get(i).getCname() + "\",";
-				json = json + "\"lname" + "\":" + "\"" + list.get(i).getLname() + "\",";
-				json = json + "\"tname" + "\":" + "\"" + list.get(i).getTname() + "\",";
-				json = json + "\"ttype" + "\":" + "\"" + list.get(i).getTtype() + "\",";
-				json = json + "\"seatcount" + "\":" + "\"" + list.get(i).getSeatcount() + "\",";
-				json = json + "\"mname" + "\":" + "\"" + list.get(i).getMname() + "\",";
-				json = json + "\"mstarthour" + "\":" + "\"" + list.get(i).getMstarthour() + "\",";
-				json = json + "\"mendhour" + "\":" + "\"" + list.get(i).getMendhour() + "\",";
-				json = json + "\"price" + "\":" + "\"" + list.get(i).getPrice() + "\"}";
-				if(i < list.size() - 1) { json = json + ", "; }
-			}
-			json = json + "]}";
+			String json = "";
 			/* JSON 끝 */
 			out.print(json);
 		} catch(Exception e) { e.printStackTrace(); }
 	}
 	
-	/* AJAX 지역 영화관 전체 목록 보여주기 */
-	@RequestMapping(value = "/theaterAjaxSelectAllByLname.do", method = RequestMethod.GET)
-	public void theaterAjaxSelectAllByLname(@RequestParam String lname, HttpServletResponse response) {
+	/* 지역 영화관 소개 가져오기 */
+	@RequestMapping(value = "/theaterSelectIntroByLname.do", method = RequestMethod.GET)
+	public void theaterSelectIntroByLname(HttpServletResponse response, @RequestParam String lname) {
 		try {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			
-			List<TheaterDTO> list = dao.dbSelectAllByLname(lname);
 			/* JSON 시작 */
-			String json = "{\"list\":[";
-			for(int i = 0; i < list.size(); i++) {
-				json = json + "{\"theater_id" + "\":" + "\"" + list.get(i).getTheater_id() + "\",";
-				json = json + "\"cname" + "\":" + "\"" + list.get(i).getCname() + "\",";
-				json = json + "\"lname" + "\":" + "\"" + list.get(i).getLname() + "\",";
-				json = json + "\"tname" + "\":" + "\"" + list.get(i).getTname() + "\",";
-				json = json + "\"ttype" + "\":" + "\"" + list.get(i).getTtype() + "\",";
-				json = json + "\"seatcount" + "\":" + "\"" + list.get(i).getSeatcount() + "\",";
-				json = json + "\"mname" + "\":" + "\"" + list.get(i).getMname() + "\",";
-				json = json + "\"mstarthour" + "\":" + "\"" + list.get(i).getMstarthour() + "\",";
-				json = json + "\"mendhour" + "\":" + "\"" + list.get(i).getMendhour() + "\",";
-				json = json + "\"price" + "\":" + "\"" + list.get(i).getPrice() + "\"}";
-				if(i < list.size() - 1) { json = json + ", "; }
-			}
-			json = json + "]}";
+			String json = "";
 			/* JSON 끝 */
 			out.print(json);
 		} catch(Exception e) { e.printStackTrace(); }
 	}
 	
-	/* 영화관 스케쥴 */
-	@RequestMapping(value = "/theaterSchedule.do", method = RequestMethod.GET)
-	public ModelAndView theaterSchedule(@RequestParam String lname) {
-		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("lname", lname);
-		
-		mav.addObject("page", "theaterSchedule");
-		mav.setViewName("mainLayout");
-		return mav;
-	}
 }
