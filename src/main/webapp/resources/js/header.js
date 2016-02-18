@@ -1,4 +1,23 @@
 
+$(function(){
+	$('#scroll').on('click', function(e){
+		$('html, body').animate({
+			scrollTop:0
+		}, 800);
+	});
+});
+
+$(document).ready(function(){
+	$(window).scroll(scrollopacity);
+});
+
+function scrollopacity() { 
+    for(var i=0; i<500; i+=20 ){
+    	if($(window).scrollTop()>=i) {
+    		$("#scroll").css("opacity", 0.002*i);}
+    }
+}
+
 $(document).ready(function(){ 
     $('#loginbt').click(function(){
         var state = $('.login').css('display');

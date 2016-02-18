@@ -12,6 +12,13 @@ function eventdetail(event_id){
 			$(".eventpopup .start").html(data.e_start+" ~ "+data.e_end);
 			$(".eventpopup .e_middle img").eq(0).attr('src', './resources/img/event/'+data.img);
 			
+			$.magnificPopup.open({
+				  items: {
+				      src: '.eventpopup',
+				      type: 'inline',
+				  },
+				 closeBtnInside: true
+			});
 		},//sucess end
 		error: function(data){
 			alert("실패"+data);
@@ -20,13 +27,7 @@ function eventdetail(event_id){
 	
 	});//eventdetail end
 	
-	$.magnificPopup.open({
-		  items: {
-		      src: '.eventpopup',
-		      type: 'inline',
-		  },
-		 closeBtnInside: true
-	});
+	
 }
 
 ///////////////////////////////////////////////////////////////////////

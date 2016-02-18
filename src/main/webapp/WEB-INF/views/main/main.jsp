@@ -71,7 +71,7 @@ $().ready(function(){
 });
 
 </script>
-<div style="position: absolute;top: 200;left: 200; z-index: 100;"><button class="btn btn-small btn-success" type="button" onclick="step2popup('${NowUser}', 1, 1, '서울', '신촌', '2관', 1,'2017-02-17', '09:00')" >step2.do</button></div>
+<div style="position: absolute;top: 200;left: 200; z-index: 100;"><button class="btn btn-small btn-success" type="button" onclick="step2popup('${NowUser}', 1, 1, 1, '서울', '신촌', '2관', 1,'2017-02-17', '09:00')" >step2.do</button></div>
 	<div class="fotorama"
   	 	data-fit = "cover" data-autoplay="6000" data-transition="dissolve"
 		data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" data-loop="true" 
@@ -200,20 +200,20 @@ $().ready(function(){
 <div class="step2_left">
 	<div class="seatselect">
 		일반
-		<select name="adult" class="selectpicker" data-size="8">
+		<select name="adult" class="selectpicker" data-size="9">
 			<option value="0">0명</option>
 			<c:forEach begin="1" end="8" var="i">
 				<option value="${i}">${i}명</option>
 			</c:forEach>
 		</select>
 		청소년
-		<select name="children" class="selectpicker" data-size="8">
+		<select name="children" class="selectpicker" data-size="9">
 			<option value="0">0명</option>
 			<c:forEach begin="1" end="8" var="i">
 				<option value="${i}">${i}명</option>
 			</c:forEach>
 		</select>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 인원선택은 총 8명까지 가능합니다.
+		<span style="float: right; margin-right: 4px; padding-top: 2px;">인원선택은 총 8명까지 가능합니다.</span>
 	</div>
 	<div class="seat-wrap">
 		<div class="screen">SCREEN</div><br>
@@ -222,11 +222,14 @@ $().ready(function(){
 		</div>
 	</div>
 	<div class="seat-setting">좌석붙임설정
-		<input type="radio" name="radio" class="radio1" value="1" disabled="disabled"> ■
-	    <input type="radio" name="radio" class="radio2" value="2" disabled="disabled"> ■■ 
-	    <input type="radio" name="radio" class="radio3" value="3" disabled="disabled"> ■■■ 
-	    <input type="radio" name="radio" class="radio4" value="4" disabled="disabled"> ■■■■ 
-	    다시선택 좌석선택인원 0/1 명
+	
+		<div><input type="radio" name="radio" class="radio1" value="1" disabled="disabled"> <label for="radio1">■</label></div>
+	    <div><input type="radio" name="radio" class="radio2" value="2" disabled="disabled"> <label for="radio2">■■</label></div>  
+	    <div><input type="radio" name="radio" class="radio3" value="3" disabled="disabled"> <label for="radio3">■■■</label></div> 
+	    <div><input type="radio" name="radio" class="radio4" value="4" disabled="disabled"> <label for="radio4">■■■■</label></div>
+	    <input type="radio" name="radio" class="radio5" value="0" disabled="disabled">
+	    <span class="seatchecktext">좌석선택인원 0/0 명</span>
+	    <a href="#" class="btn reset"><i class="fa fa-repeat"></i>&nbsp; 다시선택</a>
 	</div>
 	
 	
@@ -244,7 +247,7 @@ $().ready(function(){
 			<!-- 선택된 시트가 삽입됨 -->
 		</div>
 		<div class="s2_cost"><!-- 가격 삽입 -->0원</div>
-		<div class="s2_btn"><input type="button" value="이전"><input type="button" value="다음"></div>
+		<div class="s2_btn"><input type="button" class="pre" value="이전"><input type="button" value="다음"></div>
 	</div>
 </div>
 </div>
