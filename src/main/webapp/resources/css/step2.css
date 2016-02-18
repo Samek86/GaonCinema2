@@ -139,8 +139,7 @@ line-height: 1.2;
     margin: 0px;
     cursor: default;
 }
-
-.step2 .seat {
+.step2 .seat-all .seat{
     width: 20;
     height: 20px;
     background-color: #555;
@@ -150,8 +149,13 @@ line-height: 1.2;
     vertical-align: middle;
     line-height: 1.6;
     color: #fff;
-    margin: 0px;
+    margin: 1px;
     cursor: pointer;
+}
+
+.seat_hover {
+    background-color: #017467;
+    color: #fff;
 }
 
 .step2 .seat:hover {
@@ -159,10 +163,10 @@ line-height: 1.2;
     color: #fff;
 }
 
-.step2 .emptyseat {
+.emptyseat {
     width: 20;
     height: 20px;
-    background-color: #555;
+    background-color: #ddd;
     display: inline-block;
     font-size: 13px;
     text-align: center;
