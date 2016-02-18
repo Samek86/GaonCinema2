@@ -6,9 +6,10 @@ DROP SEQUENCE GC_THEATER_SEQ;
 CREATE TABLE GC_THEATER (
   THEATER_ID   NUMBER(10)        NOT NULL PRIMARY KEY,  --THEATER 고유키
   CNAME        VARCHAR2(10 CHAR) NOT NULL,              --도시 이름 (서울, 인천/경기)
+  CORDER       NUMBER(3)         NOT NULL,              --도시 순서 (가나다 순이 아닌 서울, 인천, 경기 순서로 뿌려주도록)
   LNAME        VARCHAR2(10 CHAR) NOT NULL,              --지역 이름 (신촌, 강남, 성신)
   TNAME        VARCHAR2(10 CHAR) NOT NULL,              --영화관 이름 (1관, 2관, 3D관, 4D관)
-  TTYPE        VARCHAR2(10 CHAR) NOT NULL,              --영화관 종류 (일반, 3D, 4D)
+  TTYPE        VARCHAR2(10 CHAR) NOT NULL,              --영화관 종류 (2D, 3D, 4D)
   TIMG         VARCHAR2(50 CHAR) NOT NULL,              --영화관 이미지
   SEATCOUNT    NUMBER(3)         NOT NULL,              --좌석 총 개수
   SEATROWCOUNT NUMBER(2)         NOT NULL,              --좌석 행 개수
@@ -20,91 +21,6 @@ CREATE SEQUENCE GC_THEATER_SEQ;
 
 /* GC_THEATER 데이터 삽입 */
 
-INSERT INTO GC_THEATER VALUES (GC_THEATER_SEQ.NEXTVAL, '서울', '신촌', '1관', '2D', 'theater_sample.jpg', 90, 9, 10, 1);
+INSERT INTO GC_THEATER VALUES (GC_THEATER_SEQ.NEXTVAL, '서울', '신촌', 1, '1관', '2D', 'theater_sample.jpg', 90, 9, 10, 1);
 
 COMMIT;
-
-/* 참고
-insert into gc_theater values(gc_theater_seq.nextval, '서울', '신촌', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '서울', '신촌', '2관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '서울', '신촌', '3관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '서울', '강남', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '서울', '강남', '2관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '서울', '강남', '3관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '서울', '수유', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '서울', '수유', '2관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '서울', '수유', '3관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '인천/경기', '일산', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '인천/경기', '일산', '2관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '인천/경기', '일산', '3관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '인천/경기', '수원', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '인천/경기', '수원', '2관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '인천/경기', '수원', '3관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '인천/경기', '평택', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '인천/경기', '평택', '2관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '인천/경기', '평택', '3관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '대전/충청/세종', '보령', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '대전/충청/세종', '보령', '2관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '대전/충청/세종', '천안', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '대전/충청/세종', '천안', '2관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '대전/충청/세종', '대전', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '대전/충청/세종', '대전', '2관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '부산/대구/경상', '대구', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '부산/대구/경상', '해운대', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '부산/대구/경상', '울산', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-commit;
-*/
