@@ -29,7 +29,7 @@ public class ReservationController {
 		
 		List<ReservationShowDTO> movieList = dao.dbSelectMovieNameAgeAll();
 		List<ReservationShowDTO> theaterCnameList = dao.dbSelectTheaterCnameAll();
-		List<ReservationShowDTO> theaterLnameList = dao.dbSelectTheaterLname("서울");
+		List<ReservationShowDTO> theaterLnameList = dao.dbSelectTheaterLname(theaterCnameList.get(0).getCname());
 		List<ReservationShowDTO> dateList = dao.dbSelectDateAll();
 		mav.addObject("movieList", movieList);
 		mav.addObject("theaterCnameList", theaterCnameList);
@@ -184,6 +184,28 @@ public class ReservationController {
 			String json = "{\"list\":[";
 			for(int i = 0; i < list.size(); i++) {
 				json = json + "{\"mstartdate" + "\":" + "\"" + list.get(i).getMstartdate() + "\"}";
+				if(i < list.size() - 1) { json = json + ", "; }
+			}
+			json = json + "]}";
+			/* JSON 끝 */
+			out.print(json);
+		} catch(Exception e) { e.printStackTrace(); }
+	}
+	
+	/* 시간 가져오기(영화 AND 도시 AND 지역 AND 날짜) */
+	@RequestMapping(value = "/reservationSelectHour.do", method = RequestMethod.GET)
+	public void reservationSelectHour(HttpServletResponse response, ReservationShowDTO dto) {
+		try {
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			
+			List<ReservationShowDTO> list = dao.dbSelectHour(dto);
+			/* JSON 시작 */
+			String json = "{\"list\":[";
+			for(int i = 0; i < list.size(); i++) {
+				json = json + "{\"tname" + "\":" + "\"" + list.get(i).getTname() + "\",";
+				json = json + "\"mstarthour" + "\":" + "\"" + list.get(i).getMstarthour() + "\"}";
 				if(i < list.size() - 1) { json = json + ", "; }
 			}
 			json = json + "]}";

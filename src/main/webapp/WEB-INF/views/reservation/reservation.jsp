@@ -94,6 +94,7 @@
 		this.movie_id = movie_id;
 		selectTheaterCname(movie_id);
 		selectDate(movie_id, "", "");
+		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
 	}
 	
 	/* 도시 클릭시 */
@@ -102,6 +103,7 @@
 		selectTheaterLname(cname);
 		selectMovieNameAge(cname, "", "");
 		selectDate(0, cname, "");
+		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
 	}
 	
 	/* 지역 클릭시 */
@@ -109,6 +111,7 @@
 		this.lname = lname;
 		selectMovieNameAge("", lname, "");
 		selectDate(0, "", lname);
+		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
 	}
 	
 	/* 날짜 클릭시 */
@@ -116,6 +119,7 @@
 		this.mstartdate = mstartdate;
 		selectMovieNameAge("", "", mstartdate);
 		selectTheaterCname(0, mstartdate);
+		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
 	}
 	
 	/* 시간 클릭시 */
@@ -208,7 +212,21 @@
 	
 	/* 시간 가져오기 */
 	function selectHour(movie_id, cname, lname, mstartdate) {
-		
+		$.ajax({
+			url: "reservationSelectHour.do",
+			data: "movie_id=" + movie_id + "&cname=" + cname + "&lname=" + lname + "&mstartdate=" + mstartdate,
+			dataType: "json",
+			type: "GET",
+			success: function(data) {
+				var strHTML = "<ul>";
+				for(i = 0; i < data.list.length; i++) {
+					strHTML = strHTML + "<li><a href='#' onclick=test()>" + data.list[i].mstarthour + "</a></li>";
+				}
+				strHTML = strHTML + "</ul>";
+				$('.hour_list').html(strHTML);
+			},
+			error: function(data) { alert("error : " + data) }
+		});
 	}
 	
 	/* 날짜 보여주기 */
