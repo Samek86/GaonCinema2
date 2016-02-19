@@ -7,7 +7,8 @@ public class ReservationShowDTO {
 	private String cname;
 	private int corder;
 	private String lname;
-	private String date;
+	private String mstartdate;
+	private String mstarthour;
 	
 	public int getMovie_id() { return movie_id; }
 	public void setMovie_id(int movie_id) { this.movie_id = movie_id; }
@@ -21,7 +22,9 @@ public class ReservationShowDTO {
 	public void setCorder(int corder) { this.corder = corder; }
 	public String getLname() { return lname; }
 	public void setLname(String lname) { this.lname = lname; }
-	public String getDate() { return date; }
-	public void setDate(String date) { this.date = date; }
+	public String getMstartdate() { return mstartdate; }
+	public void setMstartdate(String mstartdate) { this.mstartdate = mstartdate; }
+	public String getMstarthour() { return mstarthour; }
+	public void setMstarthour(String mstarthour) { this.mstarthour = mstarthour; }
 }
 
