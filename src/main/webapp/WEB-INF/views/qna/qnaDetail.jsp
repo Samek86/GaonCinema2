@@ -26,26 +26,39 @@
 		}
 	}
 </script>
+
+<div id="qna">
+<img class="bg" src="./resources/img/customerbg.png">
+<div class="qna-wrap">
 <div align="center">
-	<table width=800 height= 350 border="1" cellspacing="0">
-	 	<tr bgcolor=#017467  height=55>
-	 		<td>글번호</td><td>글쓴이</td><td>제목</td><td>내용</td><td>작성일</td><td>조회수</td>
+	<table class="table">
+	<thead> 
+	 	<tr>
+	 		<td>글번호</td><td>글쓴이</td><td>제목</td><td>작성일</td><td>조회수</td>
 	 	</tr>
+	 </thead>
 		<tr>
 	  	<td>${bean.qna_id}</td>
 	  	<td>${bean.userid}</td>
 	  	<td>${bean.title}</td>
-			<td>${bean.contents}</td>
 	  	<td>${bean.wdate}</td>
 			<td>${bean.count}</td>
 		</tr>
-		<tr><td colspan="6">
-			<table border="1" cellspacing="0" style="width: 100%;">
+		<tr style="text-align: center;">
+		<td colspan="5"><textarea rows="11" name="contents" readonly style="width: 800px;">${bean.contents}</textarea></td>
+		</tr>
+		
+		<tr><td colspan="5" style="text-align: center;">
+			<table class="table detailreply" style="display: inline-block;">
+				<thead> 
 				<tr align="center">
-					<td style="width: 20%;">작성자</td>
-					<td style="width: 60%;">내용</td>
-					<td style="width: 20%;">작성일</td>
+					<td width = "15%">작성자</td>
+					<td width = "55%">내용</td>
+					<td width = "15%">작성일</td>
+					<td></td>
+					<td></td>
 				</tr>
+				</thead>
 				<c:forEach var="bean" items="${replyList}">
 					<tr>
 						<td>${bean.userid}</td>
@@ -70,24 +83,27 @@
 		<!-- 사용자가 로그인을 했을 경우 -->
 		<c:if test="${sessionScope.NowUser != null}">
 			<!-- 게시판 작성자가 로그인한 사용자와 일치 할 경우 -->
-			<c:if test="${sessionScope.NowUser == bean.userid}">
-				<tr>
-					<td colspan="6" align="center">
-						<input type="button" value="수정" onclick="location.href='qnaPreEdit.do?qna_id=${bean.qna_id}'">
-						<input type="button" value="삭제" onclick="location.href='qnaDelete.do?qna_id=${bean.qna_id}'">  
-					</td>
-				</tr>
-			</c:if>
 			<tr>
 				<td colspan="6" align="center">
 					<form action="qnaReplyInsert.do" onsubmit="return checkReplyContents()">
 						<input name="qna_id" type="hidden" value="${bean.qna_id}">
 						<input name="userid" type="hidden" value="<%= session.getAttribute("NowUser") %>">
 						<input name="contents" id="replyContents" type="text" placeholder="댓글을 입력해주세요.">
-						<input type="submit"  value="댓글 등록">
+						<input type="submit" value="댓글 등록">
 					</form>
 				</td>
 			</tr>
+			<c:if test="${sessionScope.NowUser == bean.userid}">
+				<tr>
+					<td colspan="6" align="right" id="detailbt">
+						<input type="button" value="수정" onclick="location.href='qnaPreEdit.do?qna_id=${bean.qna_id}'">
+						<input type="button" value="삭제" onclick="location.href='qnaDelete.do?qna_id=${bean.qna_id}'">  
+						<input type="button" value="목록" onclick="location.href='qnaList.do'">
+					</td>
+				</tr>
+			</c:if>
 		</c:if>
 	</table>
+</div>
+</div>
 </div>
