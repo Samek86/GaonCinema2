@@ -94,8 +94,8 @@
 	*/
 </script>
 <div id="theater">
+<img class="bg" src="./resources/img/theaterbg.png">
 	<div class="theater_wrap">
-		<h1>[theater.jsp]</h1>
 		<div class="city_menu">
 			<ul>
 				<li><a class="all" href="#">전체</a></li>

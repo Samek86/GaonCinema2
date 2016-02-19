@@ -131,7 +131,7 @@ public class QnaController {
 	public ModelAndView qnaEdit(QnaDTO dto) {
 		ModelAndView mav = new ModelAndView();	
 		dao.dbEdit(dto);
-		mav.setViewName("redirect:/qnaList.do");
+		mav.setViewName("redirect:/qnaDetail.do?qna_id="+dto.getQna_id());
 		return mav;
 	}//Edit end
 	
