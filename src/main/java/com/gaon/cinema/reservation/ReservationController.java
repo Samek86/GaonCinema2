@@ -27,8 +27,10 @@ public class ReservationController {
 	public ModelAndView reservation() {
 		ModelAndView mav = new ModelAndView();
 		
-		List<ReservationShowDTO> movieList = dao.dbSelectMovieNameAge();
-		List<ReservationShowDTO> theaterCnameList = dao.dbSelectTheaterCname();
+		ReservationShowDTO dto = new ReservationShowDTO();
+		dto.setCname("서울"); dto.setLname(""); dto.setDate("2016-02-01");
+		List<ReservationShowDTO> movieList = dao.dbSelectMovieNameAge(dto);
+		List<ReservationShowDTO> theaterCnameList = dao.dbSelectTheaterCname(dto);
 		List<ReservationShowDTO> theaterLnameList = dao.dbSelectTheaterLname("서울");
 		mav.addObject("movieList", movieList);
 		mav.addObject("theaterCnameList", theaterCnameList);
@@ -59,18 +61,19 @@ public class ReservationController {
 		} catch(Exception e) { e.printStackTrace(); }
 	}
 	
-	@RequestMapping(value = "/reservationSelectMovieNameAgeByTheaterCname.do", method = RequestMethod.GET)
-	public void reservationSelectMovieNameAgeByTheaterCname(HttpServletResponse response, @RequestParam String cname) {
+	@RequestMapping(value = "/reservationSelectMovieNameAge.do", method = RequestMethod.GET)
+	public void reservationSelectMovieNameAge(HttpServletResponse response, ReservationShowDTO dto) {
 		try {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			
-			List<ReservationShowDTO> list = dao.dbSelectMovieNameAgeByTheaterCname(cname);
+			List<ReservationShowDTO> list = dao.dbSelectMovieNameAge(dto);
 			/* JSON 시작 */
 			String json = "{\"list\":[";
 			for(int i = 0; i < list.size(); i++) {
-				json = json + "{\"name_k" + "\":" + "\"" + list.get(i).getName_k() + "\",";
+				json = json + "{\"movie_id" + "\":" + "\"" + list.get(i).getMovie_id() + "\",";
+				json = json + "\"name_k" + "\":" + "\"" + list.get(i).getName_k() + "\",";
 				json = json + "\"age" + "\":" + "\"" + list.get(i).getAge() + "\"}";
 				if(i < list.size() - 1) { json = json + ", "; }
 			}
