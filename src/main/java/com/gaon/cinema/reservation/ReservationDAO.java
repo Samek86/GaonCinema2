@@ -12,27 +12,15 @@ public class ReservationDAO {
 	@Autowired
 	private SqlSessionTemplate temp;
 	
-	/* 영화 이름, 관람가 가져오기 */
-	public List<ReservationShowDTO> dbSelectMovieNameAge() {
-		List<ReservationShowDTO> list = temp.selectList("reservation.selectMovieNameAge");
-		return list;
-	}
-	
-	/* 영화 이름, 관람가 가져오기(도시로) */
-	public List<ReservationShowDTO> dbSelectMovieNameAgeByTheaterCname(String cname) {
-		List<ReservationShowDTO> list = temp.selectList("reservation.selectMovieNameAgeByTheaterCname", cname);
-		return list;
-	}
-	
-	/* 영화 이름, 관람가 가져오기(지역으로) */
-	public List<ReservationShowDTO> dbSelectMovieNameAgeByTheaterLname(String lname) {
-		List<ReservationShowDTO> list = temp.selectList("reservation.selectMovieNameAgeByTheaterCname", lname);
+	/* 영화 이름, 관람가 가져오기(도시 OR 지역 OR 날짜) */
+	public List<ReservationShowDTO> dbSelectMovieNameAge(ReservationShowDTO dto) {
+		List<ReservationShowDTO> list = temp.selectList("reservation.selectMovieNameAge", dto);
 		return list;
 	}
 	
 	/* 영화관 도시 가져오기 */
-	public List<ReservationShowDTO> dbSelectTheaterCname() {
-		List<ReservationShowDTO> list = temp.selectList("reservation.selectTheaterCname");
+	public List<ReservationShowDTO> dbSelectTheaterCname(ReservationShowDTO dto) {
+		List<ReservationShowDTO> list = temp.selectList("reservation.selectTheaterCname", dto);
 		return list;
 	}
 	
