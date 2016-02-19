@@ -62,5 +62,10 @@ public class ReservationDAO {
 		List<ReservationDTO> list = temp.selectList("reservation.selectrev", userid);
 		return list;
 	}
+	/* 시간 가져오기(영화 AND 도시 AND 지역 AND 날짜) */
+	public List<ReservationShowDTO> dbSelectHour(ReservationShowDTO dto) {
+		List<ReservationShowDTO> list = temp.selectList("reservation.selectHour", dto);
+		return list;
+	}
 	
 }

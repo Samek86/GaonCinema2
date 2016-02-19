@@ -61,14 +61,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY MSTARTDATE
 	</select>
 	
-	<!-- 시간 가져오기 -->
+	<!-- 시간 가져오기(영화 AND 도시 AND 지역 AND 날짜) -->
 	<select id="selectHour" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
-		SELECT TO_CHAR(MSTARTHOUR, 'HH24:MI') MSTARTHOUR
-		FROM 
-		  (SELECT * FROM GC_THEATER_SCHEDULE TS 
-		  INNER JOIN GC_THEATER T 
-		  ON TS.THEATER_ID = T.THEATER_ID) 
-		WHERE MOVIE_ID = #{movie_id} AND LNAME = #{lname} AND TO_CHAR(MSTARTHOUR, 'YYYY-MM-DD') = #{mstartdate};
+		SELECT T.TNAME, TO_CHAR(TS.MSTARTHOUR, 'HH24:MI') MSTARTHOUR 
+		FROM GC_THEATER_SCHEDULE TS 
+		INNER JOIN GC_THEATER T 
+		ON TS.THEATER_ID = T.THEATER_ID 
+		WHERE TS.MOVIE_ID = #{movie_id} AND T.CNAME = #{cname} 
+		AND T.LNAME = #{lname} AND TO_CHAR(TS.MSTARTHOUR, 'YYYY-MM-DD') = #{mstartdate}
 	</select>
 	
 	<!-- 예약삽입 -->
