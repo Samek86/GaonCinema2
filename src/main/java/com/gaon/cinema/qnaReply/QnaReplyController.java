@@ -21,7 +21,7 @@ public class QnaReplyController {
 	
 	@RequestMapping(value = "/qnaReplyInsert.do", method = RequestMethod.GET)
 	public ModelAndView qnaReplyInsert(QnaReplyDTO dto) {
-		ModelAndView mav = new ModelAndView();	
+		ModelAndView mav =  new ModelAndView();	
 		
 		System.out.println(dto.getQna_id());
 		System.out.println(dto.getUserid());

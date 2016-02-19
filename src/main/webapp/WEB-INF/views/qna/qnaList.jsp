@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div align="center">
-	 <table width=800 border="1" cellspacing="0">
+	 <table width=800 height = 350 border="1" cellspacing="0">
 	 	<tr>
 	 		<td colspan=6 align="center">
 	 			<c:if test="${empty list}">
@@ -17,7 +17,7 @@
 	 			</c:if> 
 	 		</td>
 	 	</tr>
-	 	<tr bgcolor=green  height=55>
+	 	<tr bgcolor=#017467  height=55>
 	 		 <td>글번호</td> <td>글쓴이</td> <td>제목</td>   
 	  		 <td>작성일</td> <td>조회수</td>
 	 	</tr>
@@ -41,7 +41,7 @@
 				<c:forEach var="i" begin="${pagestart}" end="${pageend}" step="1">
 					<c:choose>
 						<c:when test="${i == pagenum}">
-							<font style="font-family: Comic Sans MS; color: green;">[${i}]</font>
+							<font style="font-family: Comic Sans MS; color: #000;">[${i}]</font>
 						</c:when>
 						<c:otherwise>
 							<a href="qnaList.do?pagenum=${i}${returnstring}">[${i}]</a>

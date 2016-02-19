@@ -84,7 +84,7 @@
 						<input name="qna_id" type="hidden" value="${bean.qna_id}">
 						<input name="userid" type="hidden" value="<%= session.getAttribute("NowUser") %>">
 						<input name="contents" id="replyContents" type="text" placeholder="댓글을 입력해주세요.">
-						<input type="submit" value="댓글 등록">
+						<input type="submit"  value="댓글 등록">
 					</form>
 				</td>
 			</tr>

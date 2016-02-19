@@ -170,7 +170,7 @@ $().ready(function(){
         </div>
         <!-- Thumbnail Navigator -->
         <div u="thumbnavigator" class="jssort03" style="position:absolute;left:0px;top:-80px;width:920px;height:80px;" data-autocenter="1">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height:100%; background-color: #000; filter:alpha(opacity=30.0); opacity:0.3;"></div>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height:100%; background-color: #D6BA8A000; filter:alpha(opacity=30.0); opacity:0.3;"></div>
             <!-- Thumbnail Item Skin Begin -->
             <div u="slides" style="cursor: default; width:920px; height:80px;">
                 <div u="prototype" class="p" style="width:130px; height:80px;">
