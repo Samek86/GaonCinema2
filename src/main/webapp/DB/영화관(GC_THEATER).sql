@@ -6,9 +6,10 @@ DROP SEQUENCE GC_THEATER_SEQ;
 CREATE TABLE GC_THEATER (
   THEATER_ID   NUMBER(10)        NOT NULL PRIMARY KEY,  --THEATER 고유키
   CNAME        VARCHAR2(10 CHAR) NOT NULL,              --도시 이름 (서울, 인천/경기)
+  CORDER       NUMBER(3)         NOT NULL,              --도시 순서 (가나다 순이 아닌 서울, 인천, 경기 순서로 뿌려주도록)
   LNAME        VARCHAR2(10 CHAR) NOT NULL,              --지역 이름 (신촌, 강남, 성신)
   TNAME        VARCHAR2(10 CHAR) NOT NULL,              --영화관 이름 (1관, 2관, 3D관, 4D관)
-  TTYPE        VARCHAR2(10 CHAR) NOT NULL,              --영화관 종류 (일반, 3D, 4D)
+  TTYPE        VARCHAR2(10 CHAR) NOT NULL,              --영화관 종류 (2D, 3D, 4D)
   TIMG         VARCHAR2(50 CHAR) NOT NULL,              --영화관 이미지
   SEATCOUNT    NUMBER(3)         NOT NULL,              --좌석 총 개수
   SEATROWCOUNT NUMBER(2)         NOT NULL,              --좌석 행 개수
@@ -340,19 +341,3 @@ INSERT INTO GC_THEATER VALUES (GC_THEATER_SEQ.NEXTVAL, '제주', 7, '제주아�
 INSERT INTO GC_THEATER VALUES (GC_THEATER_SEQ.NEXTVAL, '제주', 7, '제주아라', '3관', '2D', 'theater_sample.jpg', 70, 7, 10, 3);
 
 COMMIT;
-
-/* 참고 이전 sample
-insert into gc_theater values(gc_theater_seq.nextval, '서울', '신촌', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '인천/경기', '평택', '3관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '부산/대구/경상', 4, '보령', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-insert into gc_theater values(gc_theater_seq.nextval, '부산/대구/경상', '울산', '1관', '일반', 100, '쿵푸팬더3', 
-to_date('2016-02-03 12:00:00', 'yyyy-mm-dd hh24:mi:ss'), to_date('2016-02-03 14:00:00', 'yyyy-mm-dd hh24:mi:ss'), 10000);
-
-commit;
-*/

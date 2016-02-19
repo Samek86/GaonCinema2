@@ -71,7 +71,7 @@ $().ready(function(){
 });
 
 </script>
-<div style="position: absolute;top: 200;left: 200; z-index: 100;"><button class="btn btn-small btn-success" type="button" onclick="step2popup('${NowUser}', 1, 1, '서울', '신촌', '2관', 1,'2017-02-17', '09:00')" >step2.do</button></div>
+<div style="position: absolute;top: 200;left: 200; z-index: 100;"><button class="btn btn-small btn-success" type="button" onclick="step2popup('${NowUser}', 1, 1, 1, '서울', '신촌', '2관', 1,'2017-02-17', '09:00')" >step2.do</button></div>
 	<div class="fotorama"
   	 	data-fit = "cover" data-autoplay="6000" data-transition="dissolve"
 		data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" data-loop="true" 
@@ -172,7 +172,7 @@ $().ready(function(){
         <div u="thumbnavigator" class="jssort03" style="position:absolute;left:0px;top:-80px;width:920px;height:80px;" data-autocenter="1">
             <div style="position: absolute; top: 0; left: 0; width: 100%; height:100%; background-color: #D6BA8A000; filter:alpha(opacity=30.0); opacity:0.3;"></div>
             <!-- Thumbnail Item Skin Begin -->
-            <div u="slides" style="cursor: default; width:920px; height:80px;">
+            <div u="slides" style="cursor: default; width:920px; height:80px;" data-hello="asdf">
                 <div u="prototype" class="p" style="width:130px; height:80px;">
                     <div class="w" style="width:130px; height:80px;">
                         <div u="thumbnailtemplate" class="t" style="width:130px; height:80px;"></div>
@@ -200,20 +200,20 @@ $().ready(function(){
 <div class="step2_left">
 	<div class="seatselect">
 		일반
-		<select name="adult" class="selectpicker" data-size="8">
+		<select name="adult" class="selectpicker" data-size="9">
 			<option value="0">0명</option>
 			<c:forEach begin="1" end="8" var="i">
 				<option value="${i}">${i}명</option>
 			</c:forEach>
 		</select>
 		청소년
-		<select name="children" class="selectpicker" data-size="8">
+		<select name="children" class="selectpicker" data-size="9">
 			<option value="0">0명</option>
 			<c:forEach begin="1" end="8" var="i">
 				<option value="${i}">${i}명</option>
 			</c:forEach>
 		</select>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 인원선택은 총 8명까지 가능합니다.
+		<span style="float: right; margin-right: 4px; padding-top: 2px;">인원선택은 총 8명까지 가능합니다.</span>
 	</div>
 	<div class="seat-wrap">
 		<div class="screen">SCREEN</div><br>
@@ -222,10 +222,14 @@ $().ready(function(){
 		</div>
 	</div>
 	<div class="seat-setting">좌석붙임설정
-		<input type="radio" name="radio" class="radio1" value="1" > ■
-	    <input type="radio" name="radio" class="radio2" value="2" > ■■ 
-	    <input type="radio" name="radio" class="radio3" value="3" > ■■■ 
-	    <input type="radio" name="radio" class="radio4" value="4" > ■■■■ 
+	
+		<div><input type="radio" name="radio" class="radio1" value="1" disabled="disabled"> <label for="radio1">■</label></div>
+	    <div><input type="radio" name="radio" class="radio2" value="2" disabled="disabled"> <label for="radio2">■■</label></div>  
+	    <div><input type="radio" name="radio" class="radio3" value="3" disabled="disabled"> <label for="radio3">■■■</label></div> 
+	    <div><input type="radio" name="radio" class="radio4" value="4" disabled="disabled"> <label for="radio4">■■■■</label></div>
+	    <input type="radio" name="radio" class="radio5" value="0" disabled="disabled">
+	    <span class="seatchecktext">좌석선택인원 0/0 명</span>
+	    <a href="#" class="btn reset"><i class="fa fa-repeat"></i>&nbsp; 다시선택</a>
 	</div>
 	
 	
@@ -238,14 +242,12 @@ $().ready(function(){
 		<div class="s2_NAME_E">Bungaeman</div></div>
 		<div class="s2_loc">서울 신촌 2관</div>
 		<div class="s2_date">2016. 02. 17 (수) 10:20</div>
-		<div class="s2_people">일반 3명</div>
+		<div class="s2_people">&nbsp;<!-- 전체인원수 삽입 --></div>
 		<div class="s2_selected">
-			<div class="s2_seat">A2</div>
-			<div class="s2_seat">A3</div>
-			<div class="s2_seat">A4</div>
+			<!-- 선택된 시트가 삽입됨 -->
 		</div>
-		<div class="s2_cost">33,000원</div>
-		<div class="s2_btn"><input type="button" value="이전"><input type="button" value="다음"></div>
+		<div class="s2_cost"><!-- 가격 삽입 -->0원</div>
+		<div class="s2_btn"><input type="button" class="pre" value="이전"><input type="button" value="다음"></div>
 	</div>
 </div>
 </div>

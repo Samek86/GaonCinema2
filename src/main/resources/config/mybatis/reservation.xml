@@ -3,35 +3,122 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reservation">
-
-	<!-- 영화를 클릭 했을 경우 -->
-	<select id="selectCnameOnClickMovie" parameterType="com.gaon.cinema.theater.TheaterDTO" resultType="String">
-		SELECT DISTINCT CNAME FROM GC_THEATER WHERE MNAME = #{mname}
+	
+	<!-- 영화 이름, 관람가 가져오기(도시 OR 지역 OR 날짜) -->
+	<select id="selectMovieNameAge" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT DISTINCT M.MOVIE_ID, M.NAME_K, M.AGE 
+		FROM
+			(SELECT * FROM GC_THEATER_SCHEDULE TS 
+			INNER JOIN GC_THEATER T 
+			ON TS.THEATER_ID = T.THEATER_ID) STS 
+		INNER JOIN GC_MOVIE M 
+		ON STS.MOVIE_ID = M.MOVIE_ID 
+		WHERE STS.CNAME = #{cname} OR STS.LNAME = #{lname} OR TO_CHAR(STS.MSTARTHOUR, 'YYYY-MM-DD') = #{date}
 	</select>
 	
-	<select id="selectLnameOnClickMovie" parameterType="com.gaon.cinema.theater.TheaterDTO" resultType="String">
-		SELECT DISTINCT LNAME FROM GC_THEATER WHERE MNAME = #{mname} AND CNAME = #{cname}
+	<!-- 영화 이름, 관람가 가져오기(도시) -->
+	<select id="selectMovieNameAgeByTheaterCname" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="String">
+		SELECT DISTINCT NAME_K, AGE 
+		FROM
+			(SELECT * FROM GC_THEATER_SCHEDULE TS 
+			INNER JOIN GC_THEATER T 
+			ON TS.THEATER_ID = T.THEATER_ID) STS 
+		INNER JOIN GC_MOVIE M 
+		ON STS.MOVIE_ID = M.MOVIE_ID 
+		WHERE STS.CNAME = #{cname}
 	</select>
 	
-	<select id="selectMstarthourOnClickMovie" parameterType="com.gaon.cinema.theater.TheaterDTO" resultType="Date">
-		SELECT DISTINCT TO_CHAR(MSTARTHOUR, 'YYYY-MM-DD') MSTARTHOUR FROM GC_THEATER WHERE MNAME = #{mname}
+	<!-- 영화 이름, 관람가 가져오기(지역으로) -->
+	<select id="selectMovieNameAgeByTheaterLname" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="String">
+		SELECT DISTINCT NAME_K, AGE 
+		FROM
+			(SELECT * FROM GC_THEATER_SCHEDULE TS 
+			INNER JOIN GC_THEATER T 
+			ON TS.THEATER_ID = T.THEATER_ID) STS 
+		INNER JOIN GC_MOVIE M 
+		ON STS.MOVIE_ID = M.MOVIE_ID 
+		WHERE LNAME = #{lname}
 	</select>
 	
-	<!-- 영화관 도시를 클릭 했을 경우 -->
-	<!-- <select id="selectMnameOnClickCity" resultType="com.gaon.cinema.theater.TheaterDTO">
-		
+	<!-- 영화 이름, 관람가 가져오기(날짜로) -->
+	<select id="selectMovieNameAgeByDate" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="String">
+		SELECT DISTINCT NAME_K, AGE 
+		FROM
+			(SELECT * FROM GC_THEATER_SCHEDULE TS 
+			INNER JOIN GC_THEATER T 
+			ON TS.THEATER_ID = T.THEATER_ID) STS 
+		INNER JOIN GC_MOVIE M 
+		ON STS.MOVIE_ID = M.MOVIE_ID 
+		WHERE TO_CHAR(MSTARTHOUR, 'YYYY-MM-DD') = #{date}
 	</select>
 	
-	<select id="selectMnameOnClickCity" resultType="com.gaon.cinema.theater.TheaterDTO">
-		
+	<!-- 영화관 도시 가져오기(영화 OR 날짜) -->
+	<select id="selectTheaterCname" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT DISTINCT T.CNAME, T.CORDER 
+		FROM GC_THEATER_SCHEDULE TS 
+		INNER JOIN GC_THEATER T
+		ON TS.THEATER_ID = T.THEATER_ID 
+		WHERE TS.MOVIE_ID = #{movie_id} OR TO_CHAR(TS.MSTARTHOUR, 'YYYY-MM-DD') = #{date}
+		ORDER BY T.CORDER
 	</select>
 	
-	영화관 지역을 클릭 했을 경우
-	<select id="test1" resultType="com.gaon.cinema.theater.TheaterDTO">
-		
-	</select> -->
-	
-	<!-- 날짜를 클릭 했을 경우 -->
-	<select id="test2">
+	<!-- 영화관 지역 가져오기 -->
+	<select id="selectTheaterLname" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="String">
+		SELECT DISTINCT T.LNAME 
+		FROM GC_THEATER_SCHEDULE TS 
+		INNER JOIN GC_THEATER T 
+		ON TS.THEATER_ID = T.THEATER_ID
+		WHERE CNAME = #{cname} 
+		ORDER BY T.LNAME
 	</select>
+	
+	<!-- 영화관 스케쥴 날짜 가져오기 -->
+	<select id="selectTheaterScheduleDate" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT TO_CHAR(MSTARTHOUR, 'YYYY-MM-DD') 
+		FROM 
+		  (SELECT * FROM GC_THEATER_SCHEDULE TS 
+		  INNER JOIN GC_THEATER T 
+		  ON TS.THEATER_ID = T.THEATER_ID)
+	</select>
+	
+	<!-- 영화관 스케쥴 날짜 가져오기(영화로) -->
+	<select id="selectTheaterScheduleDateByMovie" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT TO_CHAR(MSTARTHOUR, 'YYYY-MM-DD') 
+		FROM 
+		  (SELECT * FROM GC_THEATER_SCHEDULE TS 
+		  INNER JOIN GC_THEATER T 
+		  ON TS.THEATER_ID = T.THEATER_ID)
+		WHERE MOVIE_ID = #{movie_id}
+	</select>
+	
+	<!-- 영화관 스케쥴 날짜 가져오기(도시로) -->
+	<select id="selectTheaterScheduleDateByCname" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT TO_CHAR(MSTARTHOUR, 'YYYY-MM-DD') 
+		FROM 
+		  (SELECT * FROM GC_THEATER_SCHEDULE TS 
+		  INNER JOIN GC_THEATER T 
+		  ON TS.THEATER_ID = T.THEATER_ID)
+		WHERE CNAME = #{cname};
+	</select>
+	
+	<!-- 영화관 스케쥴 날짜 가져오기(지역으로) -->
+	<select id="selectTheaterScheduleDateByLname" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT TO_CHAR(MSTARTHOUR, 'YYYY-MM-DD') 
+		FROM 
+		  (SELECT * FROM GC_THEATER_SCHEDULE TS 
+		  INNER JOIN GC_THEATER T 
+		  ON TS.THEATER_ID = T.THEATER_ID)
+		WHERE LNAME = #{lname};
+	</select>
+	
+	<!-- 영화관 스케쥴 시간 가져오기 -->
+	<select id="selectTheaterScheduleHour" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT TO_CHAR(MSTARTHOUR, 'HH24:MI') 
+		FROM 
+		  (SELECT * FROM GC_THEATER_SCHEDULE TS 
+		  INNER JOIN GC_THEATER T 
+		  ON TS.THEATER_ID = T.THEATER_ID) 
+		WHERE MOVIE_ID = #{movie_id} AND LNAME = #{lname} TO_CHAR(MSTARTHOUR, 'YYYY-MM-DD') = #{date};
+	</select>
+	
 </mapper>

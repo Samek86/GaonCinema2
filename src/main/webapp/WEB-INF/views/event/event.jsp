@@ -52,7 +52,7 @@
 	
 	<div class="e_middle">	
 		<div>
-			<img src="./resources/img/event/img01.jpg">				
+			<img src="./resources/img/event/img01.jpg" style="max-width: 800px;">				
 		</div>					
     </div>
 </div>

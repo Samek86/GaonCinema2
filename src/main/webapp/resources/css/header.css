@@ -493,5 +493,33 @@ body{
 }
 
 
+#scroll {
+	cursor : pointer;
+	background-color : rgb(255,255,255,0 ); /*#2C3E50;*/
+	padding: 19px 15px 17px 17px;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	z-index: 1300;
+	opacity: 0;
+	text-shadow : 0px 0px 7px #161616;
+	border-radius : 50px;
+	border-color: #017467;
+    border-style: solid;
+    border-width: 3px;
+	width: 55px;
+	height: 55px;
+	color : #017467;
+}
 
+#scroll:hover {
+	opacity : 1;
+	background-color: #017467; 
+	color : #fff;
+	-webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
 
