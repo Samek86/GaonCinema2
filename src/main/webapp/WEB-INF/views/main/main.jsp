@@ -78,6 +78,9 @@ $().ready(function(){
 		style="margin: 0;">
 	  <div data-img="./resources/img/panda_1600x600.jpg" class="banner-text" ><div>쿵푸팬더3</div><div class="banner-text2">쿵푸 마스터로 나선 '포'! 팬더 인생 최대의 도전이 시작된다!</div></div>
 	  <div data-img="./resources/img/kumsa_1600x600.jpg" class="banner-text" ><div>검사외전</div><div class="banner-text2">검사와 사기꾼의 유쾌한 버디플레이!</div></div>
+	  <div data-img="./resources/img/dongju_1600x600.jpg" class="banner-text" ><div>동주</div><div class="banner-text2">빛나는 미완의 청춘 우리가 기억해야 할 이름</div></div>
+	  <div data-img="./resources/img/turandot_1600x600.jpg" class="banner-text" ><div>투란도트</div><div class="banner-text2">브레겐츠 페스티벌 70주년 기념작</div></div>
+	  <div data-img="./resources/img/zoo_1600x600.jpg" class="banner-text" ><div>주토피아</div><div class="banner-text2">이것은 애니메이션의 신세계!</div></div>
 	</div>
 	
 <div id="movie"><div id="mainmovie">
@@ -105,6 +108,9 @@ $().ready(function(){
 		 </c:forEach>
 </div>
 </div>
+
+
+<div class="mainevent"><img src="./resources/img/mainevent.png"></div>
 
 <div class='detailpopup mfp-hide'>
 	<div class="d_hidden"></div>
@@ -170,7 +176,7 @@ $().ready(function(){
         </div>
         <!-- Thumbnail Navigator -->
         <div u="thumbnavigator" class="jssort03" style="position:absolute;left:0px;top:-80px;width:920px;height:80px;" data-autocenter="1">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height:100%; background-color: #000; filter:alpha(opacity=30.0); opacity:0.3;"></div>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height:100%; background-color: #D6BA8A000; filter:alpha(opacity=30.0); opacity:0.3;"></div>
             <!-- Thumbnail Item Skin Begin -->
             <div u="slides" style="cursor: default; width:920px; height:80px;" data-hello="asdf">
                 <div u="prototype" class="p" style="width:130px; height:80px;">

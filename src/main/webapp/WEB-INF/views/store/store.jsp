@@ -4,6 +4,7 @@
 
 
 <div id="store">
+<img class="bg" src="./resources/img/storebg.png">
 <div class="store-wrap">
 <div align="center" id="moviesbt">
 	<button class="popcorn selected" type="button" value="popcorn">팝콘</button>

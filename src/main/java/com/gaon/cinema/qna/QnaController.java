@@ -57,7 +57,7 @@ public class QnaController {
 		dto.setEnd(ph.getEnd());
 		/* 페이징 처리 끝 */
 		
-		/* boardList.jsp에 객체 추가 */
+		/* qnaList.jsp에 객체 추가 */
 		mav.addObject("list", dao.dbSelect(dto));
 		mav.addObject("total", total);
 		mav.addObject("searchtotal", ph.getSearchtotal());
@@ -68,7 +68,7 @@ public class QnaController {
 		mav.addObject("pagelistnum", ph.getPagelistnum());
 		mav.addObject("pagelisttotal", ph.getPagelisttotal());
 		mav.addObject("returnstring", returnstring);
-		/* boardList.jsp에 객체 추가 끝 */
+		/* qnalist.jsp에 객체 추가 끝 */
 		
 	  mav.addObject("page", "qnaList");
 		mav.setViewName("mainLayout");
@@ -131,7 +131,7 @@ public class QnaController {
 	public ModelAndView qnaEdit(QnaDTO dto) {
 		ModelAndView mav = new ModelAndView();	
 		dao.dbEdit(dto);
-		mav.setViewName("redirect:/qnaList.do");
+		mav.setViewName("redirect:/qnaDetail.do?qna_id="+dto.getQna_id());
 		return mav;
 	}//Edit end
 	

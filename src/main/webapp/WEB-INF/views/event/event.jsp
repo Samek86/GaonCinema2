@@ -4,7 +4,7 @@
 
 
 <div id="event">
-<img class="eventbg" src="./resources/img/eventbg.png">
+<img class="bg" src="./resources/img/eventbg.png">
 <div class="event-wrap">
 <div align="center" id="eventsbt">
 	<button class="nowevent selected" type="button" value="nowmovie">현재 이벤트</button>
