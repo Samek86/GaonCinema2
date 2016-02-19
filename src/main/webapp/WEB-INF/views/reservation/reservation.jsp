@@ -9,40 +9,22 @@
 	
 	function theaterCnameClick(cname) {
 		selectTheaterLname(cname);
-		selectMovieNameAgeByTheaterCname(cname);
+		selectMovieNameAge(cname, "", "");
 	}
 	
-	function theaterLnameClick() {
-		
+	function theaterLnameClick(lname) {
+		selectMovieNameAge("", lname, "");
 	}
 	
 	function dateClick() {
 		
 	}
 	
-	/* 영화관 지역이름 가져오기 */
-	function selectTheaterLname(cname) {
+	/* 영화 이름, 관람가 가져오기 */
+	function selectMovieNameAge(cname, lname, date) {
 		$.ajax({
-			url: "reservationSelectTheaterLname.do",
-			data: "cname=" + cname,
-			dataType: "json",
-			type: "GET",
-			success: function(data) {
-				var strHTML = "<ul>";
-				for(i = 0; i < data.list.length; i++) {
-					strHTML = strHTML + "<li><a href='#'>" + data.list[i].lname + "</a></li>";
-				}
-				strHTML = strHTML + "</ul>";
-				$('.theater_location_list').html(strHTML);
-			},
-			error: function(data) { alert("error : " + data) }
-		});
-	}
-	
-	function selectMovieNameAgeByTheaterCname(cname) {
-		$.ajax({
-			url: "reservationSelectMovieNameAgeByTheaterCname.do",
-			data: "cname=" + cname,
+			url: "reservationSelectMovieNameAge.do",
+			data: "cname=" + cname + "&lname=" + lname + "&date=" + date,
 			dataType: "json",
 			type: "GET",
 			success: function(data) {
@@ -54,6 +36,25 @@
 				}
 				strHTML = strHTML + "</ul>";
 				$('.movie_list').html(strHTML);
+			},
+			error: function(data) { alert("error : " + data) }
+		});
+	}
+	
+	/* 영화관 지역 이름 가져오기 */
+	function selectTheaterLname(cname) {
+		$.ajax({
+			url: "reservationSelectTheaterLname.do",
+			data: "cname=" + cname,
+			dataType: "json",
+			type: "GET",
+			success: function(data) {
+				var strHTML = "<ul>";
+				for(i = 0; i < data.list.length; i++) {
+					strHTML = strHTML + "<li><a href='#' onclick=theaterLnameClick('"+ data.list[i].lname +"')>" + data.list[i].lname + "</a></li>";
+				}
+				strHTML = strHTML + "</ul>";
+				$('.theater_location_list').html(strHTML);
 			},
 			error: function(data) { alert("error : " + data) }
 		});
@@ -107,7 +108,7 @@
 							<div class="theater_location_list">
 								<ul>
 									<c:forEach var="theaterLnameBean" items="${theaterLnameList}">
-										<li><a href="#">${theaterLnameBean.lname}</a></li>
+										<li><a href="#" onclick="theaterLnameClick('${theaterLnameBean.lname}');">${theaterLnameBean.lname}</a></li>
 									</c:forEach>
 								</ul>
 							</div>
