@@ -496,7 +496,7 @@ body{
 #scroll {
 	cursor : pointer;
 	background-color : rgb(255,255,255,0 ); /*#2C3E50;*/
-	padding: 19px 15px 17px 17px;
+	padding: 16px 15px 17px 15px;
 	position: fixed;
 	bottom: 50px;
 	right: 50px;
@@ -523,3 +523,11 @@ body{
     transition: all 0.3s;
 }
 
+.bg {
+ 	width: 100%;
+    height: auto;
+    z-index: 0;
+    position: absolute;
+    top: 76px;
+    left: 0px;
+ }

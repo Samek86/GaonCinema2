@@ -43,6 +43,7 @@ $(document).ready(function(){
 
 
 <div id="movie"><div id="movie2">
+<img class="bg" src="./resources/img/moviesbg.png">
 <div class="movie-wrap">
 <div align="center" id="moviesbt">
 	<button class="nowmovie selected" type="button" value="nowmovie">현재상영작</button>

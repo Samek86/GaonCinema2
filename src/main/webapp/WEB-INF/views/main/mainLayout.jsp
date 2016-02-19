@@ -32,6 +32,8 @@
 	<link href="./resources/css/join.css" rel="stylesheet">
 	<link href="./resources/css/member.css" rel="stylesheet">
 	<link href="./resources/css/memberEdit.css" rel="stylesheet">
+	<link href="./resources/css/qna.css" rel="stylesheet">
+	<link href="./resources/css/buy.css" rel="stylesheet">
 	
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

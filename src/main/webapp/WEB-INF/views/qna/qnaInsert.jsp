@@ -3,33 +3,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 
-<html>
-<head>
-<title>[qnaInsert.jsp]</title>
-  <style type="text/css">
-    b,input,td{font-size:16pt;font-family: Comic Sans MS; font-weight:bold;}
-		a{text-decoration:none; font-family:Comic Sans MS; color:blue;}
-	</style>
-</head>
-<body>
+<div id="qna">
+<img class="bg" src="./resources/img/customerbg.png">
+<div class="qna-wrap" align="center">
 	<form action="qnaInsert.do" method="get">
-		<table>
+		<table class="qnainputtable">
 			<tr>
-				<td>사용자 : </td>
-				<td><input name="userid" type="text"></td>
+				<th Colspan="2">
+					<i class="fa fa-pencil fa-lg" style="color:#C71B1B;"></i> 글쓰기
+				</th>
 			</tr>
 			<tr>
-				<td>제목 : </td>
-				<td><input name="title" type="text"></td>
+				<td>사용자</td>
+				<td><input name="userid" type="text" readonly style="width: 180px;" value="${NowUser}"></td>
 			</tr>
 			<tr>
-				<td>내용 : </td>
-				<td><input name="contents" type="text"></td>
+				<td>제목</td>
+				<td><input name="title" type="text" required style="width: 397px;"></td>
 			</tr>
-			<tr><td colspan="2" align="center">
-				<input type="submit" value="등록">
-			</td></tr>
+			<tr>
+				<td>내용</td>
+				<td>
+				<textarea rows="11" cols="45" name="contents" required></textarea>
+				</td>
+			</tr>
 		</table>
+		<input type="submit" value="등록" style=" margin-top: -10px;">
+		
 	</form>
-</body>
-</html>
+</div>
+</div>

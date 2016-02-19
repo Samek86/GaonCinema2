@@ -22,7 +22,7 @@ line-height: 1.2;
 @charset "utf-8";
 
 #event {
-    margin: 250px 0 150px;
+    margin: 300px 0 150px;
     width: 100%;
     height: auto;
     display: inline-flex;
@@ -660,11 +660,4 @@ line-height: 1.2;
     text-shadow: none;
  } */
  
- .eventbg {
- 	width: 100%;
-    height: auto;
-    z-index: 0;
-    position: absolute;
-    top: 76px;
- }
   

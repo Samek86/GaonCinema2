@@ -62,7 +62,6 @@
 </script>
 
 <div id="reservation">
-	<h1>[reservation.jsp]</h1>
 	<div class="steps">
 		<!-- step1 -->
 		<div class="step1">
