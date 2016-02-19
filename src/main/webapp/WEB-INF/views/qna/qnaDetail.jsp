@@ -27,8 +27,8 @@
 	}
 </script>
 <div align="center">
-	<table width=800 border="1" cellspacing="0">
-	 	<tr bgcolor=green  height=55>
+	<table width=800 height= 350 border="1" cellspacing="0">
+	 	<tr bgcolor=#017467  height=55>
 	 		<td>글번호</td><td>글쓴이</td><td>제목</td><td>내용</td><td>작성일</td><td>조회수</td>
 	 	</tr>
 		<tr>
