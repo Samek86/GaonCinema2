@@ -1,9 +1,12 @@
 package com.gaon.cinema.reservation;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
@@ -82,4 +85,33 @@ public class ReservationController {
 			out.print(json);
 		} catch(Exception e) { e.printStackTrace(); }
 	}
+	
+	
+	@RequestMapping(value = "/LastRev.do", method = RequestMethod.GET)
+	public void LastRev(ReservationDTO dto, HttpServletResponse response) throws ServletException, IOException{
+		try {
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			dao.dbInsertrev(dto);
+			String json = "{\"rev\":\"ok\"}";
+			out.print(json);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}//reservationMovie
+	
+	@RequestMapping(value = "/selectrev.do", method = RequestMethod.GET)
+	public ModelAndView selectrev(HttpServletResponse response, @RequestParam String userid) {
+		ModelAndView mav = new ModelAndView();
+		List<ReservationDTO> revList = dao.dbselectrev(userid);
+		//System.out.println(revList.get(1).getName_k());
+		mav.addObject("revList", revList);
+		mav.addObject("page", "checkrev");
+		mav.setViewName("mainLayout");
+		return mav;
+	}//reservationMovie
+	
+	
+	
 }//ReservationController class END

@@ -39,7 +39,7 @@
 				<tr>
 			  		<td> ${bean.rn} </td>
 			  		<td> ${bean.userid} </td>
-			  		<td><a href="qnaDetail.do?qna_id=${bean.qna_id}">${bean.title}</a></td>
+			  		<td><a href="qnaDetail.do?qna_id=${bean.qna_id}&pagenum=${pagenum}">${bean.title}</a></td>
 			  		<td> ${bean.wdate} </td>
 			  		<td> ${bean.count} </td>
 				</tr>	 	

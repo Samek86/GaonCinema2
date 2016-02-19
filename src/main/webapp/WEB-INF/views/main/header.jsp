@@ -95,7 +95,7 @@
 		</span>
 		<a href="member.do" id="m_detail" >회원정보</a>
 		<a href="LikeMovie.do?NowUser=${NowUser}" id="m_like" >찜한영화</a><br><br><br>
-		<a href="#" id="m_rev" >예약확인</a>
+		<a href="selectrev.do?userid=${NowUser}" id="m_rev" >예약확인</a>
 		<a href="logout.do" id="m_logout">로그아웃</a>
 	</c:if>
 	</div>

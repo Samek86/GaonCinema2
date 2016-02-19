@@ -29,4 +29,15 @@ public class ReservationDAO {
 		List<ReservationShowDTO> list = temp.selectList("reservation.selectTheaterLname", cname);
 		return list;
 	}
+	
+	public void dbInsertrev(ReservationDTO dto){
+		temp.insert("reservation.insertrev", dto);
+	}
+	
+	public List<ReservationDTO> dbselectrev(String userid) {
+		List<ReservationDTO> list = temp.selectList("reservation.selectrev", userid);
+		return list;
+	}
+	
+	
 }

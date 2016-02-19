@@ -121,4 +121,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE MOVIE_ID = #{movie_id} AND LNAME = #{lname} TO_CHAR(MSTARTHOUR, 'YYYY-MM-DD') = #{date};
 	</select>
 	
+	<!-- 예약삽입 -->
+	<insert id="insertrev" parameterType="com.gaon.cinema.reservation.ReservationDTO">
+		INSERT INTO GC_RESERVATION VALUES (
+		#{reservation_id}, #{theater_schedule_id}, #{cname}, #{lname}, #{tname}, 
+		{ttype}, #{mstarthour}, #{mendhour}, #{name_k}, #{name_e}, #{age}, #{poster}, #{r_time}, 
+		#{userid}, #{seat}, #{children}, #{adult}, #{price} )
+	</insert>
+	
+	<!-- 예약가져오기 -->
+	<select id="selectrev" resultType="com.gaon.cinema.reservation.ReservationDTO"  parameterType="String">
+		SELECT * FROM GC_RESERVATION WHERE USERID = #{userid}
+	</select>
+	
 </mapper>

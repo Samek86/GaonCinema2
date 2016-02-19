@@ -4,8 +4,19 @@ var seatnum = 0; //라디오체크의 숫자
 var checknum = 0; // 선택된 자리의 숫자
 var remain = 0; // 남은 선택권
 
+var revcost = 0; //비용
+var NAME_K = "";
+var NAME_E = "";
+var AGE = "";
+var POSTER = "";
+var R_TIME = 0;
+var revseat ="";
+var adult = 0;
+var children = 0;
+
 var USER_ID; var MOVIE_ID; var THEATER_ID; var THEATER_SCHEDULE_ID; var CNAME; var LNAME; 
-var TNAME; var SEATSTYLE; var REVDATE; var MSTARTHOUR;
+var TNAME; var SEATSTYLE; var REVDATE; var MSTARTHOUR; var TTYPE ; var MENDHOUR;
+
 
 function decode(data){
 	var Ca = /\+/g;
@@ -26,6 +37,8 @@ $(document).ready(function(){
 $(document).ready(function(){ 
 	$(".step2 select[name=adult]").change(function() {
 		removeall();
+		adult = parseInt($(".step2 select[name=adult]").val());
+		children = parseInt($(".step2 select[name=children]").val());
 		inwon = parseInt($(".step2 select[name=adult]").val())+parseInt($(".step2 select[name=children]").val());
 		if(inwon>8){
 			$(".step2 select[name=adult]").val(0);
@@ -44,6 +57,8 @@ $(document).ready(function(){
 	
 	$(".step2 select[name=children]").change(function() {
 		removeall();
+		adult = parseInt($(".step2 select[name=adult]").val());
+		children = parseInt($(".step2 select[name=children]").val());
 		inwon = parseInt($(".step2 select[name=adult]").val())+parseInt($(".step2 select[name=children]").val());
 		if(inwon>8){
 			$(".step2 select[name=children]").val(0);
@@ -111,12 +126,14 @@ function remaincheck() {
 
 function checkadd(seat){
 	$(".s2_selected").html($(".s2_selected").html()+'<div class="s2_seat">'+seat+'</div>');
+	revseat += seat+"/";
 }
 
 function checkremove(seat){
 	var remaintext = $(".s2_selected").html();
 	seat = '<div class="s2_seat">'+$.trim(seat)+'</div>';
 	$(".s2_selected").html(remaintext.replace(seat, '')); 
+	revseat = revseat.replace(seat+"/", "");
 }
 
 function checkremoveall(){
@@ -124,6 +141,7 @@ function checkremoveall(){
 	$(".seat-all span[ckeck='ok']").removeClass("select");
 	$(".seat-all span[ckeck='ok']").attr("rev", "");
 	$(".seat-all span[ckeck='ok']").attr("ckeck", "");
+	revseat = "";
 	checknum = 0;
 	remaincheck();
 }
@@ -131,6 +149,7 @@ function checkremoveall(){
 
 function costresult(){
 	var costall = parseInt($(".step2 select[name=adult]").val())*9000+parseInt($(".step2 select[name=children]").val())*7000;
+	revcost = costall;
 	costall = String(costall).replace(/(\d)(?=(?:\d{3})+(?!\d))/g,'$1,'); 
 	$(".s2_cost").text(costall+"원");
 }
@@ -148,7 +167,23 @@ function inwonresult(){
 	}
 }
 
-function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_ID, s1_CNAME, s1_LNAME, s1_TNAME, s1_SEATSTYLE, s1_REVDATE, s1_MSTARTHOUR) {
+function lastrev(){
+	$.ajax({
+		url: "LastRev.do",
+		data: "theater_schedule_id="+THEATER_SCHEDULE_ID+"&cname="+CNAME+"&lname="+LNAME+"&tname="+TNAME+"&ttype="+TTYPE+"&mstarthour="+MSTARTHOUR+"&mendhour="+MENDHOUR+"&name_k="+NAME_K+"&name_e="+NAME_E+"&age="+AGE+"&poster="+POSTER+"&r_time="+R_TIME+"&userid="+USER_ID+"&seat="+revseat+"&children="+children+"&adult="+adult+"&price="+revcost,
+		dataType: "json",
+		type: "GET",
+		success: function(data) { 
+			g_alert("예매가 완료되었습니다");
+			 location.href = "main.do";
+		},
+		error: function(data) {
+			//console.log(data);
+		}
+	});
+}
+
+function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_ID, s1_CNAME, s1_LNAME, s1_TNAME, s1_SEATSTYLE, s1_REVDATE, s1_MSTARTHOUR, s1_MENDHOUR, s1_TTYPE) {
 	USER_ID = s1_USER_ID; //사용자 아이디
 	MOVIE_ID =s1_MOVIE_ID; //영화 아이디
 	THEATER_ID = s1_THEATER_ID; //영화관 아이디
@@ -159,6 +194,8 @@ function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_
 	SEATSTYLE = s1_SEATSTYLE; //영화관 스타일
 	REVDATE = s1_REVDATE; //예약날짜
 	MSTARTHOUR = s1_MSTARTHOUR; //예약시간
+	TTYPE = s1_TTYPE;
+	MENDHOUR = s1_MENDHOUR;
 	
 	$(".step2_right .s2_loc").html(CNAME+"&nbsp;"+LNAME+"&nbsp;"+TNAME);
 	$(".step2_right .s2_date").html(REVDATE+"&nbsp;"+MSTARTHOUR);
@@ -173,6 +210,11 @@ function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_
 			$(".step2_right .s2_AGE").html('<img src="./resources/img/movie/movie'+decode(data.AGE)+'.png">');
 			$(".step2_right .s2_NAME_K").html(decode(data.NAME_K));
 			$(".step2_right .s2_NAME_E").html(decode(data.NAME_E));
+			NAME_K = decode(data.NAME_K);
+			NAME_E = decode(data.NAME_E);
+			AGE = decode(data.AGE);
+			POSTER = decode(data.POSTER);
+			R_TIME = decode(data.R_TIME);
 			
 			$.magnificPopup.open({
 				  items: {
@@ -214,8 +256,6 @@ function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_
 		$(".step2 .seat"+seatName[si]).addClass("selected");
 		$(".step2 .seat"+seatName[si]).attr("rev", "ok");
 	};
-	
-	
 	
 	
 	/* 좌석 마우스오버시 클래스 추가 */

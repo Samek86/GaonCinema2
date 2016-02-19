@@ -89,7 +89,7 @@
 						<input name="qna_id" type="hidden" value="${bean.qna_id}">
 						<input name="userid" type="hidden" value="<%= session.getAttribute("NowUser") %>">
 						<input name="contents" id="replyContents" type="text" placeholder="댓글을 입력해주세요.">
-						<input type="submit" value="댓글 등록">
+						<input type="submit" value="댓글 등록"><input type="button" value="목록" onclick="location.href='qnaList.do?pagenum=${pagenum}'">
 					</form>
 				</td>
 			</tr>
@@ -98,7 +98,6 @@
 					<td colspan="6" align="right" id="detailbt">
 						<input type="button" value="수정" onclick="location.href='qnaPreEdit.do?qna_id=${bean.qna_id}'">
 						<input type="button" value="삭제" onclick="location.href='qnaDelete.do?qna_id=${bean.qna_id}'">  
-						<input type="button" value="목록" onclick="location.href='qnaList.do'">
 					</td>
 				</tr>
 			</c:if>
