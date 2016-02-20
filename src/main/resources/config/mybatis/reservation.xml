@@ -63,7 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 시간 가져오기(영화 AND 도시 AND 지역 AND 날짜) -->
 	<select id="selectHour" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
-		SELECT T.TNAME, TO_CHAR(TS.MSTARTHOUR, 'HH24:MI') MSTARTHOUR 
+		SELECT T.TNAME, TO_CHAR(TS.MSTARTHOUR, 'HH24:MI') MSTARTHOUR, TO_CHAR(TS.MENDHOUR, 'HH24:MI') MENDHOUR, TS.THEATER_ID as THEATER_ID, TS.THEATER_SCHEDULE_ID as THEATER_SCHEDULE_ID
 		FROM GC_THEATER_SCHEDULE TS 
 		INNER JOIN GC_THEATER T 
 		ON TS.THEATER_ID = T.THEATER_ID 
@@ -74,14 +74,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 예약삽입 -->
 	<insert id="insertrev" parameterType="com.gaon.cinema.reservation.ReservationDTO">
 		INSERT INTO GC_RESERVATION VALUES (
-		#{reservation_id}, #{theater_schedule_id}, #{cname}, #{lname}, #{tname}, 
-		{ttype}, #{mstarthour}, #{mendhour}, #{name_k}, #{name_e}, #{age}, #{poster}, #{r_time}, 
+		GC_RESERVATION_SEQ.NEXTVAL, #{theater_schedule_id}, #{cname}, #{lname}, #{tname}, 
+		#{ttype}, TO_DATE(#{mstarthour}, 'YYYY-MM-DD HH24:MI'), TO_DATE(#{mendhour}, 'YYYY-MM-DD HH24:MI'), #{name_k}, #{name_e}, #{age}, #{poster}, #{r_time}, 
 		#{userid}, #{seat}, #{children}, #{adult}, #{price} )
 	</insert>
 	
 	<!-- 예약가져오기 -->
 	<select id="selectrev" resultType="com.gaon.cinema.reservation.ReservationDTO"  parameterType="String">
 		SELECT * FROM GC_RESERVATION WHERE USERID = #{userid}
+	</select>
+	
+	<!-- 특정스케쥴의 예약좌석 가져오기 -->
+	<select id="seatRevCheck" resultType="com.gaon.cinema.reservation.ReservationDTO"  parameterType="String">
+		SELECT SEAT FROM GC_RESERVATION WHERE THEATER_SCHEDULE_ID = #{scheduleid}
+	</select>
+	
+	<select id="seatNum" resultType="com.gaon.cinema.reservation.ReservationDTO" parameterType="String">
+		SELECT SEATROWCOUNT, SEATCOLCOUNT, TTYPE FROM GC_THEATER WHERE THEATER_ID = #{THEATER_ID}	
 	</select>
 	
 </mapper>

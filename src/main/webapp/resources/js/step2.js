@@ -18,6 +18,9 @@ var USER_ID; var MOVIE_ID; var THEATER_ID; var THEATER_SCHEDULE_ID; var CNAME; v
 var TNAME; var SEATSTYLE; var REVDATE; var MSTARTHOUR; var TTYPE ; var MENDHOUR;
 
 
+var revstring = "";
+var revpossible = false;
+
 function decode(data){
 	var Ca = /\+/g;
 	var result = decodeURIComponent(data).replace(Ca, " ");
@@ -32,6 +35,12 @@ $(document).ready(function(){
 	$(".step2 .reset").click(function(){
 		checkremoveall();
 	});
+	$('.step2_right input[type="button"]').eq(1).click(function(){
+		if(revpossible){
+			lastrev();
+		}else{alert("좌석선택이 완료되지 않았습니다");
+		}
+	})
 });
 
 $(document).ready(function(){ 
@@ -118,7 +127,10 @@ function remaincheck() {
 	}
 	if(remain==0&&inwon!=0){
 		$('.step2_right input[type="button"]').eq(1).addClass("next");
-	}else{$('.step2_right input[type="button"]').eq(1).removeClass("next");};
+		revpossible = true;
+	}else{$('.step2_right input[type="button"]').eq(1).removeClass("next");
+		revpossible = false;
+	};
 		$('.step2 .seatchecktext').text("좌석선택인원 "+checknum+"/"+inwon+"명");
 	
 }// remaincheck end
@@ -170,7 +182,7 @@ function inwonresult(){
 function lastrev(){
 	$.ajax({
 		url: "LastRev.do",
-		data: "theater_schedule_id="+THEATER_SCHEDULE_ID+"&cname="+CNAME+"&lname="+LNAME+"&tname="+TNAME+"&ttype="+TTYPE+"&mstarthour="+MSTARTHOUR+"&mendhour="+MENDHOUR+"&name_k="+NAME_K+"&name_e="+NAME_E+"&age="+AGE+"&poster="+POSTER+"&r_time="+R_TIME+"&userid="+USER_ID+"&seat="+revseat+"&children="+children+"&adult="+adult+"&price="+revcost,
+		data: "theater_schedule_id="+THEATER_SCHEDULE_ID+"&cname="+CNAME+"&lname="+LNAME+"&tname="+TNAME+"&ttype="+TTYPE+"&mstarthour="+REVDATE +" "+ MSTARTHOUR+"&mendhour="+REVDATE +" "+ MENDHOUR+"&name_k="+NAME_K+"&name_e="+NAME_E+"&age="+AGE+"&poster="+POSTER+"&r_time="+R_TIME+"&userid="+USER_ID+"&seat="+revseat+"&children="+children+"&adult="+adult+"&price="+revcost,
 		dataType: "json",
 		type: "GET",
 		success: function(data) { 
@@ -178,12 +190,13 @@ function lastrev(){
 			 location.href = "main.do";
 		},
 		error: function(data) {
-			//console.log(data);
+			alert("예매에 실패하였습니다");
+			console.log(data);
 		}
 	});
 }
 
-function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_ID, s1_CNAME, s1_LNAME, s1_TNAME, s1_SEATSTYLE, s1_REVDATE, s1_MSTARTHOUR, s1_MENDHOUR, s1_TTYPE) {
+function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_ID, s1_CNAME, s1_LNAME, s1_TNAME, s1_REVDATE, s1_MSTARTHOUR, s1_MENDHOUR) {
 	USER_ID = s1_USER_ID; //사용자 아이디
 	MOVIE_ID =s1_MOVIE_ID; //영화 아이디
 	THEATER_ID = s1_THEATER_ID; //영화관 아이디
@@ -191,10 +204,10 @@ function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_
 	CNAME = s1_CNAME; //도시이름 서울
 	LNAME = s1_LNAME; //지역이름 신촌
 	TNAME = s1_TNAME; //1관
-	SEATSTYLE = s1_SEATSTYLE; //영화관 스타일
+	//SEATSTYLE = s1_SEATSTYLE; //영화관 스타일
 	REVDATE = s1_REVDATE; //예약날짜
 	MSTARTHOUR = s1_MSTARTHOUR; //예약시간
-	TTYPE = s1_TTYPE;
+	//TTYPE = s1_TTYPE;
 	MENDHOUR = s1_MENDHOUR;
 	
 	$(".step2_right .s2_loc").html(CNAME+"&nbsp;"+LNAME+"&nbsp;"+TNAME);
@@ -229,176 +242,206 @@ function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_
 		}
 	});
 	
+
+	$.ajax({
+		url: "seatNum.do",
+		data: "THEATER_ID=" +THEATER_ID,
+		dataType: "json",
+		type: "GET",
+		success: function(data) { 
+			
+			/*var col = data.col; 
+			var row = data.row;*/
+			var col = data.row; 
+			var row = data.col;
+			TTYPE = data.TTYPE;
+			var seat_html = "";
+			var ABC = 64; 
+			for(var i=1; i<=col; i++){
+				seat_html += '<span class="line">'+String.fromCharCode(ABC+i)+'</span>';
+					for(var j=1; j<=row; j++){
+					seat_html +='<span class="seat'+String.fromCharCode(ABC+i)+j+'">'+j+'</span>';
+					}
+				seat_html += '<br>';
+			};
+				
+			$(".step2 .seat-all").html(seat_html); //좌석출력
+			
+			$.ajax({
+				url: "seatRevCheck.do",
+				data: "scheduleid=" +THEATER_SCHEDULE_ID,
+				dataType: "json",
+				type: "GET",
+				success: function(data) { 
+					revstring = data.revseat;
+					var revnum = revstring.split("/").length-2;
+					var seatName = revstring.split("/");
+					for (var si = 0; si < seatName.length; si++) {
+						$(".step2 .seat"+seatName[si]).addClass("selected");
+						$(".step2 .seat"+seatName[si]).attr("rev", "ok");
+					};
+					console.log(data);
+					
+					/*===============*/
+					$(document).ready(function(){ 
+						$(".seat-all span[class*='seat']").mouseover(function(){
+							seatnum = parseInt($(':radio[name="radio"]:checked').val());
+							remain = inwon-checknum;
+							allreturn : if($(this).attr("rev")=="ok"||remain==0){
+								return;
+							}else{
+								var seatcol =  $(this).attr("class").substring(4,5);
+								for (var i = 0; i < seatnum; i++) {
+									var seatrownum = parseInt($(this).attr("class").substring(5),10);
+									if(seatrownum+seatnum-1>row){
+										if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev")=="ok"){
+										break allreturn;
+										}
+									}else {
+										if($(".seat"+seatcol+(seatrownum+i)).attr("rev")=="ok"){
+											break allreturn;
+										}
+									}
+								}
+								
+								for (var i = 0; i < seatnum; i++) {//selet클래스 추가
+									if($(this).attr("rev")!="ok"){
+										var seatrownum = parseInt($(this).attr("class").substring(5),10);
+										
+										if(seatrownum+seatnum-1>row){
+											if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev")!="ok"){
+												$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).addClass("select");
+											}else{return;}
+										}else {
+											if($(".seat"+seatcol+(seatrownum+i)).attr("rev")!="ok"){
+												$(".seat"+seatcol+(seatrownum+i)).addClass("select");
+											}else{return;}
+										} 
+									}
+								}//selet클래스 추가 end
+							}
+							
+							
+						});
+						$(".seat-all span[class*='seat']").mouseout(function(){
+							if($(this).attr("class")=="selected"){return;}else{
+								var seatcol =  $(this).attr("class").substring(4,5);
+								remain = inwon-checknum;
+								for (var i = 0; i < seatnum; i++) {
+									if($(this).attr("rev")!="ok"){
+										var seatrownum = parseInt($(this).attr("class").substring(5),10);
+										if(seatrownum+seatnum-1>row){
+											if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev")!="ok"){
+												$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).removeClass("select");
+											}else{return;}
+										}else {
+											if($(".seat"+seatcol+(seatrownum+i)).attr("rev")!="ok"){
+												$(".seat"+seatcol+(seatrownum+i)).removeClass("select");
+											}else{return;}
+										}
+									}
+								}
+							}
+							
+						});
+					});
+
+					
+					/* 좌석 마우스클릭시 value 추가 */
+					$(".seat-all span[class*='seat']").click(function(){
+						
+					allreturn2 : if(remain>0){
+						
+						if($(this).attr("ckeck")=="ok"){
+							$(this).attr("rev", "");
+							$(this).attr("ckeck", "");
+							$(this).removeClass("select");
+							--checknum;
+							checkremove($(this).attr("class").replace(" select", "").substring(4));
+							remaincheck();
+							return;
+						}else{
+							var seatcol =  $(this).attr("class").substring(4,5);
+							
+							for (var i = 0; i < seatnum; i++) {
+								var seatrownum = parseInt($(this).attr("class").substring(5),10);
+								if(seatrownum+seatnum-1>row){
+									if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev")=="ok"){
+									break allreturn2;
+									}
+								}else {
+									if($(".seat"+seatcol+(seatrownum+i)).attr("rev")=="ok"){
+										break allreturn2;
+									}
+								}
+							}
+							
+							for (var i = 0; i < seatnum; i++) {
+								if($(this).attr("rev")!="ok"){
+									var seatrownum = parseInt($(this).attr("class").substring(5),10);
+									if(seatrownum+seatnum-1>row){
+										if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev")!="ok"){
+											$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("ckeck", "ok");
+										}else{return;}
+									}else {
+										if($(".seat"+seatcol+(seatrownum+i)).attr("rev")!="ok"){
+											$(".seat"+seatcol+(seatrownum+i)).attr("ckeck", "ok");
+										}else{return;}
+									} 
+								}
+							}
+							
+							for (var i = 0; i < seatnum; i++) {
+									var seatrownum = parseInt($(this).attr("class").substring(5),10);
+									if(seatrownum+seatnum-1>row){
+										if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("ckeck")=="ok"){
+											//console.log(seatrownum+i-(seatrownum+seatnum-1-row));
+											$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).addClass("select");
+											$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev", "ok");
+											++checknum;
+											checkadd(seatcol+(seatrownum+i-(seatrownum+seatnum-1-row)));
+										}else{return;}
+									}else {
+										if($(".seat"+seatcol+(seatrownum+i)).attr("ckeck")=="ok"){
+											//console.log(seatcol+(seatrownum+i));
+											$(".seat"+seatcol+(seatrownum+i)).addClass("select");
+											$(".seat"+seatcol+(seatrownum+i)).attr("rev", "ok");
+											++checknum;
+											checkadd(seatcol+(seatrownum+i));
+										}else{return;}
+									} 
+							}
+							remaincheck();
+						}
+					}else if($(this).attr("ckeck")=="ok"){
+						$(this).attr("rev", "");
+						$(this).attr("ckeck", "");
+						$(this).removeClass("select");
+						--checknum;
+						checkremove($(this).attr("class").replace(" select", "").substring(4));
+						remaincheck();
+					}else if(inwon!=0){alert("모든인원만큼 체크하셨습니다")
+					}else{alert("인원부터 선택해주세요")}
+					});
+					/*===============*/
+				},
+				error: function(data) {
+					console.log("error : "+data);
+				}
+			});
+			
+			console.log(data);
+		},
+		error: function(data) {
+			console.log("error : "+data);
+		}
+	});
 	
 	//var rev1 = revstring.charCodeAt(1);
 	//var a = String.fromCharCode(65);
 	
-	var col = 20; 	//DB에서 받아서 세로
-	var row = 20; 	//DB에서 받아서 가로
-	var revstring = "A1/A2/A3/C7/C11/C12/F4/F5/F6//ㅁㄴㅇ/F8"; //DB에서 받아서
-	var revnum = revstring.split("/").length-2;
-	
-	var seat_html = "";
-	var ABC = 64; 
-	for(var i=1; i<=col; i++){
-		seat_html += '<span class="line">'+String.fromCharCode(ABC+i)+'</span>';
-			for(var j=1; j<=row; j++){
-			seat_html +='<span class="seat'+String.fromCharCode(ABC+i)+j+'">'+j+'</span>';
-			}
-		seat_html += '<br>';
-	};
-		
-	$(".step2 .seat-all").html(seat_html); //좌석출력
-	
-	seat_html.substring(10);
-	var seatName = revstring.split("/");
-	for (var si = 0; si < seatName.length; si++) {
-		$(".step2 .seat"+seatName[si]).addClass("selected");
-		$(".step2 .seat"+seatName[si]).attr("rev", "ok");
-	};
-	
-	
 	/* 좌석 마우스오버시 클래스 추가 */
-$(document).ready(function(){ 
-		$(".seat-all span[class*='seat']").mouseover(function(){
-			seatnum = parseInt($(':radio[name="radio"]:checked').val());
-			remain = inwon-checknum;
-			allreturn : if($(this).attr("rev")=="ok"||remain==0){
-				return;
-			}else{
-				var seatcol =  $(this).attr("class").substring(4,5);
-				for (var i = 0; i < seatnum; i++) {
-					var seatrownum = parseInt($(this).attr("class").substring(5),10);
-					if(seatrownum+seatnum-1>row){
-						if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev")=="ok"){
-						break allreturn;
-						}
-					}else {
-						if($(".seat"+seatcol+(seatrownum+i)).attr("rev")=="ok"){
-							break allreturn;
-						}
-					}
-				}
-				
-				for (var i = 0; i < seatnum; i++) {//selet클래스 추가
-					if($(this).attr("rev")!="ok"){
-						var seatrownum = parseInt($(this).attr("class").substring(5),10);
-						
-						if(seatrownum+seatnum-1>row){
-							if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev")!="ok"){
-								$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).addClass("select");
-							}else{return;}
-						}else {
-							if($(".seat"+seatcol+(seatrownum+i)).attr("rev")!="ok"){
-								$(".seat"+seatcol+(seatrownum+i)).addClass("select");
-							}else{return;}
-						} 
-					}
-				}//selet클래스 추가 end
-			}
-			
-			
-		});
-		$(".seat-all span[class*='seat']").mouseout(function(){
-			if($(this).attr("class")=="selected"){return;}else{
-				var seatcol =  $(this).attr("class").substring(4,5);
-				remain = inwon-checknum;
-				for (var i = 0; i < seatnum; i++) {
-					if($(this).attr("rev")!="ok"){
-						var seatrownum = parseInt($(this).attr("class").substring(5),10);
-						if(seatrownum+seatnum-1>row){
-							if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev")!="ok"){
-								$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).removeClass("select");
-							}else{return;}
-						}else {
-							if($(".seat"+seatcol+(seatrownum+i)).attr("rev")!="ok"){
-								$(".seat"+seatcol+(seatrownum+i)).removeClass("select");
-							}else{return;}
-						}
-					}
-				}
-			}
-			
-		});
-	});
 
-	
-	/* 좌석 마우스클릭시 value 추가 */
-	$(".seat-all span[class*='seat']").click(function(){
-		
-	allreturn2 : if(remain>0){
-		
-		if($(this).attr("ckeck")=="ok"){
-			$(this).attr("rev", "");
-			$(this).attr("ckeck", "");
-			$(this).removeClass("select");
-			--checknum;
-			checkremove($(this).attr("class").replace(" select", "").substring(4));
-			remaincheck();
-			return;
-		}else{
-			var seatcol =  $(this).attr("class").substring(4,5);
-			
-			for (var i = 0; i < seatnum; i++) {
-				var seatrownum = parseInt($(this).attr("class").substring(5),10);
-				if(seatrownum+seatnum-1>row){
-					if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev")=="ok"){
-					break allreturn2;
-					}
-				}else {
-					if($(".seat"+seatcol+(seatrownum+i)).attr("rev")=="ok"){
-						break allreturn2;
-					}
-				}
-			}
-			
-			for (var i = 0; i < seatnum; i++) {
-				if($(this).attr("rev")!="ok"){
-					var seatrownum = parseInt($(this).attr("class").substring(5),10);
-					if(seatrownum+seatnum-1>row){
-						if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev")!="ok"){
-							$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("ckeck", "ok");
-						}else{return;}
-					}else {
-						if($(".seat"+seatcol+(seatrownum+i)).attr("rev")!="ok"){
-							$(".seat"+seatcol+(seatrownum+i)).attr("ckeck", "ok");
-						}else{return;}
-					} 
-				}
-			}
-			
-			for (var i = 0; i < seatnum; i++) {
-					var seatrownum = parseInt($(this).attr("class").substring(5),10);
-					if(seatrownum+seatnum-1>row){
-						if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("ckeck")=="ok"){
-							//console.log(seatrownum+i-(seatrownum+seatnum-1-row));
-							$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).addClass("select");
-							$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev", "ok");
-							++checknum;
-							checkadd(seatcol+(seatrownum+i-(seatrownum+seatnum-1-row)));
-						}else{return;}
-					}else {
-						if($(".seat"+seatcol+(seatrownum+i)).attr("ckeck")=="ok"){
-							//console.log(seatcol+(seatrownum+i));
-							$(".seat"+seatcol+(seatrownum+i)).addClass("select");
-							$(".seat"+seatcol+(seatrownum+i)).attr("rev", "ok");
-							++checknum;
-							checkadd(seatcol+(seatrownum+i));
-						}else{return;}
-					} 
-			}
-			remaincheck();
-		}
-	}else if($(this).attr("ckeck")=="ok"){
-		$(this).attr("rev", "");
-		$(this).attr("ckeck", "");
-		$(this).removeClass("select");
-		--checknum;
-		checkremove($(this).attr("class").replace(" select", "").substring(4));
-		remaincheck();
-	}else if(inwon!=0){alert("모든인원만큼 체크하셨습니다")
-	}else{alert("인원부터 선택해주세요")}
-	});
 	
 }; //step2popup end 
 

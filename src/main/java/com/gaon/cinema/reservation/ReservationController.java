@@ -89,7 +89,7 @@ public class ReservationController {
 			out.print(json);
 		} catch(Exception e) { e.printStackTrace(); }
 	}
-	
+	/* 최종예약 */
 	@RequestMapping(value = "/LastRev.do", method = RequestMethod.GET)
 	public void LastRev(ReservationDTO dto, HttpServletResponse response) throws ServletException, IOException{
 		try {
@@ -104,17 +104,51 @@ public class ReservationController {
 		}
 	}//reservationMovie
 	
+	/* 개인예약 확인 */
 	@RequestMapping(value = "/selectrev.do", method = RequestMethod.GET)
 	public ModelAndView selectrev(HttpServletResponse response, @RequestParam String userid) {
 		ModelAndView mav = new ModelAndView();
 		List<ReservationDTO> revList = dao.dbselectrev(userid);
-		//System.out.println(revList.get(1).getName_k());
 		mav.addObject("revList", revList);
 		mav.addObject("page", "checkrev");
 		mav.setViewName("mainLayout");
 		return mav;
 	}//reservationMovie
-
+	
+	/* 특정스케쥴 예약확인 */
+	@RequestMapping(value = "/seatRevCheck.do", method = RequestMethod.GET)
+	public void seatRevCheck(HttpServletResponse response, @RequestParam String scheduleid) {
+		try {
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			
+			List<ReservationDTO> list = dao.dbseatRevCheck(scheduleid);
+			
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < list.size() ; i++) {
+				sb.append(list.get(i).getSeat());
+			}
+			String json = "{\"revseat\":\""+sb.toString()+"\"}";
+			out.print(json);
+		} catch(Exception e) { e.printStackTrace(); }
+	}
+	
+	/* 좌석 행열 가져오기 */
+	@RequestMapping(value = "/seatNum.do", method = RequestMethod.GET)
+	public void seatNum(HttpServletResponse response, @RequestParam String THEATER_ID) {
+		try {
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			
+			ReservationDTO rowcol = dao.dbseatNum(THEATER_ID);
+			String json = "{\"row\":\""+rowcol.getSEATROWCOUNT()+"\", \"col\":\""+rowcol.getSEATCOLCOUNT()+"\", \"TTYPE\":\""+rowcol.getTtype()+"\"}";
+			out.print(json);
+		} catch(Exception e) { e.printStackTrace(); }
+		
+	}//seatNum end
+	
 	
 	/* 영화관 도시 이름 가져오기(전체) */
 		@RequestMapping(value = "/reservationSelectTheaterCnameAll.do", method = RequestMethod.GET)
@@ -232,16 +266,20 @@ public class ReservationController {
 			PrintWriter out = response.getWriter();
 			
 			List<ReservationShowDTO> list = dao.dbSelectHour(dto);
+			
 			/* JSON 시작 */
 			String json = "{\"list\":[";
 			for(int i = 0; i < list.size(); i++) {
 				json = json + "{\"tname" + "\":" + "\"" + list.get(i).getTname() + "\",";
+				json = json + "\"THEATER_ID" + "\":" + "\"" + list.get(i).getTHEATER_ID() + "\",";
+				json = json + "\"THEATER_SCHEDULE_ID" + "\":" + "\"" + list.get(i).getTHEATER_SCHEDULE_ID() + "\",";
+				json = json + "\"mendhour" + "\":" + "\"" + list.get(i).getMendhour() + "\",";
 				json = json + "\"mstarthour" + "\":" + "\"" + list.get(i).getMstarthour() + "\"}";
 				if(i < list.size() - 1) { json = json + ", "; }
 			}
 			json = json + "]}";
 			/* JSON 끝 */
 			out.print(json);
-		} catch(Exception e) { e.printStackTrace(); }
+		} catch(Exception e) { System.out.println("시간가져오기 에러"); }
 	}
 }//ReservationController class END

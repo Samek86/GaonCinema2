@@ -71,7 +71,6 @@ $().ready(function(){
 });
 
 </script>
-<div style="position: absolute;top: 200;left: 200; z-index: 100;"><button class="btn btn-small btn-success" type="button" onclick="step2popup('${NowUser}', 1, 1, 1, '서울', '신촌', '2관', 1,'2017-02-17', '09:00')" >step2.do</button></div>
 	<div class="fotorama"
   	 	data-fit = "cover" data-autoplay="6000" data-transition="dissolve"
 		data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" data-loop="true" 
@@ -197,64 +196,6 @@ $().ready(function(){
 	</div>
 	</div>
 </div> 
-</div>
-</div>
-
-<%char alp = 65;%>
-<div class="step2 mfp-hide">
-<div class="title" >인원/좌석 선택</div>
-<div class="step2_left">
-	<div class="seatselect">
-		일반
-		<select name="adult" class="selectpicker" data-size="9">
-			<option value="0">0명</option>
-			<c:forEach begin="1" end="8" var="i">
-				<option value="${i}">${i}명</option>
-			</c:forEach>
-		</select>
-		청소년
-		<select name="children" class="selectpicker" data-size="9">
-			<option value="0">0명</option>
-			<c:forEach begin="1" end="8" var="i">
-				<option value="${i}">${i}명</option>
-			</c:forEach>
-		</select>
-		<span style="float: right; margin-right: 4px; padding-top: 2px;">인원선택은 총 8명까지 가능합니다.</span>
-	</div>
-	<div class="seat-wrap">
-		<div class="screen">SCREEN</div><br>
-		<div class="seat-all">
-		<!-- 좌석뿌릴곳 -->
-		</div>
-	</div>
-	<div class="seat-setting">좌석붙임설정
-	
-		<div><input type="radio" name="radio" class="radio1" value="1" disabled="disabled"> <label for="radio1">■</label></div>
-	    <div><input type="radio" name="radio" class="radio2" value="2" disabled="disabled"> <label for="radio2">■■</label></div>  
-	    <div><input type="radio" name="radio" class="radio3" value="3" disabled="disabled"> <label for="radio3">■■■</label></div> 
-	    <div><input type="radio" name="radio" class="radio4" value="4" disabled="disabled"> <label for="radio4">■■■■</label></div>
-	    <input type="radio" name="radio" class="radio5" value="0" disabled="disabled">
-	    <span class="seatchecktext">좌석선택인원 0/0 명</span>
-	    <a href="#" class="btn reset"><i class="fa fa-repeat"></i>&nbsp; 다시선택</a>
-	</div>
-	
-	
-</div>
-<div class="step2_right">
-	<img class="s2_poster" src="./resources/img/movie/BG_poster.jpg">
-	<div class="step2_right_bottom">
-		<div class="s2_AGE"><img src="./resources/img/movie/movie12.png"></div>
-		<div class="s2_NAME"><div class="s2_NAME_K">번개맨</div>
-		<div class="s2_NAME_E">Bungaeman</div></div>
-		<div class="s2_loc">서울 신촌 2관</div>
-		<div class="s2_date">2016. 02. 17 (수) 10:20</div>
-		<div class="s2_people">&nbsp;<!-- 전체인원수 삽입 --></div>
-		<div class="s2_selected">
-			<!-- 선택된 시트가 삽입됨 -->
-		</div>
-		<div class="s2_cost"><!-- 가격 삽입 -->0원</div>
-		<div class="s2_btn"><input type="button" class="pre" value="이전"><input type="button" value="다음"></div>
-	</div>
 </div>
 </div>
 

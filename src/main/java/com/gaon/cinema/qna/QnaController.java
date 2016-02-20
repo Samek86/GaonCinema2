@@ -35,8 +35,8 @@ public class QnaController {
 	//--리스트
 	@RequestMapping(value = "/qnaList.do", method = RequestMethod.GET)
 	public ModelAndView qnaList(QnaDTO dto, @RequestParam int pagenum) {
+		System.out.println("qnaList시작");
 		ModelAndView mav = new ModelAndView();
-		
 		/* 검색 처리 */
 		String skey =  dto.getSkey() == null ? "title" : dto.getSkey();
 		String sval = dto.getSval() == null ? "" : dto.getSval();

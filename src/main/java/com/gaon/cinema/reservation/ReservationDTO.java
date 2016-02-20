@@ -19,6 +19,29 @@ public class ReservationDTO {
 	private int children;
 	private int adult;
 	private int price;
+	private int theater_id;
+	private int SEATROWCOUNT;
+	private int SEATCOLCOUNT;
+	
+	
+	public int getTheater_id() {
+		return theater_id;
+	}
+	public void setTheater_id(int theater_id) {
+		this.theater_id = theater_id;
+	}
+	public int getSEATROWCOUNT() {
+		return SEATROWCOUNT;
+	}
+	public void setSEATROWCOUNT(int SEATROWCOUNT) {
+		this.SEATROWCOUNT = SEATROWCOUNT;
+	}
+	public int getSEATCOLCOUNT() {
+		return SEATCOLCOUNT;
+	}
+	public void setSEATCOLCOUNT(int SEATCOLCOUNT) {
+		this.SEATCOLCOUNT = SEATCOLCOUNT;
+	}
 	
 	public int getReservation_id() {
 		return reservation_id;

@@ -53,15 +53,28 @@ public class ReservationDAO {
 		List<ReservationShowDTO> list = temp.selectList("reservation.selectDate", dto);
 		return list;
 	}
-	
-	public void dbInsertrev(ReservationDTO dto){ //예약 삽입
+	/* 예약삽입 */
+	public void dbInsertrev(ReservationDTO dto){
 		temp.insert("reservation.insertrev", dto);
 	}
 	
-	public List<ReservationDTO> dbselectrev(String userid) { //예약출력 
+	/* 예약출력 */
+	public List<ReservationDTO> dbselectrev(String userid) { 
 		List<ReservationDTO> list = temp.selectList("reservation.selectrev", userid);
 		return list;
 	}
+	/* 특정스케쥴예약확인 */
+	public List<ReservationDTO> dbseatRevCheck(String scheduleid) { //예약출력 
+		List<ReservationDTO> list = temp.selectList("reservation.seatRevCheck", scheduleid);
+		return list;
+	}
+	
+	public ReservationDTO dbseatNum(String THEATER_ID) { //예약출력 
+		ReservationDTO dto = new ReservationDTO();
+		dto = temp.selectOne("reservation.seatNum", THEATER_ID);
+		return dto;
+	}
+	
 	/* 시간 가져오기(영화 AND 도시 AND 지역 AND 날짜) */
 	public List<ReservationShowDTO> dbSelectHour(ReservationShowDTO dto) {
 		List<ReservationShowDTO> list = temp.selectList("reservation.selectHour", dto);
