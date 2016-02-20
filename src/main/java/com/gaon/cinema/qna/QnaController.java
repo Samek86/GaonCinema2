@@ -1,9 +1,12 @@
 package com.gaon.cinema.qna;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
@@ -34,10 +37,9 @@ public class QnaController {
 
 	//--리스트
 	@RequestMapping(value = "/qnaList.do", method = RequestMethod.GET)
-	public ModelAndView qnaList(QnaDTO dto, @RequestParam int pagenum) {
+	public ModelAndView qnaList(QnaDTO dto, HttpServletRequest request) throws ServletException, IOException{
 		System.out.println("qnaList시작");
-		ModelAndView mav = new ModelAndView();
-		/* 검색 처리 */
+		ModelAndView mav = new ModelAndView();		/* 검색 처리 */
 		String skey =  dto.getSkey() == null ? "title" : dto.getSkey();
 		String sval = dto.getSval() == null ? "" : dto.getSval();
 		String returnstring = "&skey=" + skey + "&sval=" +sval;
@@ -51,11 +53,12 @@ public class QnaController {
 		
 		/* 페이징 처리 */
 		int total = dao.dbCountAll();	//전체 글의 개수
-		int pageNum = pagenum;
-		if(String.valueOf(pageNum)==null||String.valueOf(pageNum)==""){
-			pageNum = dto.getPagenum();
+		 
+		String pageNum = request.getParameter("pageNum");
+		if(pageNum==null||pageNum==""){
+			pageNum = String.valueOf(dto.getPagenum()==0 ? 1 : dto.getPagenum());
 		}
-		PagingHandler ph = new PagingHandler(dao.dbCountSearch(dto), 10, 5, pageNum);
+		PagingHandler ph = new PagingHandler(dao.dbCountSearch(dto), 10, 5, Integer.parseInt(pageNum));
 		
 		//페이징 dto 세팅
 		dto.setStart(ph.getStart());

@@ -27,8 +27,7 @@ public class ReservationController {
 	private static final Logger logger = LoggerFactory.getLogger(ReservationController.class);
 	
 	@RequestMapping(value = "/reservation.do", method = RequestMethod.GET)
-	public ModelAndView reservation() {
-		ModelAndView mav = new ModelAndView();
+	public ModelAndView reservation() {		ModelAndView mav = new ModelAndView();
 		
 		List<ReservationShowDTO> movieList = dao.dbSelectMovieNameAgeAll();
 		List<ReservationShowDTO> theaterCnameList = dao.dbSelectTheaterCnameAll();
@@ -109,6 +108,7 @@ public class ReservationController {
 	public ModelAndView selectrev(HttpServletResponse response, @RequestParam String userid) {
 		ModelAndView mav = new ModelAndView();
 		List<ReservationDTO> revList = dao.dbselectrev(userid);
+		System.out.println(revList.get(0).getName_k());
 		mav.addObject("revList", revList);
 		mav.addObject("page", "checkrev");
 		mav.setViewName("mainLayout");

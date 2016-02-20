@@ -4,11 +4,11 @@
 
 
 <div id="checkrev">
-<img class="bg" src="./resources/img/moviesbg.png">
+<!-- <img class="bg" src="./resources/img/moviesbg.png"> -->
 <div class="checkrev-wrap">
 
 <c:forEach var="bean" items="${revList}">
-${bean.MOVIE_ID}
+<h1>${bean.name_k}</h1>
 </c:forEach>
 
 <%-- 

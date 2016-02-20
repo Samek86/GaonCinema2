@@ -265,7 +265,7 @@
 	}
 	
 </script>
-
+<!-- <img class="bg" src="./resources/img/theaterbg.png"> -->
 <div id="reservation">
 	<div class="steps">
 		<!-- step1 -->
@@ -372,20 +372,17 @@
 		<!-- <div class="step2" style="display: none;">
 		</div> -->
 	</div>
-	<div>
+	<%-- <div>
 		<h1>
 			<input type="button" onclick="test('${NowUser}');" value="테스트">
 			여기에 예약 버튼 작업 바람
 		</h1>
-	</div>
+	</div> --%>
 </div>
 
 
 
 
-
-
-<div style="position: absolute;top: 200;left: 200; z-index: 100;"><button class="btn btn-small btn-success" type="button" onclick="step2popup('${NowUser}', 1, 3, 2, '서울', '신촌', '2관', 1,'2017-02-17', '2017-02-17 09:00', '2017-02-17 09:00', '2D')" >step2.do</button></div>
 
 <div class="step2 mfp-hide">
 <div class="title" >인원/좌석 선택</div>

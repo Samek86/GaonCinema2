@@ -43,6 +43,7 @@ $(document).ready(function(){
 
 
 <div id="movie">
+<img class="bg" src="./resources/img/moviesbg.png">
 <div class="movie-wrap">
 <div class="likemoviepage">
 <c:choose>
