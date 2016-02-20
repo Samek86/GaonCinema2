@@ -68,11 +68,11 @@ rgba(11, 13, 12, 0.5);
 
 /* adminMovieInsert.jsp 부분 */
 #adminMovieInsert {
-	text-align: center;
+	/* text-align: center; */
 }
 
 #adminMovieInsert > form {
-	display: inline-block;
+	/* display: inline-block; */
 }
 
 /* adminTheaterInsert.jsp 부분 */
@@ -91,11 +91,11 @@ rgba(11, 13, 12, 0.5);
 
 /* adminMovieEdit.jsp 부분 */
 #adminMovieEdit {
-	text-align: center;
+	/* text-align: center; */
 }
 
 #adminMovieEdit > form {
-	display: inline-block;
+	/* display: inline-block; */
 }
 
 
@@ -190,4 +190,18 @@ rgba(11, 13, 12, 0.5);
 	width: 800px;
 	display: inline-block;
 	background-color: blue;
+}
+
+[id*="admin"] input[type="button"],[id*="admin"] input[type="submit"]  {
+    padding: 4px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: transparent;
+    border: 3px solid #017467;
+   	color: #017467;
+}
+
+[id=*"admin"] input[type="button"]:hover,[id*="admin"] input[type="submit"]:hover  {
+	color: #fff;
+	 background-color: #017467;
 }

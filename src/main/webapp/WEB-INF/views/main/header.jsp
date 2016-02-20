@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script>
+$(document).ready(function menuselect(){ 
+	for (var i = 0; i <= 5; i++) {
+		$('.nav li a').eq(i).removeClass("select")
+	}
+	var nowpage = '${page}';
+	console.log(nowpage);
+	if(nowpage=='movie'){$('.nav li a').eq(0).addClass("select")} //영화
+	if(nowpage=='reservation'){$('.nav li a').eq(1).addClass("select")} //예매
+	if(nowpage=='theater'){$('.nav li a').eq(2).addClass("select")} //영화관
+	if(nowpage=='store'||nowpage=='buy'){$('.nav li a').eq(3).addClass("select")} //스토어
+	if(nowpage=='event'){$('.nav li a').eq(4).addClass("select")} //이벤트
+	if(nowpage=='qnaList'||nowpage=='qnaDetail'||nowpage=='qnaInsert'||nowpage=='qnaEdit'){$('.nav li a').eq(5).addClass("select")} //고객센터
+	
+});
+</script>
+
 
 <div id="scroll"><i class="fa fa-chevron-up fa-lg"></i></div>
 
@@ -12,9 +29,10 @@
 
 	<ul class="nav">
 		<li><a href="movie.do">영화</a></li>
-		<li><a href="reservation.do">예매</a></li>
-		<!-- <li><a href="theater.do">영화관</a></li> -->
-		<li><a href="#" onclick="g_alert('준비중입니다.');">영화관</a></li>
+		<c:if test="${empty NowUser}"><li><a href="#" onclick="g_alert('로그인부터 해주세요')">예매</a></li></c:if>
+		<c:if test="${not empty NowUser}"><li><a href="reservation.do">예매</a></li></c:if>
+		<li><a href="theater.do">영화관</a></li>
+		<!-- <li><a href="#" onclick="g_alert('준비중입니다.'); menuselect();">영화관</a></li> -->
 		<li><a href="store.do">스토어</a></li>
 		<li><a href="event.do">이벤트</a></li>
 		<li><a href="qnaList.do">고객센터</a></li>

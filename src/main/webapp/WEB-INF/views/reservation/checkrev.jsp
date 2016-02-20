@@ -2,38 +2,76 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    var jssor_1_options = {
+      $AutoPlay: true,
+      $ArrowNavigatorOptions: {
+        $Class: $JssorArrowNavigator$
+      },
+      $ThumbnailNavigatorOptions: {
+        $Class: $JssorThumbnailNavigator$,
+        $Cols: 9,
+        $SpacingX: 3,
+        $SpacingY: 3,
+        $Align: 260
+      }
+    };
+    
+    var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+    
+    //responsive code begin
+    //you can remove responsive code if you don't want the slider scales while window resizing
+    function ScaleSlider() {
+        var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+        if (refSize) {
+            refSize = Math.min(refSize, 920);
+            jssor_1_slider.$ScaleWidth(refSize);
+        }
+        else {
+            window.setTimeout(ScaleSlider, 30);
+        }
+    }
+    ScaleSlider();
+    $(window).bind("load", ScaleSlider);
+    $(window).bind("resize", ScaleSlider);
+    $(window).bind("orientationchange", ScaleSlider);
+    //responsive code end
+});
+</script>
 
 <div id="checkrev">
 <!-- <img class="bg" src="./resources/img/moviesbg.png"> -->
 <div class="checkrev-wrap">
-
+	
+<c:if test="${empty revList}"><div align="center"><h2>예약된 영화가 없습니다.</h2></div></c:if>
 <c:forEach var="bean" items="${revList}">
-<h1>${bean.name_k}</h1>
+	<div class="item">
+	<img class="poster" src="./resources/img/movie/${bean.poster}" onclick="moviedetail(${bean.movie_id}, '${NowUser}', 'now')">
+	<div class="title">
+		<div class="age"><img src="./resources/img/movie/movie${bean.age}.png"></div>
+		<div class="name_k">${bean.name_k}<div class="name_e">(${bean.name_e})</div><div class="ttype">${bean.ttype}</div></div>
+	</div>
+	<div class="content">
+		<div class="content-left">${bean.cname}&nbsp;&nbsp;${bean.lname}<br>
+			<fmt:formatDate value="${bean.mstarthour}" pattern="yyyy년 MM월 dd일 HH:mm"/><br>
+			<fmt:formatDate value="${bean.mstarthour}" pattern="HH:mm"/> ~ <fmt:formatDate value="${bean.mendhour}" pattern="HH:mm"/> (${bean.r_time}분) 
+		</div>
+		<div class="content-right">
+			<div class="seat">${bean.seat}</div>
+			<c:choose>
+			<c:when test="${bean.adult!=0||bean.children==0}">일반 ${bean.adult}명<br></c:when>
+			<c:when test="${bean.adult==0||bean.children!=0}">청소년 ${bean.children}명<br></c:when>
+			<c:otherwise>일반 ${bean.adult}명 청소년 ${bean.children}명<br></c:otherwise>
+			</c:choose>
+			${bean.pricecomma}원<br>
+			<img class="ticketlogo" src="./resources/img/login_logo.png">
+		</div>
+	</div>
+	</div>
 </c:forEach>
 
-<%-- 
-<div class="nowmoviepage">
-	<ul>
-		<c:forEach  var="bean" items="${nowmovie}">
-		<li class=item>
-			<div class="movieNum_${bean.MOVIE_ID }">
-			<div class="poster-wrap" onmouseover="posterhover(${bean.MOVIE_ID}, '${NowUser}', '${bean.AVG}', '${bean.AVG_NUM}','now')" onmouseleave="posterleave(${bean.MOVIE_ID})">
-				<img class="poster" src="./resources/img/movie/${bean.POSTER }" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'now')">
-				<div><input class="poster_star rating" type="number" min=0 max=10 step=1 data-size="xs" data-show-clear="false" data-show-caption="false" onmouseover="starID('${NowUser}', ${bean.MOVIE_ID})"></div>
-				<div class="poster_like"><button type="button" onclick="poster_likeplus(${bean.MOVIE_ID}, '${NowUser}')" class="likebt"><i class="fa fa-heart"></i></button></div>
-			</div>
-			<c:if test="${bean.rn <= 5}"> <span class="rank">${bean.rn}</span> </c:if>
-			<c:if test="${bean.rn > 5}"> <span class="rank_empty"></span> </c:if>
-			<div class="AVG-wrap"><div class="AVG">평점 ${bean.AVG }</div><div class="star-empty"><span class="star-wrap"  style="width:${13.1*bean.AVG} ;"><span class="star"></span></span></div></div>
-			<div class="title-wrap"><img class="AGE" src="./resources/img/movie/movie${bean.AGE}.png"><div class="title">${bean.NAME_K}</div></div>
-		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'now')">상세정보</button><button class="rev">예매하기</button>
-		 	</div>
-		 </li>
-		 </c:forEach>
-	</ul>
-</div>
-</div>
- --%>
 <div class='detailpopup mfp-hide'>
 	<div class="d_hidden"></div>
 	<button type='button' class='mfp-close'>×</button>
@@ -119,6 +157,7 @@
 	</div>
 	</div>
 </div> 
+</div>
 <!-- 지우지 말것 --></div><!-- 지우지 말것 -->
 
 

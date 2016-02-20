@@ -123,11 +123,18 @@ body{
     border-color: #E08F23;
 }
 
-#header .nav > li > a:focus {
+#header .nav > li > a.select {
 	background-color: #005E57;
-	border-bottom: solid;
+    border-bottom: solid;
     border-top: solid;
     border-color: #E08F23;
+}
+
+#header .nav > li > a:focus {
+	background-color: #017467;
+	border-bottom: solid;
+    border-top: solid;
+    border-color: #017467;
 	}
 
 #header #loginbt, #header #memberbt {

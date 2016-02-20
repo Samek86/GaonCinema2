@@ -102,13 +102,21 @@ public class ReservationController {
 			e.printStackTrace();
 		}
 	}//reservationMovie
-	
 	/* 개인예약 확인 */
 	@RequestMapping(value = "/selectrev.do", method = RequestMethod.GET)
 	public ModelAndView selectrev(HttpServletResponse response, @RequestParam String userid) {
 		ModelAndView mav = new ModelAndView();
 		List<ReservationDTO> revList = dao.dbselectrev(userid);
-		System.out.println(revList.get(0).getName_k());
+		for (int i = 0; i < revList.size(); i++) {
+			String seat = revList.get(i).getSeat();
+			int price = revList.get(i).getPrice();
+			revList.get(i).setPricecomma(String.format("%,d", price));
+			seat = seat.replaceAll("/", " ");
+			revList.get(i).setSeat(seat);
+		}
+		int i = 10000000;
+		String str = String.format("%,d", i);
+		
 		mav.addObject("revList", revList);
 		mav.addObject("page", "checkrev");
 		mav.setViewName("mainLayout");

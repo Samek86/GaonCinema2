@@ -3,33 +3,32 @@
 
 <script>
 	$(function() {
-		$('#theaterListTable').hide();
+		$('.theaterListTable').hide();
 		$('.movieListButton').click(function() {
 			$('.movieListButton').addClass('selected');
 			$('.theaterListButton').removeClass('selected');
-			$('#movieListTable').show();
-			$('#theaterListTable').hide();
+			$('.movieListTable').show();
+			$('.theaterListTable').hide();
 		});
 		
 		$('.theaterListButton').click(function() {
 			$('.movieListButton').removeClass('selected');
 			$('.theaterListButton').addClass('selected');
-			$('#movieListTable').hide();
-			$('#theaterListTable').show();
+			$('.movieListTable').hide();
+			$('.theaterListTable').show();
 		});
 	});
 </script>
 
 <div id="adminMovieTheaterList">
-	<h1>[adminMovieTheaterList.jsp]</h1>
-	<div>
+	<div  style="margin-top: 100px;">
 		<button class="movieListButton selected" type="button" value="movieList">영화 목록</button>
 		<button class="theaterListButton" type="button" value="theaterList">영화관 목록</button>
 	</div>
 	<div align="center">
 		<!-- 영화 목록 출력 -->
-		<table id="movieListTable" border="1" cellspacing="0">
-			<tr>
+		<table class="movieListTable table table-hover"  style="width: 90%;">
+			<thead style=" border-bottom: 5px solid #017467;"><tr>
 				<th>영화이름(한글)</th>
 				<th>영화이름(영문)</th>
 				<th>감독</th>
@@ -39,7 +38,7 @@
 				<th>상영종료일</th>
 				<th>수정</th>
 				<th>삭제</th>
-			</tr>
+			</tr></thead>
 			<c:forEach var="movieBean" items="${movieList}">
 				<tr>
 					<td>${movieBean.NAME_K}</td>
@@ -55,20 +54,16 @@
 			</c:forEach>
 		</table>
 		<!-- 영화관 목록 출력 -->
-		<table id="theaterListTable" border="1" cellspacing="0">
-			<tr>
+		<table class="theaterListTable table table-hover"  style="width: 90%;">
+			<thead style=" border-bottom: 5px solid #017467;"><tr>
 				<th>도시이름</th>
 				<th>지역이름</th>
 				<th>영화관이름</th>
 				<th>영화관종류</th>
 				<th>좌석개수</th>
-				<th>영화이름</th>
-				<th>시작시간</th>
-				<th>종료시간</th>
-				<th>가격</th>
 				<th>수정</th>
 				<th>삭제</th>
-			</tr>
+			</tr></thead>
 			<c:forEach var="theaterBean" items="${theaterList}">
 				<tr>
 					<td>${theaterBean.cname}</td>
@@ -76,10 +71,6 @@
 					<td>${theaterBean.tname}</td>
 					<td>${theaterBean.ttype}</td>
 					<td>${theaterBean.seatcount}</td>
-					<td>${theaterBean.mname}</td>
-					<td>${theaterBean.mstarthour}</td>
-					<td>${theaterBean.mendhour}</td>
-					<td>${theaterBean.price}</td>
 					<td><input type="button" value="수정" onclick="location.href='adminTheaterPreEdit.do?theater_id=${theaterBean.theater_id}'"></td>
 					<td><input type="button" value="삭제" onclick="location.href='adminTheaterDelete.do?theater_id=${theaterBean.theater_id}'"></td>
 				</tr>

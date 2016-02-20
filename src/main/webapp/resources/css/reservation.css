@@ -159,8 +159,8 @@ line-height: 1.2;
 }
 
 #reservation > .steps > .step1 > .section_theater .theater_city_list a {
-	background-color: #777777;
-	color: #DDD;
+	/* background-color: #777777;
+	color: #DDD; */
 }
 
 #reservation > .steps > .step1 > .section_theater .theater_city_list a:hover {
@@ -270,7 +270,11 @@ line-height: 1.2;
 	border-color: #CCC;
 }
 
-
+#reservation .movie_list img {
+    width: 25px;
+    height: 25px;
+    margin: 5px 5px 5px 0px;
+}
 
 
 

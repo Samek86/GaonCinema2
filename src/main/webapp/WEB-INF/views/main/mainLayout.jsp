@@ -34,6 +34,7 @@
 	<link href="./resources/css/memberEdit.css" rel="stylesheet">
 	<link href="./resources/css/qna.css" rel="stylesheet">
 	<link href="./resources/css/buy.css" rel="stylesheet">
+	<link href="./resources/css/checkrev.css" rel="stylesheet">
 	
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -53,6 +54,7 @@
 	<link href="./resources/css/movie.css" rel="stylesheet">
 	<script src="./resources/js/movie.js"></script>
 	<script src="./resources/js/main.js"></script>
+	<script src="./resources/js/theater.js"></script>
 	<link href="./resources/css/flip-carousel.css" rel="stylesheet">
 	<script src="./resources/js/flip-carousel.js"></script>
 	<link href="./resources/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />

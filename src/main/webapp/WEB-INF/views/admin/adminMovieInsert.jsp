@@ -8,10 +8,9 @@
 		});
 	});
 </script>
-<div id="adminMovieInsert">
-	<h1>[adminMovieInsert.jsp]</h1>
+<div id="adminMovieInsert" align="center">
 	<form action="adminMovieInsert.do" method="post" enctype="multipart/form-data">
-		<table>
+		<table class="table table-hover"  style="width: 50%; margin-top: 100px;">
 			<tr><td>영화제목(한글)</td><td><input name="NAME_K" type="text" placeholder="영화제목(한글)" required="required"></td></tr>
 			<tr><td>영화제목(영문)</td><td><input name="NAME_E" type="text" placeholder="영화제목(영문)" required="required"></td></tr>
 			<tr><td>관람가</td><td>

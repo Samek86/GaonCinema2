@@ -1,14 +1,17 @@
 package com.gaon.cinema.reservation;
 
+import java.util.Date;
+
 public class ReservationDTO {
 	private int reservation_id;
 	private int theater_schedule_id;
+	private int movie_id;
 	private String cname;
 	private String lname;
 	private String tname;
 	private String ttype;
-	private String mstarthour;
-	private String mendhour;
+	private Date mstarthour;
+	private Date mendhour;
 	private String name_k;
 	private String name_e;
 	private String age;
@@ -19,6 +22,7 @@ public class ReservationDTO {
 	private int children;
 	private int adult;
 	private int price;
+	private String pricecomma;
 	private int theater_id;
 	private int SEATROWCOUNT;
 	private int SEATCOLCOUNT;
@@ -79,16 +83,17 @@ public class ReservationDTO {
 	public void setTtype(String ttype) {
 		this.ttype = ttype;
 	}
-	public String getMstarthour() {
+	
+	public Date getMstarthour() {
 		return mstarthour;
 	}
-	public void setMstarthour(String mstarthour) {
+	public void setMstarthour(Date mstarthour) {
 		this.mstarthour = mstarthour;
 	}
-	public String getMendhour() {
+	public Date getMendhour() {
 		return mendhour;
 	}
-	public void setMendhour(String mendhour) {
+	public void setMendhour(Date mendhour) {
 		this.mendhour = mendhour;
 	}
 	public String getName_k() {
@@ -150,5 +155,17 @@ public class ReservationDTO {
 	}
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	public int getMovie_id() {
+		return movie_id;
+	}
+	public void setMovie_id(int movie_id) {
+		this.movie_id = movie_id;
+	}
+	public String getPricecomma() {
+		return pricecomma;
+	}
+	public void setPricecomma(String pricecomma) {
+		this.pricecomma = pricecomma;
 	}
 }

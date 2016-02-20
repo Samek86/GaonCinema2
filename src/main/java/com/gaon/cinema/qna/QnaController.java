@@ -54,7 +54,7 @@ public class QnaController {
 		/* 페이징 처리 */
 		int total = dao.dbCountAll();	//전체 글의 개수
 		 
-		String pageNum = request.getParameter("pageNum");
+		String pageNum = request.getParameter("pagenum");
 		if(pageNum==null||pageNum==""){
 			pageNum = String.valueOf(dto.getPagenum()==0 ? 1 : dto.getPagenum());
 		}
@@ -85,7 +85,7 @@ public class QnaController {
 	
 	//--한건상세
 	@RequestMapping(value="/qnaDetail.do")
-	public ModelAndView qnaDetail(HttpServletResponse response, @RequestParam int qna_id, @RequestParam int pagenum) {	
+	public ModelAndView qnaDetail(HttpServletResponse response, @RequestParam int qna_id, HttpServletRequest request) {	
 		ModelAndView mav = new ModelAndView();
 		
 		/* 게시판 */
@@ -93,10 +93,15 @@ public class QnaController {
 		QnaDTO dto = dao.dbDetail(qna_id);
 		mav.addObject("bean", dto);
 		
+		String pageNum = request.getParameter("pagenum");
+		if(pageNum==null){
+			pageNum = "1";
+		}
+		
 		/* 게시판 댓글 */
 		List<QnaReplyDTO> replyList = qrdao.dbSelectQnaReply(qna_id);
 		mav.addObject("replyList", replyList);
-		mav.addObject("pagenum", pagenum);
+		mav.addObject("pagenum", pageNum);
 		mav.addObject("page", "qnaDetail");
 		mav.setViewName("mainLayout");
 		return mav;

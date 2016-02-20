@@ -26,10 +26,9 @@
 		$('#theaterSeat').html(seat);
 	}
 </script>
-<div id="adminTheaterEdit">
-	<h1>[adminTheaterEdit.jsp]</h1>
+<div id="adminTheaterEdit"  align="center">
 	<form action="adminTheaterEdit.do">
-		<table>
+		<table class="table table-hover" style="width: 50%;  margin-top: 100px;">
 			<tr><td>도시이름</td><td>
 				<input name="cname" type="text" placeholder="도시이름" required="required">
 				<select>

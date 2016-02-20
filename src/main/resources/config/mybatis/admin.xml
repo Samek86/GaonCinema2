@@ -71,7 +71,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<!-- 예약 목록 -->
-	<select id="selectReservationAll">
+	<select id="selectReservationAll" resultType="com.gaon.cinema.reservation.ReservationDTO" >
 		SELECT * FROM GC_RESERVATION
 	</select>
 	

@@ -1,6 +1,7 @@
 package com.gaon.cinema.theater;
 
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,11 +16,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gaon.cinema.admin.AdminDAO;
+import com.gaon.cinema.movie.MovieDTO;
+
 @Controller
 public class TheaterController {
 	
 	@Autowired
 	private TheaterDAO dao;
+	
+	@Autowired
+	private AdminDAO tdao;
 	
 	private static final Logger logger = LoggerFactory.getLogger(TheaterController.class);
 	
@@ -30,6 +37,9 @@ public class TheaterController {
 		
 		List<TheaterDTO> cnameList = dao.dbSelectCname();
 		mav.addObject("cnameList", cnameList);
+		
+		List<TheaterDTO> theaterList = tdao.dbSelectTheaterAll();
+		mav.addObject("theaterList", theaterList);
 		
 		mav.addObject("page", "theater");
 		mav.setViewName("mainLayout");
@@ -43,12 +53,11 @@ public class TheaterController {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			System.out.println(cname);
-			List<String> list = dao.dbSelectLname(cname);
+			List<TheaterDTO> list = dao.dbSelectLname(cname);
 			/* JSON 시작 */
 			String json = "{\"list\":[";
 			for(int i = 0; i < list.size(); i++) {
-				json = json + "{\"lname" + "\":" + "\"" + list.get(i) + "\"}";
+				json = json + "{\"lname" + "\":" + "\"" + list.get(i).getLname() + "\"}";
 				if(i < list.size() - 1) { json = json + ", "; }
 			}
 			json = json + "]}";
@@ -63,9 +72,21 @@ public class TheaterController {
 		try {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html;charset=UTF-8");
+			
+			List<TheaterDTO> theaterList = tdao.dbSelectTheaterAll();
+			
 			PrintWriter out = response.getWriter();
 			/* JSON 시작 */
-			String json = "";
+			String json = "{\"list\":[";
+			for(int i = 0; i < theaterList.size(); i++) {
+				json = json + "{\"cname" + "\":" + "\"" + theaterList.get(i).getCname() + "\",";
+				json = json + "\"lname" + "\":" + "\"" + theaterList.get(i).getLname() + "\",";
+				json = json + "\"tname" + "\":" + "\"" + theaterList.get(i).getTname() + "\",";
+				json = json + "\"ttype" + "\":" + "\"" + theaterList.get(i).getTtype() + "\",";
+				json = json + "\"seatcount" + "\":" + "\"" + theaterList.get(i).getSeatcount() + "\"}";
+				if(i < theaterList.size() - 1) { json = json + ", "; }
+			}
+			json = json + "]}";
 			/* JSON 끝 */
 			out.print(json);
 		} catch(Exception e) { e.printStackTrace(); }
@@ -78,8 +99,18 @@ public class TheaterController {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
+			List<TheaterDTO> cnameList = dao.dbSelectIntroByCname(cname);
 			/* JSON 시작 */
-			String json = "";
+			String json = "{\"list\":[";
+			for(int i = 0; i < cnameList.size(); i++) {
+				json = json + "{\"cname" + "\":" + "\"" + cnameList.get(i).getCname() + "\",";
+				json = json + "\"lname" + "\":" + "\"" + cnameList.get(i).getLname() + "\",";
+				json = json + "\"tname" + "\":" + "\"" + cnameList.get(i).getTname() + "\",";
+				json = json + "\"ttype" + "\":" + "\"" + cnameList.get(i).getTtype() + "\",";
+				json = json + "\"seatcount" + "\":" + "\"" + cnameList.get(i).getSeatcount() + "\"}";
+				if(i < cnameList.size() - 1) { json = json + ", "; }
+			}
+			json = json + "]}";
 			/* JSON 끝 */
 			out.print(json);
 		} catch(Exception e) { e.printStackTrace(); }
@@ -92,8 +123,18 @@ public class TheaterController {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
+			List<TheaterDTO> lnameList = dao.dbSelectIntroByLname(lname);
 			/* JSON 시작 */
-			String json = "";
+			String json = "{\"list\":[";
+			for(int i = 0; i < lnameList.size(); i++) {
+				json = json + "{\"cname" + "\":" + "\"" + lnameList.get(i).getCname() + "\",";
+				json = json + "\"lname" + "\":" + "\"" + lnameList.get(i).getLname() + "\",";
+				json = json + "\"tname" + "\":" + "\"" + lnameList.get(i).getTname() + "\",";
+				json = json + "\"ttype" + "\":" + "\"" + lnameList.get(i).getTtype() + "\",";
+				json = json + "\"seatcount" + "\":" + "\"" + lnameList.get(i).getSeatcount() + "\"}";
+				if(i < lnameList.size() - 1) { json = json + ", "; }
+			}
+			json = json + "]}";
 			/* JSON 끝 */
 			out.print(json);
 		} catch(Exception e) { e.printStackTrace(); }

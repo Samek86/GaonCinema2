@@ -19,8 +19,8 @@ public class TheaterDAO {
 	}
 	
 	/* 지역 목록 가져오기 */
-	public List<String> dbSelectLname(String cname) {
-		List<String> list = temp.selectList("theater.selectLname", cname);
+	public List<TheaterDTO> dbSelectLname(String cname) {
+		List<TheaterDTO> list = temp.selectList("theater.selectLname", cname);
 		return list;
 	}
 	

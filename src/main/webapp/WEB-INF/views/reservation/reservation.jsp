@@ -256,11 +256,10 @@
 		this.THEATER_ID = THEATER_ID;
 		this.hour = hour;
 		this.THEATER_SCHEDULE_ID = THEATER_SCHEDULE_ID;
-		var str = "movie_id = " + movie_id + "\nname_k = " + name_k + "\nage = " + age 
+		/* var str = "movie_id = " + movie_id + "\nname_k = " + name_k + "\nage = " + age 
 						+ "\ncname = " + cname + "\nlname = " + lname + "\ndate = " + mstartdate 
 						+ "\nstarthour = " + starthour + "\nendhour = " + endhour + "\nNowUser = " + NowUser + "\nTHEATER_ID = "+THEATER_ID + "\ntname = " +tname + "\nTHEATER_SCHEDULE_ID = " +THEATER_SCHEDULE_ID ;
-		alert(str);
-		
+		alert(str); */
 		step2popup(NowUser, movie_id, THEATER_ID, THEATER_SCHEDULE_ID, cname, lname, tname, mstartdate, starthour, endhour);
 	}
 	

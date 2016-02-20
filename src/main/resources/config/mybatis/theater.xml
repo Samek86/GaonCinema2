@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 도시 이름 가져오기 -->
 	<select id="selectCname" resultType="com.gaon.cinema.theater.TheaterDTO">
 		SELECT DISTINCT CNAME, CORDER FROM GC_THEATER ORDER BY CORDER
+		<!-- SELECT CNAME, LNAME, TNAME,TTYPE, SEATCOUNT, CORDER FROM GC_THEATER ORDER BY CORDER -->
 	</select>
 	
 	<!-- 지역 이름 가져오기 -->
@@ -21,12 +22,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 도시 영화관 소개 가져오기 -->
 	<select id="selectIntroByCname" resultType="com.gaon.cinema.theater.TheaterDTO" parameterType="String">
-		SELECT DISTINCT LNAME, TIMG FROM GC_THEATER WHERE CNAME = #{cname} ORDER BY LNAME
+		SELECT CNAME, LNAME, TNAME,TTYPE, SEATCOUNT FROM GC_THEATER WHERE CNAME = #{cname} ORDER BY LNAME
 	</select>
 	
 	<!-- 지역 영화관 소개 가져오기 -->
 	<select id="selectIntroByLname" resultType="com.gaon.cinema.theater.TheaterDTO" parameterType="String">
-		SELECT DISTINCT LNAME, TIMG FROM GC_THEATER WHERE LNAME = #{lname} ORDER BY LNAME
+		SELECT CNAME, LNAME, TNAME,TTYPE, SEATCOUNT FROM GC_THEATER WHERE LNAME = #{lname} ORDER BY LNAME
 	</select>
 	
 </mapper>

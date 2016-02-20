@@ -27,9 +27,8 @@
 	}
 </script>
 <div id="adminTheaterInsert">
-	<h1>[adminTheaterInsert.jsp]</h1>
 	<form action="adminTheaterInsert.do">
-		<table>
+		<table  class="table table-hover" style=" margin-top: 100px;">
 			<tr><td>도시이름</td><td>
 				<input name="cname" type="text" placeholder="도시이름" required="required">
 				<select>
