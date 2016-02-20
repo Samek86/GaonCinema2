@@ -14,6 +14,7 @@ public class ReservationShowDTO {
 	private int THEATER_ID;
 	private int THEATER_SCHEDULE_ID;
 	
+	
 	public int getMovie_id() { return movie_id; }
 	public void setMovie_id(int movie_id) { this.movie_id = movie_id; }
 	public String getName_k() { return name_k; }

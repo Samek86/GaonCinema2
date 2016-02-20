@@ -49,7 +49,7 @@ line-height: 1.2;
 	color: #DDD;
 }
 
-#reservation > .steps > .step1 .selected {
+#reservation > .steps > .step1 a.selected {
 	background-color: #333333;
 	color: #DDD;
 }

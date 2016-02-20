@@ -63,7 +63,7 @@ $(document).ready(function(){
 			<c:if test="${bean.rn > 5}"> <span class="rank_empty"></span> </c:if>
 			<div class="AVG-wrap"><div class="AVG">평점 ${bean.AVG }</div><div class="star-empty"><span class="star-wrap"  style="width:${13.1*bean.AVG} ;"><span class="star"></span></span></div></div>
 			<div class="title-wrap"><img class="AGE" src="./resources/img/movie/movie${bean.AGE}.png"><div class="title">${bean.NAME_K}</div></div>
-		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'now')">상세정보</button><button class="rev">예매하기</button>
+		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'now')">상세정보</button><a href="moviereservation.do?movie_id=${bean.MOVIE_ID}&name_k=${bean.NAME_K}&age=${bean.AGE}"><button class="rev">예매하기</button></a>
 		 	</div>
 		 </li>
 		 </c:forEach>
@@ -81,7 +81,7 @@ $(document).ready(function(){
 			 <span class="rank_empty"></span>
 			<div class="AVG-wrap"><div class="AVG"><fmt:formatDate value="${bean.STARTDATE }" pattern="yyyy-MM-dd"/> </div><span class="dday">D-${bean.dday}</span></div>
 			<div class="title-wrap"><img class="AGE" src="./resources/img/movie/movie${bean.AGE }.png"><div class="title">${bean.NAME_K}</div></div>
-		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'next')">상세정보</button><button class="rev">예매하기</button>
+		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'next')">상세정보</button><a href="moviereservation.do?movie_id=${bean.MOVIE_ID}&name_k=${bean.NAME_K}&age=${bean.AGE}"><button class="rev">예매하기</button></a>
 		 	</div>
 		 </li>
 		 </c:forEach>

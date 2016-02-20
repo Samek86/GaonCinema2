@@ -7,6 +7,7 @@
 	var name_k = "";
 	var age = "";
 	var cname = "";
+	var corder = 0;
 	var lname = "";
 	var mstartdate = "";
 	var mstarthour = "";
@@ -30,7 +31,7 @@
 			success: function(data) {
 				var strHTML = "<ul>";
 				for(i = 0; i < data.list.length; i++) {
-					strHTML = strHTML + "<li><a href='#' onclick=movieClick('" + data.list[i].movie_id +"','"+data.list[i].name_k.replace(" ","")+"','"+data.list[i].age+"')>";
+					strHTML = strHTML + "<li><a href='#' class=movieid"+data.list[i].movie_id+" onclick=movieClick('" + data.list[i].movie_id +"','"+data.list[i].name_k.replace(" ","")+"','"+data.list[i].age+"')>";
 					strHTML = strHTML + "<img width='30' height='30' src='resources/img/movie/movie" + data.list[i].age + ".png'> ";
 					strHTML = strHTML + data.list[i].name_k + "</a></li>";
 				}
@@ -57,7 +58,7 @@
 			success: function(data) {
 				var strHTML = "<ul>";
 				for(i = 0; i < data.list.length; i++) {
-					strHTML = strHTML + "<li><a href='#' onclick=theaterCnameClick('" + data.list[i].cname + "')>" + data.list[i].cname + "</a></li>";
+					strHTML = strHTML + "<li><a href='#' class=theaterid"+data.list[i].corder+"  onclick=theaterCnameClick('" + data.list[i].cname + "')>" + data.list[i].cname + "</a></li>";
 				}
 				strHTML = strHTML + "</ul>";
 				$('.theater_city_list').html(strHTML);
@@ -100,23 +101,33 @@
 		selectTheaterCname(movie_id);
 		selectDate(movie_id, "", "");
 		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
+		$('[class^="movieid"]').removeClass('selected');
+		$('.movieid'+movie_id).addClass('selected');
 	}
 	
 	/* 도시 클릭시 */
-	function theaterCnameClick(cname) {
+	function theaterCnameClick(cname, corder) {
 		this.cname = cname;
+		this.corder = corder;
 		selectTheaterLname(cname);
 		selectMovieNameAge(cname, "", "");
 		selectDate(0, cname, "");
 		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
+		$('.movieid'+movie_id).addClass('selected');
+		$('[class^="theaterid"]').removeClass('selected');
+		$('.theaterid'+corder).addClass('selected');
 	}
 	
 	/* 지역 클릭시 */
-	function theaterLnameClick(lname) {
+	function theaterLnameClick(lname, ts_id) {
 		this.lname = lname;
+		THEATER_SCHEDULE_ID = ts_id;
 		selectMovieNameAge("", lname, "");
 		selectDate(0, "", lname);
 		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
+		$('.movieid'+movie_id).addClass('selected');
+		$('[class^="theaterid"]').removeClass('selected');
+		$('.theaterid'+corder).addClass('selected');
 	}
 	
 	/* 날짜 클릭시 */
@@ -125,11 +136,17 @@
 		selectMovieNameAge("", "", mstartdate);
 		selectTheaterCname(0, mstartdate);
 		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
+		$('.movieid'+movie_id).addClass('selected');
+		$('[class^="theaterid"]').removeClass('selected');
+		$('.theaterid'+corder).addClass('selected');
 	}
 	
 	/* 시간 클릭시 */
 	function hourClick(hour) {
 		this.hour = hour;
+		$('.movieid'+movie_id).addClass('selected');
+		$('[class^="theaterid"]').removeClass('selected');
+		$('.theaterid'+corder).addClass('selected');
 	}
 	
 	/* 영화 이름, 관람가 가져오기 */
@@ -142,12 +159,13 @@
 			success: function(data) {
 				var strHTML = "<ul>";
 				for(i = 0; i < data.list.length; i++) {   
-					strHTML = strHTML + "<li><a href='#' onclick=movieClick('" + data.list[i].movie_id +"','"+data.list[i].name_k.replace(" ","")+"','"+data.list[i].age+"')>";
+					strHTML = strHTML + "<li><a href='#' class=movieid"+data.list[i].movie_id+" onclick=movieClick('" + data.list[i].movie_id +"','"+data.list[i].name_k.replace(" ","")+"','"+data.list[i].age+"')>";
 					strHTML = strHTML + "<img width='30' height='30' src='resources/img/movie/movie" + data.list[i].age + ".png'> ";
 					strHTML = strHTML + data.list[i].name_k + "</a></li>";
 				}
 				strHTML = strHTML + "</ul>";
 				$('.movie_list').html(strHTML);
+				$('.movieid'+movie_id).addClass('selected');
 			},
 			error: function(data) { alert("error : " + data) }
 		});
@@ -163,7 +181,7 @@
 			success: function(data) {
 				var strHTML = "<ul>";
 				for(i = 0; i < data.list.length; i++) {
-					strHTML = strHTML + "<li><a href='#' onclick=theaterCnameClick('" + data.list[i].cname + "')>" + data.list[i].cname + "</a></li>";
+					strHTML = strHTML + "<li><a href='#' class=theaterid"+data.list[i].corder+"  onclick=theaterCnameClick('" + data.list[i].cname + "','"+data.list[i].corder+"')>" + data.list[i].cname + "</a></li>";
 				}
 				strHTML = strHTML + "</ul>";
 				$('.theater_city_list').html(strHTML);
@@ -172,6 +190,8 @@
 				} else {
 					selectTheaterLname(data.list[0].cname);
 				}
+				$('[class^="theaterid"]').removeClass('selected');
+				$('.theaterid'+corder).addClass('selected');
 			},
 			error: function(data) { alert("error : " + data) }
 		});
@@ -187,7 +207,7 @@
 			success: function(data) {
 				var strHTML = "<ul>";
 				for(i = 0; i < data.list.length; i++) {
-					strHTML = strHTML + "<li><a href='#' onclick=theaterLnameClick('"+ data.list[i].lname +"')>" + data.list[i].lname + "</a></li>";
+					strHTML = strHTML + "<li><a href='#'  onclick=theaterLnameClick('"+ data.list[i].lname +"')>" + data.list[i].lname + "</a></li>";
 				}
 				strHTML = strHTML + "</ul>";
 				$('.theater_location_list').html(strHTML);
@@ -223,7 +243,6 @@
 			dataType: "json",
 			type: "GET",
 			success: function(data) {
-				console.log(data);
 				var strHTML = "<ul>";
 				for(i = 0; i < data.list.length; i++) {
 					strHTML = strHTML + "<li><a href='#' onclick=test('${NowUser}','"+data.list[i].THEATER_ID+"','"+data.list[i].mstarthour+"','"+data.list[i].mendhour+"','"+data.list[i].tname+"','"+data.list[i].THEATER_SCHEDULE_ID+"')>" + data.list[i].mstarthour + "</a></li>";
@@ -265,6 +284,13 @@
 	
 </script>
 <!-- <img class="bg" src="./resources/img/theaterbg.png"> -->
+
+<c:if test="${not empty movie_id}">
+<script>
+movieClick('${movie_id}', '${name_k}', '${age}');
+</script>
+</c:if>
+
 <div id="reservation">
 	<div class="steps">
 		<!-- step1 -->
@@ -283,7 +309,7 @@
 							<div class="movie_list">
 								<ul>
 									<c:forEach var="movieBean" items="${movieList}">
-										<li><a href='#' onclick='movieClick("${movieBean.movie_id}", "${movieBean.name_k }", "${movieBean.age}")' ><img width="30" height="30" src="resources/img/movie/movie${movieBean.age}.png"> ${movieBean.name_k}</a></li>
+										<li><a href='#' class="movieid${movieBean.movie_id}" onclick='movieClick("${movieBean.movie_id}", "${movieBean.name_k }", "${movieBean.age}")' ><img width="30" height="30" src="resources/img/movie/movie${movieBean.age}.png"> ${movieBean.name_k}</a></li>
 									</c:forEach>
 								</ul>
 							</div>
@@ -305,7 +331,7 @@
 							<div class="theater_city_list">
 								<ul>
 									<c:forEach var="theaterCnameBean" items="${theaterCnameList}">
-										<li><a href="#" onclick="theaterCnameClick('${theaterCnameBean.cname}')">${theaterCnameBean.cname}</a></li>
+										<li><a href="#" class="theaterid${theaterCnameBean.corder}" onclick="theaterCnameClick('${theaterCnameBean.cname}')">${theaterCnameBean.cname}</a></li>
 									</c:forEach>
 								</ul>
 							</div>

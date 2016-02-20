@@ -43,6 +43,32 @@ public class ReservationController {
 		return mav;
 	}//reservationMovie
 	
+	@RequestMapping(value = "/moviereservation.do", method = RequestMethod.GET)
+	public ModelAndView moviereservation(HttpServletResponse response, HttpServletRequest request) {  ModelAndView mav = new ModelAndView();
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		List<ReservationShowDTO> movieList = dao.dbSelectMovieNameAgeAll();
+		List<ReservationShowDTO> theaterCnameList = dao.dbSelectTheaterCnameAll();
+		List<ReservationShowDTO> theaterLnameList = dao.dbSelectTheaterLname(theaterCnameList.get(0).getCname());
+		List<ReservationShowDTO> dateList = dao.dbSelectDateAll();
+		String movie_id = request.getParameter("movie_id");
+		String name_k = request.getParameter("name_k");
+		String age = request.getParameter("age");
+		
+		mav.addObject("movie_id", movie_id);
+		mav.addObject("name_k", name_k);
+		mav.addObject("age", age);
+		mav.addObject("movieList", movieList);
+		mav.addObject("theaterCnameList", theaterCnameList);
+		mav.addObject("theaterLnameList", theaterLnameList);
+		mav.addObject("dateList", dateList);
+		
+		mav.addObject("page", "reservation");
+		mav.setViewName("mainLayout");
+		return mav;
+	}//reservationMovie
+	
+	
 	/* 영화 이름, 관람가 가져오기(전체) */
 	@RequestMapping(value = "/reservationSelectMovieNameAgeAll.do", method = RequestMethod.GET)
 	public void reservationSelectMovieNameAgeAll(HttpServletResponse response) {
@@ -57,6 +83,7 @@ public class ReservationController {
 			for(int i = 0; i < list.size(); i++) {
 				json = json + "{\"movie_id" + "\":" + "\"" + list.get(i).getMovie_id() + "\",";
 				json = json + "\"name_k" + "\":" + "\"" + list.get(i).getName_k() + "\",";
+				json = json + "\"corder" + "\":" + "\"" + list.get(i).getCorder() + "\",";
 				json = json + "\"age" + "\":" + "\"" + list.get(i).getAge() + "\"}";
 				if(i < list.size() - 1) { json = json + ", "; }
 			}
@@ -80,6 +107,7 @@ public class ReservationController {
 			for(int i = 0; i < list.size(); i++) {
 				json = json + "{\"movie_id" + "\":" + "\"" + list.get(i).getMovie_id() + "\",";
 				json = json + "\"name_k" + "\":" + "\"" + list.get(i).getName_k() + "\",";
+				json = json + "\"corder" + "\":" + "\"" + list.get(i).getCorder() + "\",";
 				json = json + "\"age" + "\":" + "\"" + list.get(i).getAge() + "\"}";
 				if(i < list.size() - 1) { json = json + ", "; }
 			}
@@ -169,7 +197,9 @@ public class ReservationController {
 				PrintWriter out = response.getWriter();
 				String json = "{\"list\":[";
 				for(int i = 0; i < list.size(); i++) {
-					json = json + "{\"cname" + "\":" + "\"" + list.get(i).getCname() + "\"}";
+					json = json + "{\"cname" + "\":" + "\"" + list.get(i).getCname() + "\",";
+					json = json + "\"corder" + "\":" + "\"" + list.get(i).getCorder() + "\",";
+					json = json + "\"age" + "\":" + "\"" + list.get(i).getAge() + "\"}";
 					if(i < list.size() - 1) { json = json + ", "; }
 				}
 				json = json + "]}";
@@ -193,7 +223,8 @@ public class ReservationController {
 			/* JSON 시작 */
 			String json = "{\"list\":[";
 			for(int i = 0; i < list.size(); i++) {
-				json = json + "{\"cname" + "\":" + "\"" + list.get(i).getCname() + "\"}";
+				json = json + "{\"cname" + "\":" + "\"" + list.get(i).getCname() + "\",";
+				json = json + "\"corder" + "\":" + "\"" + list.get(i).getCorder() + "\"}";
 				if(i < list.size() - 1) { json = json + ", "; }
 			}
 			json = json + "]}";
@@ -214,7 +245,8 @@ public class ReservationController {
 			/* JSON 시작 */
 			String json = "{\"list\":[";
 			for(int i = 0; i < list.size(); i++) {
-				json = json + "{\"lname" + "\":" + "\"" + list.get(i).getLname() + "\"}";
+				json = json + "{\"lname" + "\":" + "\"" + list.get(i).getLname() + "\",";
+				json = json + "\"corder" + "\":" + "\"" + list.get(i).getCorder() + "\"}";
 				if(i < list.size() - 1) { json = json + ", "; }
 			}
 			json = json + "]}";

@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 영화관 지역 가져오기 -->
 	<select id="selectTheaterLname" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="String">
-		SELECT DISTINCT T.LNAME 
+		SELECT DISTINCT T.LNAME, T.CORDER 
 		FROM GC_THEATER_SCHEDULE TS 
 		INNER JOIN GC_THEATER T 
 		ON TS.THEATER_ID = T.THEATER_ID

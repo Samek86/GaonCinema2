@@ -6,7 +6,6 @@ $(document).ready(function menuselect(){
 		$('.nav li a').eq(i).removeClass("select")
 	}
 	var nowpage = '${page}';
-	console.log(nowpage);
 	if(nowpage=='movie'){$('.nav li a').eq(0).addClass("select")} //영화
 	if(nowpage=='reservation'){$('.nav li a').eq(1).addClass("select")} //예매
 	if(nowpage=='theater'){$('.nav li a').eq(2).addClass("select")} //영화관
