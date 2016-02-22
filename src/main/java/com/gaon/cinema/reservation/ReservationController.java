@@ -31,7 +31,10 @@ public class ReservationController {
 		
 		List<ReservationShowDTO> movieList = dao.dbSelectMovieNameAgeAll();
 		List<ReservationShowDTO> theaterCnameList = dao.dbSelectTheaterCnameAll();
-		List<ReservationShowDTO> theaterLnameList = dao.dbSelectTheaterLname(theaterCnameList.get(0).getCname());
+		ReservationShowDTO dto = new ReservationShowDTO();
+		dto.setMovie_id(movieList.get(0).getMovie_id());
+		dto.setCname(theaterCnameList.get(0).getCname());
+		List<ReservationShowDTO> theaterLnameList = dao.dbSelectTheaterLname(dto);
 		List<ReservationShowDTO> dateList = dao.dbSelectDateAll();
 		mav.addObject("movieList", movieList);
 		mav.addObject("theaterCnameList", theaterCnameList);
@@ -49,7 +52,10 @@ public class ReservationController {
 		response.setContentType("text/html;charset=UTF-8");
 		List<ReservationShowDTO> movieList = dao.dbSelectMovieNameAgeAll();
 		List<ReservationShowDTO> theaterCnameList = dao.dbSelectTheaterCnameAll();
-		List<ReservationShowDTO> theaterLnameList = dao.dbSelectTheaterLname(theaterCnameList.get(0).getCname());
+		ReservationShowDTO dto = new ReservationShowDTO();
+		dto.setMovie_id(movieList.get(0).getMovie_id());
+		dto.setCname(theaterCnameList.get(0).getCname());
+		List<ReservationShowDTO> theaterLnameList = dao.dbSelectTheaterLname(dto);
 		List<ReservationShowDTO> dateList = dao.dbSelectDateAll();
 		String movie_id = request.getParameter("movie_id");
 		String name_k = request.getParameter("name_k");
@@ -235,13 +241,13 @@ public class ReservationController {
 	
 	/* 영화관 지역 이름 가져오기(도시) */
 	@RequestMapping(value = "/reservationSelectTheaterLname.do", method = RequestMethod.GET)
-	public void reservationSelectTheaterLname(HttpServletResponse response, @RequestParam String cname) {
+	public void reservationSelectTheaterLname(HttpServletResponse response, ReservationShowDTO dto) {
 		try {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			
-			List<ReservationShowDTO> list = dao.dbSelectTheaterLname(cname);
+			List<ReservationShowDTO> list = dao.dbSelectTheaterLname(dto);
 			/* JSON 시작 */
 			String json = "{\"list\":[";
 			for(int i = 0; i < list.size(); i++) {
