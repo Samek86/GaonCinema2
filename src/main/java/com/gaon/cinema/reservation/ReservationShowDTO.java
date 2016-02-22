@@ -6,6 +6,7 @@ public class ReservationShowDTO {
 	private String age;
 	private String cname;
 	private int corder;
+	private int corder2;
 	private String lname;
 	private String tname;
 	private String mstartdate;
@@ -51,6 +52,12 @@ public class ReservationShowDTO {
 	}
 	public void setMendhour(String mendhour) {
 		this.mendhour = mendhour;
+	}
+	public int getCorder2() {
+		return corder2;
+	}
+	public void setCorder2(int corder2) {
+		this.corder2 = corder2;
 	}
 }
 

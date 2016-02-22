@@ -8,6 +8,7 @@
 	var age = "";
 	var cname = "";
 	var corder = 0;
+	var corder2 = 0;
 	var lname = "";
 	var mstartdate = "";
 	var mstarthour = "";
@@ -58,7 +59,7 @@
 			success: function(data) {
 				var strHTML = "<ul>";
 				for(i = 0; i < data.list.length; i++) {
-					strHTML = strHTML + "<li><a href='#' class=theaterid"+data.list[i].corder+"  onclick=theaterCnameClick('" + data.list[i].cname + "')>" + data.list[i].cname + "</a></li>";
+					strHTML = strHTML + "<li><a href='#' class=theaterid"+data.list[i].corder+"  onclick=theaterCnameClick('" + data.list[i].cname + "','"+data.list[i].corder+"')>" + data.list[i].cname + "</a></li>";
 				}
 				strHTML = strHTML + "</ul>";
 				$('.theater_city_list').html(strHTML);
@@ -78,7 +79,7 @@
 			success: function(data) {
 				var strHTML = "<ul>";
 				for(i = 0; i < data.list.length; i++) {
-					strHTML = strHTML + "<li><a href='#'  onclick=theaterLnameClick('"+ data.list[i].lname +"')>" + data.list[i].lname + "</a></li>";
+					strHTML = strHTML + "<li><a href='#' class=theaterlid"+data.list[i].corder2+" onclick=theaterLnameClick('"+ data.list[i].lname +"','"+data.list[i].corder2+"')>" + data.list[i].lname + "</a></li>";
 				}
 				strHTML = strHTML + "</ul>";
 				$('.theater_location_list').html(strHTML);
@@ -139,15 +140,17 @@
 	}
 	
 	/* 지역 클릭시 */
-	function theaterLnameClick(lname, ts_id) {
+	function theaterLnameClick(lname, corder2) {
+		this.corder2 = corder2;
 		this.lname = lname;
-		THEATER_SCHEDULE_ID = ts_id;
 		selectMovieNameAge("", lname, "");
 		selectDate(this.movie_id, this.cname, this.lname);
 		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
 		$('.movieid'+movie_id).addClass('selected');
 		$('[class^="theaterid"]').removeClass('selected');
 		$('.theaterid'+corder).addClass('selected');
+		$('[class^="theaterlid"]').removeClass('selected');
+		$('.theaterlid'+corder2).addClass('selected');
 	}
 	
 	/* 날짜 클릭시 */
@@ -157,8 +160,8 @@
 		selectTheaterCname(0, mstartdate);
 		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
 		$('.movieid'+movie_id).addClass('selected');
-		$('[class^="theaterid"]').removeClass('selected');
-		$('.theaterid'+corder).addClass('selected');
+	/* 	$('[class^="theaterid"]').removeClass('selected');
+		$('.theaterid'+corder).addClass('selected'); */
 	}
 	
 	/* 시간 클릭시 */
@@ -227,10 +230,12 @@
 			success: function(data) {
 				var strHTML = "<ul>";
 				for(i = 0; i < data.list.length; i++) {
-					strHTML = strHTML + "<li><a href='#'  onclick=theaterLnameClick('"+ data.list[i].lname +"')>" + data.list[i].lname + "</a></li>";
+					strHTML = strHTML + "<li><a href='#' class=theaterlid"+data.list[i].corder2+" onclick=theaterLnameClick('"+ data.list[i].lname +"','"+data.list[i].corder2+"')>" + data.list[i].lname + "</a></li>";
 				}
 				strHTML = strHTML + "</ul>";
 				$('.theater_location_list').html(strHTML);
+			 	$('[class^="theaterlid"]').removeClass('selected');
+				$('.theaterlid'+corder2).addClass('selected'); 
 			},
 			error: function(data) { alert("error : " + data) }
 		});
@@ -346,14 +351,14 @@
 							<div class="theater_city_list">
 								<ul>
 									<c:forEach var="theaterCnameBean" items="${theaterCnameList}">
-										<li><a href="#" class="theaterid${theaterCnameBean.corder}" onclick="theaterCnameClick('${theaterCnameBean.cname}')">${theaterCnameBean.cname}</a></li>
+										<li><a href="#" class="theaterid${theaterCnameBean.corder}" onclick="theaterCnameClick('${theaterCnameBean.cname}','${theaterCnameBean.corder}')">${theaterCnameBean.cname}</a></li>
 									</c:forEach>
 								</ul>
 							</div>
 							<div class="theater_location_list">
 								<ul>
 									<c:forEach var="theaterLnameBean" items="${theaterLnameList}">
-										<li><a href="#" onclick="theaterLnameClick('${theaterLnameBean.lname}');">${theaterLnameBean.lname}</a></li>
+										<li><a href="#" class="theaterlid${theaterLnameBean.corder}" onclick="theaterLnameClick('${theaterLnameBean.lname}','${theaterLnameBean.corder}');">${theaterLnameBean.lname}</a></li>
 									</c:forEach>
 								</ul>
 							</div>

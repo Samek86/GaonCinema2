@@ -252,7 +252,8 @@ public class ReservationController {
 			String json = "{\"list\":[";
 			for(int i = 0; i < list.size(); i++) {
 				json = json + "{\"lname" + "\":" + "\"" + list.get(i).getLname() + "\",";
-				json = json + "\"corder" + "\":" + "\"" + list.get(i).getCorder() + "\"}";
+				//json = json + "\"ts_id" + "\":" + "\"" + list.get(i).getTHEATER_SCHEDULE_ID() + "\",";
+				json = json + "\"corder2" + "\":" + "\"" + list.get(i).getCorder2() + "\"}";
 				if(i < list.size() - 1) { json = json + ", "; }
 			}
 			json = json + "]}";
@@ -274,7 +275,8 @@ public class ReservationController {
 			String json = "{\"list\":[";
 			for(int i = 0; i < list.size(); i++) {
 				json = json + "{\"lname" + "\":" + "\"" + list.get(i).getLname() + "\",";
-				json = json + "\"corder" + "\":" + "\"" + list.get(i).getCorder() + "\"}";
+				//json = json + "\"ts_id" + "\":" + "\"" + list.get(i).getTHEATER_SCHEDULE_ID() + "\",";
+				json = json + "\"corder2" + "\":" + "\"" + list.get(i).getCorder2() + "\"}";
 				if(i < list.size() - 1) { json = json + ", "; }
 			}
 			json = json + "]}";
