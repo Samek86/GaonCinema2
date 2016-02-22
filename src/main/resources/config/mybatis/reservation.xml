@@ -36,7 +36,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY T.CORDER
 	</select>
 	
-	<!-- 영화관 지역 가져오기 -->
+	<!-- 영화관 지역 가져오기(도시) -->
+	<select id="selectTheaterLnameAll" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
+		SELECT DISTINCT T.LNAME, T.CORDER 
+		FROM GC_THEATER_SCHEDULE TS 
+		INNER JOIN GC_THEATER T 
+		ON TS.THEATER_ID = T.THEATER_ID
+		WHERE T.CNAME = #{cname} 
+		ORDER BY T.LNAME
+	</select>
+	
+	<!-- 영화관 지역 가져오기(영화 AND 도시) -->
 	<select id="selectTheaterLname" resultType="com.gaon.cinema.reservation.ReservationShowDTO" parameterType="com.gaon.cinema.reservation.ReservationShowDTO">
 		SELECT DISTINCT T.LNAME, T.CORDER 
 		FROM GC_THEATER_SCHEDULE TS 
@@ -57,7 +67,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM GC_THEATER_SCHEDULE TS 
 		INNER JOIN GC_THEATER T 
 		ON TS.THEATER_ID = T.THEATER_ID 
-		WHERE TS.MOVIE_ID = #{movie_id} OR T.CNAME = #{cname} OR T.LNAME = #{lname} 
+		WHERE TS.MOVIE_ID = #{movie_id} AND T.CNAME = #{cname} AND T.LNAME = #{lname} 
 		ORDER BY MSTARTDATE
 	</select>
 	

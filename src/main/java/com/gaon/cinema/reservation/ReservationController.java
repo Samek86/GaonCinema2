@@ -240,6 +240,28 @@ public class ReservationController {
 	}
 	
 	/* 영화관 지역 이름 가져오기(도시) */
+	@RequestMapping(value = "/reservationSelectTheaterLnameAll.do", method = RequestMethod.GET)
+	public void reservationSelectTheaterLnameAll(HttpServletResponse response, ReservationShowDTO dto) {
+		try {
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			
+			List<ReservationShowDTO> list = dao.dbSelectTheaterLnameAll(dto);
+			/* JSON 시작 */
+			String json = "{\"list\":[";
+			for(int i = 0; i < list.size(); i++) {
+				json = json + "{\"lname" + "\":" + "\"" + list.get(i).getLname() + "\",";
+				json = json + "\"corder" + "\":" + "\"" + list.get(i).getCorder() + "\"}";
+				if(i < list.size() - 1) { json = json + ", "; }
+			}
+			json = json + "]}";
+			/* JSON 끝 */
+			out.print(json);
+		} catch(Exception e) { e.printStackTrace(); }
+	}
+	
+	/* 영화관 지역 이름 가져오기(영화 AND 도시) */
 	@RequestMapping(value = "/reservationSelectTheaterLname.do", method = RequestMethod.GET)
 	public void reservationSelectTheaterLname(HttpServletResponse response, ReservationShowDTO dto) {
 		try {

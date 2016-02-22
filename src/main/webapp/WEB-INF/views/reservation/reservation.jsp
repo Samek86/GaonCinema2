@@ -42,7 +42,7 @@
 		});
 	}
 	
-	/* 영화관 전체 클릭시 */
+	/* 영화관 전체 클릭시(도시) */
 	function selectTheaterCnameAll() {
 		this.movie_id = 0;
 		this.name_k = "";
@@ -62,7 +62,26 @@
 				}
 				strHTML = strHTML + "</ul>";
 				$('.theater_city_list').html(strHTML);
-				selectTheaterLname(data.list[0].cname);
+				selectTheaterLnameAll(data.list[0].cname);
+			},
+			error: function(data) { alert("error : " + data) }
+		});
+	}
+	
+	/* 영화관 전체 클릭시(지역) */
+	function selectTheaterLnameAll(cname) {
+		$.ajax({
+			url: "reservationSelectTheaterLnameAll.do",
+			data: "cname=" + cname,
+			dataType: "json",
+			type: "GET",
+			success: function(data) {
+				var strHTML = "<ul>";
+				for(i = 0; i < data.list.length; i++) {
+					strHTML = strHTML + "<li><a href='#'  onclick=theaterLnameClick('"+ data.list[i].lname +"')>" + data.list[i].lname + "</a></li>";
+				}
+				strHTML = strHTML + "</ul>";
+				$('.theater_location_list').html(strHTML);
 			},
 			error: function(data) { alert("error : " + data) }
 		});
@@ -99,7 +118,7 @@
 		this.name_k = name_k;
 		this.age = age;
 		selectTheaterCname(movie_id);
-		selectDate(movie_id, "", "");
+		selectDate(this.movie_id, this.cname, this.lname);
 		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
 		$('[class^="movieid"]').removeClass('selected');
 		$('.movieid'+movie_id).addClass('selected');
@@ -112,7 +131,7 @@
 		this.corder = corder;
 		selectTheaterLname(cname);
 		selectMovieNameAge(cname, "", "");
-		selectDate(0, cname, "");
+		selectDate(this.movie_id, this.cname, this.lname);
 		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
 		$('.movieid'+movie_id).addClass('selected');
 		$('[class^="theaterid"]').removeClass('selected');
@@ -124,7 +143,7 @@
 		this.lname = lname;
 		THEATER_SCHEDULE_ID = ts_id;
 		selectMovieNameAge("", lname, "");
-		selectDate(0, "", lname);
+		selectDate(this.movie_id, this.cname, this.lname);
 		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
 		$('.movieid'+movie_id).addClass('selected');
 		$('[class^="theaterid"]').removeClass('selected');
@@ -189,7 +208,7 @@
 				if(data.list.length == 0) {
 					selectTheaterLname("");
 				} else {
-					selectTheaterLname(data.list[0].cname);
+					selectTheaterLname(cname);
 				}
 				$('[class^="theaterid"]').removeClass('selected');
 				$('.theaterid'+corder).addClass('selected');
