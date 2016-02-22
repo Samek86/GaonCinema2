@@ -477,6 +477,14 @@ body{
     transition : all 0.3s;
 }
 
+#header #idName::-webkit-input-placeholder,
+ #header #idEmail::-webkit-input-placeholder,
+  #header #pwId::-webkit-input-placeholder,
+   #header #pwName::-webkit-input-placeholder,
+#header #pwEmail::-webkit-input-placeholder{
+    color : #888;
+}
+
 #header #idName:hover, #header #idEmail:hover, #header #pwId:hover, #header #pwName:hover, #header #pwEmail:hover{
 	border-color: #017467;
 }

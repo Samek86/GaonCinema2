@@ -44,7 +44,9 @@ function starID(id, Num){
 	NowUser = id;
 	starNum = Num;
 }
-
+$(document).ready(function(){ 
+	$('.endeventpage').hide(); 
+});
 $(document).ready(function(){ 
     $('.nowevent').click(function(){
             $('.endeventpage').hide();     

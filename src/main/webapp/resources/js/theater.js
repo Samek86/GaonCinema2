@@ -11,11 +11,11 @@ $(function() {
 			selectLname(cname);
 			selectIntroByCname(cname);
 			$('.location_menu').show();
-			$('html, body').animate({scrollTop:500}, 0.1);
+			$('html, body').animate({scrollTop:500}, 500);
 		} else if(cname == null && lname != null) { //지역 클릭
 			selectIntroByLname(lname);
 			$('html, body').scrollTop(500);
-			$('html, body').animate({scrollTop:500}, 0.1);
+			$('html, body').animate({scrollTop:500}, 500);
 		}
 	}
 	
