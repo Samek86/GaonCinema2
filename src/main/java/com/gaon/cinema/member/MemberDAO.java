@@ -35,18 +35,15 @@ public class MemberDAO {
 
 	public int dbDelete(MemberDTO dto) {
 		int ok = temp.delete("member.delete", dto);
-		logger.info("ok="+ok);
 		return ok;
 	}
 
 	public int idSerch(MemberDTO dto) {
-		// TODO Auto-generated method stub
 		int count = temp.selectOne("member.searchidCount", dto);
 		return count;
 	}
 
 	public int pwSerch(String id, String name, String email) {
-		// TODO Auto-generated method stub
 		int count=4;
 		try {
 		MemberDTO dto = temp.selectOne("member.searchpwCount", id);
@@ -66,12 +63,10 @@ public class MemberDAO {
 
 	public MemberDTO idSelect(MemberDTO dto) {
 		dto = temp.selectOne("member.idSelect", dto);
-		// TODO Auto-generated method stub
 		return dto;
 	}
 	public MemberDTO pwSelect(MemberDTO dto) {
 		dto = temp.selectOne("member.pwSelect", dto);
-		// TODO Auto-generated method stub
 		return dto;
 	}
 }

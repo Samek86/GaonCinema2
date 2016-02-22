@@ -38,7 +38,6 @@ public class QnaController {
 	//--리스트
 	@RequestMapping(value = "/qnaList.do", method = RequestMethod.GET)
 	public ModelAndView qnaList(QnaDTO dto, HttpServletRequest request) throws ServletException, IOException{
-		System.out.println("qnaList시작");
 		ModelAndView mav = new ModelAndView();		/* 검색 처리 */
 		String skey =  dto.getSkey() == null ? "title" : dto.getSkey();
 		String sval = dto.getSval() == null ? "" : dto.getSval();
@@ -47,9 +46,6 @@ public class QnaController {
 		dto.setSkey(skey);
 		dto.setSval(sval);
 		/* 검색 처리 끝 */
-		
-		System.out.println("skey = " + dto.getSkey());
-		System.out.println("sval = " + dto.getSval());
 		
 		/* 페이징 처리 */
 		int total = dao.dbCountAll();	//전체 글의 개수
@@ -120,9 +116,6 @@ public class QnaController {
 	@RequestMapping(value = "/qnaInsert.do", method = RequestMethod.GET)
 	public ModelAndView qnaInsert(QnaDTO dto) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("userid = " + dto.getUserid());
-		System.out.println("title = " + dto.getTitle());
-		System.out.println("contents = " + dto.getContents());
 		dao.dbInsert(dto);
 		mav.setViewName("redirect:/qnaList.do");
 		return mav;

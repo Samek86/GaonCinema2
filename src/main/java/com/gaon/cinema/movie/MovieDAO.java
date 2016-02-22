@@ -26,9 +26,6 @@ public class MovieDAO {
 	SimpleDateFormat trans = new SimpleDateFormat("yyyyMMdd");
 	String today = trans.format(javatoday); //오늘 날짜를 스트링으로 변환 
 	
-	/*String bgn = '20150907';
-	Date bgnday = trans.parse(bgn);*/
-	
 	public List<MovieDTO> dbNowMovie(){
 		List<MovieDTO> list = sql.selectList("movie.nowmovie", today);
 		return list;
@@ -119,27 +116,15 @@ public class MovieDAO {
 		MovieDTO spend = new MovieDTO();
 		if(!likelist.equals("empty/")&&!likelist.equals("empty")){
 			while(!likelist.equals("empty/")&&!likelist.equals("empty")){
-				System.out.println(likelist);
 				String MOVIE_ID = likelist.substring(likelist.indexOf("/")+1, likelist.indexOf("/", likelist.indexOf("/")+1));
 				spend.setToday(today);
 				spend.setMOVIE_ID(Integer.parseInt(MOVIE_ID));
 				MovieDTO dto = sql.selectOne("movie.likemovie", spend);
 				list.add(dto);
 				likelist = likelist.replaceFirst("/"+MOVIE_ID, "");
-				//likelist = likelist.replace("/"+MOVIE_ID, "");
 			}
 		}
 		return list;
 	}
 	
-	
-/*	public void dbEdit(MovieDTO dto){
-		temp.update("member.edit",dto);
-	};
-
-	public int dbDelete(MovieDTO dto) {
-		int ok = temp.delete("member.delete", dto);
-		logger.info("ok="+ok);
-		return ok;
-	}*/
 }

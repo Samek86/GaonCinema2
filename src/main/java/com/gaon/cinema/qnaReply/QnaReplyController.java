@@ -22,14 +22,7 @@ public class QnaReplyController {
 	@RequestMapping(value = "/qnaReplyInsert.do", method = RequestMethod.GET)
 	public ModelAndView qnaReplyInsert(QnaReplyDTO dto) {
 		ModelAndView mav =  new ModelAndView();	
-		
-		System.out.println(dto.getQna_id());
-		System.out.println(dto.getUserid());
-		System.out.println(dto.getContents());
-		System.out.println(dto.getWdate());
-		
 		dao.dbAddQnaReply(dto);
-		
 		mav.setViewName("redirect:/qnaDetail.do?qna_id=" + dto.getQna_id());
 		return mav;
 	}//qnaReplyInsert end 
@@ -39,9 +32,7 @@ public class QnaReplyController {
 	@RequestMapping(value = "/EditQnaReply.do", method = RequestMethod.GET)
 	public ModelAndView EditQnaReply(QnaReplyDTO dto) {
 		ModelAndView mav = new ModelAndView();	
-		
 		dao.dbEditQnaReply(dto);
-		
 		mav.setViewName("redirect:/qnaDetail.do?qna_id=" + dto.getQna_id());
 		return mav;
 	}//Edit end
@@ -50,10 +41,7 @@ public class QnaReplyController {
 	@RequestMapping(value = "/DeleteQnaReply.do", method = RequestMethod.GET)
 	public ModelAndView DeleteQnaReply(QnaReplyDTO dto) {
 		ModelAndView mav = new ModelAndView();	
-		
-		System.out.println("qna_reply_id = " + dto.getQna_reply_id());
 		dao.dbDeleteQnaReply(dto);
-		
 		mav.setViewName("redirect:/qnaDetail.do?qna_id=" + dto.getQna_id());
 		return mav;
 	}//DeleteQnaReply end

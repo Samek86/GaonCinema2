@@ -46,13 +46,6 @@ public class EventDAO {
 		dto = sql.selectOne("event.eventdetail",dto);
 		return dto;
 	}
-
-	/*
-	public MovieDTO dbEventDetail(String Event_id) {
-		
-		return null;
-	}
-	*/
 	
 	
 }
