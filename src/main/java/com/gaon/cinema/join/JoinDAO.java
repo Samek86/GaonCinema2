@@ -22,7 +22,6 @@ public class JoinDAO {
 	public int idSearch(String id) {
 		int count;
 		count = temp.selectOne("join.search",id);
-		logger.info("count="+count);
 		return count;
 	}
 }

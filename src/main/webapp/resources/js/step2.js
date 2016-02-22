@@ -97,9 +97,6 @@ function removeall(){
 
 function remaincheck() {
 	remain = inwon-checknum;
-	console.log("remain : " +remain)
-	console.log("inwon : " +inwon)
-	console.log("checknum : " +checknum)
 	seatnum = parseInt($('.seat-setting input[name="radio"]:checked').val());
 	if(remain>0){
 		for (var d = 1; d <= 4; d++) {
@@ -111,13 +108,10 @@ function remaincheck() {
 				$('.seat-setting input[class="radio'+d2+'"]').prop("disabled", true);
 			};
 			$('.seat-setting input[class="radio'+remain+'"]').prop("checked", true);
-			console.log(remain);
 		}else if(remain==5||remain==6){
 			$('.seat-setting input[class="radio3"]').prop("checked",true);
-			console.log(remain);
 		}else if(remain==7||remain==8){
 			$('.seat-setting input[class="radio4"]').prop("checked",true);
-			console.log(remain);
 		}
 	}else{
 		for (var c = 1; c <= 4; c++) {
@@ -204,10 +198,8 @@ function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_
 	CNAME = s1_CNAME; //도시이름 서울
 	LNAME = s1_LNAME; //지역이름 신촌
 	TNAME = s1_TNAME; //1관
-	//SEATSTYLE = s1_SEATSTYLE; //영화관 스타일
 	REVDATE = s1_REVDATE; //예약날짜
 	MSTARTHOUR = s1_MSTARTHOUR; //예약시간
-	//TTYPE = s1_TTYPE;
 	MENDHOUR = s1_MENDHOUR;
 	
 	$(".step2_right .s2_loc").html(CNAME+"&nbsp;"+LNAME+"&nbsp;"+TNAME);
@@ -238,7 +230,7 @@ function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_
 			});
 		},
 		error: function(data) {
-			//console.log(data);
+			console.log(data);
 		}
 	});
 	
@@ -280,9 +272,7 @@ function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_
 						$(".step2 .seat"+seatName[si]).addClass("selected");
 						$(".step2 .seat"+seatName[si]).attr("rev", "ok");
 					};
-					console.log(data);
 					
-					/*===============*/
 					$(document).ready(function(){ 
 						$(".seat-all span[class*='seat']").mouseover(function(){
 							seatnum = parseInt($(':radio[name="radio"]:checked').val());
@@ -395,7 +385,6 @@ function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_
 									var seatrownum = parseInt($(this).attr("class").substring(5),10);
 									if(seatrownum+seatnum-1>row){
 										if($(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("ckeck")=="ok"){
-											//console.log(seatrownum+i-(seatrownum+seatnum-1-row));
 											$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).addClass("select");
 											$(".seat"+seatcol+(seatrownum+i-(seatrownum+seatnum-1-row))).attr("rev", "ok");
 											++checknum;
@@ -403,7 +392,6 @@ function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_
 										}else{return;}
 									}else {
 										if($(".seat"+seatcol+(seatrownum+i)).attr("ckeck")=="ok"){
-											//console.log(seatcol+(seatrownum+i));
 											$(".seat"+seatcol+(seatrownum+i)).addClass("select");
 											$(".seat"+seatcol+(seatrownum+i)).attr("rev", "ok");
 											++checknum;
@@ -423,25 +411,17 @@ function step2popup(s1_USER_ID, s1_MOVIE_ID, s1_THEATER_ID, s1_THEATER_SCHEDULE_
 					}else if(inwon!=0){alert("모든인원만큼 체크하셨습니다")
 					}else{alert("인원부터 선택해주세요")}
 					});
-					/*===============*/
 				},
 				error: function(data) {
 					console.log("error : "+data);
 				}
 			});
 			
-			console.log(data);
 		},
 		error: function(data) {
 			console.log("error : "+data);
 		}
 	});
-	
-	//var rev1 = revstring.charCodeAt(1);
-	//var a = String.fromCharCode(65);
-	
-	/* 좌석 마우스오버시 클래스 추가 */
-
 	
 }; //step2popup end 
 

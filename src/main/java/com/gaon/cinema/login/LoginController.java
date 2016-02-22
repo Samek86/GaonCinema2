@@ -42,7 +42,6 @@ public class LoginController {
 				session.setAttribute("Nowname", dto.getNAME());
 				session.setAttribute("Nowpoint", dto.getPoint());
 				session.setAttribute("Nowimg", dto.getImg_file());
-				System.out.println(dto.getImg_file());
 				session.setAttribute("Nowpath", path);
 				out.print("{\"check\": \""+ count + "\"}");
 			}else{

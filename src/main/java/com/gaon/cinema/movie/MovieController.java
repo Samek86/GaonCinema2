@@ -138,7 +138,6 @@ public class MovieController {
 		String NowUser = request.getParameter("NowUser");
 		List<MovieDTO> likeMovie = dao.dbLikeMovie(NowUser);
 		if(!likeMovie.isEmpty()){emp = "false";}
-		//mav.addObject("moviepage", "nowmovie");
 		mav.addObject("emp", emp);
 		mav.addObject("likeMovie", likeMovie);
 		mav.addObject("page", "likeMovie");

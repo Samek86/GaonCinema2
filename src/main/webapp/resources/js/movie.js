@@ -44,7 +44,6 @@ function moviedetail(MOVIE_ID, id, nownext) {
 		dataType: "json",
 		type: "GET",
 		success: function(data) { 
-				//console.log(decode(data.NAME_K) +decode(data.NAME_E));
 				//리셋 ↓
 				$('#detailstar').rating("clear");
 				$("#detailstar").rating("refresh", {disabled: false});
@@ -104,7 +103,6 @@ function moviedetail(MOVIE_ID, id, nownext) {
 				$(".detailpopup #jssor_1 img").eq(12).attr('src', './resources/img/movie/'+decode(data.STEEL6));
 				$(".detailpopup #jssor_1 img").eq(13).attr('src', './resources/img/movie/'+decode(data.STEEL7));
 					
-				//$(".detailpopup .youtube_wrap").html('<iframe width="920" height="518" src="'+decode(data.MOVIE)+'?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>')
 				$(".detailpopup .youtube_wrap iframe").attr("src", decode(data.MOVIE)+"?rel=0&amp;controls=0&amp;showinfo=0");
 				
 				
@@ -115,7 +113,6 @@ function moviedetail(MOVIE_ID, id, nownext) {
 					dataType: "json",
 					type: "GET",
 					success: function(data) { 
-							//console.log(data);
 							if(data.check == 1){
 								$("#detailstar").rating("refresh", {disabled: true});
 								$('#detailstar').rating("clear");
@@ -124,7 +121,7 @@ function moviedetail(MOVIE_ID, id, nownext) {
 							}
 					},
 					error: function(data) {
-						//console.log(data);
+						console.log(data);
 					}
 				});
 				
@@ -134,19 +131,13 @@ function moviedetail(MOVIE_ID, id, nownext) {
 					dataType: "json",
 					type: "GET",
 					success: function(data) { 
-							//console.log(data);
 							if(data.check == 1){
 								$(".detailpopup .likebt").text("찜했음");
-								/*$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"});
-								$(".detailpopup .likebt").hover(function(){
-									$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})}, function(){
-									$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})
-								});*/
 								return;
 							}
 					},
 					error: function(data) {
-						//console.log(data);
+						console.log(data);
 					}
 				});
 				
@@ -160,7 +151,7 @@ function moviedetail(MOVIE_ID, id, nownext) {
 				
 		},
 		error: function(data) {
-			//console.log(data);
+			console.log(data);
 		}
 	});
 	
@@ -184,7 +175,6 @@ $(document).ready(function(){
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					//console.log(data);
 					if(data.check=="1"){
 						alert("이미 참여하셨습니다");
 						$("#detailstar").rating("refresh", {disabled: true});
@@ -207,13 +197,13 @@ $(document).ready(function(){
 										$("#detailstar").rating("refresh", {disabled: true});
 								},
 								error: function(data) {
-									//console.log(data);
+									console.log(data);
 								}
 							});
 					}
 			},
 			error: function(data) {
-				//console.log(data);
+				console.log(data);
 			}
 		});
 	   
@@ -233,7 +223,6 @@ function likeplus(){
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					//console.log(data);
 					if(data.check=="1"){
 						
 						$.ajax({
@@ -244,15 +233,10 @@ function likeplus(){
 							success: function(data) {
 								if(data.check=="1"){
 									$(".detailpopup .likebt").text("찜하기");
-									/*$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"});
-									$(".detailpopup .likebt").hover(function(){
-										$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})}, function(){
-										$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})
-									});*/
 								}
 							},
 							error: function(data) {
-								//console.log(data);
+								console.log(data);
 							}
 						});
 						
@@ -268,21 +252,16 @@ function likeplus(){
 								success: function(data) {
 									if(data.check=="1"){
 										$(".detailpopup .likebt").text("찜했음");
-										/*$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"});
-										$(".detailpopup .likebt").hover(function(){
-											$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})}, function(){
-											$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})
-										});*/
 									}
 								},
 								error: function(data) {
-									//console.log(data);
+									console.log(data);
 								}
 							});
 					}
 			},
 			error: function(data) {
-				//console.log(data);
+				console.log(data);
 			}
 		});
 	  };
@@ -299,7 +278,6 @@ function poster_likeplus(MOVIE_ID, NowUser){
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					//console.log(data);
 					if(data.check=="1"){
 						
 						$.ajax({
@@ -310,15 +288,10 @@ function poster_likeplus(MOVIE_ID, NowUser){
 							success: function(data) {
 								if(data.check=="1"){
 									$(".detailpopup .likebt").text("찜하기");
-									/*$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"});
-									$(".detailpopup .likebt").hover(function(){
-										$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})}, function(){
-										$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})
-									});*/
 								}
 							},
 							error: function(data) {
-								//console.log(data);
+								console.log(data);
 							}
 						});
 						g_alert("찜에서 제외하였습니다");
@@ -334,11 +307,6 @@ function poster_likeplus(MOVIE_ID, NowUser){
 									if(data.check=="1"){
 										g_alert("찜하셨습니다");
 										$(".detailpopup .likebt").text("찜했음");
-										/*$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"});
-										$(".detailpopup .likebt").hover(function(){
-											$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})}, function(){
-											$(".detailpopup .likebt").css({"color": "#fff", "background-color": "#E08F23", "cursor":"no-drop"})
-										});*/
 									}
 								},
 								error: function(data) {
@@ -360,15 +328,12 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 	NowUser = userid;
 	AVG = poster_avg;
 	AVG_NUM = poster_avgNum;
-	//console.log(NowUser+" , "+starNum);
 	
 	 if(nownext=='now'){
 		$('.movieNum_'+MOVIE_ID+' .poster_star').rating("clear");
 		$('.movieNum_'+MOVIE_ID+' .poster-wrap .rating-container').css("display", "block");
 	 }
-	 //$('#mainmovie .movieNum_'+MOVIE_ID+' .poster_like').css({"margin-top": "-45px"});
 	 $('.movieNum_'+MOVIE_ID+' .poster_like').css({"display": "block"});
-	 //$('.movieNum_'+MOVIE_ID+' .poster_star').rating("clear");
 	 if(NowUser==null||NowUser==""){return;};
 	 $.ajax({
 			url: "RateCheck.do",
@@ -376,65 +341,26 @@ function posterhover(MOVIE_ID, userid, poster_avg, poster_avgNum, nownext) {
 			dataType: "json",
 			type: "GET",
 			success: function(data) { 
-					//console.log(data);
 					if(data.check=="1"){
-						//$('.movieNum_'+MOVIE_ID+' .poster-wrap div').eq(0).css("margin-top", "-15px");
-						//$('.movieNum_'+MOVIE_ID+' .poster-wrap div').eq(0).html('<button type="button" class="btn btn-warning" disabled="disabled">이미 참여하셨습니다</button>');
-						//$('.movieNum_'+MOVIE_ID+' .poster-wrap .btn').show();
-						//$('.movieNum_'+MOVIE_ID+' .poster_like').css("margin-top", "-45px");
 						$('.movieNum_'+MOVIE_ID+' .poster_star').rating("refresh", {disabled: true});
 						$('.movieNum_'+MOVIE_ID+' .poster_star').rating("clear");
 						return;
 					}
 			},
 			error: function(data) {
-				//console.log(data);
+				console.log(data);
 			}
 		});
-	 $.ajax({
-			url: "LikeCheck.do",
-			data: 'NowUser='+NowUser+'&MOVIE_ID=' + starNum,
-			dataType: "json",
-			type: "GET",
-			success: function(data) { 
-					//console.log(data);
-					if(data.check=="1"){
-						//$('.movieNum_'+starNum+' .poster_like .likebt').css("cursor", "no-drop");
-						//$('.movieNum_'+starNum+' .poster_like .likebt:hover').css({"background-color": "#D6BA8A", "border-color": "#D6BA8A"});
-						return;
-					}
-					else{
-						//$('.movieNum_'+starNum+' .poster_like .likebt').css("cursor", "no-drop");
-						//$('.movieNum_'+starNum+' .poster_like .likebt:hover').css({"background-color": "#E08F23", "border-color": "#E08F23"});
-						return;
-					}
-			},
-			error: function(data) {
-				//console.log(data);
-			}
-		});
-	 
-	 
 }
 
 function posterleave(MOVIE_ID) {
-	
-	//console.log('.movieNum_'+MOVIE_ID+' .poster-wrap .rating-container');
 	$('#movie .poster-wrap div').eq(0).css("margin-top", "0px");
-	//$('#mainmovie .movieNum_'+MOVIE_ID+' .poster_like').css({"margin-top": "-80px"});
-	//$('.movieNum_'+MOVIE_ID+' .poster_like').css("margin-top", "-45px");
-		//$('.movieNum_'+MOVIE_ID+' .poster-wrap div').eq(0).css("margin-top", "0px");
-		//$('.movieNum_'+MOVIE_ID+' .poster_like').css({"display": "none"});
-		//$('.movieNum_'+MOVIE_ID+' .poster-wrap .btn').hide();
-		//$('.movieNum_'+MOVIE_ID+' .poster-wrap .rating-container').css("display", "none");
-	//$('.poster-wrap .btn').hide();
 	$('.poster_like').css({"display": "none"});
 	$('.poster-wrap .rating-container').css("display", "none");
 }
 
 $(document).ready(function(){ 
 	$(".poster_star").on("rating.change", function(event, value, caption) {
-		//console.log(NowUser+" , "+starNum);
 		if(NowUser=='null'||NowUser==''){
 			$('.movieNum_'+starNum+' .poster_star').rating("clear");
 		   g_alert("로그인 후에 참여해주세요");
@@ -459,9 +385,6 @@ $(document).ready(function(){
 								dataType: "json",
 								type: "GET",
 								success: function(data) { 
-										//$(".detailpopup .d_AVG").html(data.AVG);
-										//$(".detailpopup .d_AVG_NUM").html('('+data.AVG_NUM+'명 참여)');
-										//$(".detailpopup .star-wrap").css("width", 13.1*data.AVG);
 										$(".nowmoviepage .movieNum_"+starNum+" .AVG").text('평점 '+data.AVG);
 										$(".movieNum_"+starNum+" .star-wrap").css("width", 13.1*data.AVG);
 										$('.movieNum_'+MOVIE_ID+' .poster_star').rating("refresh", {disabled: true});
@@ -469,14 +392,14 @@ $(document).ready(function(){
 										return;
 								},
 								error: function(data) {
-									//console.log(data);
+									console.log(data);
 								}
 							});
 						 g_alert("평점 참여에 감사합니다");
 					}
 			},
 			error: function(data) {
-				//console.log(data);
+				console.log(data);
 			}
 		});
 	   

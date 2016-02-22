@@ -69,7 +69,6 @@ public class MemberController {
 		dto.setUserid(id);
 		dto=dao.dbmember(dto);
 		
-		System.out.println(id);
 		String year = new SimpleDateFormat("yyyy").format(dto.getBirth());
 		String month = new SimpleDateFormat("MM").format(dto.getBirth());
 		String day = new SimpleDateFormat("dd").format(dto.getBirth());
@@ -118,7 +117,6 @@ public class MemberController {
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
-		System.out.println(year + "-" + month + "-" + day);
 		java.util.Date tempDate;
 		tempDate = sdf.parse(year + "-" + month + "-" + day);
 		java.sql.Date date = new java.sql.Date(tempDate.getTime());

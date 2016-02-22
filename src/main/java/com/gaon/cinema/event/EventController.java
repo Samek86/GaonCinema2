@@ -61,48 +61,7 @@ public class EventController {
 		sb.append("\"poster\": \"" + dto.getPoster() + "\", ");
 		sb.append("\"img\": \"" + dto.getImg() + "\" ");
 		sb.append("}");
-		System.out.println(sb);
 		out.print(sb.toString());
 	}
 	
-	
-	/*	
-	@RequestMapping(value = "/movieDetail.do", method = RequestMethod.GET)
-	public void movieDetail(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException{
-		SimpleDateFormat trans = new SimpleDateFormat("yyyy.MM.dd");
-		PrintWriter out = response.getWriter();
-		String Event_id = request.getParameter("MOVIE_ID");
-		MovieDTO m_Detail = dao.dbEventDetail(Event_id);
-		StringBuilder sb = new StringBuilder();
-		sb.append("{");
-		sb.append("\"MOVIE_ID\": \""+ m_Detail.getMOVIE_ID() + "\", "); 
-		sb.append("\"NAME_K\": \""+ URLEncoder.encode(m_Detail.getNAME_K() , "UTF-8") + "\", "); 
-		sb.append("\"NAME_E\": \""+ URLEncoder.encode(m_Detail.getNAME_E() , "UTF-8") + "\", "); 
-		sb.append("\"AGE\": \""+ URLEncoder.encode(m_Detail.getAGE() , "UTF-8") + "\", ");		 
-		sb.append("\"AGEtext\": \""+ URLEncoder.encode(m_Detail.getAGEtext() , "UTF-8") + "\", ");
-		sb.append("\"D_DAY\": \""+ trans.format(m_Detail.getD_DAY()) + "\", ");
-		sb.append("\"DIRECTOR\": \""+ URLEncoder.encode(m_Detail.getDIRECTOR() , "UTF-8") + "\", ");
-		sb.append("\"ACTOR\": \""+ URLEncoder.encode(m_Detail.getACTOR() , "UTF-8") + "\", ");
-		sb.append("\"GENRE\": \""+ URLEncoder.encode(m_Detail.getGENRE() , "UTF-8") + "\", ");
-		sb.append("\"PAGE\": \""+ URLEncoder.encode(m_Detail.getPAGE() , "UTF-8") + "\", ");
-		sb.append("\"AVG\": \""+ m_Detail.getAVG()+ "\", ");
-		sb.append("\"AVG_NUM\": \""+ m_Detail.getAVG_NUM() + "\", ");
-		sb.append("\"CONTENT\": \""+ URLEncoder.encode(m_Detail.getCONTENT() , "UTF-8") + "\", ");
-		sb.append("\"POSTER\": \""+ URLEncoder.encode(m_Detail.getPOSTER() , "UTF-8") + "\", ");
-		sb.append("\"MOVIE\": \""+ URLEncoder.encode(m_Detail.getMOVIE() , "UTF-8") + "\", ");
-		sb.append("\"STEEL1\": \""+ URLEncoder.encode(m_Detail.getSTEEL1() , "UTF-8") + "\", ");
-		sb.append("\"STEEL2\": \""+ URLEncoder.encode(m_Detail.getSTEEL2() , "UTF-8") + "\", ");
-		sb.append("\"STEEL3\": \""+ URLEncoder.encode(m_Detail.getSTEEL3() , "UTF-8") + "\", ");
-		sb.append("\"STEEL4\": \""+ URLEncoder.encode(m_Detail.getSTEEL4() , "UTF-8") + "\", ");
-		sb.append("\"STEEL5\": \""+ URLEncoder.encode(m_Detail.getSTEEL5() , "UTF-8") + "\", ");
-		sb.append("\"STEEL6\": \""+ URLEncoder.encode(m_Detail.getSTEEL6() , "UTF-8") + "\", ");
-		sb.append("\"STEEL7\": \""+ URLEncoder.encode(m_Detail.getSTEEL7() , "UTF-8") + "\", ");
-		sb.append("\"R_TIME\": \""+ m_Detail.getR_TIME() + "\", ");
-		sb.append("\"STARTDATE\": \""+ trans.format(m_Detail.getSTARTDATE()) + "\", ");
-		sb.append("\"ENDDATE\": \""+ trans.format(m_Detail.getENDDATE()) + "\", ");
-		sb.append("\"dday\": \""+ m_Detail.getDday() + "\" ");
-		sb.append("}");
-		out.print(sb.toString());
-	}
-	*/
 }

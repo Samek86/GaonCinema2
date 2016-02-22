@@ -61,7 +61,6 @@ var idchecked = false;
 		
 		for(var i = 0; i < length; i++){      
 		    if(document.forms[0][i].value == null || document.forms[0][i].value == ""){	
-		    		//html 내에 기술된 첫번째 form에서 i+1번째 요소 
 		        g_alert(document.forms[0][i].placeholder + "을/를 입력하세요."); 	 
 		        document.forms[0][i].focus();           
 		        return false;		 
@@ -141,7 +140,6 @@ var idchecked = false;
 		});
 	
 	function pass(){
-		//비밀번호 길이 체크(4~8자 까지 허용)
 		if (insert.userpw.value.length<4 || insert.userpw.value.length>8){
 			 document.getElementById("ch_pw1").innerHTML = "4~8자리를 입력해주세요.";
 			 insert.userpw.value="";

@@ -51,7 +51,6 @@ public class JoinController {
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
-		//System.out.println(year + "-" + month + "-" + day);
 		java.util.Date tempDate;
 		tempDate = sdf.parse(year + "-" + month + "-" + day);
 		java.sql.Date date = new java.sql.Date(tempDate.getTime());
@@ -65,7 +64,6 @@ public class JoinController {
 		ok=dao.dbjoin(dto);
 		if(ok==1){
 			session.setAttribute("ok","회원가입 축하드립니다."+ "<br>" +"2000포인트 지급되었습니다.");
-			System.out.println(path);
 			mav.setViewName("redirect:/main.do");
 			return mav;
 		}
@@ -82,7 +80,6 @@ public class JoinController {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
-			logger.info("search.do");
 			String id = request.getParameter("loginID");
 			int count = dao.idSearch(id);
 			if(count == 1){

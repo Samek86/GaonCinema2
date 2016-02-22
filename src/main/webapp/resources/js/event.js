@@ -5,8 +5,6 @@ function eventdetail(event_id){
 		dataType: "json",
 		type: "GET",
 		success: function(data){
-			console.log(data);
-			//alert("성공"+data.img+"\n"+data.e_start);
 			$(".eventpopup .e_title").html("<h3>"+data.title+"</h3>");
 			$(".eventpopup .event_id").html("No."+data.event_id);
 			$(".eventpopup .start").html(data.e_start+" ~ "+data.e_end);

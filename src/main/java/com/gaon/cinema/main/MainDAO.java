@@ -26,11 +26,7 @@ public class MainDAO {
 	SimpleDateFormat trans = new SimpleDateFormat("yyyyMMdd");
 	String today = trans.format(javatoday); //오늘 날짜를 스트링으로 변환 
 	
-	/*String bgn = '20150907';
-	Date bgnday = trans.parse(bgn);*/
-	
 	public List<MainDTO> dbNowMovie(){
-		System.out.println(today);
 		List<MainDTO> list = sql.selectList("main.nowmovie", today);
 		return list;
 	}
@@ -47,14 +43,4 @@ public class MainDAO {
 		MainDTO dto2 = sql.selectOne("main.movieDetail", dto);
 		return dto2;
 	}
-	
-/*	public void dbEdit(MovieDTO dto){
-		temp.update("member.edit",dto);
-	};
-
-	public int dbDelete(MovieDTO dto) {
-		int ok = temp.delete("member.delete", dto);
-		logger.info("ok="+ok);
-		return ok;
-	}*/
 }
