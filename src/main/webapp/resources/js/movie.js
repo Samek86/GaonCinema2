@@ -87,7 +87,7 @@ function moviedetail(MOVIE_ID, id, nownext) {
 				$(".detailpopup .d_middle").html("<strong>줄거리</strong> :  "+decode(data.CONTENT));
 				
 				//$(".detailpopup .like button").attr("onclick", "likeplus("+data.MOVIE_ID+")");
-				$(".detailpopup .d_revbt").attr("href", "moviereservation.do?movie_id="+data.MOVIE_ID+"&name_k="+decode(data.NAME_K)+"&age="+decode(data.AGE));
+				$(".detailpopup .d_revbt").attr("onclick", "revmove('"+NowUser+"', '"+data.MOVIE_ID+"', '"+decode(data.NAME_K)+"', '"+decode(data.AGE)+"')");
 		
 				$(".detailpopup #jssor_1 img").eq(0).attr('src', './resources/img/movie/'+decode(data.STEEL1));
 				$(".detailpopup #jssor_1 img").eq(1).attr('src', './resources/img/movie/'+decode(data.STEEL2));
@@ -485,4 +485,10 @@ $(document).ready(function(){
 	
 });
 
-
+function revmove(userid, movie_id, name_k, age) {
+	if(userid==""){
+		alert("로그인부터 해주세요");
+		return false;
+	}else{location.replace("moviereservation.do?movie_id="+userid+"&name_k="+name_k+"&age="+age);}
+	
+}

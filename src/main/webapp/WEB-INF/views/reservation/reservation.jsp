@@ -103,6 +103,7 @@
 		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
 		$('[class^="movieid"]').removeClass('selected');
 		$('.movieid'+movie_id).addClass('selected');
+		console.log('.movieid'+movie_id);
 	}
 	
 	/* 도시 클릭시 */
@@ -285,11 +286,6 @@
 </script>
 <!-- <img class="bg" src="./resources/img/theaterbg.png"> -->
 
-<c:if test="${not empty movie_id}">
-<script>
-movieClick('${movie_id}', '${name_k}', '${age}');
-</script>
-</c:if>
 
 <div id="reservation">
 	<div class="steps">
@@ -466,3 +462,10 @@ movieClick('${movie_id}', '${name_k}', '${age}');
 </div>
 </div>
 
+<c:if test="${not empty movie_id}">
+<script>
+window.onload = function(){
+movieClick("${movie_id}", "${name_k}", "${age}");
+};
+</script>
+</c:if>

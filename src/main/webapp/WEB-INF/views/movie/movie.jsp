@@ -63,7 +63,7 @@ $(document).ready(function(){
 			<c:if test="${bean.rn > 5}"> <span class="rank_empty"></span> </c:if>
 			<div class="AVG-wrap"><div class="AVG">평점 ${bean.AVG }</div><div class="star-empty"><span class="star-wrap"  style="width:${13.1*bean.AVG} ;"><span class="star"></span></span></div></div>
 			<div class="title-wrap"><img class="AGE" src="./resources/img/movie/movie${bean.AGE}.png"><div class="title">${bean.NAME_K}</div></div>
-		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'now')">상세정보</button><a href="moviereservation.do?movie_id=${bean.MOVIE_ID}&name_k=${bean.NAME_K}&age=${bean.AGE}"><button class="rev">예매하기</button></a>
+		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'now')">상세정보</button><button class="rev" onclick="revmove('${NowUser}', '${bean.MOVIE_ID}', '${bean.NAME_K}', '${bean.AGE}')">예매하기</button>
 		 	</div>
 		 </li>
 		 </c:forEach>
@@ -81,7 +81,7 @@ $(document).ready(function(){
 			 <span class="rank_empty"></span>
 			<div class="AVG-wrap"><div class="AVG"><fmt:formatDate value="${bean.STARTDATE }" pattern="yyyy-MM-dd"/> </div><span class="dday">D-${bean.dday}</span></div>
 			<div class="title-wrap"><img class="AGE" src="./resources/img/movie/movie${bean.AGE }.png"><div class="title">${bean.NAME_K}</div></div>
-		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'next')">상세정보</button><a href="moviereservation.do?movie_id=${bean.MOVIE_ID}&name_k=${bean.NAME_K}&age=${bean.AGE}"><button class="rev">예매하기</button></a>
+		 	<button class="detail" onclick="moviedetail(${bean.MOVIE_ID}, '${NowUser}', 'next')">상세정보</button><button class="rev" onclick="revmove('${NowUser}', '${bean.MOVIE_ID}', '${bean.NAME_K}', '${bean.AGE}')">예매하기</button>
 		 	</div>
 		 </li>
 		 </c:forEach>
@@ -104,7 +104,7 @@ $(document).ready(function(){
 			<div class="d_rev">
 				<div class="popupstar"><div class="star-empty"><span class="star-wrap"  style="width:118;"><span class="star"></span></span></div>
 				<div class="d_AVG">7.5</div><div class="d_AVG_NUM">(10명 참여)</div></div>
-				<a class="d_revbt" type="button" href="#">예매하기</a>
+				<a class="d_revbt" type="button" href="#" onclick="">예매하기</a>
 			</div>
 			<ul class="info_wrap">
 				<li><strong>개봉일</strong> : 2016.01.28</li>
