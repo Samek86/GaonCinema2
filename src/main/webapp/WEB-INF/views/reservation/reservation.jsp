@@ -201,7 +201,7 @@
 	function selectTheaterLname(cname) {
 		$.ajax({
 			url: "reservationSelectTheaterLname.do",
-			data: "cname=" + cname,
+			data: "movie_id=" + this.movie_id + "&cname=" + cname,
 			dataType: "json",
 			type: "GET",
 			success: function(data) {

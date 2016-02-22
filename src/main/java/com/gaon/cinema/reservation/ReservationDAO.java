@@ -37,8 +37,8 @@ public class ReservationDAO {
 	}
 	
 	/* 영화관 지역 가져오기 */
-	public List<ReservationShowDTO> dbSelectTheaterLname(String cname) {
-		List<ReservationShowDTO> list = temp.selectList("reservation.selectTheaterLname", cname);
+	public List<ReservationShowDTO> dbSelectTheaterLname(ReservationShowDTO dto) {
+		List<ReservationShowDTO> list = temp.selectList("reservation.selectTheaterLname", dto);
 		return list;
 	}
 	
