@@ -80,7 +80,7 @@ insert into GC_QNA values(GC_QNA_SEQ.nextval,'좋아해줘요',
 to_date('2016/2/16'), 12);
 
 insert into GC_QNA values(GC_QNA_SEQ.nextval,'노답노잼',
-'노답생각','허허허 노잼입니다모두들 인정하시겠죠?', 
+'노답생각','허허허 노잼입니다 모두들 인정하시겠죠?', 
 to_date('2016/02/17'), 5);
 
 insert into GC_QNA values(GC_QNA_SEQ.nextval,'푸하하',
@@ -248,7 +248,7 @@ insert into GC_MEMBER values
 	(GC_MEMBER_SEQ.nextval,'admin','1234','img.jpg','관리자','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0, 'empty/', 'empty/1/');
 
 insert into GC_MEMBER values 
-	(GC_MEMBER_SEQ.nextval,'hb','1234','img.jpg','김회원','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0, 'empty/', 'empty/1/');
+	(GC_MEMBER_SEQ.nextval,'hb','1234','aaa.gif','김회원','남',sysdate,'1234' ,'12312@123123.com','가온', '시네마','가온시네마',0, 'empty/', 'empty/1/');
 	
 commit;
 
