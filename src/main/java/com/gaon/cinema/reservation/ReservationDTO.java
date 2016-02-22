@@ -12,6 +12,8 @@ public class ReservationDTO {
 	private String ttype;
 	private Date mstarthour;
 	private Date mendhour;
+	private String s_mstarthour;
+	private String s_mendhour;
 	private String name_k;
 	private String name_e;
 	private String age;
@@ -167,5 +169,17 @@ public class ReservationDTO {
 	}
 	public void setPricecomma(String pricecomma) {
 		this.pricecomma = pricecomma;
+	}
+	public String getS_mstarthour() {
+		return s_mstarthour;
+	}
+	public void setS_mstarthour(String s_mstarthour) {
+		this.s_mstarthour = s_mstarthour;
+	}
+	public String getS_mendhour() {
+		return s_mendhour;
+	}
+	public void setS_mendhour(String s_mendhour) {
+		this.s_mendhour = s_mendhour;
 	}
 }

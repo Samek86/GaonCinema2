@@ -180,11 +180,9 @@ function inwonresult(){
 }
 
 function lastrev(){
-alert("theater_schedule_id="+THEATER_SCHEDULE_ID+"&movie_id="+MOVIE_ID+"&cname="+CNAME+"&lname="+LNAME+"&tname="+TNAME+"&ttype="+TTYPE+"&mstarthour="+REVDATE +" "+ MSTARTHOUR+"&mendhour="+REVDATE +" "+ MENDHOUR+"&name_k="+NAME_K+"&name_e="+NAME_E+"&age="+AGE+"&poster="+POSTER+"&r_time="+R_TIME+"&userid="+USER_ID+"&seat="+revseat+"&children="+children+"&adult="+adult+"&price="+revcost);
-
 	$.ajax({
 		url: "LastRev.do",
-		data: "theater_schedule_id="+THEATER_SCHEDULE_ID+"&movie_id="+MOVIE_ID+"&cname="+CNAME+"&lname="+LNAME+"&tname="+TNAME+"&ttype="+TTYPE+"&mstarthour="+REVDATE +" "+ MSTARTHOUR+"&mendhour="+REVDATE +" "+ MENDHOUR+"&name_k="+NAME_K+"&name_e="+NAME_E+"&age="+AGE+"&poster="+POSTER+"&r_time="+R_TIME+"&userid="+USER_ID+"&seat="+revseat+"&children="+children+"&adult="+adult+"&price="+revcost,
+		data: "theater_schedule_id="+THEATER_SCHEDULE_ID+"&movie_id="+MOVIE_ID+"&cname="+CNAME+"&lname="+LNAME+"&tname="+TNAME+"&ttype="+TTYPE+"&s_mstarthour="+REVDATE+" "+MSTARTHOUR+"&s_mendhour="+REVDATE +" "+ MENDHOUR+"&name_k="+NAME_K+"&name_e="+NAME_E+"&age="+AGE+"&poster="+POSTER+"&r_time="+R_TIME+"&userid="+USER_ID+"&seat="+revseat+"&children="+children+"&adult="+adult+"&price="+revcost,
 		dataType: "json",
 		type: "GET",
 		success: function(data) { 

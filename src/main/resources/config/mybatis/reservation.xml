@@ -75,7 +75,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertrev" parameterType="com.gaon.cinema.reservation.ReservationDTO">
 		INSERT INTO GC_RESERVATION VALUES (
 		GC_RESERVATION_SEQ.NEXTVAL, #{theater_schedule_id}, #{movie_id},#{cname}, #{lname}, #{tname}, 
-		#{ttype}, TO_DATE(#{mstarthour}, 'YYYY-MM-DD HH24:MI'), TO_DATE(#{mendhour}, 'YYYY-MM-DD HH24:MI'), #{name_k}, #{name_e}, #{age}, #{poster}, #{r_time}, 
+		#{ttype}, TO_DATE(#{s_mstarthour}, 'YYYY-MM-DD HH24:MI'), TO_DATE(#{s_mendhour}, 'YYYY-MM-DD HH24:MI'), #{name_k}, #{name_e}, #{age}, #{poster}, #{r_time}, 
 		#{userid}, #{seat}, #{children}, #{adult}, #{price} )
 	</insert>
 	

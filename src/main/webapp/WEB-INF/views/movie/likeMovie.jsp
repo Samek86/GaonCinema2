@@ -48,7 +48,8 @@ $(document).ready(function(){
 <div class="likemoviepage">
 <c:choose>
 <c:when test="${emp=='true'}">
-	<h1>찜한 영화가 없습니다.</h1><br>
+<br><br>
+<div align="center"><h2>찜한 영화가 없습니다.</h2></div>
 </c:when>
 <c:otherwise>
 <ul>
