@@ -117,10 +117,10 @@ public class EmailController {
     		codeDto.setTitle(item_name);
     		String startdate = CodeDao.selectStartDate(code_name);
     		String enddate = CodeDao.selectEndDate(code_name);
-    		java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy년MM월dd일");
+    		java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
     		java.util.Date sdate = format.parse(startdate);
     		java.util.Date edate = format.parse(enddate);
-    		 java.text.SimpleDateFormat format1 = new java.text.SimpleDateFormat("yyyy년MM월dd일");
+    		 java.text.SimpleDateFormat format1 = new java.text.SimpleDateFormat("yyyy-MM-dd");
     	   String a = format1.format(sdate);
     	   String b = format1.format(edate);
     	   emailSender.codeSenderEmail(email);

@@ -61,8 +61,8 @@ $(document).ready(function(){
 		<div class="content-right">
 			<div class="seat">${bean.seat}</div>
 			<c:choose>
-			<c:when test="${bean.adult!=0||bean.children==0}">일반 ${bean.adult}명<br></c:when>
-			<c:when test="${bean.adult==0||bean.children!=0}">청소년 ${bean.children}명<br></c:when>
+			<c:when test="${bean.adult!=0&&bean.children==0}">일반 ${bean.adult}명<br></c:when>
+			<c:when test="${bean.adult==0&&bean.children!=0}">청소년 ${bean.children}명<br></c:when>
 			<c:otherwise>일반 ${bean.adult}명 청소년 ${bean.children}명<br></c:otherwise>
 			</c:choose>
 			${bean.pricecomma}원<br>
