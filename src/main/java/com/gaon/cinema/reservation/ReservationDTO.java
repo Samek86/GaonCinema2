@@ -30,6 +30,7 @@ public class ReservationDTO {
 	private int SEATCOLCOUNT;
 	
 	
+	
 	public int getTheater_id() {
 		return theater_id;
 	}

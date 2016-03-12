@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ON TS.THEATER_ID = T.THEATER_ID) STS 
 		INNER JOIN GC_MOVIE M 
 		ON STS.MOVIE_ID = M.MOVIE_ID 
-		WHERE STS.CNAME = #{cname} OR STS.LNAME = #{lname} OR TO_CHAR(STS.MSTARTHOUR, 'YYYY-MM-DD') = #{mstartdate}
+		WHERE STS.CNAME = #{cname} OR STS.LNAME = #{lname} OR TO_CHAR(STS.MSTARTHOUR, 'YYYY-MM-DD') = #{mstartdate} 
 	</select>
 	
 	<!-- 영화관 도시 가져오기(전체) -->
@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM GC_THEATER_SCHEDULE TS 
 		INNER JOIN GC_THEATER T
 		ON TS.THEATER_ID = T.THEATER_ID 
-		WHERE TS.MOVIE_ID = #{movie_id} OR TO_CHAR(TS.MSTARTHOUR, 'YYYY-MM-DD') = #{mstartdate}
+		WHERE TS.MOVIE_ID = #{movie_id} OR TO_CHAR(TS.MSTARTHOUR, 'YYYY-MM-DD') = #{mstartdate} AND to_date(TS.MSTARTHOUR) <![CDATA[ >=]]> to_date(#{today})
 		ORDER BY T.CORDER
 	</select>
 	
@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM GC_THEATER_SCHEDULE TS 
 		INNER JOIN GC_THEATER T 
 		ON TS.THEATER_ID = T.THEATER_ID
-		WHERE T.CNAME = #{cname} 
+		WHERE T.CNAME = #{cname} AND to_date(TS.MSTARTHOUR) <![CDATA[ >=]]> to_date(#{today})
 		ORDER BY T.LNAME
 	</select>
 	
@@ -52,7 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM GC_THEATER_SCHEDULE TS 
 		INNER JOIN GC_THEATER T 
 		ON TS.THEATER_ID = T.THEATER_ID
-		WHERE TS.MOVIE_ID = #{movie_id} AND T.CNAME = #{cname} 
+		WHERE TS.MOVIE_ID = #{movie_id} AND T.CNAME = #{cname} AND to_date(TS.MSTARTHOUR) <![CDATA[ >=]]> to_date(#{today})
 		ORDER BY T.LNAME
 	</select>
 	
@@ -67,7 +67,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM GC_THEATER_SCHEDULE TS 
 		INNER JOIN GC_THEATER T 
 		ON TS.THEATER_ID = T.THEATER_ID 
-		WHERE TS.MOVIE_ID = #{movie_id} AND T.CNAME = #{cname} AND T.LNAME = #{lname} 
+		WHERE TS.MOVIE_ID = #{movie_id} AND T.CNAME = #{cname} AND T.LNAME = #{lname} AND to_date(TS.MSTARTHOUR) <![CDATA[ >=]]> to_date(#{today})
 		ORDER BY MSTARTDATE
 	</select>
 	
@@ -78,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INNER JOIN GC_THEATER T 
 		ON TS.THEATER_ID = T.THEATER_ID 
 		WHERE TS.MOVIE_ID = #{movie_id} AND T.CNAME = #{cname} 
-		AND T.LNAME = #{lname} AND TO_CHAR(TS.MSTARTHOUR, 'YYYY-MM-DD') = #{mstartdate}
+		AND T.LNAME = #{lname} AND TO_CHAR(TS.MSTARTHOUR, 'YYYY-MM-DD') = #{mstartdate} AND to_date(TS.MSTARTHOUR) <![CDATA[ >=]]> to_date(#{today})
 	</select>
 	
 	<!-- 예약삽입 -->

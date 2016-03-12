@@ -65,7 +65,7 @@
 				$('.theater_city_list').html(strHTML);
 				selectTheaterLnameAll(data.list[0].cname);
 			},
-			error: function(data) { alert("error : " + data) }
+			error: function(data) { alert("selectTheaterCnameAll error : " + data) }
 		});
 	}
 	
@@ -84,7 +84,7 @@
 				strHTML = strHTML + "</ul>";
 				$('.theater_location_list').html(strHTML);
 			},
-			error: function(data) { alert("error : " + data) }
+			error: function(data) { alert("selectTheaterLnameAll error : " + data) }
 		});
 	}
 	
@@ -109,7 +109,7 @@
 				strHTML = strHTML + "</ul>";
 				$('.date_list').html(strHTML);
 			},
-			error: function(data) { alert("error : " + data) }
+			error: function(data) { alert("selectDateAll error : " + data) }
 		});
 	}
 	
@@ -123,7 +123,6 @@
 		selectHour(this.movie_id, this.cname, this.lname, this.mstartdate);
 		$('[class^="movieid"]').removeClass('selected');
 		$('.movieid'+movie_id).addClass('selected');
-		console.log('.movieid'+movie_id);
 	}
 	
 	/* 도시 클릭시 */
@@ -190,7 +189,7 @@
 				$('.movie_list').html(strHTML);
 				$('.movieid'+movie_id).addClass('selected');
 			},
-			error: function(data) { alert("error : " + data) }
+			error: function(data) { alert("selectMovieNameAge error : " + data) }
 		});
 	}
 	
@@ -216,7 +215,7 @@
 				$('[class^="theaterid"]').removeClass('selected');
 				$('.theaterid'+corder).addClass('selected');
 			},
-			error: function(data) { alert("error : " + data) }
+			error: function(data) { alert("selectTheaterCname error : " + data) }
 		});
 	}
 	
@@ -237,7 +236,7 @@
 			 	$('[class^="theaterlid"]').removeClass('selected');
 				$('.theaterlid'+corder2).addClass('selected'); 
 			},
-			error: function(data) { alert("error : " + data) }
+			error: function(data) { alert("selectTheaterLname error : " + data) }
 		});
 	}
 	
@@ -256,7 +255,7 @@
 				strHTML = strHTML + "</ul>";
 				$('.date_list').html(strHTML);
 			},
-			error: function(data) { alert("error : " + data) }
+			error: function(data) { alert("selectDate error : " + data) }
 		});
 	}
 	

@@ -1,5 +1,6 @@
 package com.gaon.cinema.reservation;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -12,6 +13,10 @@ public class ReservationDAO {
 	@Autowired
 	private SqlSessionTemplate temp;
 	
+	java.util.Date javatoday = new java.util.Date();     //오늘 날짜 
+	SimpleDateFormat trans = new SimpleDateFormat("yyyyMMdd");
+	String today = trans.format(javatoday); //오늘 날짜를 스트링으로 변환 
+	
 	/* 영화 이름, 관람가 가져오기(전체) */
 	public List<ReservationShowDTO> dbSelectMovieNameAgeAll() {
 		List<ReservationShowDTO> list = temp.selectList("reservation.selectMovieNameAgeAll");
@@ -20,6 +25,7 @@ public class ReservationDAO {
 	
 	/* 영화 이름, 관람가 가져오기(도시 OR 지역 OR 날짜) */
 	public List<ReservationShowDTO> dbSelectMovieNameAge(ReservationShowDTO dto) {
+		dto.setToday(today);
 		List<ReservationShowDTO> list = temp.selectList("reservation.selectMovieNameAge", dto);
 		return list;
 	}
@@ -32,18 +38,21 @@ public class ReservationDAO {
 	
 	/* 영화관 도시 가져오기(영화 OR 날짜) */
 	public List<ReservationShowDTO> dbSelectTheaterCname(ReservationShowDTO dto) {
+		dto.setToday(today);
 		List<ReservationShowDTO> list = temp.selectList("reservation.selectTheaterCname", dto);
 		return list;
 	}
 	
 	/* 영화관 지역 가져오기(도시) */
 	public List<ReservationShowDTO> dbSelectTheaterLnameAll(ReservationShowDTO dto) {
+		dto.setToday(today);
 		List<ReservationShowDTO> list = temp.selectList("reservation.selectTheaterLnameAll", dto);
 		return list;
 	}
 	
 	/* 영화관 지역 가져오기(영화 AND 도시) */
 	public List<ReservationShowDTO> dbSelectTheaterLname(ReservationShowDTO dto) {
+		dto.setToday(today);
 		List<ReservationShowDTO> list = temp.selectList("reservation.selectTheaterLname", dto);
 		return list;
 	}
@@ -56,6 +65,7 @@ public class ReservationDAO {
 	
 	/* 날짜 가져오기(영화 OR 도시 OR 지역) */
 	public List<ReservationShowDTO> dbSelectDate(ReservationShowDTO dto) {
+		dto.setToday(today);
 		List<ReservationShowDTO> list = temp.selectList("reservation.selectDate", dto);
 		return list;
 	}
@@ -83,6 +93,7 @@ public class ReservationDAO {
 	
 	/* 시간 가져오기(영화 AND 도시 AND 지역 AND 날짜) */
 	public List<ReservationShowDTO> dbSelectHour(ReservationShowDTO dto) {
+		dto.setToday(today);
 		List<ReservationShowDTO> list = temp.selectList("reservation.selectHour", dto);
 		return list;
 	}

@@ -14,6 +14,7 @@ public class ReservationShowDTO {
 	private String mendhour;
 	private int THEATER_ID;
 	private int THEATER_SCHEDULE_ID;
+	private String today;
 	
 	
 	public int getMovie_id() { return movie_id; }
@@ -58,6 +59,12 @@ public class ReservationShowDTO {
 	}
 	public void setCorder2(int corder2) {
 		this.corder2 = corder2;
+	}
+	public String getToday() {
+		return today;
+	}
+	public void setToday(String today) {
+		this.today = today;
 	}
 }
 
